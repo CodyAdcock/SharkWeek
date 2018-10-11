@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90709B5A216FC54700E4795A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90709B59216FC54700E4795A /* GoogleService-Info.plist */; };
 		C376F28F216ED021005EEA0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C376F28E216ED021005EEA0D /* AppDelegate.swift */; };
 		C376F294216ED021005EEA0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C376F292216ED021005EEA0D /* Main.storyboard */; };
 		C376F296216ED022005EEA0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C376F295216ED022005EEA0D /* Assets.xcassets */; };
@@ -22,12 +23,13 @@
 		C376F2C0216ED33C005EEA0D /* PostJob.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C376F2BF216ED33C005EEA0D /* PostJob.storyboard */; };
 		C376F2C2216ED36C005EEA0D /* MyJobs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C376F2C1216ED36C005EEA0D /* MyJobs.storyboard */; };
 		C376F2C4216ED373005EEA0D /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C376F2C3216ED373005EEA0D /* Search.storyboard */; };
-		E3D9852CF79B92C64E16E955 /* Pods_SharkWeek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81ACAA7A3D99DA01D9ED6654 /* Pods_SharkWeek.framework */; };
+		F7FD3FAB67C569AD13BBE1FE /* Pods_SharkWeek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80128D6CFF2BEBFCD0EB833B /* Pods_SharkWeek.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4ED7EA6BEDE129456304089F /* Pods-SharkWeek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharkWeek.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharkWeek/Pods-SharkWeek.debug.xcconfig"; sourceTree = "<group>"; };
-		81ACAA7A3D99DA01D9ED6654 /* Pods_SharkWeek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharkWeek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80128D6CFF2BEBFCD0EB833B /* Pods_SharkWeek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharkWeek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		829BF3DCB91C40E40F773014 /* Pods-SharkWeek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharkWeek.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharkWeek/Pods-SharkWeek.debug.xcconfig"; sourceTree = "<group>"; };
+		90709B59216FC54700E4795A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C376F28B216ED021005EEA0D /* SharkWeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharkWeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C376F28E216ED021005EEA0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C376F293216ED021005EEA0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -45,7 +47,7 @@
 		C376F2BF216ED33C005EEA0D /* PostJob.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostJob.storyboard; sourceTree = "<group>"; };
 		C376F2C1216ED36C005EEA0D /* MyJobs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyJobs.storyboard; sourceTree = "<group>"; };
 		C376F2C3216ED373005EEA0D /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
-		F1279BB9F3F4E0005738AD6C /* Pods-SharkWeek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharkWeek.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharkWeek/Pods-SharkWeek.release.xcconfig"; sourceTree = "<group>"; };
+		F5A48662923F62F6E2325171 /* Pods-SharkWeek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharkWeek.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharkWeek/Pods-SharkWeek.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,26 +55,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3D9852CF79B92C64E16E955 /* Pods_SharkWeek.framework in Frameworks */,
+				F7FD3FAB67C569AD13BBE1FE /* Pods_SharkWeek.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		52A4E79246D7C5CFCE48427C /* Pods */ = {
+		504653EFB3349C6B7C917D68 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4ED7EA6BEDE129456304089F /* Pods-SharkWeek.debug.xcconfig */,
-				F1279BB9F3F4E0005738AD6C /* Pods-SharkWeek.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		6C022E8358E77E7A419C9A69 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				81ACAA7A3D99DA01D9ED6654 /* Pods_SharkWeek.framework */,
+				80128D6CFF2BEBFCD0EB833B /* Pods_SharkWeek.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -82,8 +75,8 @@
 			children = (
 				C376F28D216ED021005EEA0D /* SharkWeek */,
 				C376F28C216ED021005EEA0D /* Products */,
-				52A4E79246D7C5CFCE48427C /* Pods */,
-				6C022E8358E77E7A419C9A69 /* Frameworks */,
+				DB2241BFD1932AB053B8CFE3 /* Pods */,
+				504653EFB3349C6B7C917D68 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +104,7 @@
 		C376F2A0216ED040005EEA0D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				90709B59216FC54700E4795A /* GoogleService-Info.plist */,
 				C376F28E216ED021005EEA0D /* AppDelegate.swift */,
 				C376F295216ED022005EEA0D /* Assets.xcassets */,
 				C376F297216ED022005EEA0D /* LaunchScreen.storyboard */,
@@ -214,6 +208,15 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		DB2241BFD1932AB053B8CFE3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				829BF3DCB91C40E40F773014 /* Pods-SharkWeek.debug.xcconfig */,
+				F5A48662923F62F6E2325171 /* Pods-SharkWeek.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -221,11 +224,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C376F29D216ED022005EEA0D /* Build configuration list for PBXNativeTarget "SharkWeek" */;
 			buildPhases = (
-				A5E74218BF3CCA56458076DD /* [CP] Check Pods Manifest.lock */,
+				5340DCE84DBCDBAB0AB85B73 /* [CP] Check Pods Manifest.lock */,
 				C376F287216ED021005EEA0D /* Sources */,
 				C376F288216ED021005EEA0D /* Frameworks */,
 				C376F289216ED021005EEA0D /* Resources */,
-				0193E4B1E8B264AAA286FBE7 /* [CP] Embed Pods Frameworks */,
+				21CCC440977E15349204C8C8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -281,6 +284,7 @@
 				C376F294216ED021005EEA0D /* Main.storyboard in Resources */,
 				C376F2C0216ED33C005EEA0D /* PostJob.storyboard in Resources */,
 				C376F2C4216ED373005EEA0D /* Search.storyboard in Resources */,
+				90709B5A216FC54700E4795A /* GoogleService-Info.plist in Resources */,
 				C376F2BC216ED329005EEA0D /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,7 +292,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0193E4B1E8B264AAA286FBE7 /* [CP] Embed Pods Frameworks */ = {
+		21CCC440977E15349204C8C8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -330,7 +334,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SharkWeek/Pods-SharkWeek-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A5E74218BF3CCA56458076DD /* [CP] Check Pods Manifest.lock */ = {
+		5340DCE84DBCDBAB0AB85B73 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -509,7 +513,7 @@
 		};
 		C376F29E216ED022005EEA0D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4ED7EA6BEDE129456304089F /* Pods-SharkWeek.debug.xcconfig */;
+			baseConfigurationReference = 829BF3DCB91C40E40F773014 /* Pods-SharkWeek.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -528,7 +532,7 @@
 		};
 		C376F29F216ED022005EEA0D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1279BB9F3F4E0005738AD6C /* Pods-SharkWeek.release.xcconfig */;
+			baseConfigurationReference = F5A48662923F62F6E2325171 /* Pods-SharkWeek.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
