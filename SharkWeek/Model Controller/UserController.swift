@@ -139,15 +139,57 @@ class UserController{
     
     //U
     
-    func updateUser(){
+    func updateUser(firstName: String, lastName: String, email: String, password: String, age: Int, address: Address, bio: String, skill: String, phoneNumber: String, profilePicture: UIImage, completion: @escaping (Bool) -> Void){
         
+        guard let uuid = currentUser?.uuid else {return}
         
+        let user = currentUser
+        //Grab the Photo, change it into data
+        guard let photoAsData = profilePicture.jpegData(compressionQuality: 1.0) else {return}
+        
+        //create referencees to storage, with child nodes for organization/easier data retrieval
+        let storageRef = self.storage.reference()
+        let imagesRef = storageRef.child("ProfileImages")
+        let userImageRef = imagesRef.child(uuid)
+        
+        //Photo
+        userImageRef.putData(photoAsData, metadata: nil) { (metaData, error) in
+            if let error = error {
+                print("👽Could not download data from the profile image \(error.localizedDescription)👽")
+                completion(false) ; return
+            }
+            
+            userImageRef.downloadURL(completion: { (url, error) in
+                if let error = error {
+                    print("there was an error getting the images url \(error.localizedDescription)")
+                    completion(false) ; return
+                }
+                guard let url = url else { return }
+                
+                //update current user
+                self.currentUser?.firstName = firstName
+                self.currentUser?.lastName = lastName
+                self.currentUser?.email = email
+                self.currentUser?.age = age
+                self.currentUser?.address = address
+                self.currentUser?.bio = bio
+                self.currentUser?.skill = skill
+                self.currentUser?.phoneNumber = phoneNumber
+                self.currentUser?.picture = "\(url)"
+                
+                guard let updatedUser = self.currentUser else {print("Error unwrapping user in updated"); return}
+                
+                //upload a dictionary of the user to Firestore
+                let values = ["firstName" : updatedUser.firstName, "lastName" : updatedUser.lastName, "email" : updatedUser.email, "age" : updatedUser.age, "address" : updatedUser.address, "bio" : updatedUser.bio, "skill" : updatedUser.skill, "phoneNumber" : updatedUser.phoneNumber, "reviewCount" : updatedUser.reviewCount, "starCount" : updatedUser.starCount, "picture" : updatedUser.picture, "isMinor" : updatedUser.isMinor, "uuid": updatedUser.uuid, "jobsCreated" : updatedUser.jobsCreated, "jobsCreatedCompleted" : updatedUser.jobsCreated, "jobsApplied" : updatedUser.jobsApplied, "jobsInProgress" : updatedUser.jobsInProgress, "jobsHiredCompleted" : updatedUser.jobsHiredCompleted] as [String : Any]
+                self.userRef.document(updatedUser.uuid).setData(values)
+            })
+            completion(true) ; return
+        }
         
     }
     
     //D
     func deleteUser(){
-        
         
         
     }
