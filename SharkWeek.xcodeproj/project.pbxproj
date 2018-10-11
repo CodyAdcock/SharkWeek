@@ -30,6 +30,7 @@
 		80128D6CFF2BEBFCD0EB833B /* Pods_SharkWeek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharkWeek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		829BF3DCB91C40E40F773014 /* Pods-SharkWeek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharkWeek.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharkWeek/Pods-SharkWeek.debug.xcconfig"; sourceTree = "<group>"; };
 		90709B59216FC54700E4795A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		90935A14216FF04D00011B28 /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
 		C376F28B216ED021005EEA0D /* SharkWeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharkWeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C376F28E216ED021005EEA0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C376F293216ED021005EEA0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,6 +105,7 @@
 		C376F2A0216ED040005EEA0D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				90935A14216FF04D00011B28 /* SF-Pro-Text-Bold.otf */,
 				90709B59216FC54700E4795A /* GoogleService-Info.plist */,
 				C376F28E216ED021005EEA0D /* AppDelegate.swift */,
 				C376F295216ED022005EEA0D /* Assets.xcassets */,
