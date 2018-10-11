@@ -22,9 +22,12 @@
 		C376F2C0216ED33C005EEA0D /* PostJob.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C376F2BF216ED33C005EEA0D /* PostJob.storyboard */; };
 		C376F2C2216ED36C005EEA0D /* MyJobs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C376F2C1216ED36C005EEA0D /* MyJobs.storyboard */; };
 		C376F2C4216ED373005EEA0D /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C376F2C3216ED373005EEA0D /* Search.storyboard */; };
+		E3D9852CF79B92C64E16E955 /* Pods_SharkWeek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81ACAA7A3D99DA01D9ED6654 /* Pods_SharkWeek.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4ED7EA6BEDE129456304089F /* Pods-SharkWeek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharkWeek.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharkWeek/Pods-SharkWeek.debug.xcconfig"; sourceTree = "<group>"; };
+		81ACAA7A3D99DA01D9ED6654 /* Pods_SharkWeek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharkWeek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C376F28B216ED021005EEA0D /* SharkWeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharkWeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C376F28E216ED021005EEA0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C376F293216ED021005EEA0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 		C376F2BF216ED33C005EEA0D /* PostJob.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostJob.storyboard; sourceTree = "<group>"; };
 		C376F2C1216ED36C005EEA0D /* MyJobs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyJobs.storyboard; sourceTree = "<group>"; };
 		C376F2C3216ED373005EEA0D /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		F1279BB9F3F4E0005738AD6C /* Pods-SharkWeek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharkWeek.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharkWeek/Pods-SharkWeek.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,17 +53,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3D9852CF79B92C64E16E955 /* Pods_SharkWeek.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52A4E79246D7C5CFCE48427C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4ED7EA6BEDE129456304089F /* Pods-SharkWeek.debug.xcconfig */,
+				F1279BB9F3F4E0005738AD6C /* Pods-SharkWeek.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6C022E8358E77E7A419C9A69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				81ACAA7A3D99DA01D9ED6654 /* Pods_SharkWeek.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C376F282216ED021005EEA0D = {
 			isa = PBXGroup;
 			children = (
 				C376F28D216ED021005EEA0D /* SharkWeek */,
 				C376F28C216ED021005EEA0D /* Products */,
+				52A4E79246D7C5CFCE48427C /* Pods */,
+				6C022E8358E77E7A419C9A69 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -197,9 +221,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C376F29D216ED022005EEA0D /* Build configuration list for PBXNativeTarget "SharkWeek" */;
 			buildPhases = (
+				A5E74218BF3CCA56458076DD /* [CP] Check Pods Manifest.lock */,
 				C376F287216ED021005EEA0D /* Sources */,
 				C376F288216ED021005EEA0D /* Frameworks */,
 				C376F289216ED021005EEA0D /* Resources */,
+				0193E4B1E8B264AAA286FBE7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -260,6 +286,73 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0193E4B1E8B264AAA286FBE7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SharkWeek/Pods-SharkWeek-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SharkWeek/Pods-SharkWeek-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5E74218BF3CCA56458076DD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SharkWeek-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C376F287216ED021005EEA0D /* Sources */ = {
@@ -416,6 +509,7 @@
 		};
 		C376F29E216ED022005EEA0D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4ED7EA6BEDE129456304089F /* Pods-SharkWeek.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -434,6 +528,7 @@
 		};
 		C376F29F216ED022005EEA0D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1279BB9F3F4E0005738AD6C /* Pods-SharkWeek.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
