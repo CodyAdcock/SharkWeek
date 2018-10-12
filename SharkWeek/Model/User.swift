@@ -15,7 +15,7 @@ class User {
     var lastName: String
     var email: String
     var age: Int
-    var address: Address
+    var address: Address // Address has multiple properties so it's its own object
     var bio: String
     var skill: String
     var phoneNumber: String
@@ -50,16 +50,15 @@ class User {
         self.jobsHiredCompleted = jobsHiredCompleted
         self.uuid = uuid
     }
-    
 }
 
 class Address {
-    let line1: String
-    let line2: String?
-    let city: String
-    let state: String
-    let zipCode: String
-    init(line1: String, line2: String?, city: String, state: String, zipCode: String) {
+    var line1: String
+    var line2: String?
+    var city: String
+    var state: String
+    var zipCode: String
+    init(line1: String, line2: String? = "", city: String, state: String, zipCode: String) {
         self.line1 = line1
         self.line2 = line2
         self.city = city

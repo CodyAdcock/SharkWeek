@@ -27,6 +27,7 @@ class UserController{
     let storage = Storage.storage()
     
     //C
+    
     func SignUpUser(firstName: String, lastName: String, email: String, password: String, age: Int, address: Address, bio: String, skill: String, phoneNumber: String, profilePicture: UIImage, completion: @escaping (Bool) -> Void){
         
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
@@ -65,7 +66,7 @@ class UserController{
                     
                     //set the current user as the newly created user
                     self.currentUser = newUser
-
+                    
                     let testAddressCollection = self.userRef.document(uuid).collection("Address")
                     //upload a dictionary of the user to Firestore
                     let values = ["firstName" : newUser.firstName, "lastName" : newUser.lastName, "email" : newUser.email, "age" : newUser.age, "bio" : newUser.bio, "skill" : newUser.skill, "phoneNumber" : newUser.phoneNumber, "reviewCount" : newUser.reviewCount, "starCount" : newUser.starCount, "picture" : newUser.picture, "isMinor" : newUser.isMinor, "uuid": newUser.uuid, "jobsCreated" : newUser.jobsCreated, "jobsCreatedCompleted" : newUser.jobsCreated, "jobsApplied" : newUser.jobsApplied, "jobsInProgress" : newUser.jobsInProgress, "jobsHiredCompleted" : newUser.jobsHiredCompleted] as [String : Any]
@@ -73,15 +74,15 @@ class UserController{
                     
                     let city = address.city
                     let line1 = address.line1
-                    let line2 = address.line2
+                    let line2 = address.line2 ?? ""
                     let state = address.state
                     let zipCode = address.zipCode
                     
                     let addressValues = ["city" : city,
                                          "line1" : line1,
-                                         "line2" : line2 ?? "",
+                                         "line2" : line2,
                                          "state" : state,
-                    "zipCode" : zipCode] as [String : Any]
+                                         "zipCode" : zipCode] as [String : Any]
                     testAddressCollection.document("Address").setData(addressValues)
                 })
                 completion(true) ; return
@@ -92,12 +93,11 @@ class UserController{
                 // getData if you want users to have the data downloaded to their local device, and accessible offline.
                 // easiest way to quickly download a file, but loads its entirety into memory; protect against memory issues using the required maxSize
             }
-            
         }
-        
     }
     
     //R
+    
     func signInUser(email: String, password: String){
         
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
@@ -113,8 +113,8 @@ class UserController{
                 }
             })
         }
-        
     }
+    
     func readUser(completion: @escaping (Error?) -> ()){
         
         guard let uid = Auth.auth().currentUser?.uid else { return}
@@ -196,10 +196,10 @@ class UserController{
             })
             completion(true) ; return
         }
-    
     }
     
     //D
+    
     func deleteUser(){
         let alertController = UIAlertController(title: "Are you sure?", message: "Are you sure you want to delete your account? This cannot be reverted", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
@@ -214,5 +214,16 @@ class UserController{
         alertController.addAction(cancelAction)
     }
     
-    
+    // Might need more work
+    func signOut(user: User) {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            let alertController = UIAlertController(title: "Error!", message: "There was an error signing out, error: \(error)", preferredStyle: .alert)
+            let okAlert = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAlert)
+            print("there was an error signing out for the current user \(error.localizedDescription)")
+        }
+    }
 }
+
