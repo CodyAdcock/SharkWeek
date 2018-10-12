@@ -9,6 +9,7 @@
 import Foundation
 
 class JobController {
+    static let shared = JobController()
     
     let db = UserController.db
     let currentUser = UserController.shared.currentUser
@@ -53,7 +54,6 @@ class JobController {
         userRef.document(uuid).updateData(["jobsApplied" : newJobsApplied])
         jobCollection.document(jobID).updateData(["applicantsRef" : job.applicantsRef])
     }
-    
     
     func updateJob(job: Job, title: String, description: String, category: String, pay: Int, address: Address, toolsNeeded: String?, toolsProvided: String?) {
         

@@ -9,7 +9,7 @@
 import Foundation
 
 class ReviewController{
-    
+    static let shared = ReviewController()
     let currentUser = UserController.shared.currentUser
     
     func addReviewForEmployer(job: Job, rating: Int, description: String) {
@@ -27,5 +27,6 @@ class ReviewController{
         let review = Review(rating: rating, description: description, workerRef: chosenOneRef, employerRef: currentUser.uuid)
         job.reviewOfWorker = review
         
-    
+        
+    }
 }
