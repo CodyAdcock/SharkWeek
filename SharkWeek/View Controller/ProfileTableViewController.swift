@@ -10,14 +10,27 @@ import UIKit
 
 class ProfileTableViewController: UITableViewController {
 
+    //IBOutlets Main Page
+    
+    @IBOutlet weak var ProfilePictureImageView: UIImageView!
+    @IBOutlet weak var NameAgeLabel: UILabel!
+    @IBOutlet weak var CityStateLabel: UILabel!
+    @IBOutlet weak var RatingLabel: UILabel!
+    @IBOutlet weak var profileSegementedController: UISegmentedControl!
+
+    //Container IBOutlets
+    @IBOutlet weak var PersonalInfoContainer: UIView! //toPersonalInfoVC
+    @IBOutlet weak var JobHistoryContainer: UIView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.PersonalInfoContainer.isHidden = false
+        self.PersonalInfoContainer.alpha = 1
+        self.JobHistoryContainer.isHidden = true
+        self.JobHistoryContainer.alpha = 0
     }
 
     // MARK: - Table view data source
@@ -86,5 +99,30 @@ class ProfileTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func SegmentedControllerTapped(_ sender: Any) {
+        switch profileSegementedController.selectedSegmentIndex{
+        case 0:
+            print("0")
+            UIView.animate(withDuration: 0.25){
+                self.PersonalInfoContainer.isHidden = false
+                self.PersonalInfoContainer.alpha = 1
+                self.JobHistoryContainer.alpha = 0
+                self.JobHistoryContainer.isHidden = true
+            }
+        case 1:
+            print("1")
+            UIView.animate(withDuration: 0.25){
+                self.PersonalInfoContainer.alpha = 0
+                self.PersonalInfoContainer.isHidden = true
+                self.JobHistoryContainer.isHidden = false
+                self.JobHistoryContainer.alpha = 1
+            }
+            
+        default:
+            print("")
+        }
+    }
+    
 
 }

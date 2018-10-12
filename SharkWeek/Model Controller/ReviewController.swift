@@ -27,6 +27,6 @@ class ReviewController{
         let review = Review(rating: rating, description: description, workerRef: chosenOneRef, employerRef: currentUser.uuid)
         job.reviewOfWorker = review
         
-        
+    
     }
 }
