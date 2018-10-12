@@ -10,11 +10,12 @@ import Foundation
 
 class User {
     
+    var uuid: String
     var firstName: String
     var lastName: String
     var email: String
     var age: Int
-    var address: Address
+    var address: Address // Address has multiple properties so it's its own object
     var bio: String
     var skill: String
     var phoneNumber: String
@@ -29,7 +30,7 @@ class User {
     var jobsInProgress: [String] // UUIDs of jobs
     var jobsHiredCompleted: [String] // UUIDs of jobs
     
-    init(firstName: String, lastName: String, email: String, age: Int, address: Address, bio: String, skill: String, phoneNumber: String, reviewCount: Int = 0, starCount: Int = 0,  picture: String, jobsCreated: [String], jobsCreatedCompleted: [String], jobsApplied: [String], jobsInProgress: [String], jobsHiredCompleted: [String] ){
+    init(firstName: String, lastName: String, email: String, age: Int, address: Address, bio: String, skill: String, phoneNumber: String, reviewCount: Int = 0, starCount: Int = 0,  picture: String, jobsCreated: [String] = [], jobsCreatedCompleted: [String] = [], jobsApplied: [String] = [], jobsInProgress: [String] = [], jobsHiredCompleted: [String] = [], uuid: String ){
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
@@ -47,14 +48,21 @@ class User {
         self.jobsApplied = jobsApplied
         self.jobsInProgress = jobsInProgress
         self.jobsHiredCompleted = jobsHiredCompleted
+        self.uuid = uuid
     }
-    
 }
 
-struct Address{
-    let line1: String
-    let line2: String
-    let city: String
-    let state: String
-    let zipCode: String
+class Address {
+    var line1: String
+    var line2: String?
+    var city: String
+    var state: String
+    var zipCode: String
+    init(line1: String, line2: String? = "", city: String, state: String, zipCode: String) {
+        self.line1 = line1
+        self.line2 = line2
+        self.city = city
+        self.state = state
+        self.zipCode = zipCode
+    }
 }
