@@ -16,24 +16,24 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        do{
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(string: Bundle.main.path(forResource: "Sample", ofType: "mp3")!)!)
-            audioPlayer.prepareToPlay()
-            audioPlayer.play()
-            
-        }catch{
-            print(error)
-        }
+//        do{
+//            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(string: Bundle.main.path(forResource: "Sample", ofType: "mp3")!)!)
+//            audioPlayer.prepareToPlay()
+//            audioPlayer.play()
+//
+//        }catch{
+//            print(error)
+//        }
         
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        audioPlayer.pause()
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        audioPlayer.play()
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        audioPlayer.pause()
+//    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        audioPlayer.play()
+//    }
     
 
     /*
