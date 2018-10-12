@@ -40,5 +40,4 @@ class Job{
         self.chosenOneRef = chosenOneRef
         self.uuid = uuid
     }
-    
 }
