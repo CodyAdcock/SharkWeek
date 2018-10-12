@@ -29,7 +29,6 @@ class UserController{
     //C
     func SignUpUser(firstName: String, lastName: String, email: String, password: String, age: Int, address: Address, bio: String, skill: String, phoneNumber: String, profilePicture: UIImage, completion: @escaping (Bool) -> Void){
         
-        
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             if let error = error{print("🌗There was an error creating the User \(error) \(error.localizedDescription)🌗")
                 completion(false) ; return
@@ -66,10 +65,24 @@ class UserController{
                     
                     //set the current user as the newly created user
                     self.currentUser = newUser
-                    
+
+                    let testAddressCollection = self.userRef.document(uuid).collection("Address")
                     //upload a dictionary of the user to Firestore
-                    let values = ["firstName" : newUser.firstName, "lastName" : newUser.lastName, "email" : newUser.email, "age" : newUser.age, "address" : newUser.address, "bio" : newUser.bio, "skill" : newUser.skill, "phoneNumber" : newUser.phoneNumber, "reviewCount" : newUser.reviewCount, "starCount" : newUser.starCount, "picture" : newUser.picture, "isMinor" : newUser.isMinor, "uuid": newUser.uuid, "jobsCreated" : newUser.jobsCreated, "jobsCreatedCompleted" : newUser.jobsCreated, "jobsApplied" : newUser.jobsApplied, "jobsInProgress" : newUser.jobsInProgress, "jobsHiredCompleted" : newUser.jobsHiredCompleted] as [String : Any]
+                    let values = ["firstName" : newUser.firstName, "lastName" : newUser.lastName, "email" : newUser.email, "age" : newUser.age, "bio" : newUser.bio, "skill" : newUser.skill, "phoneNumber" : newUser.phoneNumber, "reviewCount" : newUser.reviewCount, "starCount" : newUser.starCount, "picture" : newUser.picture, "isMinor" : newUser.isMinor, "uuid": newUser.uuid, "jobsCreated" : newUser.jobsCreated, "jobsCreatedCompleted" : newUser.jobsCreated, "jobsApplied" : newUser.jobsApplied, "jobsInProgress" : newUser.jobsInProgress, "jobsHiredCompleted" : newUser.jobsHiredCompleted] as [String : Any]
                     self.userRef.document(uuid).setData(values)
+                    
+                    let city = address.city
+                    let line1 = address.line1
+                    let line2 = address.line2
+                    let state = address.state
+                    let zipCode = address.zipCode
+                    
+                    let addressValues = ["city" : city,
+                                         "line1" : line1,
+                                         "line2" : line2 ?? "",
+                                         "state" : state,
+                    "zipCode" : zipCode] as [String : Any]
+                    testAddressCollection.document("Address").setData(addressValues)
                 })
                 completion(true) ; return
                 
@@ -143,7 +156,6 @@ class UserController{
         
         guard let uuid = currentUser?.uuid else {return}
         
-        let user = currentUser
         //Grab the Photo, change it into data
         guard let photoAsData = profilePicture.jpegData(compressionQuality: 1.0) else {return}
         
@@ -178,20 +190,28 @@ class UserController{
                 self.currentUser?.picture = "\(url)"
                 
                 guard let updatedUser = self.currentUser else {print("Error unwrapping user in updated"); return}
-                
                 //upload a dictionary of the user to Firestore
-                let values = ["firstName" : updatedUser.firstName, "lastName" : updatedUser.lastName, "email" : updatedUser.email, "age" : updatedUser.age, "address" : updatedUser.address, "bio" : updatedUser.bio, "skill" : updatedUser.skill, "phoneNumber" : updatedUser.phoneNumber, "reviewCount" : updatedUser.reviewCount, "starCount" : updatedUser.starCount, "picture" : updatedUser.picture, "isMinor" : updatedUser.isMinor, "uuid": updatedUser.uuid, "jobsCreated" : updatedUser.jobsCreated, "jobsCreatedCompleted" : updatedUser.jobsCreated, "jobsApplied" : updatedUser.jobsApplied, "jobsInProgress" : updatedUser.jobsInProgress, "jobsHiredCompleted" : updatedUser.jobsHiredCompleted] as [String : Any]
+                let values = ["firstName" : updatedUser.firstName, "lastName" : updatedUser.lastName, "email" : updatedUser.email, "age" : updatedUser.age, "bio" : updatedUser.bio, "skill" : updatedUser.skill, "phoneNumber" : updatedUser.phoneNumber, "reviewCount" : updatedUser.reviewCount, "starCount" : updatedUser.starCount, "picture" : updatedUser.picture, "isMinor" : updatedUser.isMinor, "uuid": updatedUser.uuid, "jobsCreated" : updatedUser.jobsCreated, "jobsCreatedCompleted" : updatedUser.jobsCreated, "jobsApplied" : updatedUser.jobsApplied, "jobsInProgress" : updatedUser.jobsInProgress, "jobsHiredCompleted" : updatedUser.jobsHiredCompleted] as [String : Any]
                 self.userRef.document(updatedUser.uuid).setData(values)
             })
             completion(true) ; return
         }
-        
+    
     }
     
     //D
     func deleteUser(){
-        
-        
+        let alertController = UIAlertController(title: "Are you sure?", message: "Are you sure you want to delete your account? This cannot be reverted", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "OK", style: .destructive) { (_) in
+            Auth.auth().currentUser?.delete(completion: { (error) in
+                if let error = error {
+                    print("There was an error deleting the user \(error.localizedDescription)")
+                }
+            })
+        }
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
     }
     
     
