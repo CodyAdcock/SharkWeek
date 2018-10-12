@@ -19,6 +19,7 @@ class JobController {
     func createNewJob(title: String, description: String, category: String, pay: Int, address: Address, toolsNeeded: String?, toolsProvided: String?) {
         
         guard let userID = uuid else { return }
+        guard let currentUser = currentUser else { return }
         
         let newJob = Job(title: title, description: description, pay: pay, address: address, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, employerRef: userID)
         
@@ -30,15 +31,15 @@ class JobController {
                       "toolsNeeded" : toolsNeeded ?? "",
                       "toolsProvided" : toolsProvided ?? "",
                       "employerRef" : userID,
-                      //                      "uuid" : newJob.uuid,
-            "applicantsRef" : [""],
-            "chosenOneRef" : "",
-            "ReviewOfJobPoster" : "",
-            "ReviewOfJobApplicant" : ""
-            ] as [String : Any]
+                      "applicantsRef" : [""],
+                      "chosenOneRef" : "",
+                      "ReviewOfJobPoster" : "",
+                      "ReviewOfJobApplicant" : ""] as [String : Any]
         
         jobCollection.document(newJob.uuid).setData(values)
-        currentUser?.jobsCreated.append(newJob.uuid)
+
+        
+        currentUser.jobsCreated.append(newJob.uuid)
     }
     
     func applyToJob(job: Job) {
