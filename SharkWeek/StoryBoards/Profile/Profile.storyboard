@@ -486,10 +486,10 @@
             </objects>
             <point key="canvasLocation" x="1708" y="925.18740629685169"/>
         </scene>
-        <!--Job History View Controller-->
+        <!--Job List Table View Controller-->
         <scene sceneID="gMK-uB-R5b">
             <objects>
-                <viewController id="tnJ-43-Z3l" customClass="JobHistoryViewController" customModule="SharkWeek" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tnJ-43-Z3l" customClass="JobListTableViewController" customModule="SharkWeek" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QGp-fh-b5o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="324"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -498,13 +498,59 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="324"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WorkHistoryCell" id="Exc-ak-W1o">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WorkHistoryCell" rowHeight="107" id="Exc-ak-W1o" customClass="JobHistoryTableViewCell" customModule="SharkWeek" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="107"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Exc-ak-W1o" id="Vf9-SY-WTX">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Exc-ak-W1o" id="Vf9-SY-WTX" customClass="JobHistoryTableViewCell" customModule="SharkWeek" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="106.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4cp-a8-4l8">
+                                                    <rect key="frame" x="19" y="5.5" width="337.5" height="95.5"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fbl-8G-k3K">
+                                                            <rect key="frame" x="0.0" y="0.0" width="337.5" height="20.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Job Title)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2E-nW-0pf">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="★★★★☆" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqC-BR-gy6">
+                                                                    <rect key="frame" x="177" y="0.0" width="160.5" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJ6-Au-iBl">
+                                                            <rect key="frame" x="0.0" y="30.5" width="337.5" height="65"/>
+                                                            <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</string>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="Fbl-8G-k3K" firstAttribute="width" secondItem="4cp-a8-4l8" secondAttribute="width" id="NIg-W0-jXc"/>
+                                                        <constraint firstAttribute="bottom" secondItem="aJ6-Au-iBl" secondAttribute="bottom" id="l5K-U6-aWM"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4cp-a8-4l8" firstAttribute="height" secondItem="Vf9-SY-WTX" secondAttribute="height" multiplier="0.9" id="A2U-m1-sby"/>
+                                                <constraint firstItem="4cp-a8-4l8" firstAttribute="centerY" secondItem="Vf9-SY-WTX" secondAttribute="centerY" id="fqo-we-TvA"/>
+                                                <constraint firstItem="4cp-a8-4l8" firstAttribute="width" secondItem="Vf9-SY-WTX" secondAttribute="width" multiplier="0.9" id="gXO-dM-dtT"/>
+                                                <constraint firstItem="4cp-a8-4l8" firstAttribute="centerX" secondItem="Vf9-SY-WTX" secondAttribute="centerX" id="zY6-4O-hrR"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="JobTitleLabel" destination="q2E-nW-0pf" id="kIz-qA-Ymh"/>
+                                            <outlet property="ReviewBodyLabel" destination="aJ6-Au-iBl" id="oe6-cZ-xFl"/>
+                                            <outlet property="StarsLabel" destination="zqC-BR-gy6" id="GY0-yq-bc6"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -516,6 +562,7 @@
                             <constraint firstItem="xIu-QX-ZCG" firstAttribute="centerY" secondItem="QGp-fh-b5o" secondAttribute="centerY" id="vxd-TF-jML"/>
                             <constraint firstItem="xIu-QX-ZCG" firstAttribute="height" secondItem="QGp-fh-b5o" secondAttribute="height" id="yOb-2Z-DVr"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="zcr-bM-R5r"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TAh-mw-mIc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -595,7 +642,13 @@
                             <constraint firstItem="fhf-mQ-r3a" firstAttribute="centerY" secondItem="2gb-0Y-cFL" secondAttribute="centerY" id="a9v-RG-tXm"/>
                             <constraint firstItem="fhf-mQ-r3a" firstAttribute="width" secondItem="2gb-0Y-cFL" secondAttribute="width" multiplier="0.9" id="jN0-W9-FSo"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="9F0-U8-lcH"/>
                     </view>
+                    <connections>
+                        <outlet property="BioLabel" destination="n5g-Cb-JLv" id="Iea-xH-7s6"/>
+                        <outlet property="PhoneNumberLabel" destination="yWF-pq-7Ug" id="Fkp-t1-Eqp"/>
+                        <outlet property="SkillsLabel" destination="lb5-VU-ns5" id="jin-gt-zHX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i83-oD-NfW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

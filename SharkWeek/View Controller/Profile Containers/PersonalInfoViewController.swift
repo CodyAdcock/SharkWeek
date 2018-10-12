@@ -9,22 +9,22 @@
 import UIKit
 
 class PersonalInfoViewController: UIViewController {
-
+    
+    @IBOutlet weak var PhoneNumberLabel: UILabel!
+    @IBOutlet weak var BioLabel: UILabel!
+    @IBOutlet weak var SkillsLabel: UILabel!
+    
+    var currentUser: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentUser = UserController.shared.currentUser
+        guard let currentUser = currentUser else {return}
+        
+        PhoneNumberLabel.text = "\(currentUser.phoneNumber)"
+        BioLabel.text = currentUser.bio
+        SkillsLabel.text = currentUser.skill
 
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
