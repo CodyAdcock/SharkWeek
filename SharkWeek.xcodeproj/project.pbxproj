@@ -552,7 +552,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 23QW9JU9DK;
+				DEVELOPMENT_TEAM = 2W3G83TWSK;
 				INFOPLIST_FILE = "$(SRCROOT)/SharkWeek/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -571,7 +571,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 23QW9JU9DK;
+				DEVELOPMENT_TEAM = 2W3G83TWSK;
 				INFOPLIST_FILE = "$(SRCROOT)/SharkWeek/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

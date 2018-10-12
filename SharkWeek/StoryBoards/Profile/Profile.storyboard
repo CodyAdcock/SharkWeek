@@ -206,7 +206,7 @@
                                 </constraints>
                             </stackView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fao-8K-Igf">
-                                <rect key="frame" x="139" y="164" width="98" height="98"/>
+                                <rect key="frame" x="139" y="164" width="97.5" height="97.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Fao-8K-Igf" secondAttribute="height" multiplier="1:1" id="8rL-jR-dbM"/>
                                 </constraints>
@@ -333,14 +333,14 @@
             <objects>
                 <viewController id="gkG-PJ-8Ud" customClass="PhotoSelectViewController" customModule="SharkWeek" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N9i-fW-yxj">
-                        <rect key="frame" x="0.0" y="0.0" width="98" height="98"/>
+                        <rect key="frame" x="0.0" y="0.0" width="97.5" height="97.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blankFace" translatesAutoresizingMaskIntoConstraints="NO" id="u9S-6K-MgW">
-                                <rect key="frame" x="0.0" y="0.0" width="98" height="98"/>
+                                <rect key="frame" x="0.0" y="0.0" width="97.5" height="97.5"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaZ-Se-v9b">
-                                <rect key="frame" x="0.0" y="0.0" width="98" height="98"/>
+                                <rect key="frame" x="0.0" y="0.0" width="97.5" height="97.5"/>
                                 <color key="tintColor" red="0.64313725489999995" green="0.64313725489999995" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="selectPhotoButtonTapped:" destination="gkG-PJ-8Ud" eventType="touchUpInside" id="zwb-gd-9EE"/>
@@ -358,6 +358,7 @@
                             <constraint firstItem="u9S-6K-MgW" firstAttribute="centerY" secondItem="N9i-fW-yxj" secondAttribute="centerY" id="geW-VS-zYY"/>
                             <constraint firstItem="u9S-6K-MgW" firstAttribute="width" secondItem="N9i-fW-yxj" secondAttribute="width" id="rqS-ls-PD8"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="yCP-E2-kWK"/>
                     </view>
                     <connections>
                         <outlet property="photoImageView" destination="u9S-6K-MgW" id="X6L-Tf-LPX"/>
