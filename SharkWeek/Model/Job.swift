@@ -17,7 +17,8 @@ class Job{
     var address: Address
     var toolsNeeded: String?
     var toolsProvided: String?
-    var review: Review?
+    var reviewOfEmployer: Review?
+    var reviewOfWorker: Review?
     let uuid: String
     
     var employerRef: String //Reference
