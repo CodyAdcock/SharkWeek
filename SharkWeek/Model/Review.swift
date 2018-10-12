@@ -13,14 +13,14 @@ class Review{
     var rating: Int
     var description: String
     
-    var reviewerRef: String // Reference
-    var revieweeRef: String // Ref
+    var workerRef: String // Reference
+    var employerRef: String // Ref
     
-    init(rating: Int, description: String, reviewerRef: String, ref revieweeRef: String) {
+    init(rating: Int, description: String, workerRef: String, employerRef: String) {
         self.rating = rating
         self.description = description
-        self.reviewerRef = reviewerRef
-        self.revieweeRef = revieweeRef
+        self.workerRef = workerRef
+        self.employerRef = employerRef
     }
     
 }
