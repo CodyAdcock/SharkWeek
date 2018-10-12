@@ -7,13 +7,32 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SignInViewController: UIViewController {
+    
+    var audioPlayer = AVAudioPlayer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        do{
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(string: Bundle.main.path(forResource: "Sample", ofType: "mp3")!)!)
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
+            
+        }catch{
+            print(error)
+        }
+        
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        audioPlayer.pause()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        audioPlayer.play()
     }
     
 

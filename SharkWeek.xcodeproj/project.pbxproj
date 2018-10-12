@@ -27,6 +27,7 @@
 		C376F2CA216FED8C005EEA0D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C376F2C9216FED8C005EEA0D /* SignInViewController.swift */; };
 		C376F2CC21700EC3005EEA0D /* PhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C376F2CB21700EC3005EEA0D /* PhotoSelectViewController.swift */; };
 		C376F2CE217032B2005EEA0D /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C376F2CD217032B2005EEA0D /* ProfileTableViewController.swift */; };
+		C3F81F3C2170F5A000E06F6E /* Sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C3F81F3B2170F5A000E06F6E /* Sample.mp3 */; };
 		F7FD3FAB67C569AD13BBE1FE /* Pods_SharkWeek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80128D6CFF2BEBFCD0EB833B /* Pods_SharkWeek.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		C376F2C9216FED8C005EEA0D /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		C376F2CB21700EC3005EEA0D /* PhotoSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectViewController.swift; sourceTree = "<group>"; };
 		C376F2CD217032B2005EEA0D /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		C3F81F3B2170F5A000E06F6E /* Sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Sample.mp3; sourceTree = "<group>"; };
 		F5A48662923F62F6E2325171 /* Pods-SharkWeek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharkWeek.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharkWeek/Pods-SharkWeek.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +102,7 @@
 		C376F28D216ED021005EEA0D /* SharkWeek */ = {
 			isa = PBXGroup;
 			children = (
+				C3F81F3A2170F59300E06F6E /* Music */,
 				C376F2A2216ED04F005EEA0D /* View Controller */,
 				C376F2A3216ED04F005EEA0D /* View */,
 				C376F2A4216ED04F005EEA0D /* Model Controller */,
@@ -222,6 +225,14 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		C3F81F3A2170F59300E06F6E /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				C3F81F3B2170F5A000E06F6E /* Sample.mp3 */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		DB2241BFD1932AB053B8CFE3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +276,11 @@
 				TargetAttributes = {
 					C376F28A216ED021005EEA0D = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -296,6 +312,7 @@
 				C376F2BE216ED331005EEA0D /* Profile.storyboard in Resources */,
 				C376F2C2216ED36C005EEA0D /* MyJobs.storyboard in Resources */,
 				C376F294216ED021005EEA0D /* Main.storyboard in Resources */,
+				C3F81F3C2170F5A000E06F6E /* Sample.mp3 in Resources */,
 				C376F2C0216ED33C005EEA0D /* PostJob.storyboard in Resources */,
 				C376F2C4216ED373005EEA0D /* Search.storyboard in Resources */,
 				90709B5A216FC54700E4795A /* GoogleService-Info.plist in Resources */,
