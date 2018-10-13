@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cody Adcock. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class User {
     
@@ -22,6 +22,7 @@ class User {
     var reviewCount: Int
     var starCount: Int
     var picture: String
+    var pictureAsImage: UIImage? 
     var isMinor: Bool
     //Job Ref Arrays
     var jobsCreated: [String] // UUIDs of jobs

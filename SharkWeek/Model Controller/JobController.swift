@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 class JobController {
     
     let db = UserController.db
@@ -37,10 +36,64 @@ class JobController {
                       "ReviewOfJobApplicant" : ""] as [String : Any]
         
         jobCollection.document(newJob.uuid).setData(values)
-
+        
         
         currentUser.jobsCreated.append(newJob.uuid)
     }
+    
+    // TODO: - Fix this (memory leak)
+    var tempJob: Job?
+    func readOneJob(with jobReference: String) {
+        
+        jobCollection.document(jobReference).getDocument { (DocumentSnapshot, error) in
+            if let error = error {
+                print("there was an error getting the job document for \(jobReference) error: \(error.localizedDescription)")
+            }
+            
+            guard let uuid = self.uuid else { return }
+            guard let documentSnapshot = DocumentSnapshot else { return }
+            guard let title = documentSnapshot.get("title") as? String else { return }
+            guard let description = documentSnapshot.get("description") as? String else { return }
+            
+            guard let category = documentSnapshot.get("category") as? String else { return }
+            
+            guard let pay = documentSnapshot.get("pay") as? Int else { return }
+            
+            guard let toolsNeeded = documentSnapshot.get("toolsNeeded") as? String else { return }
+            
+            guard let toolsProvided = documentSnapshot.get("toolsProvided") as? String else { return }
+            
+            guard let employerRef = documentSnapshot.get("employerRef") as? String else { return }
+            
+            guard let applicantsRef = documentSnapshot.get("applicantsRef") as? [String] else { return }
+            
+            guard let chosenOneRef = documentSnapshot.get("chosenOneRef") as? String else { return }
+//                        guard let reviewOfJobPoster = documentSnapshot.get("ReviewOfJobPoster") as? String else { return }
+//                        guard let reviewOfJobApplicant = documentSnapshot.get("ReviewOfJobApplicant") as? String else { return }
+            
+            let addressCollection = self.userRef.document(uuid).collection("Address")
+            addressCollection.document("Address").getDocument(completion:{ (documentSnapshot, error) in
+                if let error = error {
+                    print("Could not retrieve the users address information \(error.localizedDescription)")
+                }
+                
+                guard let documentSnapshot = DocumentSnapshot else { return }
+                guard let city = documentSnapshot.get("city") as? String else { return }
+                guard let line1 = documentSnapshot.get("line1") as? String else { return }
+                guard let line2 = documentSnapshot.get("line2") as? String else { return }
+                guard let state = documentSnapshot.get("state") as? String else { return }
+                guard let zipCode = documentSnapshot.get("zipCode") as? String else { return }
+                
+                let address = Address(line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
+                
+                let jobA = Job(title: title, description: description, category: category, pay: pay, address: address, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, employerRef: employerRef, applicantsRef: applicantsRef, chosenOneRef: chosenOneRef)
+//                jobA.reviewOfWorker = reviewOfJobApplicant
+//                jobA.reviewOfEmployer = reviewOfJobPoster
+                self.tempJob = jobA
+            })
+        }
+    }
+    
     
     func applyToJob(job: Job) {
         guard let uuid = uuid else { return }
@@ -48,7 +101,7 @@ class JobController {
         guard var jobsApplied = currentUser?.jobsApplied else { return }
         jobsApplied.append(jobID)
         let newJobsApplied = jobsApplied
-
+        
         job.applicantsRef.append(uuid)
         userRef.document(uuid).updateData(["jobsApplied" : newJobsApplied])
         jobCollection.document(jobID).updateData(["applicantsRef" : job.applicantsRef])

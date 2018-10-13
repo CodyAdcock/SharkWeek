@@ -25,7 +25,7 @@ class UserController{
     static let db = Firestore.firestore()
     let userRef = db.collection("users")
     let storage = Storage.storage()
-    
+    let storageRef = Storage.storage().reference()
     //C
     
     func SignUpUser(firstName: String, lastName: String, email: String, password: String, age: Int, address: Address, bio: String, skill: String, phoneNumber: String, profilePicture: UIImage, completion: @escaping (Bool) -> Void){
@@ -42,8 +42,7 @@ class UserController{
             guard let photoAsData = profilePicture.jpegData(compressionQuality: 1.0) else {return}
             
             //create referencees to storage, with child nodes for organization/easier data retrieval
-            let storageRef = self.storage.reference()
-            let imagesRef = storageRef.child("ProfileImages")
+            let imagesRef = self.storageRef.child("ProfileImages")
             let userImageRef = imagesRef.child(uuid)
             
             // this puts data into the storage
@@ -113,6 +112,25 @@ class UserController{
                 }
             })
         }
+    }
+    // TODO: - Fix this
+    func grabUsersPicture(user: User) -> (UIImage) {
+        userRef.document(user.uuid).getDocument { (querySnapshot, error) in
+            if let error = error {
+                print("Could not grab the users document data \(error.localizedDescription)")
+                return
+            }
+            let imagesRef = self.storageRef.child("ProfileImages")
+            imagesRef.child(user.uuid).getData(maxSize: 1 * 1024 * 1024, completion: { (data, error) in
+                if let error = error {
+                    print("Could not find image for your own profilePic \(error.localizedDescription)")
+                }
+                guard let data = data else { return }
+                guard let image = UIImage(data: data) else { return }
+                user.pictureAsImage = image
+            })
+        }
+        return user.pictureAsImage ?? UIImage(named: "shark")!
     }
     
     func readUser(completion: @escaping (Error?) -> ()){
