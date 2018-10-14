@@ -15,7 +15,7 @@ class JobListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentUser = UserController.shared.currentUser
+        currentUser = UserData.shared.john
 
     }
 
