@@ -15,25 +15,26 @@ class JobListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentUser = UserController.shared.currentUser
+//        currentUser = UserController.shared.currentUser
 
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        guard let count = currentUser?.jobsHiredCompleted.count else {return 0}
-        return count
+//        guard let count = currentUser?.jobsHiredCompleted.count else {return 0}
+//        return count
+        return 0
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WorkHistoryCell", for: indexPath) as? JobHistoryTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WorkHistoryCell", for: indexPath) //as? JobHistoryTableViewCell
 
-        guard let jobRef = currentUser?.jobsHiredCompleted[indexPath.row] else {return UITableViewCell()}
+        //guard let jobRef = currentUser?.jobsHiredCompleted[indexPath.row] else {return UITableViewCell()}
 //        let job = UserController.db.collection("jobs").document(jobRef)
 //        cell?.job = job
 
-        return cell ?? UITableViewCell()
+        return UITableViewCell()
     }
     /*
     // MARK: - Navigation

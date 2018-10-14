@@ -12,6 +12,7 @@ class ProfileTableViewController: UITableViewController {
 
     //IBOutlets Main Page
     
+    
     @IBOutlet weak var ProfilePictureImageView: UIImageView!
     @IBOutlet weak var NameAgeLabel: UILabel!
     @IBOutlet weak var CityStateLabel: UILabel!
