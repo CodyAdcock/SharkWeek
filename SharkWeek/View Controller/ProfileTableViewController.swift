@@ -33,7 +33,7 @@ class ProfileTableViewController: UITableViewController {
         self.JobHistoryContainer.isHidden = true
         self.JobHistoryContainer.alpha = 0
         
-        guard let currentUser = UserController.shared.currentUser else {return}
+        let currentUser = UserData.shared.john
         
         ProfilePictureImageView.image = UIImage(contentsOfFile: "blankFace")
         NameAgeLabel.text = "\(currentUser.firstName) \(currentUser.lastName), \(currentUser.age)"

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cody Adcock. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class User {
     
@@ -21,7 +21,8 @@ class User {
     var phoneNumber: String
     var reviewCount: Int
     var starCount: Int
-    var picture: String
+    var picture: UIImage
+    var pictureAsString: String?
     var isMinor: Bool
     //Job Ref Arrays
     var jobsCreated: [String] // UUIDs of jobs
@@ -30,7 +31,7 @@ class User {
     var jobsInProgress: [String] // UUIDs of jobs
     var jobsHiredCompleted: [String] // UUIDs of jobs
     
-    init(firstName: String, lastName: String, email: String, age: Int, address: Address, bio: String, skill: String, phoneNumber: String, reviewCount: Int = 0, starCount: Int = 0,  picture: String, jobsCreated: [String] = [], jobsCreatedCompleted: [String] = [], jobsApplied: [String] = [], jobsInProgress: [String] = [], jobsHiredCompleted: [String] = [], uuid: String ){
+    init(firstName: String, lastName: String, email: String, age: Int, address: Address, bio: String, skill: String, phoneNumber: String, reviewCount: Int = 0, starCount: Int = 0,  picture: UIImage, jobsCreated: [String] = [], jobsCreatedCompleted: [String] = [], jobsApplied: [String] = [], jobsInProgress: [String] = [], jobsHiredCompleted: [String] = [], uuid: String ){
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
