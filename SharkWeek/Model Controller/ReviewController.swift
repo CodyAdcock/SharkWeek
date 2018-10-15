@@ -6,7 +6,6 @@
 //  Copyright © 2018 Cody Adcock. All rights reserved.
 //
 
-<<<<<<< HEAD
 import Foundation
 
 class ReviewController{
@@ -31,29 +30,3 @@ class ReviewController{
         
     }
 }
-=======
-//import Foundation
-//
-//class ReviewController{
-//
-//    let currentUser = UserController.shared.currentUser
-//
-//    func addReviewForEmployer(job: Job, rating: Int, description: String) {
-//
-//        guard let currentUser = currentUser else { return }
-//        let review = Review(rating: rating, description: description, workerRef: currentUser.uuid, employerRef: job.employerRef)
-//        job.reviewOfEmployer = review
-//
-//    }
-//
-//    func addReviewForWorker(job: Job, rating: Int, description: String) {
-//
-//        guard let currentUser = currentUser else { return }
-//        guard let chosenOneRef = job.chosenOneRef else { return }
-//        let review = Review(rating: rating, description: description, workerRef: chosenOneRef, employerRef: currentUser.uuid)
-//        job.reviewOfWorker = review
-//
-//
-//    }
-//}
->>>>>>> e141f868d1a209aaa5d8c5f6d186c2f4b99521ae

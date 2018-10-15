@@ -18,13 +18,13 @@ class PersonalInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentUser = UserData.shared.john
+        currentUser = UserController.shared.currentUser
         guard let currentUser = currentUser else {return}
         
         PhoneNumberLabel.text = "\(currentUser.phoneNumber)"
         BioLabel.text = currentUser.bio
         SkillsLabel.text = currentUser.skill
-
+        
     }
-
+    
 }

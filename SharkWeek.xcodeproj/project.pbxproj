@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		480D5B0621750B92005A4A68 /* MyJobsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D5B0421750B92005A4A68 /* MyJobsTVC.swift */; };
 		480D5B0721750B92005A4A68 /* myJobsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D5B0521750B92005A4A68 /* myJobsCell.swift */; };
-		900BE79D2173EB1400664AEE /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900BE79C2173EB1400664AEE /* UserData.swift */; };
-		900BE79F2173EB1E00664AEE /* JobData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900BE79E2173EB1E00664AEE /* JobData.swift */; };
-		900BE7A12173F94C00664AEE /* AddressData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900BE7A02173F94C00664AEE /* AddressData.swift */; };
 		90709B5A216FC54700E4795A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90709B59216FC54700E4795A /* GoogleService-Info.plist */; };
 		C318E6D02171424E00549DD6 /* JobListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318E6CF2171424E00549DD6 /* JobListTableViewController.swift */; };
 		C318E6D22171442400549DD6 /* JobHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318E6D12171442400549DD6 /* JobHistoryTableViewCell.swift */; };
@@ -45,9 +42,6 @@
 		480D5B0521750B92005A4A68 /* myJobsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myJobsCell.swift; sourceTree = "<group>"; };
 		80128D6CFF2BEBFCD0EB833B /* Pods_SharkWeek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharkWeek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		829BF3DCB91C40E40F773014 /* Pods-SharkWeek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharkWeek.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharkWeek/Pods-SharkWeek.debug.xcconfig"; sourceTree = "<group>"; };
-		900BE79C2173EB1400664AEE /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		900BE79E2173EB1E00664AEE /* JobData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobData.swift; sourceTree = "<group>"; };
-		900BE7A02173F94C00664AEE /* AddressData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressData.swift; sourceTree = "<group>"; };
 		90709B59216FC54700E4795A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		90935A14216FF04D00011B28 /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
 		C318E6CF2171424E00549DD6 /* JobListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListTableViewController.swift; sourceTree = "<group>"; };
@@ -107,16 +101,6 @@
 				80128D6CFF2BEBFCD0EB833B /* Pods_SharkWeek.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		900BE79B2173EAFE00664AEE /* MockData */ = {
-			isa = PBXGroup;
-			children = (
-				900BE79C2173EB1400664AEE /* UserData.swift */,
-				900BE79E2173EB1E00664AEE /* JobData.swift */,
-				900BE7A02173F94C00664AEE /* AddressData.swift */,
-			);
-			path = MockData;
 			sourceTree = "<group>";
 		};
 		C376F282216ED021005EEA0D = {
@@ -182,7 +166,6 @@
 		C376F2A2216ED04F005EEA0D /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				900BE79B2173EAFE00664AEE /* MockData */,
 				C3F81F3D21711C7100E06F6E /* Profile Containers */,
 				C376F2C7216FECD5005EEA0D /* SignUpViewController.swift */,
 				C376F2C9216FED8C005EEA0D /* SignInViewController.swift */,
@@ -461,11 +444,8 @@
 				C376F2C8216FECD5005EEA0D /* SignUpViewController.swift in Sources */,
 				C376F2AB216ED0FF005EEA0D /* Review.swift in Sources */,
 				C3F81F3F21711C8900E06F6E /* PersonalInfoViewController.swift in Sources */,
-				900BE7A12173F94C00664AEE /* AddressData.swift in Sources */,
-				900BE79F2173EB1E00664AEE /* JobData.swift in Sources */,
 				C376F2AD216ED12F005EEA0D /* UserController.swift in Sources */,
 				C376F2CA216FED8C005EEA0D /* SignInViewController.swift in Sources */,
-				900BE79D2173EB1400664AEE /* UserData.swift in Sources */,
 				C376F2AF216ED13C005EEA0D /* JobController.swift in Sources */,
 				C318E6D22171442400549DD6 /* JobHistoryTableViewCell.swift in Sources */,
 				C318E6D02171424E00549DD6 /* JobListTableViewController.swift in Sources */,

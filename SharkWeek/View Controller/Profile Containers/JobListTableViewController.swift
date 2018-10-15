@@ -15,12 +15,7 @@ class JobListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< HEAD
-//        currentUser = UserController.shared.currentUser
-=======
-        currentUser = UserData.shared.john
->>>>>>> d7b51dd8e9a9221b52784f7b48f92b5b790c88de
-
+        currentUser = UserController.shared.currentUser
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
