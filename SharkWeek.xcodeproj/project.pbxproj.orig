@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
+		488632C921713147008F03B5 /* MyJobsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488632C821713147008F03B5 /* MyJobsTVC.swift */; };
+		488632CB2171342C008F03B5 /* myJobsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488632CA2171342C008F03B5 /* myJobsCell.swift */; };
+=======
 		900BE79D2173EB1400664AEE /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900BE79C2173EB1400664AEE /* UserData.swift */; };
 		900BE79F2173EB1E00664AEE /* JobData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900BE79E2173EB1E00664AEE /* JobData.swift */; };
 		900BE7A12173F94C00664AEE /* AddressData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900BE7A02173F94C00664AEE /* AddressData.swift */; };
+>>>>>>> e141f868d1a209aaa5d8c5f6d186c2f4b99521ae
 		90709B5A216FC54700E4795A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90709B59216FC54700E4795A /* GoogleService-Info.plist */; };
 		C318E6D02171424E00549DD6 /* JobListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318E6CF2171424E00549DD6 /* JobListTableViewController.swift */; };
 		C318E6D22171442400549DD6 /* JobHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318E6D12171442400549DD6 /* JobHistoryTableViewCell.swift */; };
@@ -39,6 +44,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		488632C821713147008F03B5 /* MyJobsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyJobsTVC.swift; sourceTree = "<group>"; };
+		488632CA2171342C008F03B5 /* myJobsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myJobsCell.swift; sourceTree = "<group>"; };
 		80128D6CFF2BEBFCD0EB833B /* Pods_SharkWeek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharkWeek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		829BF3DCB91C40E40F773014 /* Pods-SharkWeek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharkWeek.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharkWeek/Pods-SharkWeek.debug.xcconfig"; sourceTree = "<group>"; };
 		900BE79C2173EB1400664AEE /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -88,6 +95,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		488632C721712CBF008F03B5 /* My Jobs */ = {
+			isa = PBXGroup;
+			children = (
+				488632C821713147008F03B5 /* MyJobsTVC.swift */,
+			);
+			path = "My Jobs";
+			sourceTree = "<group>";
+		};
 		504653EFB3349C6B7C917D68 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,8 +183,12 @@
 		C376F2A2216ED04F005EEA0D /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+				488632C721712CBF008F03B5 /* My Jobs */,
+=======
 				900BE79B2173EAFE00664AEE /* MockData */,
 				C3F81F3D21711C7100E06F6E /* Profile Containers */,
+>>>>>>> e141f868d1a209aaa5d8c5f6d186c2f4b99521ae
 				C376F2C7216FECD5005EEA0D /* SignUpViewController.swift */,
 				C376F2C9216FED8C005EEA0D /* SignInViewController.swift */,
 				C376F2CB21700EC3005EEA0D /* PhotoSelectViewController.swift */,
@@ -181,7 +200,11 @@
 		C376F2A3216ED04F005EEA0D /* View */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+				488632CA2171342C008F03B5 /* myJobsCell.swift */,
+=======
 				C318E6D12171442400549DD6 /* JobHistoryTableViewCell.swift */,
+>>>>>>> e141f868d1a209aaa5d8c5f6d186c2f4b99521ae
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -442,9 +465,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				488632CB2171342C008F03B5 /* myJobsCell.swift in Sources */,
 				C376F2A7216ED0E7005EEA0D /* User.swift in Sources */,
 				C376F2B1216ED14A005EEA0D /* ReviewController.swift in Sources */,
 				C376F2C8216FECD5005EEA0D /* SignUpViewController.swift in Sources */,
+				488632C921713147008F03B5 /* MyJobsTVC.swift in Sources */,
 				C376F2AB216ED0FF005EEA0D /* Review.swift in Sources */,
 				C3F81F3F21711C8900E06F6E /* PersonalInfoViewController.swift in Sources */,
 				900BE7A12173F94C00664AEE /* AddressData.swift in Sources */,
@@ -608,7 +633,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SharkWeek/SharkWeek.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
+				DEVELOPMENT_TEAM = "";
+=======
 				DEVELOPMENT_TEAM = 23QW9JU9DK;
+>>>>>>> e141f868d1a209aaa5d8c5f6d186c2f4b99521ae
 				INFOPLIST_FILE = "$(SRCROOT)/SharkWeek/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -628,7 +657,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SharkWeek/SharkWeek.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
+				DEVELOPMENT_TEAM = "";
+=======
 				DEVELOPMENT_TEAM = 23QW9JU9DK;
+>>>>>>> e141f868d1a209aaa5d8c5f6d186c2f4b99521ae
 				INFOPLIST_FILE = "$(SRCROOT)/SharkWeek/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

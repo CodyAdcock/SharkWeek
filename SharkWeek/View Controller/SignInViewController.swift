@@ -12,6 +12,10 @@ import AVFoundation
 class SignInViewController: UIViewController {
     
     var audioPlayer = AVAudioPlayer()
+    
+    @IBOutlet weak var EmailAddressTextField: UITextField!
+    @IBOutlet weak var PasswprdTextField: UITextField!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
