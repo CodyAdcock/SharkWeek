@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		480D5B0621750B92005A4A68 /* MyJobsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D5B0421750B92005A4A68 /* MyJobsTVC.swift */; };
+		480D5B0721750B92005A4A68 /* myJobsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D5B0521750B92005A4A68 /* myJobsCell.swift */; };
 		900BE79D2173EB1400664AEE /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900BE79C2173EB1400664AEE /* UserData.swift */; };
 		900BE79F2173EB1E00664AEE /* JobData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900BE79E2173EB1E00664AEE /* JobData.swift */; };
 		900BE7A12173F94C00664AEE /* AddressData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900BE7A02173F94C00664AEE /* AddressData.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		480D5B0421750B92005A4A68 /* MyJobsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobsTVC.swift; sourceTree = "<group>"; };
+		480D5B0521750B92005A4A68 /* myJobsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myJobsCell.swift; sourceTree = "<group>"; };
 		80128D6CFF2BEBFCD0EB833B /* Pods_SharkWeek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharkWeek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		829BF3DCB91C40E40F773014 /* Pods-SharkWeek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharkWeek.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharkWeek/Pods-SharkWeek.debug.xcconfig"; sourceTree = "<group>"; };
 		900BE79C2173EB1400664AEE /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -88,6 +92,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		480D5B0321750B83005A4A68 /* myJobs */ = {
+			isa = PBXGroup;
+			children = (
+				480D5B0521750B92005A4A68 /* myJobsCell.swift */,
+				480D5B0421750B92005A4A68 /* MyJobsTVC.swift */,
+			);
+			path = myJobs;
+			sourceTree = "<group>";
+		};
 		504653EFB3349C6B7C917D68 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +140,7 @@
 		C376F28D216ED021005EEA0D /* SharkWeek */ = {
 			isa = PBXGroup;
 			children = (
+				480D5B0321750B83005A4A68 /* myJobs */,
 				C318E6DF2173FA6700549DD6 /* SharkWeek.entitlements */,
 				C3F81F3A2170F59300E06F6E /* Music */,
 				C376F2A2216ED04F005EEA0D /* View Controller */,
@@ -457,8 +471,10 @@
 				C318E6D02171424E00549DD6 /* JobListTableViewController.swift in Sources */,
 				C376F2CC21700EC3005EEA0D /* PhotoSelectViewController.swift in Sources */,
 				C376F2A9216ED0F4005EEA0D /* Job.swift in Sources */,
+				480D5B0721750B92005A4A68 /* myJobsCell.swift in Sources */,
 				C318E6DC217178E100549DD6 /* JobListViewController.swift in Sources */,
 				C376F2CE217032B2005EEA0D /* ProfileTableViewController.swift in Sources */,
+				480D5B0621750B92005A4A68 /* MyJobsTVC.swift in Sources */,
 				C376F28F216ED021005EEA0D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
