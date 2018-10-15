@@ -377,11 +377,10 @@
         <scene sceneID="dmE-1c-DIL">
             <objects>
                 <tableViewController id="dMv-v9-FMk" customClass="ProfileTableViewController" customModule="SharkWeek" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aeg-OO-GX5">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aeg-OO-GX5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="separatorColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="sl7-Bc-Db3">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="279"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -465,10 +464,8 @@
                                 <constraint firstItem="jJj-bJ-0xE" firstAttribute="width" secondItem="JEO-dz-sPI" secondAttribute="width" id="FF8-2O-WCC"/>
                                 <constraint firstItem="5rb-kd-eZ5" firstAttribute="height" secondItem="JEO-dz-sPI" secondAttribute="height" id="dAU-6v-z3C"/>
                                 <constraint firstItem="5rb-kd-eZ5" firstAttribute="width" secondItem="JEO-dz-sPI" secondAttribute="width" id="qQo-ks-Wu1"/>
-                                <constraint firstAttribute="bottom" secondItem="jJj-bJ-0xE" secondAttribute="bottom" id="vH7-Ex-5gg"/>
                             </constraints>
                         </view>
-                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="dMv-v9-FMk" id="BvV-ha-CXO"/>
                             <outlet property="delegate" destination="dMv-v9-FMk" id="6yi-Uy-Vco"/>
@@ -489,10 +486,10 @@
             </objects>
             <point key="canvasLocation" x="1708" y="925.18740629685169"/>
         </scene>
-        <!--Job List View Controller-->
+        <!--Job List Table View Controller-->
         <scene sceneID="gMK-uB-R5b">
             <objects>
-                <viewController id="tnJ-43-Z3l" customClass="JobListViewController" customModule="SharkWeek" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tnJ-43-Z3l" customClass="JobListTableViewController" customModule="SharkWeek" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QGp-fh-b5o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="324"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -549,6 +546,11 @@
                                                 <constraint firstItem="4cp-a8-4l8" firstAttribute="centerX" secondItem="Vf9-SY-WTX" secondAttribute="centerX" id="zY6-4O-hrR"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="JobTitleLabel" destination="q2E-nW-0pf" id="kIz-qA-Ymh"/>
+                                            <outlet property="ReviewBodyLabel" destination="aJ6-Au-iBl" id="oe6-cZ-xFl"/>
+                                            <outlet property="StarsLabel" destination="zqC-BR-gy6" id="GY0-yq-bc6"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="107" id="yHE-MQ-lkM" customClass="JobHistoryTableViewCell" customModule="SharkWeek" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="135" width="375" height="107"/>
@@ -614,7 +616,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TAh-mw-mIc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2118" y="1536"/>
+            <point key="canvasLocation" x="2029.5999999999999" y="1536.4317841079462"/>
         </scene>
         <!--Personal Info View Controller-->
         <scene sceneID="r3O-m5-f9X">
@@ -706,6 +708,6 @@
         <image name="blankFace" width="112.5" height="112.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="r2M-a5-m4r"/>
+        <segue reference="I7W-9x-TYC"/>
     </inferredMetricsTieBreakers>
 </document>
