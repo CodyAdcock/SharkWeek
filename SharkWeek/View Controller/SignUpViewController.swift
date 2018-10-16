@@ -56,7 +56,7 @@ class SignUpViewController: UIViewController {
     var bio: String?
     var skill: String?
     var phoneNumber: String?
-    var picture: String?
+    var picture: UIImage?
     var password: String?
     
     
@@ -179,7 +179,37 @@ class SignUpViewController: UIViewController {
     }
     func fourthTransition(){
         skill = BioAndSkillsTextView.text
+        guard let firstName = firstName,
+            let lastName = lastName,
+            let email = email,
+            let ageInt = age,
+            let age = Int(ageInt),
+            let line1 = line1,
+            let line2 = line2,
+            let city = city,
+            let state = state,
+            let zip = zip,
+            let bio = bio,
+            let skill = skill,
+            let phoneNumber = phoneNumber,
+            let picture = picture,
+            let password = password else {return}
         
+        let temporaryAddreess = Address(line1: line1, line2: line2, city: city, state: state, zipCode: zip)
+        
+        UserController.shared.SignUpUser(firstName: firstName, lastName: lastName, email: email, password: password, age: age, address: temporaryAddreess, bio: bio, skill: skill, phoneNumber: phoneNumber, profilePicture: picture) { (success) in
+            if success == true {
+                self.navigationController?.popViewController(animated: true)
+                print("Sign up succccccccceded")
+            }
+            else {
+                let alertController = UIAlertController(title: "Signup failed!", message: "There was an error singing up due to", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+                print("sign up failed")
+            }
+        }
         //Create User here @SAM
         //convert age to int
         
