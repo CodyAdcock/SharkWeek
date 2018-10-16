@@ -1,5 +1,5 @@
 //
-//  JobSearchScrollView.swift
+//  ViewPostingVC.swift
 //  SharkWeek
 //
 //  Created by Abdikadir Abdalla on 10/16/18.
@@ -8,8 +8,8 @@
 import MapKit
 import UIKit
 
-class AppliedDetailVC: UIViewController {
-    
+class ViewPostingVC: UIViewController {
+
     //job applied overview
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var jobTitleLabel: UILabel!
@@ -33,13 +33,12 @@ class AppliedDetailVC: UIViewController {
     @IBOutlet weak var mapLabel: MKMapView!
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }    
+    }
+    
 
     /*
     // MARK: - Navigation

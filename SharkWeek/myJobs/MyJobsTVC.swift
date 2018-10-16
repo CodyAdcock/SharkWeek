@@ -9,6 +9,7 @@
 import UIKit
 
 class MyJobsTVC: UITableViewController {
+    
     @IBOutlet weak var segmentedControlLabel: UISegmentedControl!
     
     var sharedArray: [String] = []
