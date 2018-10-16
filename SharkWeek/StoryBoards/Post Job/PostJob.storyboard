@@ -12,7 +12,7 @@
         <!--Create Job Posting-->
         <scene sceneID="KBu-B6-lbH">
             <objects>
-                <viewController id="pHh-uB-PKX" sceneMemberID="viewController">
+                <viewController id="pHh-uB-PKX" customClass="PostJobVC" customModule="SharkWeek" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rHo-wR-Ru6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,6 +28,9 @@
                                 <state key="normal" title="Category">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="selectCategoryButton:" destination="pHh-uB-PKX" eventType="touchUpInside" id="bYO-6j-teE"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="g43-hG-HfS">
                                 <rect key="frame" x="10" y="335" width="355" height="30"/>
@@ -129,8 +132,24 @@
                     </view>
                     <navigationItem key="navigationItem" title="Create Job Posting" id="KAn-NT-yAi">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="gg4-2S-0Cj"/>
-                        <barButtonItem key="rightBarButtonItem" title="Post Job" id="mJZ-wW-g9i"/>
+                        <barButtonItem key="rightBarButtonItem" title="Post Job" id="mJZ-wW-g9i">
+                            <connections>
+                                <action selector="postJobButton:" destination="pHh-uB-PKX" id="CiW-Ie-84x"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressOneTF" destination="wf9-HA-rHY" id="HB5-8O-z4c"/>
+                        <outlet property="addressTwoTF" destination="hTT-6q-geM" id="1dV-D7-TX9"/>
+                        <outlet property="cityTF" destination="D1a-aR-MYF" id="997-qW-z1d"/>
+                        <outlet property="descriptionTV" destination="dIT-2C-ykP" id="rW4-ex-rtc"/>
+                        <outlet property="jobTitleTF" destination="8Ik-6M-ZXB" id="iNA-YV-dpo"/>
+                        <outlet property="payTF" destination="p9T-q4-jnE" id="Gxr-Um-N8a"/>
+                        <outlet property="stateTF" destination="vMg-q3-46i" id="OYi-Fj-91d"/>
+                        <outlet property="toolsNeededTF" destination="bl9-co-3S0" id="2Dc-cd-a1Z"/>
+                        <outlet property="toolsProvidedTF" destination="5Rd-5g-T59" id="y5l-YP-yIE"/>
+                        <outlet property="zipCodeTF" destination="CPD-WM-OAp" id="0Y4-Sj-Jz4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ev1-1A-m4r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
