@@ -16,38 +16,16 @@ class myJobsCell: UITableViewCell {
     
     var myJob: Job? {
         didSet {
-            updateViewsCell1()
-            updateViewsCell2()
-            updateViewsCell3()
-            updateViewsCell4()
+            updateViewsCell()
+            
         }
     }
     
-    func updateViewsCell1() {
+    func updateViewsCell() {
         guard let myJobs = myJob else {return}
         jobTitleLabel.text = myJobs.title
         payLabel.text = "\(myJobs.pay)"
         descriptionTV.text = myJobs.description
     }
     
-    func updateViewsCell2() {
-        guard let myJobs = myJob else {return}
-        jobTitleLabel.text = myJobs.title
-        payLabel.text = "\(myJobs.pay)"
-        descriptionTV.text = myJobs.description
-    }
-    
-    func updateViewsCell3() {
-        guard let myJobs = myJob else {return}
-        jobTitleLabel.text = myJobs.title
-        payLabel.text = "\(myJobs.pay)"
-        descriptionTV.text = myJobs.description
-    }
-    
-    func updateViewsCell4() {
-        guard let myJobs = myJob else {return}
-        jobTitleLabel.text = myJobs.title
-        payLabel.text = "\(myJobs.pay)"
-        descriptionTV.text = myJobs.description
-    }
 }
