@@ -27,9 +27,9 @@ class SignInViewController: UIViewController {
         UserController.shared.signInUser(email: email, password: password) { (success) in
             if success == true {
                 print("signed in")
-                self.navigationController?.popViewController(animated: true)
+                self.navigationController?.popToRootViewController(animated: true)
             } else {
-                let alertController = UIAlertController(title: "Error!", message: "Could not sign in: \(#function)", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Error!", message: "Could not sign in", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alertController.addAction(okAction)
                 self.present(alertController, animated: true, completion: nil)
