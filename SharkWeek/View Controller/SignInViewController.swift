@@ -14,30 +14,28 @@ class SignInViewController: UIViewController {
     var audioPlayer = AVAudioPlayer()
     
     @IBOutlet weak var EmailAddressTextField: UITextField!
-    @IBOutlet weak var PasswprdTextField: UITextField!
+    @IBOutlet weak var PasswordTextField: UITextField!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        do{
-//            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(string: Bundle.main.path(forResource: "Sample", ofType: "mp3")!)!)
-//            audioPlayer.prepareToPlay()
-//            audioPlayer.play()
-//
-//        }catch{
-//            print(error)
-//        }
-        
     }
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        audioPlayer.pause()
-//    }
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        audioPlayer.play()
-//    }
+    
+    @IBAction func signInButtonTapped(_ sender: Any) {
+        guard let email = EmailAddressTextField.text, !email.isEmpty,
+            let password = PasswordTextField.text, !password.isEmpty else { return }
+        UserController.shared.signInUser(email: email, password: password) { (success) in
+            if success == true {
+                print("signed in")
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                let alertController = UIAlertController(title: "Error!", message: "Could not sign in: \(#function)", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
     
 
     /*

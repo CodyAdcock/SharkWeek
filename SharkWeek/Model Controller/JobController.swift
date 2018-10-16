@@ -9,12 +9,14 @@
 import Foundation
 class JobController {
     
+    static let shared = JobController()
+    
     let db = UserController.db
     let currentUser = UserController.shared.currentUser
     let uuid = UserController.shared.currentUser?.uuid
     let jobCollection = UserController.db.collection("jobs")
     let userRef = UserController.shared.userRef
-
+    
     func createNewJob(title: String, description: String, category: String, pay: Int, address: Address, toolsNeeded: String?, toolsProvided: String?) {
 
         guard let userID = uuid else { return }
@@ -43,11 +45,12 @@ class JobController {
 
     // TODO: - Fix this (memory leak)
     var tempJob: Job?
-    func readOneJob(with jobReference: String) {
+    func readOneJob(with jobReference: String) -> Job? {
 
         jobCollection.document(jobReference).getDocument { (DocumentSnapshot, error) in
             if let error = error {
                 print("there was an error getting the job document for \(jobReference) error: \(error.localizedDescription)")
+                return
             }
 
             guard let uuid = self.uuid else { return }
@@ -75,6 +78,7 @@ class JobController {
             addressCollection.document("Address").getDocument(completion:{ (documentSnapshot, error) in
                 if let error = error {
                     print("Could not retrieve the users address information \(error.localizedDescription)")
+                    return
                 }
 
                 guard let documentSnapshot = DocumentSnapshot else { return }
@@ -92,6 +96,8 @@ class JobController {
                 self.tempJob = jobA
             })
         }
+        guard let tempJob = tempJob else { return nil }
+        return tempJob
     }
 
 
@@ -146,6 +152,11 @@ class JobController {
                       "chosenOneRef" : chosenOneRef] as [String : Any]
 
         jobCollection.document(job.uuid).updateData(values)
+        
+        user.jobsInProgress.append(job.uuid)
+        let valuesUser = ["jobsInProgress" : user.jobsInProgress]
+        
+        userRef.document(user.uuid).updateData(valuesUser)
     }
 
     func deleteJob(job: Job) {

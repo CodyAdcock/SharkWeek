@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="26D-C0-B0U">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dMv-v9-FMk">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -65,7 +65,7 @@
                                     <color key="titleColor" red="0.64313725490196072" green="0.64313725490196072" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="dMv-v9-FMk" kind="show" id="I7W-9x-TYC"/>
+                                    <action selector="signInButtonTapped:" destination="9ZI-JH-1Hx" eventType="touchUpInside" id="GCR-fi-TUE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -86,7 +86,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="EmailAddressTextField" destination="GK5-DY-GIK" id="tNT-h6-WgX"/>
-                        <outlet property="PasswprdTextField" destination="rCK-LI-Coa" id="Cyp-jI-4uw"/>
+                        <outlet property="PasswordTextField" destination="rCK-LI-Coa" id="Cyp-jI-4uw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30F-dO-vjf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -307,7 +307,6 @@
                         <outlet property="WelcomeUserLabel" destination="Bq4-G9-s7U" id="ZcK-jr-Zv0"/>
                         <outlet property="ZipTextField" destination="Op5-lM-5NE" id="EFB-63-sKK"/>
                         <outlet property="bioSkillLabel" destination="XJR-DB-0xX" id="rIJ-bl-xUc"/>
-                        <segue destination="dMv-v9-FMk" kind="presentation" identifier="toProfileVC" id="r2M-a5-m4r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CgV-Fp-HI5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -661,7 +660,4 @@
     <resources>
         <image name="blankFace" width="112.5" height="112.5"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="I7W-9x-TYC"/>
-    </inferredMetricsTieBreakers>
 </document>
