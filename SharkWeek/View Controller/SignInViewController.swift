@@ -27,7 +27,7 @@ class SignInViewController: UIViewController {
         UserController.shared.signInUser(email: email, password: password) { (success) in
             if success == true {
                 print("signed in")
-                self.navigationController?.popViewController(animated: true)
+                self.navigationController?.popToRootViewController(animated: true)
             } else {
                 let alertController = UIAlertController(title: "Error!", message: "Could not sign in: \(#function)", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -37,7 +37,10 @@ class SignInViewController: UIViewController {
         }
     }
     
-
+    @IBAction func cancelSignUpButtonTapped(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
