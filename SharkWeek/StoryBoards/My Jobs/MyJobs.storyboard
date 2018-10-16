@@ -185,7 +185,7 @@
         <!--Job Search-->
         <scene sceneID="uEj-K9-Z4j">
             <objects>
-                <viewController id="lTw-YP-edc" sceneMemberID="viewController">
+                <viewController id="lTw-YP-edc" customClass="AppliedDetailVC" customModule="SharkWeek" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cbF-ce-nEp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1065"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
