@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         settings.areTimestampsInSnapshotsEnabled = true
         db.settings = settings
         
+        window = UIWindow()
+        window?.rootViewController = SharkTabBarController()
         return true
     }
     
