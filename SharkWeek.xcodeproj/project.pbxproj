@@ -133,7 +133,6 @@
 				C376F2A5216ED04F005EEA0D /* Model */,
 				C376F2A1216ED04E005EEA0D /* StoryBoards */,
 				C376F2A0216ED040005EEA0D /* Resources */,
-				C3DF84382176515B0064FCF5 /* SharkTabBarController.swift */,
 			);
 			path = SharkWeek;
 			sourceTree = "<group>";
@@ -167,6 +166,7 @@
 		C376F2A2216ED04F005EEA0D /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C3DF84382176515B0064FCF5 /* SharkTabBarController.swift */,
 				C3F81F3D21711C7100E06F6E /* Profile Containers */,
 				C376F2C7216FECD5005EEA0D /* SignUpViewController.swift */,
 				C376F2C9216FED8C005EEA0D /* SignInViewController.swift */,
