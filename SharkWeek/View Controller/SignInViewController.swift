@@ -37,7 +37,10 @@ class SignInViewController: UIViewController {
         }
     }
     
-
+    @IBAction func cancelSignUpButtonTapped(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

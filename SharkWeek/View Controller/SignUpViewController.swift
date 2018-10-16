@@ -215,7 +215,7 @@ class SignUpViewController: UIViewController {
         
     }
     func fifthTransition(){
-        self.performSegue(withIdentifier: "toProfileVC", sender: self)
+        self.navigationController?.popToRootViewController(animated: true)
         
     }
     
