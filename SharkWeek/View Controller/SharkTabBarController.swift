@@ -13,8 +13,8 @@ class SharkTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let profileNav = UIStoryboard(name: "Home", bundle: .main).instantiateInitialViewController(),
-            let homeNav = UIStoryboard(name: "Profile", bundle: .main).instantiateInitialViewController(),
+        guard let profileNav = UIStoryboard(name: "Profile", bundle: .main).instantiateInitialViewController(),
+            let homeNav = UIStoryboard(name: "Home", bundle: .main).instantiateInitialViewController(),
             let postJobNav = UIStoryboard(name: "PostJob", bundle: .main).instantiateInitialViewController(),
             let myJobsNav = UIStoryboard(name: "MyJobs", bundle: .main).instantiateInitialViewController(),
         let searchNav = UIStoryboard(name: "Search", bundle: .main).instantiateInitialViewController()else {return}
@@ -25,7 +25,7 @@ class SharkTabBarController: UITabBarController {
         myJobsNav.tabBarItem = UITabBarItem(title: "My Jobs", image: nil, tag: 3)
         searchNav.tabBarItem = UITabBarItem(title: "Search", image: nil, tag: 4)
         
-        self.viewControllers = [profileNav, homeNav, postJobNav, myJobsNav,searchNav]
+        self.viewControllers = [ homeNav, profileNav, postJobNav, myJobsNav,searchNav]
     }
     
     
