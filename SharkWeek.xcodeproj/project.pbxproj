@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		480D5B0621750B92005A4A68 /* MyJobsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D5B0421750B92005A4A68 /* MyJobsTVC.swift */; };
 		480D5B0721750B92005A4A68 /* myJobsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D5B0521750B92005A4A68 /* myJobsCell.swift */; };
+		486AFFFA2176615000B598CA /* AppliedDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AFFF92176615000B598CA /* AppliedDetailVC.swift */; };
 		90709B5A216FC54700E4795A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90709B59216FC54700E4795A /* GoogleService-Info.plist */; };
 		C318E6D02171424E00549DD6 /* JobListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318E6CF2171424E00549DD6 /* JobListTableViewController.swift */; };
 		C318E6D22171442400549DD6 /* JobHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318E6D12171442400549DD6 /* JobHistoryTableViewCell.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		480D5B0421750B92005A4A68 /* MyJobsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobsTVC.swift; sourceTree = "<group>"; };
 		480D5B0521750B92005A4A68 /* myJobsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myJobsCell.swift; sourceTree = "<group>"; };
+		486AFFF92176615000B598CA /* AppliedDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedDetailVC.swift; sourceTree = "<group>"; };
 		80128D6CFF2BEBFCD0EB833B /* Pods_SharkWeek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharkWeek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		829BF3DCB91C40E40F773014 /* Pods-SharkWeek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharkWeek.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharkWeek/Pods-SharkWeek.debug.xcconfig"; sourceTree = "<group>"; };
 		90709B59216FC54700E4795A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			children = (
 				480D5B0521750B92005A4A68 /* myJobsCell.swift */,
 				480D5B0421750B92005A4A68 /* MyJobsTVC.swift */,
+				486AFFF92176615000B598CA /* AppliedDetailVC.swift */,
 			);
 			path = myJobs;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				C376F2A9216ED0F4005EEA0D /* Job.swift in Sources */,
 				480D5B0721750B92005A4A68 /* myJobsCell.swift in Sources */,
 				C376F2CE217032B2005EEA0D /* ProfileTableViewController.swift in Sources */,
+				486AFFFA2176615000B598CA /* AppliedDetailVC.swift in Sources */,
 				480D5B0621750B92005A4A68 /* MyJobsTVC.swift in Sources */,
 				C376F28F216ED021005EEA0D /* AppDelegate.swift in Sources */,
 			);
