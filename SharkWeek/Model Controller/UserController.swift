@@ -20,7 +20,6 @@ class UserController{
     
     //Source of Truth
     var currentUser: User?
-    let addy: Address? = Address(line1: "", city: "", state: "", zipCode: "")
     //vars
     static let db = Firestore.firestore()
     let userRef = db.collection("users")
@@ -28,7 +27,7 @@ class UserController{
     let storageRef = Storage.storage().reference()
     //C
     
-    func SignUpUser(firstName: String, lastName: String, email: String, password: String, age: Int, address: Address, bio: String, skill: String, phoneNumber: String, profilePicture: UIImage, completion: @escaping (Bool) -> Void){
+    func SignUpUser(firstName: String, lastName: String, email: String, password: String, age: Int, line1: String, line2: String?, city: String, state: String, zipCode: String, bio: String, skill: String, phoneNumber: String, profilePicture: UIImage, completion: @escaping (Bool) -> Void){
         
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             if let error = error{print("🌗There was an error creating the User \(error) \(error.localizedDescription)🌗")
@@ -60,28 +59,15 @@ class UserController{
                     guard let url = url else { return }
                     
                     //create a user with the current stuff
-                    let newUser = User(firstName: firstName, lastName: lastName, email: email, age: age, address: address, bio: bio, skill: skill, phoneNumber: phoneNumber, pictureAsString: "\(url)", uuid: uuid)
+                    let newUser = User(firstName: firstName, lastName: lastName, email: email, age: age, bio: bio, skill: skill, phoneNumber: phoneNumber, pictureAsString: "\(url)", uuid: uuid, line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
                     
                     //set the current user as the newly created user
                     self.currentUser = newUser
-                    
-                    let testAddressCollection = self.userRef.document(uuid).collection("Address")
+    
                     //upload a dictionary of the user to Firestore
-                    let values = ["firstName" : newUser.firstName, "lastName" : newUser.lastName, "email" : newUser.email, "age" : newUser.age, "bio" : newUser.bio, "skill" : newUser.skill, "phoneNumber" : newUser.phoneNumber, "reviewCount" : newUser.reviewCount, "starCount" : newUser.starCount, "picture" : newUser.pictureAsString, "isMinor" : newUser.isMinor, "uuid": newUser.uuid, "jobsCreated" : newUser.jobsCreated, "jobsCreatedCompleted" : newUser.jobsCreated, "jobsApplied" : newUser.jobsApplied, "jobsInProgress" : newUser.jobsInProgress, "jobsHiredCompleted" : newUser.jobsHiredCompleted] as [String : Any]
+                    let values = ["firstName" : newUser.firstName, "lastName" : newUser.lastName, "email" : newUser.email, "age" : newUser.age, "bio" : newUser.bio, "skill" : newUser.skill, "phoneNumber" : newUser.phoneNumber, "reviewCount" : newUser.reviewCount, "starCount" : newUser.starCount, "picture" : newUser.pictureAsString, "isMinor" : newUser.isMinor, "uuid": newUser.uuid, "jobsCreated" : newUser.jobsCreated, "jobsCreatedCompleted" : newUser.jobsCreated, "jobsApplied" : newUser.jobsApplied, "jobsInProgress" : newUser.jobsInProgress, "jobsHiredCompleted" : newUser.jobsHiredCompleted, "city" : newUser.city, "line1" : newUser.line1, "line2" :newUser.line2 ?? "", "state" : newUser.state, "zipCode" : newUser.zipCode] as [String : Any]
                     self.userRef.document(uuid).setData(values)
                     
-                    let city = address.city
-                    let line1 = address.line1
-                    let line2 = address.line2 ?? ""
-                    let state = address.state
-                    let zipCode = address.zipCode
-                    
-                    let addressValues = ["city" : city,
-                                         "line1" : line1,
-                                         "line2" : line2,
-                                         "state" : state,
-                                         "zipCode" : zipCode] as [String : Any]
-                    testAddressCollection.document("Address").setData(addressValues)
                     completion(true) ; return
                 })
                 
@@ -137,25 +123,6 @@ class UserController{
     func readUser(userID: String, completion: @escaping (Error?) -> ()){
         let uid = userID
         
-        userRef.document(uid).collection("Address").document("Address").getDocument { (querySnapshot, error) in
-            if let error = error {
-                print("Whack failed address read \(error.localizedDescription)")
-                return
-            } else {
-                guard let line1 = querySnapshot?.get("line1") as? String ,
-                    let line2 = querySnapshot?.get("line2") as? String ,
-                    let city = querySnapshot?.get("city") as? String ,
-                    let state = querySnapshot?.get("state") as? String ,
-                    let zipCode = querySnapshot?.get("zipCode") as? String  else { return }
-                guard let addy = self.addy else { return }
-                addy.city = city
-                addy.line1 = line1
-                addy.line2 = line2
-                addy.state = state
-                addy.zipCode = zipCode
-            }
-        }
-        
         userRef.document(uid).getDocument { (querySnapshot, error) in
             if let error = error {
                 completion(error)
@@ -178,10 +145,14 @@ class UserController{
             guard let jobsApplied = querySnapshot?.get("jobsApplied") as? [String] else {print("Error reading jobs applied"); return}
             guard let jobsInProgress = querySnapshot?.get("jobsInProgress") as? [String] else {print("Error reading jobs in progress"); return}
             guard let jobsHiredCompleted = querySnapshot?.get("jobsHiredCompleted") as? [String] else {print("Error reading jobs hired completed"); return}
+            guard let line1 = querySnapshot?.get("line1") as? String,
+                let line2 = querySnapshot?.get("line2") as? String,
+                let city = querySnapshot?.get("city") as? String,
+                let state = querySnapshot?.get("state") as? String,
+                let zipCode = querySnapshot?.get("zipCode") as? String else { return }
             
-            guard let address = self.addy else {return}
             
-            let user = User(firstName: firstName, lastName: lastName, email: email, age: age, address: address, bio: bio, skill: skill, phoneNumber: phoneNumber, reviewCount: reviewCount, starCount: starCount,  pictureAsString: picture, jobsCreated: jobsCreated, jobsCreatedCompleted: jobsCreatedCompleted, jobsApplied: jobsApplied, jobsInProgress: jobsInProgress, jobsHiredCompleted: jobsHiredCompleted, uuid: uuid)
+            let user = User(firstName: firstName, lastName: lastName, email: email, age: age, bio: bio, skill: skill, phoneNumber: phoneNumber, reviewCount: reviewCount, starCount: starCount, pictureAsString: picture, jobsCreated: jobsCreated, jobsCreatedCompleted: jobsCreatedCompleted, jobsApplied: jobsApplied, jobsInProgress: jobsInProgress, jobsHiredCompleted: jobsHiredCompleted, uuid: uuid, line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
             
             self.currentUser = user
             
@@ -191,7 +162,7 @@ class UserController{
     
     //U
     
-    func updateUser(firstName: String, lastName: String, email: String, password: String, age: Int, address: Address, bio: String, skill: String, phoneNumber: String, profilePicture: UIImage, completion: @escaping (Bool) -> Void){
+    func updateUser(firstName: String, lastName: String, email: String, password: String, age: Int, bio: String, skill: String, phoneNumber: String, profilePicture: UIImage, line1: String, line2: String, city: String, state: String, zipCode: String, completion: @escaping (Bool) -> Void){
         
         guard let uuid = currentUser?.uuid else {return}
         
@@ -218,21 +189,26 @@ class UserController{
                     completion(false) ; return
                 }
                 guard let url = url else { return }
+                guard let currentUser = self.currentUser else { return }
                 
                 //update current user
-                self.currentUser?.firstName = firstName
-                self.currentUser?.lastName = lastName
-                self.currentUser?.email = email
-                self.currentUser?.age = age
-                self.currentUser?.address = address
-                self.currentUser?.bio = bio
-                self.currentUser?.skill = skill
-                self.currentUser?.phoneNumber = phoneNumber
-                self.currentUser?.pictureAsString = "\(url)"
+                currentUser.firstName = firstName
+                currentUser.lastName = lastName
+                currentUser.email = email
+                currentUser.age = age
+                currentUser.line1 = line1
+                currentUser.line2 = line2
+                currentUser.city = city
+                currentUser.state = state
+                currentUser.zipCode = zipCode
+                currentUser.bio = bio
+                currentUser.skill = skill
+                currentUser.phoneNumber = phoneNumber
+                currentUser.pictureAsString = "\(url)"
                 
                 guard let updatedUser = self.currentUser else {print("Error unwrapping user in updated"); return}
                 //upload a dictionary of the user to Firestore
-                let values = ["firstName" : updatedUser.firstName, "lastName" : updatedUser.lastName, "email" : updatedUser.email, "age" : updatedUser.age, "bio" : updatedUser.bio, "skill" : updatedUser.skill, "phoneNumber" : updatedUser.phoneNumber, "reviewCount" : updatedUser.reviewCount, "starCount" : updatedUser.starCount, "picture" : updatedUser.pictureAsString, "isMinor" : updatedUser.isMinor, "uuid": updatedUser.uuid, "jobsCreated" : updatedUser.jobsCreated, "jobsCreatedCompleted" : updatedUser.jobsCreated, "jobsApplied" : updatedUser.jobsApplied, "jobsInProgress" : updatedUser.jobsInProgress, "jobsHiredCompleted" : updatedUser.jobsHiredCompleted] as [String : Any]
+                let values = ["firstName" : updatedUser.firstName, "lastName" : updatedUser.lastName, "email" : updatedUser.email, "age" : updatedUser.age, "bio" : updatedUser.bio, "skill" : updatedUser.skill, "phoneNumber" : updatedUser.phoneNumber, "reviewCount" : updatedUser.reviewCount, "starCount" : updatedUser.starCount, "picture" : updatedUser.pictureAsString, "isMinor" : updatedUser.isMinor, "uuid": updatedUser.uuid, "jobsCreated" : updatedUser.jobsCreated, "jobsCreatedCompleted" : updatedUser.jobsCreated, "jobsApplied" : updatedUser.jobsApplied, "jobsInProgress" : updatedUser.jobsInProgress, "jobsHiredCompleted" : updatedUser.jobsHiredCompleted, "city" : updatedUser.city, "line1" : updatedUser.line1, "line2" :updatedUser.line2 ?? "", "state" : updatedUser.state, "zipCode" : updatedUser.zipCode] as [String : Any]
                 self.userRef.document(updatedUser.uuid).setData(values)
             })
             completion(true) ; return

@@ -37,11 +37,11 @@ class EditPostVC: UIViewController {
         toolsNeededTF.text = jobPoster.toolsNeeded
         toolsProvidedTF.text = jobPoster.toolsProvided
         
-        addressOneTF.text = jobPoster.address.line1
-        addressTwoTF.text = jobPoster.address.line2
-        cityTF.text = jobPoster.address.city
-        stateTF.text = jobPoster.address.state
-        zipCodeTF.text = jobPoster.address.zipCode
+        addressOneTF.text = jobPoster.line1
+        addressTwoTF.text = jobPoster.line2
+        cityTF.text = jobPoster.city
+        stateTF.text = jobPoster.state
+        zipCodeTF.text = jobPoster.zipCode
     }
     
     
