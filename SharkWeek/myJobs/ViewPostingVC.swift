@@ -31,23 +31,39 @@ class ViewPostingVC: UIViewController {
     
     //map
     @IBOutlet weak var mapLabel: MKMapView!
-    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        updatePerson()
+        updateViews()
+    }
+    var personInfo: User?
+    func updatePerson() {
+        guard let personInfo = personInfo else {return}
+        firstNameLabel.text = personInfo.firstName
+        lastNameLabel.text = personInfo.lastName
+        jobPosterImage.image = personInfo.pictureAsImage
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    var appliedJob: Job?
+    func updateViews() {
+        guard let appliedJob = appliedJob else {return}
+        //categoryLabel.text = appliedJob.category
+        jobTitleLabel.text = appliedJob.title
+        payLabel.text = "\(appliedJob.pay)"
+        descriptionTV.text = appliedJob.description
+        toolsProvidedLabel.text = appliedJob.toolsProvided
+        toolsNeededLabel.text = appliedJob.toolsProvided
+        
+        //reviews
+        starOneLabel.text = "\(String(describing: appliedJob.reviewOfWorker))"
+        starTwoLabel.text = "\(String(describing: appliedJob.reviewOfWorker))"
+        starThreeLabel.text = "\(String(describing: appliedJob.reviewOfWorker))"
+        starFourLabel.text = "\(String(describing: appliedJob.reviewOfWorker))"
+        starFiveLabel.text = "\(String(describing: appliedJob.reviewOfWorker))"
+        
     }
-    */
+
 
 }
