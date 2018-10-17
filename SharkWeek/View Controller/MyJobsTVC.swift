@@ -19,6 +19,7 @@ class MyJobsTVC: UITableViewController {
         segmentedControlLabel.layer.cornerRadius = 5.0
         segmentedControlLabel.backgroundColor = .lightGray
         segmentedControlLabel.tintColor = .darkGray
+
         segmentedControlLabel.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
     }
     override func viewDidLoad() {
@@ -27,11 +28,10 @@ class MyJobsTVC: UITableViewController {
         
         currentUser = UserController.shared.currentUser
         segmentAttributes()
-        
     }
     
     func updateViews(){
-
+        
         guard let currentUser = currentUser else {return}
         switch segmentedControlLabel.selectedSegmentIndex {
         case 0:
