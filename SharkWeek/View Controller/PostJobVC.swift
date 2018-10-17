@@ -30,7 +30,15 @@ class PostJobVC: UIViewController {
     
     @IBAction func postJobButton(_ sender: Any) {
         if notEmpty(){
-            
+//            guard let title = jobTitleTF.text,
+//                let pay = payTF.text,
+//                let address1 = addressOneTF.text,
+//                let address2 = addressTwoTF.text,
+//                let city = cityTF.text,
+//                
+//                
+//            
+//            JobController.shared.createNewJob(title: <#T##String#>, description: <#T##String#>, category: <#T##String#>, pay: <#T##Int#>, address: <#T##Address#>, toolsNeeded: <#T##String?#>, toolsProvided: <#T##String?#>)
         }
         
     }
