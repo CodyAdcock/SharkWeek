@@ -12,7 +12,7 @@
         <!--Sign In-->
         <scene sceneID="psc-42-Zrb">
             <objects>
-                <viewController id="9ZI-JH-1Hx" customClass="SignInViewController" customModule="SharkWeek" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInVC" id="9ZI-JH-1Hx" customClass="SignInViewController" customModule="SharkWeek" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="neO-uw-GCT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

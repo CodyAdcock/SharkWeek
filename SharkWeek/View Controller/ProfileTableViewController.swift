@@ -96,7 +96,10 @@ class ProfileTableViewController: UITableViewController {
         self.ProfilePictureImageView.image = currentUser.pictureAsImage
         NameAgeLabel.text = "\(currentUser.firstName) \(currentUser.lastName), \(currentUser.age)"
         CityStateLabel.text = "\(currentUser.address.city), \(currentUser.address.state)"
-        let rating = currentUser.starCount / currentUser.reviewCount
+        var rating = 0
+        if currentUser.reviewCount != 0{
+        rating = currentUser.starCount / currentUser.reviewCount
+        }
         switch rating {
         case 1:
             RatingLabel.text = Stars.one
