@@ -104,12 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				48823CDE21768F7D0012C30B /* Cell */,
-				480D5B0421750B92005A4A68 /* MyJobsTVC.swift */,
-				486AFFF92176615000B598CA /* AppliedDetailVC.swift */,
-				48823CE3217690A20012C30B /* PostedDetailVC.swift */,
-				48823CE5217691750012C30B /* ViewPostingVC.swift */,
-				48823CE9217692BD0012C30B /* EditPostVC.swift */,
-				48823CEB217693240012C30B /* ViewApplicantsVC.swift */,
 			);
 			path = myJobs;
 			sourceTree = "<group>";
@@ -196,6 +190,12 @@
 			children = (
 				C3DF84382176515B0064FCF5 /* SharkTabBarController.swift */,
 				C3F81F3D21711C7100E06F6E /* Profile Containers */,
+				480D5B0421750B92005A4A68 /* MyJobsTVC.swift */,
+				486AFFF92176615000B598CA /* AppliedDetailVC.swift */,
+				48823CE3217690A20012C30B /* PostedDetailVC.swift */,
+				48823CE5217691750012C30B /* ViewPostingVC.swift */,
+				48823CE9217692BD0012C30B /* EditPostVC.swift */,
+				48823CEB217693240012C30B /* ViewApplicantsVC.swift */,
 				C376F2C7216FECD5005EEA0D /* SignUpViewController.swift */,
 				C376F2C9216FED8C005EEA0D /* SignInViewController.swift */,
 				C376F2CB21700EC3005EEA0D /* PhotoSelectViewController.swift */,
