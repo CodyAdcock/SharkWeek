@@ -32,6 +32,9 @@
                                         <segment title="Applied"/>
                                         <segment title="Posted"/>
                                     </segments>
+                                    <connections>
+                                        <action selector="segmentedActionButton:" destination="7nh-yN-MrX" eventType="valueChanged" id="o5F-BK-0hY"/>
+                                    </connections>
                                 </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
