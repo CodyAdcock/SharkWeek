@@ -83,8 +83,8 @@ class UserController{
                                          "state" : state,
                                          "zipCode" : zipCode] as [String : Any]
                     testAddressCollection.document("Address").setData(addressValues)
+                    completion(true) ; return
                 })
-                completion(true) ; return
                 
                 // with metaData you can get information on the data such as file size and file type; only using it here for the completion handler for downloading the URL of it.
                 // still want to download the image in order to convert it into a string to set in the users values
