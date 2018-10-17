@@ -39,8 +39,7 @@ class UserController{
             let uuid = user.uid
             
             //Grab the Photo, change it into data
-            guard let photoAsData = profilePicture.jpegData(compressionQuality: 1.0) else {return}
-            
+            guard let photoAsData = profilePicture.jpegData(compressionQuality: 0.3) else {return}
             //create referencees to storage, with child nodes for organization/easier data retrieval
             let imagesRef = self.storageRef.child("ProfileImages")
             let userImageRef = imagesRef.child(uuid)
@@ -112,23 +111,27 @@ class UserController{
     }
     
     // TODO: - Fix this
-    func grabUsersPicture(user: User) -> (UIImage) {
-        userRef.document(user.uuid).getDocument { (querySnapshot, error) in
-            if let error = error {
-                print("Could not grab the users document data \(error.localizedDescription)")
-                return
-            }
+    func grabUsersPicture(user: User, completion: @escaping (Bool) -> ()) {
+        
+        // this would be used to grab a image as url and download it,
+//        userRef.document(user.uuid).getDocument { (querySnapshot, error) in
+//            if let error = error {
+//                print("Could not grab the users document data \(error.localizedDescription)")
+//                return
+//            }
+//            guard let imageAsString = querySnapshot?.get("picture") as? String else { return }
+        
             let imagesRef = self.storageRef.child("ProfileImages")
             imagesRef.child(user.uuid).getData(maxSize: 1 * 1024 * 1024, completion: { (data, error) in
                 if let error = error {
                     print("Could not find image for your own profilePic \(error.localizedDescription)")
+                    completion(false)
                 }
                 guard let data = data else { return }
                 guard let image = UIImage(data: data) else { return }
                 user.pictureAsImage = image
+                completion(true)
             })
-        }
-        return user.pictureAsImage ?? UIImage(named: "shark")!
     }
     
     func readUser(userID: String, completion: @escaping (Error?) -> ()){
@@ -193,7 +196,7 @@ class UserController{
         guard let uuid = currentUser?.uuid else {return}
         
         //Grab the Photo, change it into data
-        guard let photoAsData = profilePicture.jpegData(compressionQuality: 1.0) else {return}
+        guard let photoAsData = profilePicture.jpegData(compressionQuality: 0.3) else {return}
         
         //create referencees to storage, with child nodes for organization/easier data retrieval
         let storageRef = self.storage.reference()
@@ -206,6 +209,8 @@ class UserController{
                 print("👽Could not download data from the profile image \(error.localizedDescription)👽")
                 completion(false) ; return
             }
+//            var size = metaData.size
+            
             
             userImageRef.downloadURL(completion: { (url, error) in
                 if let error = error {

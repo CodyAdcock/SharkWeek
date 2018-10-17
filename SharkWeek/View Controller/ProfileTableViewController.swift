@@ -25,6 +25,11 @@ class ProfileTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.ProfilePictureImageView.layer.masksToBounds = false
+        self.ProfilePictureImageView.clipsToBounds = true
+        self.ProfilePictureImageView.layer.cornerRadius = ProfilePictureImageView.frame.height / 2
+        
         if UserController.shared.currentUser == nil{
             let signInAlertController = UIAlertController(title: "Please Sign in to view this content!", message: "A lot of our app isn't very useful if you aren't signed in! Please sign in!", preferredStyle: .alert)
             let signInAction = UIAlertAction(title: "OK", style: .default) { (action) in
@@ -35,10 +40,18 @@ class ProfileTableViewController: UITableViewController {
             signInAlertController.addAction(notNowAction)
             
             self.present(signInAlertController, animated: true, completion: nil)
-        }
-        else{
+        } else {
             
             guard let user = UserController.shared.currentUser else {return}
+            
+            UserController.shared.grabUsersPicture(user: user) { (success) in
+                if success == true {
+                    self.ProfilePictureImageView.image = user.pictureAsImage
+                    print("sick, loaded picture")
+                } else {
+                    print("Could not set the value for the users image")
+                }
+            }
             
             let addressString = "\(user.address.city), \(user.address.state)"
             let fullName = "\(user.firstName) \(user.lastName)"
@@ -80,7 +93,7 @@ class ProfileTableViewController: UITableViewController {
         
         guard let currentUser = UserController.shared.currentUser else { return }
         
-        ProfilePictureImageView.image = UIImage(contentsOfFile: "blankFace")
+        self.ProfilePictureImageView.image = currentUser.pictureAsImage
         NameAgeLabel.text = "\(currentUser.firstName) \(currentUser.lastName), \(currentUser.age)"
         CityStateLabel.text = "\(currentUser.address.city), \(currentUser.address.state)"
         let rating = currentUser.starCount / currentUser.reviewCount
