@@ -20,8 +20,6 @@ class EditPostVC: UIViewController {
     @IBOutlet weak var descriptionTV: UITextView!
     @IBOutlet weak var toolsNeededTF: UITextField!
     @IBOutlet weak var toolsProvidedTF: UITextField!
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +41,6 @@ class EditPostVC: UIViewController {
         stateTF.text = jobPoster.address.state
         zipCodeTF.text = jobPoster.address.zipCode
     }
-    
     
     @IBAction func updateButton(_ sender: Any) {
         
