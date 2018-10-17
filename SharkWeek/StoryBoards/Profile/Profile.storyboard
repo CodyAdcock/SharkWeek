@@ -123,7 +123,6 @@
                                         </state>
                                         <connections>
                                             <action selector="ContinueButtonTapped:" destination="ktc-BC-bgY" eventType="touchUpInside" id="KhR-fP-mtv"/>
-                                            <action selector="secondContinueButtonTapped:" destination="ktc-BC-bgY" eventType="touchUpInside" id="2gt-wo-YXo"/>
                                         </connections>
                                     </button>
                                 </subviews>

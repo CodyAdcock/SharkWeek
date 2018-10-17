@@ -240,28 +240,7 @@ class SignUpViewController: UIViewController {
             return
         }
     }
-    @IBAction func secondContinueButtonTapped(_ sender: Any) {
-        
 
-        switch self.stageOfSignUp{
-        case 2:
-            StatusBarLabel.text = self.stage2
-            firstTransition()
-        case 3:
-            StatusBarLabel.text = self.stage3
-            secondTransition()
-        case 4:
-            StatusBarLabel.text = self.stage4
-        case 5:
-            fourthTransition()
-        case 6:
-            fifthTransition()
-        default:
-            return
-            
-        }
-        
-    }
 }
 extension SignUpViewController: PhotoSelectViewControllerDelegate{
     func photoSelected(_ photo: UIImage) {
