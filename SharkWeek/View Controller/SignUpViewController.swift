@@ -63,6 +63,16 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        CityTextField.delegate = self
+        StateTextField.delegate = self
+        ZipTextField.delegate = self
+        BioAndSkillsTextView.delegate = self
+        FirstNameAgeTextField.delegate = self
+        LastNamePhoneTextField.delegate = self
+        EmailAddressLine1TextField.delegate = self
+        PasswordAddressLine2TextField.delegate = self
+        
         WelcomeTextStack.isHidden = true
         ProfPictureImageView.isHidden = true
         bioSkillLabel.text = ""
