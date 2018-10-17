@@ -25,7 +25,25 @@ class EditPostVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
     }
+    
+    var jobPoster: Job?
+    func updateViews() {
+        guard let jobPoster = jobPoster else {return}
+        jobTitleTF.text = jobPoster.title
+        payTF.text = "\(jobPoster.pay)"
+        descriptionTV.text = jobPoster.description
+        toolsNeededTF.text = jobPoster.toolsNeeded
+        toolsProvidedTF.text = jobPoster.toolsProvided
+        
+        addressOneTF.text = jobPoster.address.line1
+        addressTwoTF.text = jobPoster.address.line2
+        cityTF.text = jobPoster.address.city
+        stateTF.text = jobPoster.address.state
+        zipCodeTF.text = jobPoster.address.zipCode
+    }
+    
     
     @IBAction func updateButton(_ sender: Any) {
         
@@ -40,8 +58,6 @@ class EditPostVC: UIViewController {
     @IBAction func selectCategoryButton(_ sender: Any) {
         
     }
-    
-    
     
     /*
     // MARK: - Navigation
