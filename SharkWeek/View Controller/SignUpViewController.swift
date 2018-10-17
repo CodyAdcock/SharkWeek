@@ -167,10 +167,10 @@ class SignUpViewController: UIViewController {
         
     }
     func thirdTransition(){
+        bio = self.BioAndSkillsTextView.text
         
         UIView.animate(withDuration: 0.2){
             self.bioSkillLabel.text = "Skills"
-            self.bio = self.BioAndSkillsTextView.text
             self.BioAndSkillsTextView.text = ""
             self.WelcomeUserLabel.text = "Last Thing!"
             self.FlavorWelcomeText.text = "List the skills that will help you complete your jobs"
@@ -252,7 +252,6 @@ class SignUpViewController: UIViewController {
             secondTransition()
         case 4:
             StatusBarLabel.text = self.stage4
-            thirdTransition()
         case 5:
             fourthTransition()
         case 6:
