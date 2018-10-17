@@ -46,7 +46,7 @@
 
 /* Begin PBXFileReference section */
 		480D5B0421750B92005A4A68 /* MyJobsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobsTVC.swift; sourceTree = "<group>"; };
-		480D5B0521750B92005A4A68 /* myJobsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myJobsCell.swift; sourceTree = "<group>"; };
+		480D5B0521750B92005A4A68 /* myJobsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = myJobsCell.swift; path = "SharkWeek/View Controller/Jobs Cell/myJobsCell.swift"; sourceTree = SOURCE_ROOT; };
 		483302E22176A713004EBB07 /* PostJobVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostJobVC.swift; sourceTree = "<group>"; };
 		486AFFF92176615000B598CA /* AppliedDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedDetailVC.swift; sourceTree = "<group>"; };
 		48823CE3217690A20012C30B /* PostedDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostedDetailVC.swift; sourceTree = "<group>"; };
@@ -100,23 +100,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		480D5B0321750B83005A4A68 /* myJobs */ = {
-			isa = PBXGroup;
-			children = (
-				48823CDE21768F7D0012C30B /* Cell */,
-			);
-			path = myJobs;
-			sourceTree = "<group>";
-		};
-		48823CDE21768F7D0012C30B /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				480D5B0521750B92005A4A68 /* myJobsCell.swift */,
-				48B0401E2176A585002424AC /* ViewApplicantsCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		504653EFB3349C6B7C917D68 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,7 +129,6 @@
 		C376F28D216ED021005EEA0D /* SharkWeek */ = {
 			isa = PBXGroup;
 			children = (
-				480D5B0321750B83005A4A68 /* myJobs */,
 				C318E6DF2173FA6700549DD6 /* SharkWeek.entitlements */,
 				C3F81F3A2170F59300E06F6E /* Music */,
 				C376F2A2216ED04F005EEA0D /* View Controller */,
@@ -188,8 +170,8 @@
 		C376F2A2216ED04F005EEA0D /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C3DF84382176515B0064FCF5 /* SharkTabBarController.swift */,
 				C3F81F3D21711C7100E06F6E /* Profile Containers */,
+				C3DF84382176515B0064FCF5 /* SharkTabBarController.swift */,
 				480D5B0421750B92005A4A68 /* MyJobsTVC.swift */,
 				486AFFF92176615000B598CA /* AppliedDetailVC.swift */,
 				48823CE3217690A20012C30B /* PostedDetailVC.swift */,
@@ -208,6 +190,8 @@
 		C376F2A3216ED04F005EEA0D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				480D5B0521750B92005A4A68 /* myJobsCell.swift */,
+				48B0401E2176A585002424AC /* ViewApplicantsCell.swift */,
 				C318E6D12171442400549DD6 /* JobHistoryTableViewCell.swift */,
 			);
 			path = View;
