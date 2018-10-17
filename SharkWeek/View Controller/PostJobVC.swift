@@ -73,10 +73,8 @@ class PostJobVC: UIViewController {
                 let description = descriptionTV.text,
                 let toolsNeeded = toolsNeededTF.text,
                 let toolsProvided = toolsProvidedTF.text else {return}
-                
-                let addy = Address(line1: address1 + address2, city: city, state: state, zipCode: zip)
             
-            JobController.shared.createNewJob(title: title, description: description, category: "Default", pay: pay, address: addy, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided)
+            JobController.shared.createNewJob(title: title, description: description, category: "Default", pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, line1: address1, line2: address2, city: city, state: state, zipCode: zip)
             
             let alert = UIAlertController(title: "Job Created!", message: "supposedly...", preferredStyle: .alert)
             let okayAction = UIAlertAction(title: "OK", style: .default)
