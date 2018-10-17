@@ -15,7 +15,6 @@ class User {
     var lastName: String
     var email: String
     var age: Int
-    var address: Address // Address has multiple properties so it's its own object
     var bio: String
     var skill: String
     var phoneNumber: String
@@ -30,13 +29,18 @@ class User {
     var jobsApplied: [String] // UUIDs of jobs
     var jobsInProgress: [String] // UUIDs of jobs
     var jobsHiredCompleted: [String] // UUIDs of jobs
+    // Address properties
+    var line1: String
+    var line2: String?
+    var city: String
+    var state: String
+    var zipCode: String
     
-    init(firstName: String, lastName: String, email: String, age: Int, address: Address, bio: String, skill: String, phoneNumber: String, reviewCount: Int = 0, starCount: Int = 0,  pictureAsString: String, jobsCreated: [String] = [], jobsCreatedCompleted: [String] = [], jobsApplied: [String] = [], jobsInProgress: [String] = [], jobsHiredCompleted: [String] = [], uuid: String ){
+    init(firstName: String, lastName: String, email: String, age: Int, bio: String, skill: String, phoneNumber: String, reviewCount: Int = 0, starCount: Int = 0,  pictureAsString: String, jobsCreated: [String] = [], jobsCreatedCompleted: [String] = [], jobsApplied: [String] = [], jobsInProgress: [String] = [], jobsHiredCompleted: [String] = [], uuid: String, line1: String, line2: String? = "", city: String, state: String, zipCode: String){
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
         self.age = age
-        self.address = address
         self.bio = bio
         self.skill = skill
         self.phoneNumber = phoneNumber
@@ -50,16 +54,7 @@ class User {
         self.jobsInProgress = jobsInProgress
         self.jobsHiredCompleted = jobsHiredCompleted
         self.uuid = uuid
-    }
-}
-
-class Address {
-    var line1: String
-    var line2: String?
-    var city: String
-    var state: String
-    var zipCode: String
-    init(line1: String, line2: String? = "", city: String, state: String, zipCode: String) {
+        
         self.line1 = line1
         self.line2 = line2
         self.city = city

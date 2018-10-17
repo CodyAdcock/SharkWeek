@@ -47,7 +47,6 @@ class SignUpViewController: UIViewController {
     var lastName: String?
     var email: String?
     var age: String?
-    var address: Address?
     var line1: String?
     var line2: String?
     var city: String?
@@ -204,9 +203,7 @@ class SignUpViewController: UIViewController {
             let picture = photo,
             let password = password else {return}
         
-        let temporaryAddreess = Address(line1: line1, line2: line2, city: city, state: state, zipCode: zip)
-        
-        UserController.shared.SignUpUser(firstName: firstName, lastName: lastName, email: email, password: password, age: ageAsInt, address: temporaryAddreess, bio: bio, skill: skill, phoneNumber: phoneNumber, profilePicture: picture) { (success) in
+        UserController.shared.SignUpUser(firstName: firstName, lastName: lastName, email: email, password: password, age: ageAsInt, line1: line1, line2: line2, city: city, state: state, zipCode: zip, bio: bio, skill: skill, phoneNumber: phoneNumber, profilePicture: picture) { (success) in
             if success == true {
                 self.navigationController?.popToRootViewController(animated: true)
                 print("Sign up succccccccceded")

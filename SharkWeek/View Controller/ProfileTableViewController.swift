@@ -53,7 +53,7 @@ class ProfileTableViewController: UITableViewController {
                 }
             }
             
-            let addressString = "\(user.address.city), \(user.address.state)"
+            let addressString = "\(user.city), \(user.state)"
             let fullName = "\(user.firstName) \(user.lastName)"
             
             ProfilePictureImageView.image = UserController.shared.currentUser?.pictureAsImage
@@ -95,7 +95,7 @@ class ProfileTableViewController: UITableViewController {
         
         self.ProfilePictureImageView.image = currentUser.pictureAsImage
         NameAgeLabel.text = "\(currentUser.firstName) \(currentUser.lastName), \(currentUser.age)"
-        CityStateLabel.text = "\(currentUser.address.city), \(currentUser.address.state)"
+        CityStateLabel.text = "\(currentUser.city), \(currentUser.state)"
         var rating = 0
         if currentUser.reviewCount != 0{
         rating = currentUser.starCount / currentUser.reviewCount
