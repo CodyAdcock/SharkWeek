@@ -16,14 +16,18 @@ class PersonalInfoViewController: UIViewController {
     
     var currentUser: User?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         currentUser = UserController.shared.currentUser
         guard let currentUser = currentUser else {return}
         
         PhoneNumberLabel.text = "\(currentUser.phoneNumber)"
         BioLabel.text = currentUser.bio
         SkillsLabel.text = currentUser.skill
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
     }
     

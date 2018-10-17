@@ -50,7 +50,7 @@ class JobHistoryTableViewCell: UITableViewCell {
 
 }
 struct Stars{
-    
+    static let zero = "☆☆☆☆☆"
     static let one = "★☆☆☆☆"
     static let two = "★★☆☆☆"
     static let three = "★★★☆☆"

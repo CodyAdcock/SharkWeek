@@ -37,11 +37,37 @@ class ProfileTableViewController: UITableViewController {
             self.present(signInAlertController, animated: true, completion: nil)
         }
         else{
-            ProfilePictureImageView.image = UserController.shared.currentUser?.pictureAsImage
-            NameAgeLabel.text = (UserController.shared.currentUser?.firstName)! + " " + (UserController.shared.currentUser?.lastName)! ?? "(Name Not found)"
-            CityStateLabel.text = (UserController.shared.currentUser?.address.city)! + ", " + (UserController.shared.currentUser?.address.state)! ?? "(Location Not Found)"
-            RatingLabel.text = "\(UserController.shared.currentUser?.reviewCount)"
             
+            guard let user = UserController.shared.currentUser else {return}
+            
+            let addressString = "\(user.address.city), \(user.address.state)"
+            let fullName = "\(user.firstName) \(user.lastName)"
+            
+            ProfilePictureImageView.image = UserController.shared.currentUser?.pictureAsImage
+            NameAgeLabel.text = fullName
+            CityStateLabel.text = addressString
+            
+            switch user.reviewCount {
+            case 0:
+                RatingLabel.text = Stars.zero
+            case 1:
+                RatingLabel.text = Stars.one
+
+            case 2:
+                RatingLabel.text = Stars.two
+
+            case 3:
+                RatingLabel.text = Stars.three
+
+            case 4:
+                RatingLabel.text = Stars.four
+
+            case 5:
+                RatingLabel.text = Stars.five
+            default:
+                RatingLabel.text = Stars.zero
+
+            }
         }
     }
     
