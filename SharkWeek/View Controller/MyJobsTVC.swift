@@ -33,7 +33,6 @@ class MyJobsTVC: UITableViewController {
         segmentedControlLabel.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
 
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -89,3 +88,4 @@ class MyJobsTVC: UITableViewController {
 }
 
 }
+
