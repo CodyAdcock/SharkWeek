@@ -34,7 +34,7 @@ class SignUpViewController: UIViewController {
     
     
     var stageOfSignUp = 1
-    var photo: UIImage?
+    
     
     let stageo: String = "○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○"
     let stage1: String = "●⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○"
@@ -56,7 +56,7 @@ class SignUpViewController: UIViewController {
     var bio: String?
     var skill: String?
     var phoneNumber: String?
-    var picture: UIImage?
+    var photo: UIImage?
     var password: String?
     
     
@@ -182,8 +182,8 @@ class SignUpViewController: UIViewController {
         guard let firstName = firstName,
             let lastName = lastName,
             let email = email,
-            let ageInt = age,
-            let age = Int(ageInt),
+            let ageAsString = age,
+            let ageAsInt = Int(ageAsString),
             let line1 = line1,
             let city = city,
             let state = state,
@@ -191,17 +191,16 @@ class SignUpViewController: UIViewController {
             let bio = bio,
             let skill = skill,
             let phoneNumber = phoneNumber,
-            let picture = picture,
+            let picture = photo,
             let password = password else {return}
         
         let temporaryAddreess = Address(line1: line1, line2: line2, city: city, state: state, zipCode: zip)
         
-        UserController.shared.SignUpUser(firstName: firstName, lastName: lastName, email: email, password: password, age: age, address: temporaryAddreess, bio: bio, skill: skill, phoneNumber: phoneNumber, profilePicture: picture) { (success) in
+        UserController.shared.SignUpUser(firstName: firstName, lastName: lastName, email: email, password: password, age: ageAsInt, address: temporaryAddreess, bio: bio, skill: skill, phoneNumber: phoneNumber, profilePicture: picture) { (success) in
             if success == true {
                 self.navigationController?.popToRootViewController(animated: true)
                 print("Sign up succccccccceded")
-            }
-            else {
+            } else if success == false {
                 let alertController = UIAlertController(title: "Signup failed!", message: "There was an error singing up due to", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alertController.addAction(okAction)
@@ -244,8 +243,6 @@ class SignUpViewController: UIViewController {
         }
     }
     @IBAction func secondContinueButtonTapped(_ sender: Any) {
-        
-        self.stageOfSignUp += 1
         
         switch self.stageOfSignUp{
         case 2:

@@ -9,7 +9,7 @@
 import UIKit
 
 class ProfileTableViewController: UITableViewController {
-
+    
     //IBOutlets Main Page
     
     
@@ -18,7 +18,7 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var CityStateLabel: UILabel!
     @IBOutlet weak var RatingLabel: UILabel!
     @IBOutlet weak var profileSegementedController: UISegmentedControl!
-
+    
     //Container IBOutlets
     @IBOutlet weak var PersonalInfoContainer: UIView! //toPersonalInfoVC
     @IBOutlet weak var JobHistoryContainer: UIView!
@@ -35,6 +35,13 @@ class ProfileTableViewController: UITableViewController {
             signInAlertController.addAction(notNowAction)
             
             self.present(signInAlertController, animated: true, completion: nil)
+        }
+        else{
+            ProfilePictureImageView.image = UserController.shared.currentUser?.pictureAsImage
+            NameAgeLabel.text = (UserController.shared.currentUser?.firstName)! + " " + (UserController.shared.currentUser?.lastName)! ?? "(Name Not found)"
+            CityStateLabel.text = (UserController.shared.currentUser?.address.city)! + ", " + (UserController.shared.currentUser?.address.state)! ?? "(Location Not Found)"
+            RatingLabel.text = "\(UserController.shared.currentUser?.reviewCount)"
+            
         }
     }
     
@@ -66,7 +73,7 @@ class ProfileTableViewController: UITableViewController {
             RatingLabel.text = "Rating Not Found"
         }
     }
-
+    
     
     @IBAction func SegmentedControllerTapped(_ sender: Any) {
         switch profileSegementedController.selectedSegmentIndex{

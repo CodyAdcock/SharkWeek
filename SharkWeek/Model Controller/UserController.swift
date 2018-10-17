@@ -20,7 +20,7 @@ class UserController{
     
     //Source of Truth
     var currentUser: User?
-    
+    let addy: Address? = Address(line1: "", city: "", state: "", zipCode: "")
     //vars
     static let db = Firestore.firestore()
     let userRef = db.collection("users")
@@ -105,6 +105,7 @@ class UserController{
                 print("🎃There was an error creating the user  🎃\(error.localizedDescription)")
                 return
             } else {
+                
                 completion(true)
             }
         })
@@ -130,9 +131,28 @@ class UserController{
         return user.pictureAsImage ?? UIImage(named: "shark")!
     }
     
-    func readUser(completion: @escaping (Error?) -> ()){
+    func readUser(userID: String, completion: @escaping (Error?) -> ()){
+        let uid = userID
         
-        guard let uid = Auth.auth().currentUser?.uid else { return}
+        userRef.document(uid).collection("Address").document("Address").getDocument { (querySnapshot, error) in
+            if let error = error {
+                print("Whack failed address read \(error.localizedDescription)")
+                return
+            } else {
+                guard let line1 = querySnapshot?.get("line1") as? String ,
+                    let line2 = querySnapshot?.get("line2") as? String ,
+                    let city = querySnapshot?.get("city") as? String ,
+                    let state = querySnapshot?.get("state") as? String ,
+                    let zipCode = querySnapshot?.get("zipCode") as? String  else { return }
+                guard let addy = self.addy else { return }
+                addy.city = city
+                addy.line1 = line1
+                addy.line2 = line2
+                addy.state = state
+                addy.zipCode = zipCode
+            }
+        }
+        
         userRef.document(uid).getDocument { (querySnapshot, error) in
             if let error = error {
                 completion(error)
@@ -144,7 +164,6 @@ class UserController{
             guard let lastName = querySnapshot?.get("lastName") as? String else {print("Error reading last name"); return}
             guard let email = querySnapshot?.get("email") as? String else {print("Error reading email"); return}
             guard let age = querySnapshot?.get("age") as? Int else {print("Error reading age"); return}
-            guard let address = querySnapshot?.get("address") as? Address else {print("Error reading address"); return}
             guard let bio = querySnapshot?.get("bio") as? String else {print("Error reading bio"); return}
             guard let skill = querySnapshot?.get("skill") as? String else {print("Error reading skill"); return}
             guard let phoneNumber = querySnapshot?.get("phoneNumber") as? String else {print("Error reading phone number"); return}
@@ -156,6 +175,8 @@ class UserController{
             guard let jobsApplied = querySnapshot?.get("jobsApplied") as? [String] else {print("Error reading jobs applied"); return}
             guard let jobsInProgress = querySnapshot?.get("jobsInProgress") as? [String] else {print("Error reading jobs in progress"); return}
             guard let jobsHiredCompleted = querySnapshot?.get("jobsHiredCompleted") as? [String] else {print("Error reading jobs hired completed"); return}
+            
+            guard let address = self.addy else {return}
             
             let user = User(firstName: firstName, lastName: lastName, email: email, age: age, address: address, bio: bio, skill: skill, phoneNumber: phoneNumber, reviewCount: reviewCount, starCount: starCount,  pictureAsString: picture, jobsCreated: jobsCreated, jobsCreatedCompleted: jobsCreatedCompleted, jobsApplied: jobsApplied, jobsInProgress: jobsInProgress, jobsHiredCompleted: jobsHiredCompleted, uuid: uuid)
             
