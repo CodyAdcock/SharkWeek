@@ -23,9 +23,15 @@ class PostJobVC: UIViewController {
     
         override func viewDidLoad() {
             super.viewDidLoad()
+            descriptionTV.layer.borderWidth = 0.5
+            descriptionTV.layer.borderColor = #colorLiteral(red: 0.643494308, green: 0.6439372897, blue: 0.6583478451, alpha: 1)
+            descriptionTV.layer.cornerRadius = 5
         }
     
     @IBAction func postJobButton(_ sender: Any) {
+        if notEmpty(){
+            
+        }
         
     }
     
@@ -34,7 +40,10 @@ class PostJobVC: UIViewController {
             
     }
         
+    func notEmpty() -> Bool{
         
+        return !(jobTitleTF.text?.isEmpty)! && !(payTF.text?.isEmpty)! && !(addressOneTF.text?.isEmpty)! && !(cityTF.text?.isEmpty)! && !(stateTF.text?.isEmpty)! && !(zipCodeTF.text?.isEmpty)! && !(descriptionTV.text?.isEmpty)! && !(toolsNeededTF.text?.isEmpty)! && !(toolsProvidedTF.text?.isEmpty)!
+    }
         
         /*
          // MARK: - Navigation
