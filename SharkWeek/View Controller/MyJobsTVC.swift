@@ -8,42 +8,7 @@ class MyJobsTVC: UITableViewController {
     var sharedArray: [String] = []
     var currentUser: User?
     
-    
-    //    var currentArray: [String] = []
-    //    var historyArray: [String] = []
-    //    var appliedArray: [String] = []
-    //    var postedArray: [String] = []
-    
-    
-    func segmentAttributes() {
-        segmentedControlLabel.layer.cornerRadius = 5.0
-        segmentedControlLabel.backgroundColor = .lightGray
-        segmentedControlLabel.tintColor = .darkGray
-<<<<<<< HEAD
-        segmentedControlLabel.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
-=======
-    segmentedControlLabel.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
->>>>>>> 8e727b7317394a0627b7c059d90dfaccb7f3e60d
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-        currentUser = UserController.shared.currentUser
-        segmentAttributes()
-<<<<<<< HEAD
-    }
-    
-    func updateViews(){
-=======
-        
-    }
-    
-    func updateViews(){
-        
-        
->>>>>>> 8e727b7317394a0627b7c059d90dfaccb7f3e60d
+    @IBAction func segmentedActionButton(_ sender: Any) {
         guard let currentUser = currentUser else {return}
         switch segmentedControlLabel.selectedSegmentIndex {
         case 0:
@@ -59,20 +24,38 @@ class MyJobsTVC: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func segmentAttributes() {
+        segmentedControlLabel.layer.cornerRadius = 5.0
+        segmentedControlLabel.backgroundColor = .lightGray
+        segmentedControlLabel.tintColor = .darkGray
+
+        segmentedControlLabel.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
+
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        currentUser = UserController.shared.currentUser
+        segmentAttributes()
+    
+   
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sharedArray.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "myJobsCellID", for: indexPath) as? myJobsCell else {return UITableViewCell()}
         let jobRef = sharedArray[indexPath.row]
         let readJobs = JobController.shared.readOneJob(with: jobRef)
         cell.myJob = readJobs
-        return UITableViewCell()
+        return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch segmentedControlLabel.selectedSegmentIndex {
         case 0:
             
@@ -91,8 +74,11 @@ class MyJobsTVC: UITableViewController {
         }
         
     }
+        
+        
+        
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //            if let destinationVC = segue.destination as? AppliedDetailVC {
         //                let currentUser = UserController.shared.currentUser[IndexPath.row]
         //                destinationVC.currentUser = currentUser
@@ -102,3 +88,4 @@ class MyJobsTVC: UITableViewController {
     
 }
 
+}
