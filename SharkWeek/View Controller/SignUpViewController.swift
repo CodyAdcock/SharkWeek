@@ -208,8 +208,6 @@ class SignUpViewController: UIViewController {
                 print("sign up failed")
             }
         }
-        //Create User here @SAM
-        //convert age to int
         
         
     }
@@ -244,6 +242,7 @@ class SignUpViewController: UIViewController {
     }
     @IBAction func secondContinueButtonTapped(_ sender: Any) {
         
+
         switch self.stageOfSignUp{
         case 2:
             StatusBarLabel.text = self.stage2
