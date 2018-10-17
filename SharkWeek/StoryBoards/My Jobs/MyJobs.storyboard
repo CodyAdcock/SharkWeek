@@ -93,6 +93,7 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="7nh-yN-MrX" id="D7G-eL-auC"/>
                             <outlet property="delegate" destination="7nh-yN-MrX" id="2ql-8W-hHr"/>
