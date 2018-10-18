@@ -47,24 +47,22 @@ class AppliedDetailVC: UIViewController {
         jobPosterImage.image = personInfo.pictureAsImage
     }
     
-    
+    var reviewOfWorker: Review?
     var appliedJob: Job?
     func updateViews() {
         guard let appliedJob = appliedJob else {return}
-        //categoryLabel.text = appliedJob.category
+        categoryLabel.text = appliedJob.category
         jobTitleLabel.text = appliedJob.title
         payLabel.text = "\(appliedJob.pay)"
         descriptionTV.text = appliedJob.description
         toolsProvidedLabel.text = appliedJob.toolsProvided
         toolsNeededLabel.text = appliedJob.toolsProvided
-        
         //reviews
-        starOneLabel.text = "\(String(describing: appliedJob.reviewOfWorker))"
-        starTwoLabel.text = "\(String(describing: appliedJob.reviewOfWorker))"
-        starThreeLabel.text = "\(String(describing: appliedJob.reviewOfWorker))"
-        starFourLabel.text = "\(String(describing: appliedJob.reviewOfWorker))"
-        starFiveLabel.text = "\(String(describing: appliedJob.reviewOfWorker))"
-        
+        starOneLabel.text = "\(String(describing: appliedJob.reviewOfWorker?.rating))"
+        starTwoLabel.text = "\(String(describing: appliedJob.reviewOfWorker?.rating))"
+        starThreeLabel.text = "\(String(describing: appliedJob.reviewOfWorker?.rating))"
+        starFourLabel.text = "\(String(describing: appliedJob.reviewOfWorker?.rating))"
+        starFiveLabel.text = "\(String(describing: appliedJob.reviewOfWorker?.rating))"
     }
-
+    
 }
