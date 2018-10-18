@@ -42,6 +42,8 @@
 		C3DF84392176515B0064FCF5 /* SharkTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF84382176515B0064FCF5 /* SharkTabBarController.swift */; };
 		C3F81F3C2170F5A000E06F6E /* Sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C3F81F3B2170F5A000E06F6E /* Sample.mp3 */; };
 		C3F81F3F21711C8900E06F6E /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F81F3E21711C8900E06F6E /* PersonalInfoViewController.swift */; };
+		C3F916DC2178F13A00394038 /* HomePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F916DB2178F13A00394038 /* HomePageTableViewController.swift */; };
+		C3F916DE2178F39F00394038 /* homeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F916DD2178F39F00394038 /* homeCollectionViewCell.swift */; };
 		F7FD3FAB67C569AD13BBE1FE /* Pods_SharkWeek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80128D6CFF2BEBFCD0EB833B /* Pods_SharkWeek.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +89,8 @@
 		C3DF84382176515B0064FCF5 /* SharkTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharkTabBarController.swift; sourceTree = "<group>"; };
 		C3F81F3B2170F5A000E06F6E /* Sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Sample.mp3; sourceTree = "<group>"; };
 		C3F81F3E21711C8900E06F6E /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
+		C3F916DB2178F13A00394038 /* HomePageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTableViewController.swift; sourceTree = "<group>"; };
+		C3F916DD2178F39F00394038 /* homeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeCollectionViewCell.swift; sourceTree = "<group>"; };
 		F5A48662923F62F6E2325171 /* Pods-SharkWeek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharkWeek.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharkWeek/Pods-SharkWeek.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,6 +198,7 @@
 				C376F2CB21700EC3005EEA0D /* PhotoSelectViewController.swift */,
 				C376F2CD217032B2005EEA0D /* ProfileTableViewController.swift */,
 				483302E22176A713004EBB07 /* PostJobVC.swift */,
+				C3F916DB2178F13A00394038 /* HomePageTableViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -204,6 +209,7 @@
 				480D5B0521750B92005A4A68 /* myJobsCell.swift */,
 				48B0401E2176A585002424AC /* ViewApplicantsCell.swift */,
 				C318E6D12171442400549DD6 /* JobHistoryTableViewCell.swift */,
+				C3F916DD2178F39F00394038 /* homeCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -483,6 +489,8 @@
 				C376F2A9216ED0F4005EEA0D /* Job.swift in Sources */,
 				480D5B0721750B92005A4A68 /* myJobsCell.swift in Sources */,
 				C376F2CE217032B2005EEA0D /* ProfileTableViewController.swift in Sources */,
+				C3F916DE2178F39F00394038 /* homeCollectionViewCell.swift in Sources */,
+				C3F916DC2178F13A00394038 /* HomePageTableViewController.swift in Sources */,
 				486AFFFA2176615000B598CA /* AppliedDetailVC.swift in Sources */,
 				48823CEC217693240012C30B /* ViewApplicantsVC.swift in Sources */,
 				48823CE6217691750012C30B /* ViewPostingVC.swift in Sources */,
