@@ -9,12 +9,10 @@
 import UIKit
 
 class ViewApplicantsCell: UITableViewCell {
-
    
     @IBOutlet weak var applicantImage: UIImageView!
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
-    
     
     @IBOutlet weak var starOneLabel: UILabel!
     @IBOutlet weak var starTwoLabel: UILabel!
@@ -22,7 +20,32 @@ class ViewApplicantsCell: UITableViewCell {
     @IBOutlet weak var starFourLabel: UILabel!
     @IBOutlet weak var starFiveLabel: UILabel!
     
-
+    var personInfo: User? {
+        didSet {
+            updatePerson()
+        }
+    }
+    func updatePerson() {
+        guard let personInfo = personInfo else {return}
+        firstNameLabel.text = personInfo.firstName
+        lastNameLabel.text = personInfo.lastName
+        applicantImage.image = personInfo.pictureAsImage
+    }
+    
+    var jobApplicant: Job? {
+        didSet {
+            updateViews()
+        }
+    }
+    func updateViews() {
+        guard let jobApplicant = jobApplicant else {return}
+        starOneLabel.text = "\(String(describing: jobApplicant.reviewOfWorker?.rating))"
+        starTwoLabel.text = "\(String(describing: jobApplicant.reviewOfWorker?.rating))"
+        starThreeLabel.text = "\(String(describing: jobApplicant.reviewOfWorker?.rating))"
+        starFourLabel.text = "\(String(describing: jobApplicant.reviewOfWorker?.rating))"
+        starFiveLabel.text = "\(String(describing: jobApplicant.reviewOfWorker?.rating))"
+    }
+    
     @IBAction func hireButton(_ sender: Any) {
         
     }

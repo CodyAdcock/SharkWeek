@@ -16,7 +16,7 @@ class ViewApplicantsVC: UIViewController {
             super.viewDidLoad()
         }
     
-   
+    
 /*
     // MARK: - Navigation
 
