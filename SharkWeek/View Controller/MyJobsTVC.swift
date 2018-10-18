@@ -8,30 +8,76 @@ class MyJobsTVC: UITableViewController {
     var sharedArray: [String] = []
     var currentUser: User?
     
-    @IBAction func segmentedActionButton(_ sender: Any) {
-        guard let currentUser = currentUser else {return}
-        switch segmentedControlLabel.selectedSegmentIndex {
-        case 0:
-            sharedArray = currentUser.jobsInProgress
-        case 1:
-            sharedArray = currentUser.jobsHiredCompleted
-        case 2:
-            sharedArray = currentUser.jobsApplied
-        case 3:
-            sharedArray = currentUser.jobsCreated
-        default:
-            sharedArray = []
-        }
-    }
+    
+    //    var currentArray: [String] = []
+    //    var historyArray: [String] = []
+    //    var appliedArray: [String] = []
+    //    var postedArray: [String] = []
     
     
     func segmentAttributes() {
         segmentedControlLabel.layer.cornerRadius = 5.0
         segmentedControlLabel.backgroundColor = .lightGray
         segmentedControlLabel.tintColor = .darkGray
-        
+
         segmentedControlLabel.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.currentUser = UserController.shared.currentUser
+        guard let currentUser = currentUser else { return }
         
+        UserController.shared.readUser(userID: currentUser.uuid) { (error) in
+            if let error = error {
+                print("Couldn't read user data \(error.localizedDescription)")
+            } else {
+                print("read user")
+            }
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        segmentAttributes()
+        
+        tableView.delegate = self
+
+    }
+    @IBAction func segmentDidChangeValue(_ sender: Any) {
+        guard let currentUser = currentUser else {return}
+        switch segmentedControlLabel.selectedSegmentIndex {
+        case 0:
+            sharedArray = currentUser.jobsInProgress
+            tableView.reloadData()
+        case 1:
+            sharedArray = currentUser.jobsHiredCompleted
+            tableView.reloadData()
+        case 2:
+            sharedArray = currentUser.jobsApplied
+            tableView.reloadData()
+        case 3:
+            sharedArray = currentUser.jobsCreated
+            tableView.reloadData()
+        default:
+            sharedArray = []
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return sharedArray.count
+    }
+    
+    func segmentAttributes() {
+        segmentedControlLabel.layer.cornerRadius = 5.0
+        segmentedControlLabel.backgroundColor = .lightGray
+        segmentedControlLabel.tintColor = .darkGray
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "myJobsCellID", for: indexPath) as? myJobsCell else {return UITableViewCell()}
+        let jobRef = sharedArray[indexPath.row]
+        let readJobs = JobController.shared.readOneJob(with: jobRef)
+        cell.myJob = readJobs
+        return cell
     }
     override func viewDidLoad() {
         super.viewDidLoad()

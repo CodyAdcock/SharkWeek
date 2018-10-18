@@ -33,7 +33,7 @@
                                         <segment title="Posted"/>
                                     </segments>
                                     <connections>
-                                        <action selector="segmentedActionButton:" destination="7nh-yN-MrX" eventType="valueChanged" id="o5F-BK-0hY"/>
+                                        <action selector="segmentDidChangeValue:" destination="7nh-yN-MrX" eventType="valueChanged" id="Ov6-x0-sWv"/>
                                     </connections>
                                 </segmentedControl>
                             </subviews>

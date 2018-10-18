@@ -87,10 +87,19 @@ class SignUpViewController: UIViewController {
         CityStack.isHidden = true
         TextViewStack.isHidden = true
         
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+
         // Do any additional setup after loading the view.
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toPhotoSelectVC"{
@@ -101,7 +110,13 @@ class SignUpViewController: UIViewController {
     
     //
     
-    
+    @objc func keyboardWillAppear(notification: Notification){
+        guard let keyBoardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {return}
+        view.frame.origin.y = (-keyBoardRect.height + 155)
+    }
+    @objc func keyboardWillDisappear(notification: Notification){
+        view.frame.origin.y = 0
+    }
     
     func firstTransition(){
         //pic transition

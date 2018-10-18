@@ -16,9 +16,9 @@ class JobController {
     let uuid = UserController.shared.currentUser?.uuid
     let jobCollection = UserController.db.collection("jobs")
     let userRef = UserController.shared.userRef
-
+    
     var tempJob: Job?
-
+    
     
     func createNewJob(title: String, description: String, category: String, pay: Int, toolsNeeded: String?, toolsProvided: String?, line1: String, line2: String?, city: String, state: String, zipCode: String) {
         
@@ -48,12 +48,17 @@ class JobController {
         
         
         currentUser.jobsCreated.append(newJob.uuid)
+        
+        userRef.document(currentUser.uuid).updateData([
+            "jobsCreated" : currentUser.jobsCreated
+            ])
+        
     }
     
     // TODO: - Fix this (memory leak)
-
+    
     func readOneJob(with jobReference: String) -> Job? {
-
+        
         jobCollection.document(jobReference).getDocument { (DocumentSnapshot, error) in
             if let error = error {
                 print("there was an error getting the job document for \(jobReference) error: \(error.localizedDescription)")
@@ -86,11 +91,11 @@ class JobController {
             //                        guard let reviewOfJobPoster = documentSnapshot.get("ReviewOfJobPoster") as? String else { return }
             //                        guard let reviewOfJobApplicant = documentSnapshot.get("ReviewOfJobApplicant") as? String else { return }
             
-                
-                let jobA = Job(title: title, description: description, category: category, pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, employerRef: employerRef, applicantsRef: applicantsRef, chosenOneRef: chosenOneRef, line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
-                //                jobA.reviewOfWorker = reviewOfJobApplicant
-                //                jobA.reviewOfEmployer = reviewOfJobPoster
-                self.tempJob = jobA
+            
+            let jobA = Job(title: title, description: description, category: category, pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, employerRef: employerRef, applicantsRef: applicantsRef, chosenOneRef: chosenOneRef, uuid: uuid, line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
+            //                jobA.reviewOfWorker = reviewOfJobApplicant
+            //                jobA.reviewOfEmployer = reviewOfJobPoster
+            self.tempJob = jobA
         }
         guard let tempJob = tempJob else { return nil }
         return tempJob
