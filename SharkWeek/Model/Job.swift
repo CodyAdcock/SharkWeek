@@ -8,8 +8,10 @@
 
 import Foundation
 
-class Job{
-
+class Job: FirestoreFetchable {
+    
+    static let CollectionName: String = "jobs"
+    
     var title: String
     var description: String
     var category: String
@@ -29,7 +31,7 @@ class Job{
     var applicantsRef: [String] //Ref
     //check back in here CODY to make sure this is optional in the init
     var chosenOneRef: String? //Ref
-
+    
     init(title: String, description: String, category: String = "Other", pay: Int, toolsNeeded: String?, toolsProvided: String?, employerRef: String, applicantsRef: [String] = [], chosenOneRef: String? = "", uuid: String = UUID().uuidString, line1: String, line2: String? = "", city: String, state: String, zipCode: String){
         
         self.title = title
@@ -38,7 +40,6 @@ class Job{
         self.pay = pay
         self.toolsNeeded = toolsNeeded
         self.toolsProvided = toolsProvided
-        self.employerRef = employerRef
         self.employerRef = employerRef
         self.applicantsRef = applicantsRef
         self.chosenOneRef = chosenOneRef
@@ -50,4 +51,28 @@ class Job{
         self.state = state
         self.zipCode = zipCode
     }
+    
+    required convenience init?(with dictionary: [String : Any], id: String) {
+        
+        guard let title = dictionary["title"] as? String,
+            let description = dictionary["description"] as? String,
+            let category = dictionary["category"] as? String,
+            let pay = dictionary["pay"] as? Int,
+            let uuid = dictionary["uuid"] as? String,
+            let line1 = dictionary["line1"] as? String,
+            let city = dictionary["city"] as? String,
+            let state = dictionary["state"] as? String,
+            let zipCode = dictionary["zipCode"] as? String,
+            let applicantsRef = dictionary["applicantsRef"] as? [String],
+            let chosenOneRef = dictionary["chosenOneRef"] as? String,
+            let employerRef = dictionary["employerRef"] as? String else { return nil }
+        
+        let toolsNeeded = dictionary["toolsNeeded"] as? String
+        let toolsProvided = dictionary["toolsProvided"] as? String
+        let line2 = dictionary["line2"] as? String
+        
+        
+        self.init(title: title, description: description, category: category, pay: pay,toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, employerRef: employerRef, applicantsRef: applicantsRef, chosenOneRef: chosenOneRef, uuid: uuid, line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
+    }
+    
 }

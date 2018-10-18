@@ -92,7 +92,7 @@ class JobController {
             //                        guard let reviewOfJobApplicant = documentSnapshot.get("ReviewOfJobApplicant") as? String else { return }
             
             
-            let jobA = Job(title: title, description: description, category: category, pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, employerRef: employerRef, applicantsRef: applicantsRef, chosenOneRef: chosenOneRef, uuid: uuid, line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
+            let jobA = Job(title: title, description: description, category: category, pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, employerRef: employerRef, applicantsRef: applicantsRef, chosenOneRef: chosenOneRef, uuid: jobReference, line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
             //                jobA.reviewOfWorker = reviewOfJobApplicant
             //                jobA.reviewOfEmployer = reviewOfJobPoster
             self.tempJob = jobA
@@ -150,7 +150,7 @@ class JobController {
         
         jobCollection.document(job.uuid).updateData(values)
     }
-    
+    // TODO: update users applied jobs array 
     func accept(userFor job: Job, user: User) {
         
         job.chosenOneRef = user.uuid
