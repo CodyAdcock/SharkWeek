@@ -87,7 +87,7 @@ class UserController{
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             if let error = error {
                 completion(false)
-                print("🎃There was an error creating the user  🎃\(error.localizedDescription)")
+                print("🎃There was an error signing in the user  🎃\(error.localizedDescription)")
                 return
             } else {
                 

@@ -22,16 +22,29 @@ class MyJobsTVC: UITableViewController {
 
         segmentedControlLabel.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.currentUser = UserController.shared.currentUser
+        guard let currentUser = currentUser else { return }
         
-        
-        currentUser = UserController.shared.currentUser
-        segmentAttributes()
+        UserController.shared.readUser(userID: currentUser.uuid) { (error) in
+            if let error = error {
+                print("Couldn't read user data \(error.localizedDescription)")
+            } else {
+                print("read user")
+            }
+        }
     }
     
-    func updateViews(){
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        segmentAttributes()
         
+        tableView.delegate = self
+
+    }
+    @IBAction func segmentDidChangeValue(_ sender: Any) {
         guard let currentUser = currentUser else {return}
         switch segmentedControlLabel.selectedSegmentIndex {
         case 0:
