@@ -49,19 +49,23 @@ class MyJobsTVC: UITableViewController {
         switch segmentedControlLabel.selectedSegmentIndex {
         case 0:
             sharedArray = currentUser.jobsInProgress
+            tableView.reloadData()
         case 1:
             sharedArray = currentUser.jobsHiredCompleted
+            tableView.reloadData()
         case 2:
             sharedArray = currentUser.jobsApplied
+            tableView.reloadData()
         case 3:
             sharedArray = currentUser.jobsCreated
+            tableView.reloadData()
         default:
             sharedArray = []
         }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sharedArray.count
+            return sharedArray.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,7 +74,7 @@ class MyJobsTVC: UITableViewController {
         let jobRef = sharedArray[indexPath.row]
         let readJobs = JobController.shared.readOneJob(with: jobRef)
         cell.myJob = readJobs
-        return UITableViewCell()
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
