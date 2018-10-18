@@ -20,18 +20,22 @@ class JobController {
     var tempJob: Job?
 
     
-    func createNewJob(title: String, description: String, category: String, pay: Int, address: Address, toolsNeeded: String?, toolsProvided: String?) {
+    func createNewJob(title: String, description: String, category: String, pay: Int, toolsNeeded: String?, toolsProvided: String?, line1: String, line2: String?, city: String, state: String, zipCode: String) {
         
         guard let userID = uuid else { return }
         guard let currentUser = currentUser else { return }
         
-        let newJob = Job(title: title, description: description, pay: pay, address: address, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, employerRef: userID)
+        let newJob = Job(title: title, description: description, pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, employerRef: userID, line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
         
         let values = ["title" : title,
                       "description" : description,
                       "category" : category,
                       "pay" : pay,
-                      "address" : address,
+                      "line1" : line1,
+                      "line2" : line2 ?? "",
+                      "city" : city,
+                      "state" : state,
+                      "zipCode" : zipCode,
                       "toolsNeeded" : toolsNeeded ?? "",
                       "toolsProvided" : toolsProvided ?? "",
                       "employerRef" : userID,
@@ -74,30 +78,19 @@ class JobController {
             guard let applicantsRef = documentSnapshot.get("applicantsRef") as? [String] else { return }
             
             guard let chosenOneRef = documentSnapshot.get("chosenOneRef") as? String else { return }
+            guard let line1 = documentSnapshot.get("line1") as? String,
+                let line2 = documentSnapshot.get("line2") as? String,
+                let city = documentSnapshot.get("city") as? String,
+                let state = documentSnapshot.get("state") as? String,
+                let zipCode = documentSnapshot.get("zipCode") as? String else { return }
             //                        guard let reviewOfJobPoster = documentSnapshot.get("ReviewOfJobPoster") as? String else { return }
             //                        guard let reviewOfJobApplicant = documentSnapshot.get("ReviewOfJobApplicant") as? String else { return }
             
-            let addressCollection = self.userRef.document(uuid).collection("Address")
-            addressCollection.document("Address").getDocument(completion:{ (documentSnapshot, error) in
-                if let error = error {
-                    print("Could not retrieve the users address information \(error.localizedDescription)")
-                    return
-                }
                 
-                guard let documentSnapshot = DocumentSnapshot else { return }
-                guard let city = documentSnapshot.get("city") as? String else { return }
-                guard let line1 = documentSnapshot.get("line1") as? String else { return }
-                guard let line2 = documentSnapshot.get("line2") as? String else { return }
-                guard let state = documentSnapshot.get("state") as? String else { return }
-                guard let zipCode = documentSnapshot.get("zipCode") as? String else { return }
-                
-                let address = Address(line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
-                
-                let jobA = Job(title: title, description: description, category: category, pay: pay, address: address, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, employerRef: employerRef, applicantsRef: applicantsRef, chosenOneRef: chosenOneRef)
+                let jobA = Job(title: title, description: description, category: category, pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, employerRef: employerRef, applicantsRef: applicantsRef, chosenOneRef: chosenOneRef, line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
                 //                jobA.reviewOfWorker = reviewOfJobApplicant
                 //                jobA.reviewOfEmployer = reviewOfJobPoster
                 self.tempJob = jobA
-            })
         }
         guard let tempJob = tempJob else { return nil }
         return tempJob
@@ -117,7 +110,7 @@ class JobController {
     }
     
     
-    func updateJob(job: Job, title: String, description: String, category: String, pay: Int, address: Address, toolsNeeded: String?, toolsProvided: String?) {
+    func updateJob(job: Job, title: String, description: String, category: String, pay: Int, toolsNeeded: String?, toolsProvided: String?, line1: String, line2: String?, city: String, state: String, zipCode: String) {
         
         guard let userID = uuid else { return }
         
@@ -125,15 +118,23 @@ class JobController {
         job.description = description
         job.category = category
         job.pay = pay
-        job.address = address
         job.toolsNeeded = toolsNeeded
         job.toolsProvided = toolsProvided
+        job.line1 = line1
+        job.line2 = line2
+        job.city = city
+        job.state = state
+        job.zipCode = zipCode
         
         let values = ["title" : job.title,
                       "description" : job.description,
                       "category" : job.category,
                       "pay" : job.pay,
-                      "address" : job.address,
+                      "line1" : line1,
+                      "line2" : line2 ?? "",
+                      "city" : city,
+                      "state" : state,
+                      "zipCode" : zipCode,
                       "toolsNeeded" : job.toolsNeeded ?? "",
                       "toolsProvided" : job.toolsProvided ?? "",
                       "employerRef" : userID,
