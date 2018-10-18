@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class JobListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class JobListViewController: UIViewController{
     
     
     @IBOutlet weak var profileJobsTableView: UITableView!
@@ -17,8 +17,7 @@ class JobListViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profileJobsTableView.dataSource = self
-        profileJobsTableView.delegate = self
+        
         currentUser = UserController.shared.currentUser
 
     }
@@ -36,15 +35,11 @@ class JobListViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WorkHistoryCell", for: indexPath) as? JobHistoryTableViewCell
-
-        guard let jobRef = currentUser?.jobsCreated[indexPath.row] else {return UITableViewCell()}
-        let job = JobController.shared.readOneJob(with: jobRef)
-        cell?.job = job
-
-        return UITableViewCell()
-    }
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "WorkHistoryCell", for: indexPath)
+//
+//        return UITableViewCell()
+//    }
     /*
     // MARK: - Navigation
 

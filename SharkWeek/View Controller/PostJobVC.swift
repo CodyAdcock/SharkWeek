@@ -74,7 +74,7 @@ class PostJobVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if UserController.shared.currentUser == nil{
-            let signInAlertController = UIAlertController(title: "Please Sign in to view this content!", message: "A lot of our app isn't very useful if you aren't signed in! Please sign in! Visit the profile tab to sign in or sign up!", preferredStyle: .alert)
+            let signInAlertController = UIAlertController(title: "Please Sign in to view this content!", message: "A lot of our app isn't very useful if you aren't signed in! Please sign in!", preferredStyle: .alert)
             let signInAction = UIAlertAction(title: "Go There Now!", style: .default) { (action) in
                 self.performSegue(withIdentifier: "toSignInVC", sender: self)
             }
@@ -115,7 +115,7 @@ class PostJobVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource 
             
             JobController.shared.createNewJob(title: title, description: description, category: "Default", pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, line1: address1, line2: address2, city: city, state: state, zipCode: zip)
             
-            let alert = UIAlertController(title: "Job Created!", message: "supposedly...", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Job Created!", message: "Check it out in the 'My Jobs' tab under 'Posted'", preferredStyle: .alert)
             let okayAction = UIAlertAction(title: "OK", style: .default)
             alert.addAction(okayAction)
             present(alert, animated: true)

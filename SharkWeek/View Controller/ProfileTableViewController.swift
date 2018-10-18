@@ -32,7 +32,7 @@ class ProfileTableViewController: UITableViewController {
         
         if UserController.shared.currentUser == nil{
             let signInAlertController = UIAlertController(title: "Please Sign in to view this content!", message: "A lot of our app isn't very useful if you aren't signed in! Please sign in!", preferredStyle: .alert)
-            let signInAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            let signInAction = UIAlertAction(title: "Go There Now!", style: .default) { (action) in
                 self.performSegue(withIdentifier: "toSignInVC", sender: self)
             }
             let notNowAction = UIAlertAction(title: "Not Now", style: .cancel)
