@@ -9,6 +9,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--SignInVC-->
+        <scene sceneID="aeU-Lr-3YF">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SignInVC" storyboardName="Profile" referencedIdentifier="SignInVC" id="7Ge-r5-dnI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fQZ-Ex-oqy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1487" y="-415"/>
+        </scene>
         <!--My Jobs-->
         <scene sceneID="Ecs-1W-AaP">
             <objects>
@@ -33,7 +41,7 @@
                                         <segment title="Posted"/>
                                     </segments>
                                     <connections>
-                                        <action selector="segmentedActionButton:" destination="7nh-yN-MrX" eventType="valueChanged" id="o5F-BK-0hY"/>
+                                        <action selector="segmentDidChangeValue:" destination="7nh-yN-MrX" eventType="valueChanged" id="Ov6-x0-sWv"/>
                                     </connections>
                                 </segmentedControl>
                             </subviews>
@@ -46,51 +54,55 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myJobsCellID" rowHeight="121" id="UTi-f4-JKL" customClass="myJobsCell" customModule="SharkWeek" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myJobsCellID" rowHeight="121" id="UTi-f4-JKL" customClass="myJobsCell" customModule="SharkWeek" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="101" width="375" height="121"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UTi-f4-JKL" id="Ye5-uh-sl5">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="120.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Xdx-9B-h2R">
-                                            <rect key="frame" x="26" y="14" width="323" height="92.5"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="B0Q-nO-Dvu">
+                                            <rect key="frame" x="9.5" y="6" width="356" height="108.5"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hVj-an-j6w">
-                                                    <rect key="frame" x="0.0" y="0.0" width="323" height="23.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="356" height="25"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Job Title)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JrP-d1-9Ht">
-                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="23.5"/>
-                                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="84.5" height="25"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="($20)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exk-p1-Woj">
-                                                            <rect key="frame" x="282.5" y="0.0" width="40.5" height="23.5"/>
-                                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                            <rect key="frame" x="313" y="0.0" width="43" height="25"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="(Job Description textView)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cYW-jZ-yb3">
-                                                    <rect key="frame" x="0.0" y="23.5" width="323" height="69"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5F-ZO-h1H">
+                                                    <rect key="frame" x="0.0" y="29" width="356" height="79.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="x5F-ZO-h1H" firstAttribute="width" secondItem="B0Q-nO-Dvu" secondAttribute="width" id="Hts-Hh-Rwr"/>
+                                                <constraint firstItem="hVj-an-j6w" firstAttribute="width" secondItem="B0Q-nO-Dvu" secondAttribute="width" id="wK7-cH-rIQ"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Xdx-9B-h2R" firstAttribute="top" secondItem="Ye5-uh-sl5" secondAttribute="topMargin" constant="3" id="DxZ-vt-KOO"/>
-                                        <constraint firstItem="Xdx-9B-h2R" firstAttribute="leading" secondItem="Ye5-uh-sl5" secondAttribute="leadingMargin" constant="10" id="NkC-qx-xpa"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Xdx-9B-h2R" secondAttribute="trailing" constant="10" id="Wap-6S-jME"/>
-                                        <constraint firstItem="Xdx-9B-h2R" firstAttribute="centerY" secondItem="Ye5-uh-sl5" secondAttribute="centerY" id="urz-lh-gHR"/>
+                                        <constraint firstItem="B0Q-nO-Dvu" firstAttribute="centerX" secondItem="Ye5-uh-sl5" secondAttribute="centerX" id="GVJ-pD-MOC"/>
+                                        <constraint firstItem="B0Q-nO-Dvu" firstAttribute="height" secondItem="Ye5-uh-sl5" secondAttribute="height" multiplier="0.9" id="c7L-2u-1KM"/>
+                                        <constraint firstItem="B0Q-nO-Dvu" firstAttribute="centerY" secondItem="Ye5-uh-sl5" secondAttribute="centerY" id="txN-rj-TV6"/>
+                                        <constraint firstItem="B0Q-nO-Dvu" firstAttribute="width" secondItem="Ye5-uh-sl5" secondAttribute="width" multiplier="0.95" id="xRm-xr-lAX"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="descriptionTV" destination="cYW-jZ-yb3" id="FyQ-hm-OSE"/>
+                                    <outlet property="descriptionLabel" destination="x5F-ZO-h1H" id="wvX-ye-l9l"/>
                                     <outlet property="jobTitleLabel" destination="JrP-d1-9Ht" id="Oyw-hX-T59"/>
                                     <outlet property="payLabel" destination="exk-p1-Woj" id="sQQ-ed-0g5"/>
                                 </connections>
@@ -107,6 +119,7 @@
                         <outlet property="segmentedControlLabel" destination="Mnx-nu-J9T" id="aCR-Ll-BFt"/>
                         <segue destination="lTw-YP-edc" kind="show" identifier="toDetailVc" id="Jfv-cG-KAw"/>
                         <segue destination="J6g-Vo-jNc" kind="show" identifier="toViewJobVC" id="L4t-kW-7f0"/>
+                        <segue destination="7Ge-r5-dnI" kind="show" identifier="toSignInVC" id="M1t-Z0-Whz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UdY-Sy-k7k" userLabel="First Responder" sceneMemberID="firstResponder"/>

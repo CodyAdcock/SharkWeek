@@ -35,8 +35,28 @@ class PostJobVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource 
         descriptionTV.layer.borderWidth = 0.5
         descriptionTV.layer.borderColor = #colorLiteral(red: 0.643494308, green: 0.6439372897, blue: 0.6583478451, alpha: 1)
         descriptionTV.layer.cornerRadius = 5
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
+    }
+    
+    @objc func keyboardWillAppear(notification: Notification){
+        if jobTitleTF.text != "" && payTF.text != "" && addressOneTF.text != "" && addressTwoTF.text != "" && cityTF.text != "" && stateTF.text != "" && zipCodeTF.text != ""{
+            guard let keyBoardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {return}
+            self.view.frame.origin.y = (-keyBoardRect.height)
+        }
+    }
+    @objc func keyboardWillDisappear(notification: Notification){
+        view.frame.origin.y = 0
+    }
     
     func setDelegates() {
         jobTitleTF.delegate = self
@@ -54,7 +74,7 @@ class PostJobVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if UserController.shared.currentUser == nil{
-            let signInAlertController = UIAlertController(title: "Please Sign in to view this content!", message: "A lot of our app isn't very useful if you aren't signed in! Please sign in! Visit the profile tab to sign in or sign up!", preferredStyle: .alert)
+            let signInAlertController = UIAlertController(title: "Please Sign in to view this content!", message: "A lot of our app isn't very useful if you aren't signed in! Please sign in!", preferredStyle: .alert)
             let signInAction = UIAlertAction(title: "Go There Now!", style: .default) { (action) in
                 self.performSegue(withIdentifier: "toSignInVC", sender: self)
             }
@@ -95,7 +115,7 @@ class PostJobVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource 
             
             JobController.shared.createNewJob(title: title, description: description, category: "Default", pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, line1: address1, line2: address2, city: city, state: state, zipCode: zip)
             
-            let alert = UIAlertController(title: "Job Created!", message: "supposedly...", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Job Created!", message: "Check it out in the 'My Jobs' tab under 'Posted'", preferredStyle: .alert)
             let okayAction = UIAlertAction(title: "OK", style: .default)
             alert.addAction(okayAction)
             present(alert, animated: true)

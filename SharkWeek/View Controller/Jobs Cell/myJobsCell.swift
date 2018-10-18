@@ -12,7 +12,7 @@ class myJobsCell: UITableViewCell {
 
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var payLabel: UILabel!
-    @IBOutlet weak var descriptionTV: UITextView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     var myJob: Job? {
         didSet {
@@ -24,8 +24,8 @@ class myJobsCell: UITableViewCell {
     func updateViewsCell() {
         guard let myJobs = myJob else {return}
         jobTitleLabel.text = myJobs.title
-        payLabel.text = "\(myJobs.pay)"
-        descriptionTV.text = myJobs.description
+        payLabel.text = "$\(myJobs.pay)"
+        descriptionLabel.text = myJobs.description
     }
     
 }
