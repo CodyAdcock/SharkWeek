@@ -523,6 +523,7 @@
                                                                             </state>
                                                                             <connections>
                                                                                 <action selector="hireButton:" destination="lwx-4G-lc7" eventType="touchUpInside" id="X7F-eJ-77U"/>
+                                                                                <action selector="hiredButton:" destination="2Ro-dG-7uC" eventType="touchUpInside" id="de6-Jf-s8S"/>
                                                                             </connections>
                                                                         </button>
                                                                     </subviews>

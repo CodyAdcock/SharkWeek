@@ -23,24 +23,24 @@ class EditPostVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateViews()
+        //updateViews()
     }
     
-    var jobPoster: Job?
-    func updateViews() {
-        guard let jobPoster = jobPoster else {return}
-        jobTitleTF.text = jobPoster.title
-        payTF.text = "\(jobPoster.pay)"
-        descriptionTV.text = jobPoster.description
-        toolsNeededTF.text = jobPoster.toolsNeeded
-        toolsProvidedTF.text = jobPoster.toolsProvided
-        
-        addressOneTF.text = jobPoster.line1
-        addressTwoTF.text = jobPoster.line2
-        cityTF.text = jobPoster.city
-        stateTF.text = jobPoster.state
-        zipCodeTF.text = jobPoster.zipCode
-    }
+//    var jobPoster: Job?
+//    func updateViews() {
+//        guard let jobPoster = jobPoster else {return}
+//        jobTitleTF.text = jobPoster.title
+//        payTF.text = "\(jobPoster.pay)"
+//        descriptionTV.text = jobPoster.description
+//        toolsNeededTF.text = jobPoster.toolsNeeded
+//        toolsProvidedTF.text = jobPoster.toolsProvided
+//
+//        addressOneTF.text = jobPoster.line1
+//        addressTwoTF.text = jobPoster.line2
+//        cityTF.text = jobPoster.city
+//        stateTF.text = jobPoster.state
+//        zipCodeTF.text = jobPoster.zipCode
+//    }
     
     @IBAction func updateButton(_ sender: Any) {
         
