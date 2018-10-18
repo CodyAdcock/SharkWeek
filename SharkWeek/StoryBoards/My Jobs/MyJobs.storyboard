@@ -138,19 +138,19 @@
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3K-c7-rS6" userLabel="Applicant">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="575"/>
                                         <connections>
-                                            <segue destination="2Ro-dG-7uC" kind="embed" id="bqg-54-in8"/>
+                                            <segue destination="2Ro-dG-7uC" kind="embed" identifier="segueToViewApplicants" id="bqg-54-in8"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mBB-1C-QU5" userLabel="ViewP">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="575"/>
                                         <connections>
-                                            <segue destination="VWC-PX-SnU" kind="embed" id="biM-NP-nCB"/>
+                                            <segue destination="VWC-PX-SnU" kind="embed" identifier="segueToViewPosting" id="biM-NP-nCB"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpj-i1-2O4" userLabel="Edit">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="575"/>
                                         <connections>
-                                            <segue destination="cQ8-wb-Rxg" kind="embed" id="jpn-Nh-4Hu"/>
+                                            <segue destination="cQ8-wb-Rxg" kind="embed" identifier="segueToEditPost" id="jpn-Nh-4Hu"/>
                                         </connections>
                                     </containerView>
                                 </subviews>
