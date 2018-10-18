@@ -16,6 +16,13 @@ class PostedDetailVC: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let alertController = UIAlertController(title: "This is the end of the road!", message: "Sorry, this functionality isn't ready yet! Proceed at your own boredom!", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Sounds Good!", style: .default))
+        present(alertController, animated: true)
+    }
+    
     @IBAction func segmentedControlAction(_ sender: Any) {
         
         

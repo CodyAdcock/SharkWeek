@@ -17,8 +17,6 @@ class JobController {
     let jobCollection = UserController.db.collection("jobs")
     let userRef = UserController.shared.userRef
     
-    var tempJob: Job?
-    
     
     func createNewJob(title: String, description: String, category: String, pay: Int, toolsNeeded: String?, toolsProvided: String?, line1: String, line2: String?, city: String, state: String, zipCode: String) {
         
@@ -57,15 +55,16 @@ class JobController {
     
     // TODO: - Fix this (memory leak)
     
-    func readOneJob(with jobReference: String) -> Job? {
-        
+    
+    func readOneJob(with jobReference: String, completion: @escaping (Job?) -> Void) {
         jobCollection.document(jobReference).getDocument { (DocumentSnapshot, error) in
+            
             if let error = error {
                 print("there was an error getting the job document for \(jobReference) error: \(error.localizedDescription)")
                 return
             }
             
-            guard let uuid = self.uuid else { return }
+//            guard let uuid = self.uuid else { return }
             guard let documentSnapshot = DocumentSnapshot else { return }
             guard let title = documentSnapshot.get("title") as? String else { return }
             guard let description = documentSnapshot.get("description") as? String else { return }
@@ -92,13 +91,13 @@ class JobController {
             //                        guard let reviewOfJobApplicant = documentSnapshot.get("ReviewOfJobApplicant") as? String else { return }
             
             
-            let jobA = Job(title: title, description: description, category: category, pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, employerRef: employerRef, applicantsRef: applicantsRef, chosenOneRef: chosenOneRef, uuid: uuid, line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
+            let jobA = Job(title: title, description: description, category: category, pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, employerRef: employerRef, applicantsRef: applicantsRef, chosenOneRef: chosenOneRef, uuid: jobReference, line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
             //                jobA.reviewOfWorker = reviewOfJobApplicant
             //                jobA.reviewOfEmployer = reviewOfJobPoster
-            self.tempJob = jobA
+            completion(jobA)
+
         }
-        guard let tempJob = tempJob else { return nil }
-        return tempJob
+        
     }
     
     

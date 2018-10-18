@@ -1,4 +1,3 @@
-
 import UIKit
 
 class MyJobsTVC: UITableViewController {
@@ -6,6 +5,7 @@ class MyJobsTVC: UITableViewController {
     @IBOutlet weak var segmentedControlLabel: UISegmentedControl!
     
     var sharedArray: [String] = []
+    var jobsArray: [Job] = []
     var currentUser: User?
     
     
@@ -19,12 +19,24 @@ class MyJobsTVC: UITableViewController {
         segmentedControlLabel.layer.cornerRadius = 5.0
         segmentedControlLabel.backgroundColor = .lightGray
         segmentedControlLabel.tintColor = .darkGray
-
+        
         segmentedControlLabel.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        if UserController.shared.currentUser == nil{
+            let signInAlertController = UIAlertController(title: "Please Sign in to view this content!", message: "A lot of our app isn't very useful if you aren't signed in! Please sign in!", preferredStyle: .alert)
+            let signInAction = UIAlertAction(title: "Go There Now!", style: .default) { (action) in
+                self.performSegue(withIdentifier: "toSignInVC", sender: self)
+            }
+            let notNowAction = UIAlertAction(title: "Not Now", style: .cancel)
+            signInAlertController.addAction(signInAction)
+            signInAlertController.addAction(notNowAction)
+            
+            self.present(signInAlertController, animated: true, completion: nil)
+        }
         self.currentUser = UserController.shared.currentUser
         guard let currentUser = currentUser else { return }
         
@@ -35,6 +47,7 @@ class MyJobsTVC: UITableViewController {
                 print("read user")
             }
         }
+        
     }
     
     override func viewDidLoad() {
@@ -42,91 +55,153 @@ class MyJobsTVC: UITableViewController {
         segmentAttributes()
         
         tableView.delegate = self
-
+        
     }
     @IBAction func segmentDidChangeValue(_ sender: Any) {
         guard let currentUser = currentUser else {return}
         switch segmentedControlLabel.selectedSegmentIndex {
         case 0:
             sharedArray = currentUser.jobsInProgress
+            jobsArray = []
+            let dispatchGroup = DispatchGroup()
+            
+            for jobRef in sharedArray{
+                dispatchGroup.enter()
+                
+                //                dispatchGroup.leave() // Call in the completion of readOneJob()
+                JobController.shared.readOneJob(with: jobRef) { (job) in
+                    
+                    guard let theJob = job else {return}
+                    
+                    self.jobsArray.append(theJob)
+                    dispatchGroup.leave()
+                }
+                
+            }
+            
+            dispatchGroup.notify(queue: .main) {
+                self.tableView.reloadData()
+                
+            }
+            
             tableView.reloadData()
         case 1:
             sharedArray = currentUser.jobsHiredCompleted
+            jobsArray = []
+            let dispatchGroup = DispatchGroup()
+            
+            for jobRef in sharedArray{
+                dispatchGroup.enter()
+                
+                //                dispatchGroup.leave() // Call in the completion of readOneJob()
+                JobController.shared.readOneJob(with: jobRef) { (job) in
+                    
+                    guard let theJob = job else {return}
+                    
+                    self.jobsArray.append(theJob)
+                    dispatchGroup.leave()
+                }
+                
+            }
+            
+            dispatchGroup.notify(queue: .main) {
+                self.tableView.reloadData()
+                
+            }
+            
             tableView.reloadData()
         case 2:
             sharedArray = currentUser.jobsApplied
+            jobsArray = []
+            let dispatchGroup = DispatchGroup()
+            
+            for jobRef in sharedArray{
+                dispatchGroup.enter()
+                
+                //                dispatchGroup.leave() // Call in the completion of readOneJob()
+                JobController.shared.readOneJob(with: jobRef) { (job) in
+                    
+                    guard let theJob = job else {return}
+                    
+                    self.jobsArray.append(theJob)
+                    dispatchGroup.leave()
+                }
+                
+            }
+            
+            dispatchGroup.notify(queue: .main) {
+                self.tableView.reloadData()
+                
+            }
+            
             tableView.reloadData()
         case 3:
             sharedArray = currentUser.jobsCreated
-            tableView.reloadData()
+            jobsArray = []
+            let dispatchGroup = DispatchGroup()
+            
+            for jobRef in sharedArray{
+                dispatchGroup.enter()
+                
+                //                dispatchGroup.leave() // Call in the completion of readOneJob()
+                JobController.shared.readOneJob(with: jobRef) { (job) in
+                  
+                    guard let theJob = job else {return}
+              
+                    self.jobsArray.append(theJob)
+                    dispatchGroup.leave()
+                }
+                
+            }
+            
+            dispatchGroup.notify(queue: .main) {
+                self.tableView.reloadData()
+                
+            }
         default:
             sharedArray = []
         }
     }
     
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return sharedArray.count
+        return jobsArray.count
     }
     
-    func segmentAttributes() {
-        segmentedControlLabel.layer.cornerRadius = 5.0
-        segmentedControlLabel.backgroundColor = .lightGray
-        segmentedControlLabel.tintColor = .darkGray
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "myJobsCellID", for: indexPath) as? myJobsCell else {return UITableViewCell()}
-        let jobRef = sharedArray[indexPath.row]
-        let readJobs = JobController.shared.readOneJob(with: jobRef)
-        cell.myJob = readJobs
+        let job = jobsArray[indexPath.row]
+        cell.myJob = job
         return cell
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-        currentUser = UserController.shared.currentUser
-        segmentAttributes()
-        
-        
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return sharedArray.count
-        }
-        
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch segmentedControlLabel.selectedSegmentIndex {
+        case 0:
             
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "myJobsCellID", for: indexPath) as? myJobsCell else {return UITableViewCell()}
-            let jobRef = sharedArray[indexPath.row]
-            let readJobs = JobController.shared.readOneJob(with: jobRef)
-            cell.myJob = readJobs
-            return cell
-        }
-        
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            switch segmentedControlLabel.selectedSegmentIndex {
-            case 0:
-                
-                print("first segment tapped on")
-                
-            case 1:
-                print("second segment tapped on")
-                
-            case 2:
-                performSegue(withIdentifier: "toDetailVc", sender: sharedArray[indexPath.row])
-                
-            case 3:
-                performSegue(withIdentifier: "toViewJobVC", sender: sharedArray[indexPath.row])
-            default:
-                sharedArray = []
-            }
+            print("first segment tapped on")
             
-        }
-        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            //            if let destinationVC = segue.destination as? AppliedDetailVC {
-            //                let currentUser = UserController.shared.currentUser[IndexPath.row]
-            //                destinationVC.currentUser = currentUser
-            //                return
-            //            }
+        case 1:
+            print("second segment tapped on")
+            
+        case 2:
+            performSegue(withIdentifier: "toDetailVc", sender: sharedArray[indexPath.row])
+            
+        case 3:
+            performSegue(withIdentifier: "toViewJobVC", sender: sharedArray[indexPath.row])
+        default:
+            sharedArray = []
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //            if let destinationVC = segue.destination as? AppliedDetailVC {
+        //                let currentUser = UserController.shared.currentUser[IndexPath.row]
+        //                destinationVC.currentUser = currentUser
+        //                return
+        //            }
     }
     
 }
