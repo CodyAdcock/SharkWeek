@@ -49,7 +49,7 @@ class JobController {
         
         currentUser.jobsCreated.append(newJob.uuid)
         
-        userRef.document(currentUser.uuid).setData([
+        userRef.document(currentUser.uuid).updateData([
             "jobsCreated" : currentUser.jobsCreated
             ])
         
@@ -92,7 +92,7 @@ class JobController {
             //                        guard let reviewOfJobApplicant = documentSnapshot.get("ReviewOfJobApplicant") as? String else { return }
             
             
-            let jobA = Job(title: title, description: description, category: category, pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, employerRef: employerRef, applicantsRef: applicantsRef, chosenOneRef: chosenOneRef, line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
+            let jobA = Job(title: title, description: description, category: category, pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, employerRef: employerRef, applicantsRef: applicantsRef, chosenOneRef: chosenOneRef, uuid: uuid, line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
             //                jobA.reviewOfWorker = reviewOfJobApplicant
             //                jobA.reviewOfEmployer = reviewOfJobPoster
             self.tempJob = jobA
