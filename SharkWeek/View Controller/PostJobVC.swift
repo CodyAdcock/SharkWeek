@@ -35,8 +35,28 @@ class PostJobVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource 
         descriptionTV.layer.borderWidth = 0.5
         descriptionTV.layer.borderColor = #colorLiteral(red: 0.643494308, green: 0.6439372897, blue: 0.6583478451, alpha: 1)
         descriptionTV.layer.cornerRadius = 5
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
+    }
+    
+    @objc func keyboardWillAppear(notification: Notification){
+        if jobTitleTF.text != "" && payTF.text != "" && addressOneTF.text != "" && addressTwoTF.text != "" && cityTF.text != "" && stateTF.text != "" && zipCodeTF.text != ""{
+            guard let keyBoardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {return}
+            self.view.frame.origin.y = (-keyBoardRect.height)
+        }
+    }
+    @objc func keyboardWillDisappear(notification: Notification){
+        view.frame.origin.y = 0
+    }
     
     func setDelegates() {
         jobTitleTF.delegate = self
