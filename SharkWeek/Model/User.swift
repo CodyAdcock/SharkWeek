@@ -10,6 +10,7 @@ import UIKit
 
 class User: FirestoreFetchable {
     
+    
     static let CollectionName: String = "users"
     
     var uuid: String

@@ -10,7 +10,6 @@ import Foundation
 import Firebase
 
 protocol FirestoreFetchable {
-    
     var uuid: String {get}
     static var CollectionName: String {get}
     init?(with dictionary: [String : Any], id: String)

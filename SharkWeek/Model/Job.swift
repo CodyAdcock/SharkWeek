@@ -58,7 +58,6 @@ class Job: FirestoreFetchable {
             let description = dictionary["description"] as? String,
             let category = dictionary["category"] as? String,
             let pay = dictionary["pay"] as? Int,
-            let uuid = dictionary["uuid"] as? String,
             let line1 = dictionary["line1"] as? String,
             let city = dictionary["city"] as? String,
             let state = dictionary["state"] as? String,
@@ -72,7 +71,7 @@ class Job: FirestoreFetchable {
         let line2 = dictionary["line2"] as? String
         
         
-        self.init(title: title, description: description, category: category, pay: pay,toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, employerRef: employerRef, applicantsRef: applicantsRef, chosenOneRef: chosenOneRef, uuid: uuid, line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
+        self.init(title: title, description: description, category: category, pay: pay,toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, employerRef: employerRef, applicantsRef: applicantsRef, chosenOneRef: chosenOneRef, uuid: id, line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
     }
     
 }
