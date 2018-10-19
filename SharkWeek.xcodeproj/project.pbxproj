@@ -19,6 +19,8 @@
 		48B0401F2176A585002424AC /* ViewApplicantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B0401E2176A585002424AC /* ViewApplicantsCell.swift */; };
 		90493CD82177C8B700F9DBA7 /* textFieldExtendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90493CD72177C8B700F9DBA7 /* textFieldExtendor.swift */; };
 		90709B5A216FC54700E4795A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90709B59216FC54700E4795A /* GoogleService-Info.plist */; };
+		90E0F4442178FB820084872D /* FirestoreFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E0F4432178FB820084872D /* FirestoreFetchable.swift */; };
+		90E0F4462179008D0084872D /* FirestoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E0F4452179008D0084872D /* FirestoreClient.swift */; };
 		C318E6D02171424E00549DD6 /* JobListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318E6CF2171424E00549DD6 /* JobListTableViewController.swift */; };
 		C318E6D22171442400549DD6 /* JobHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318E6D12171442400549DD6 /* JobHistoryTableViewCell.swift */; };
 		C376F28F216ED021005EEA0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C376F28E216ED021005EEA0D /* AppDelegate.swift */; };
@@ -64,6 +66,8 @@
 		90493CD72177C8B700F9DBA7 /* textFieldExtendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFieldExtendor.swift; sourceTree = "<group>"; };
 		90709B59216FC54700E4795A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		90935A14216FF04D00011B28 /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
+		90E0F4432178FB820084872D /* FirestoreFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreFetchable.swift; sourceTree = "<group>"; };
+		90E0F4452179008D0084872D /* FirestoreClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreClient.swift; sourceTree = "<group>"; };
 		C318E6CF2171424E00549DD6 /* JobListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListTableViewController.swift; sourceTree = "<group>"; };
 		C318E6D12171442400549DD6 /* JobHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		C318E6DF2173FA6700549DD6 /* SharkWeek.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SharkWeek.entitlements; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 				C376F2AC216ED12F005EEA0D /* UserController.swift */,
 				C376F2AE216ED13C005EEA0D /* JobController.swift */,
 				C376F2B0216ED14A005EEA0D /* ReviewController.swift */,
+				90E0F4452179008D0084872D /* FirestoreClient.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 				C376F2A6216ED0E7005EEA0D /* User.swift */,
 				C376F2A8216ED0F4005EEA0D /* Job.swift */,
 				C376F2AA216ED0FF005EEA0D /* Review.swift */,
+				90E0F4432178FB820084872D /* FirestoreFetchable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -475,10 +481,12 @@
 				48823CEA217692BD0012C30B /* EditPostVC.swift in Sources */,
 				C376F2B1216ED14A005EEA0D /* ReviewController.swift in Sources */,
 				48823CE4217690A20012C30B /* PostedDetailVC.swift in Sources */,
+				90E0F4462179008D0084872D /* FirestoreClient.swift in Sources */,
 				483302E32176A714004EBB07 /* PostJobVC.swift in Sources */,
 				C376F2C8216FECD5005EEA0D /* SignUpViewController.swift in Sources */,
 				C376F2AB216ED0FF005EEA0D /* Review.swift in Sources */,
 				C3F81F3F21711C8900E06F6E /* PersonalInfoViewController.swift in Sources */,
+				90E0F4442178FB820084872D /* FirestoreFetchable.swift in Sources */,
 				C376F2AD216ED12F005EEA0D /* UserController.swift in Sources */,
 				C376F2CA216FED8C005EEA0D /* SignInViewController.swift in Sources */,
 				C376F2AF216ED13C005EEA0D /* JobController.swift in Sources */,

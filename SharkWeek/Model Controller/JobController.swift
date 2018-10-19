@@ -149,7 +149,7 @@ class JobController {
         
         jobCollection.document(job.uuid).updateData(values)
     }
-    
+    // TODO: update users applied jobs array 
     func accept(userFor job: Job, user: User) {
         
         job.chosenOneRef = user.uuid
