@@ -63,6 +63,9 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
+        notFilledProperlyAlert.addAction(okAction)
+        
         CityTextField.delegate = self
         StateTextField.delegate = self
         ZipTextField.delegate = self
@@ -90,7 +93,7 @@ class SignUpViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -98,7 +101,7 @@ class SignUpViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -118,7 +121,22 @@ class SignUpViewController: UIViewController {
         view.frame.origin.y = 0
     }
     
+    let notFilledProperlyAlert = UIAlertController(title: "Something seems to be missing", message: "Please make sure all fields are filled out!", preferredStyle: .alert)
+    let okAction = UIAlertAction(title: "OK", style: .default)
+    
     func firstTransition(){
+        
+        //pull and check
+        firstName = FirstNameAgeTextField.text
+        lastName = LastNamePhoneTextField.text
+        email = EmailAddressLine1TextField.text
+        password = PasswordAddressLine2TextField.text
+        
+        if photo == nil || firstName == "" || lastName == "" || email == "" || password == ""{
+            present(notFilledProperlyAlert, animated: true)
+            return
+        }
+        
         //pic transition
         StatusBarLabel.text = stage2
         
@@ -140,36 +158,43 @@ class SignUpViewController: UIViewController {
             
         })
         
+        
+        
         //TextField maintanence
-        firstName = FirstNameAgeTextField.text
         FirstNameAgeTextField.text = ""
         FirstNameAgeTextField.placeholder = "Age"
         
-        lastName = LastNamePhoneTextField.text
         LastNamePhoneTextField.text = ""
         LastNamePhoneTextField.placeholder = "Phone Number"
         
-        email = EmailAddressLine1TextField.text
         EmailAddressLine1TextField.text = ""
         EmailAddressLine1TextField.placeholder = "Address Line 1"
         
-        password = PasswordAddressLine2TextField.text
         PasswordAddressLine2TextField.text = ""
         PasswordAddressLine2TextField.placeholder = "Address Line 2"
         
+        self.stageOfSignUp += 1
+
     }
     
     func secondTransition(){
         
+        self.age = self.FirstNameAgeTextField.text
+        self.phoneNumber = self.LastNamePhoneTextField.text
+        self.line1 = self.EmailAddressLine1TextField.text
+        self.line2 = self.PasswordAddressLine2TextField.text
+        self.city = self.CityTextField.text
+        self.state = self.StateTextField.text
+        self.zip = self.ZipTextField.text
+        
+        if age == nil || phoneNumber == "" || line1 == "" || city == "" || state == "" || zip == ""{
+            present(notFilledProperlyAlert, animated: true)
+            return
+        }
+        
         ContinueButton.isHidden = true
         UIView.animate(withDuration: 0.3) {
-            self.age = self.FirstNameAgeTextField.text
-            self.phoneNumber = self.LastNamePhoneTextField.text
-            self.line1 = self.EmailAddressLine1TextField.text
-            self.line2 = self.PasswordAddressLine2TextField.text
-            self.city = self.CityTextField.text
-            self.state = self.StateTextField.text
-            self.zip = self.ZipTextField.text
+            
             
             self.CityStack.isHidden = true
             self.PasswordAddressLine2TextField.isHidden = true
@@ -188,10 +213,16 @@ class SignUpViewController: UIViewController {
             
         }
         
-        
+        self.stageOfSignUp += 1
+
     }
     func thirdTransition(){
         bio = self.BioAndSkillsTextView.text
+        
+        if bio == ""{
+            present(notFilledProperlyAlert, animated: true)
+            return
+        }
         
         UIView.animate(withDuration: 0.2){
             self.bioSkillLabel.text = "Skills"
@@ -200,8 +231,16 @@ class SignUpViewController: UIViewController {
             self.FlavorWelcomeText.text = "List the skills that will help you complete your jobs"
             
         }
+        self.stageOfSignUp += 1
+
     }
     func fourthTransition(){
+        
+        if skill == ""{
+            present(notFilledProperlyAlert, animated: true)
+            return
+        }
+        
         skill = BioAndSkillsTextView.text
         guard let firstName = firstName,
             let lastName = lastName,
@@ -230,39 +269,47 @@ class SignUpViewController: UIViewController {
                 print("sign up failed")
             }
         }
+        self.stageOfSignUp += 1
+
         
         
     }
     func fifthTransition(){
         self.navigationController?.popToRootViewController(animated: true)
-        
+        self.stageOfSignUp += 1
+
     }
     
     
     @IBAction func ContinueButtonTapped(_ sender: Any) {
         ProfPictureImageView.image = photo
         
-        self.stageOfSignUp += 1
         
         switch self.stageOfSignUp{
-        case 2:
+        case 1:
+            
             StatusBarLabel.text = self.stage2
             firstTransition()
-        case 3:
+        case 2:
             StatusBarLabel.text = self.stage3
             secondTransition()
-        case 4:
+            
+        case 3:
             StatusBarLabel.text = self.stage4
             thirdTransition()
-        case 5:
+            
+        case 4:
             fourthTransition()
-        case 6:
+            
+        case 5:
             fifthTransition()
+            
         default:
             return
         }
     }
-
+    
+    
 }
 extension SignUpViewController: PhotoSelectViewControllerDelegate{
     func photoSelected(_ photo: UIImage) {
