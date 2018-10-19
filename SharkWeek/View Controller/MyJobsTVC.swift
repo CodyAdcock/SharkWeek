@@ -180,10 +180,10 @@ class MyJobsTVC: UITableViewController {
         switch segmentedControlLabel.selectedSegmentIndex {
         case 0:
             
-            print("first segment tapped on")
+            performSegue(withIdentifier: "toDetailVc", sender: sharedArray[indexPath.row])
             
         case 1:
-            print("second segment tapped on")
+            performSegue(withIdentifier: "toDetailVc", sender: sharedArray[indexPath.row])
             
         case 2:
             performSegue(withIdentifier: "toDetailVc", sender: sharedArray[indexPath.row])
