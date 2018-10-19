@@ -26,6 +26,7 @@ class JobController {
         let newJob = Job(title: title, description: description, pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, employerRef: userID, line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
         
         let values = ["title" : title,
+                      "uuid" : newJob.uuid,
                       "description" : description,
                       "category" : category,
                       "pay" : pay,
@@ -149,7 +150,7 @@ class JobController {
         
         jobCollection.document(job.uuid).updateData(values)
     }
-    
+    // TODO: update users applied jobs array 
     func accept(userFor job: Job, user: User) {
         
         job.chosenOneRef = user.uuid

@@ -128,32 +128,12 @@ class UserController{
                 print("There was an error reading document \(error.localizedDescription)")
                 completion(error) ; return
             }
-            guard let querySnapshot = querySnapshot else { return }
-    
-//            guard let uuid = querySnapshot?.get("uuid") as? String else {print("Error reading uuid"); return}
-            guard let firstName = querySnapshot.get("firstName") as? String else {print("Error reading first name"); return}
-            guard let lastName = querySnapshot.get("lastName") as? String else {print("Error reading last name"); return}
-            guard let email = querySnapshot.get("email") as? String else {print("Error reading email"); return}
-            guard let age = querySnapshot.get("age") as? Int else {print("Error reading age"); return}
-            guard let bio = querySnapshot.get("bio") as? String else {print("Error reading bio"); return}
-            guard let skill = querySnapshot.get("skill") as? String else {print("Error reading skill"); return}
-            guard let phoneNumber = querySnapshot.get("phoneNumber") as? String else {print("Error reading phone number"); return}
-            guard let reviewCount = querySnapshot.get("reviewCount") as? Int else {print("Error reading review count"); return}
-            guard let starCount = querySnapshot.get("starCount") as? Int else {print("Error reading star count"); return}
-            guard let picture = querySnapshot.get("picture") as? String else {print("Error reading picture"); return}
-            guard let jobsCreated = querySnapshot.get("jobsCreated") as? [String] else {print("Error reading jobs created"); return}
-            guard let jobsCreatedCompleted = querySnapshot.get("jobsCreatedCompleted") as? [String] else {print("Error reading jobs created completed"); return}
-            guard let jobsApplied = querySnapshot.get("jobsApplied") as? [String] else {print("Error reading jobs applied"); return}
-            guard let jobsInProgress = querySnapshot.get("jobsInProgress") as? [String] else {print("Error reading jobs in progress"); return}
-            guard let jobsHiredCompleted = querySnapshot.get("jobsHiredCompleted") as? [String] else {print("Error reading jobs hired completed"); return}
-            guard let line1 = querySnapshot.get("line1") as? String,
-                let line2 = querySnapshot.get("line2") as? String,
-                let city = querySnapshot.get("city") as? String,
-                let state = querySnapshot.get("state") as? String,
-                let zipCode = querySnapshot.get("zipCode") as? String else { return }
+            guard let querySnapshot = querySnapshot,
+                let dictionary = querySnapshot.data() else { return }
             
+            let userID = querySnapshot.documentID
             
-            let user = User(firstName: firstName, lastName: lastName, email: email, age: age, bio: bio, skill: skill, phoneNumber: phoneNumber, reviewCount: reviewCount, starCount: starCount, pictureAsString: picture, jobsCreated: jobsCreated, jobsCreatedCompleted: jobsCreatedCompleted, jobsApplied: jobsApplied, jobsInProgress: jobsInProgress, jobsHiredCompleted: jobsHiredCompleted, uuid: uid, line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
+            let user = User(with: dictionary, id: userID)
             
             self.currentUser = user
             

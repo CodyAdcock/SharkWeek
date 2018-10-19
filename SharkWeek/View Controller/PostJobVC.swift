@@ -111,9 +111,11 @@ class PostJobVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource 
                 let zip = zipCodeTF.text,
                 let description = descriptionTV.text,
                 let toolsNeeded = toolsNeededTF.text,
-                let toolsProvided = toolsProvidedTF.text else {return}
+                let toolsProvided = toolsProvidedTF.text,
+                let category = self.category else { return }
             
-            JobController.shared.createNewJob(title: title, description: description, category: "Default", pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, line1: address1, line2: address2, city: city, state: state, zipCode: zip)
+            
+            JobController.shared.createNewJob(title: title, description: description, category: category, pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, line1: address1, line2: address2, city: city, state: state, zipCode: zip)
             
             let alert = UIAlertController(title: "Job Created!", message: "Check it out in the 'My Jobs' tab under 'Posted'", preferredStyle: .alert)
             let okayAction = UIAlertAction(title: "OK", style: .default)
