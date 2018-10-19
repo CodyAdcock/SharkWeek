@@ -11,14 +11,14 @@ import UIKit
 
 
 class homeCollectionViewCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var payLabel: UILabel!
     @IBOutlet weak var zipCodeLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
-
+    
     var job: Job?{
         didSet{
             self.layer.borderWidth = 0.5
@@ -36,13 +36,29 @@ class homeCollectionViewCell: UICollectionViewCell {
     }
     func loadViews(){
         guard let job = job else {return}
+        FirestoreClient.shared.fetchFromFirestore(uuid: job.employerRef) { (user: User?) in
+            guard let user = user else {return}
+            let employerName = user.firstName
+            var rating = 0
+            if user.reviewCount != 0{
+                rating = user.starCount / user.reviewCount
+            }
+            self.doStuff(name: employerName, userRating: rating)
+            
+        }
+        
+        
+        
+    }
+    func doStuff(name: String, userRating: Int){
+        guard let job = job else {return}
+        
         titleLabel.text = job.title
         payLabel.text = "$\(job.pay)"
         zipCodeLabel.text = job.zipCode
         //I need a read user function for name and employer rating
-        nameLabel.text = job.employerRef
-        let rating = job.reviewOfWorker?.rating
-        switch rating {
+        nameLabel.text = name
+        switch userRating {
         case 1:
             ratingLabel.text = Stars.one
         case 2:
@@ -54,8 +70,8 @@ class homeCollectionViewCell: UICollectionViewCell {
         case 5:
             ratingLabel.text = Stars.five
         default:
-            ratingLabel.text = "Rating Not Found"
+            ratingLabel.text = Stars.zero
         }
     }
-    
 }
+
