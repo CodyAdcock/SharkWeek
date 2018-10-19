@@ -82,7 +82,7 @@ class User: FirestoreFetchable {
             let phoneNumber = dictionary["phoneNumber"] as? String,
             let reviewCount = dictionary["reviewCount"] as? Int,
             let starCount = dictionary["starCount"] as? Int,
-            let pictureAsString = dictionary["pictureAsString"] as? String,
+            let pictureAsString = dictionary["picture"] as? String,
             let jobsCreated = dictionary["jobsCreated"] as? [String],
             let jobsCreatedCompleted = dictionary["jobsCreatedCompleted"] as? [String],
             let jobsApplied = dictionary["jobsApplied"] as? [String],

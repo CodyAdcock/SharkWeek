@@ -51,6 +51,7 @@ class FirestoreClient{
             filteredCollection.getDocuments { (querySnap, error) in
                 if let error = error {
                     print("there was an error retrieving documents that were filtered: \(#function) \(error.localizedDescription)")
+                    completion(nil) ; return
                 }
                 guard let documents = querySnap?.documents else { completion(nil) ; return }
                 let dictionaries = documents.compactMap { $0.data() }
@@ -62,54 +63,4 @@ class FirestoreClient{
                 completion(returnValue)
             }
         }
-    
-    //
-    //    func fetchFirestoreObjectsWithCriteria<T: FirestoreFetchable>(where field: String, value: String, completion: @escaping ([T]?) -> ()) {
-    //
-    //        let collectionReference = T.collection
-    //
-    //        let query = collectionReference.whereField(field, isEqualTo: value)
-    //
-    //
-    //        collectionReference.getDocuments { (querySnap, error) in
-    //            if let error = error {
-    //                print("couldnt get documents in \(#function) \(error.localizedDescription)")
-    //            }
-    //
-    //            guard let querySnap = querySnap else { completion(nil) ; return }
-    //            let documents = querySnap.documents
-    //
-    //            let dictionaries = documents.compactMap{ $0.data() }
-    //            var returnValue: [T] = []
-    //            for dictionary in dictionaries {
-    //                let returnDictionary = dictionary.filter { $0.value as? String == criteria }
-    //                guard let uuid = dictionary["uuid"] as? String, let object = T(with: returnDictionary, id: uuid) else { completion(nil) ; return }
-    //                returnValue.append(object)
-    //
-    //                completion(returnValue)
-    //            }
-    //
-    //        }
-    //    }
-    
-    //    func fetchFirestoreJobs<T: FirestoreFetchable>(toFetch: String, completion: @escaping([T]?) -> ()) {
-    //        let collectionRef = T.collection
-    //    }
-    
-    
-    func fetchFirestoreFromArray<T: FirestoreFetchable>(typeReference: [String], user: User, completion: @escaping([T]?) ->()) {
-        var returnValue: [T] = []
-        let collectionReference = T.collection
-        collectionReference.document(user.uuid).getDocument { (querySnap, error) in
-            if let error = error {
-                print("Error getting the document for: \(user.uuid) with error: \(error.localizedDescription) in func: \(#function)")
-            }
-            guard let querySnap = querySnap else { completion(nil) ; return }
-            let test = querySnap.get(typeReference)
-            let object = test
-            
-        }
-        completion(returnValue)
-        
-    }
 }
