@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ViewApplicantCellDelegate: class {
+    func hireButtonTapped()
+}
+
 class ViewApplicantsCell: UITableViewCell {
    
     @IBOutlet weak var applicantImage: UIImageView!
@@ -20,6 +24,8 @@ class ViewApplicantsCell: UITableViewCell {
     @IBOutlet weak var starFourLabel: UILabel!
     @IBOutlet weak var starFiveLabel: UILabel!
     
+    weak var delegate: ViewApplicantCellDelegate?
+    
     var personInfo: User? {
         didSet {
             updatePerson()
@@ -31,6 +37,8 @@ class ViewApplicantsCell: UITableViewCell {
         lastNameLabel.text = personInfo.lastName
         applicantImage.image = personInfo.pictureAsImage
     }
+    
+    
     
     var jobApplicant: Job? {
         didSet {
@@ -47,8 +55,7 @@ class ViewApplicantsCell: UITableViewCell {
     }
     
     @IBAction func hireButton(_ sender: Any) {
-        
+        delegate?.hireButtonTapped()
     }
-
     
 }

@@ -475,7 +475,7 @@
         <!--ApplicantsVC-->
         <scene sceneID="u95-Jl-U1u">
             <objects>
-                <viewController id="2Ro-dG-7uC" userLabel="ApplicantsVC" customClass="ViewApplicantsVC" customModule="SharkWeek" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2Ro-dG-7uC" userLabel="ApplicantsVC" customClass="ViewApplicantsTVC" customModule="SharkWeek" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rh7-aY-WsG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="575"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -784,7 +784,7 @@
         <!--ViewPostingVC-->
         <scene sceneID="Vab-rj-JP0">
             <objects>
-                <viewController id="VWC-PX-SnU" userLabel="ViewPostingVC" customClass="ViewPostingVC" customModule="SharkWeek" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewPostingVC" id="VWC-PX-SnU" userLabel="ViewPostingVC" customClass="ViewPostingVC" customModule="SharkWeek" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PYV-qz-dd5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1065"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
