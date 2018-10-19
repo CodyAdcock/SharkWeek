@@ -131,6 +131,7 @@ class SignUpViewController: UIViewController {
         lastName = LastNamePhoneTextField.text
         email = EmailAddressLine1TextField.text
         password = PasswordAddressLine2TextField.text
+        ProfPictureImageView.image = photo
         
         if photo == nil || firstName == "" || lastName == "" || email == "" || password == ""{
             present(notFilledProperlyAlert, animated: true)
@@ -282,7 +283,6 @@ class SignUpViewController: UIViewController {
     
     
     @IBAction func ContinueButtonTapped(_ sender: Any) {
-        ProfPictureImageView.image = photo
         
         
         switch self.stageOfSignUp{
