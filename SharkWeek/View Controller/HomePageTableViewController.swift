@@ -16,9 +16,10 @@ class HomePageTableViewController: UITableViewController, UICollectionViewDataSo
     
     var currentUser: User?
     
-    var jobs1: [Job] = []
-    var jobs2: [Job] = []
-    var jobs3: [Job] = []
+    var defaultJobs: [Job] = []
+    var indoorJobs: [Job] = []
+    var outdoorJobs: [Job] = []
+
     
     
     override func viewDidLoad() {
@@ -29,25 +30,38 @@ class HomePageTableViewController: UITableViewController, UICollectionViewDataSo
         homeCollectionView2.delegate = self
         homeCollectionView3.dataSource = self
         homeCollectionView3.delegate = self
-        
-        createMockData()
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         currentUser = UserController.shared.currentUser
+        FirestoreClient.shared.fetchFirestoreWithFieldAndCriteria(for: "category", criteria: "Category:", completion: { (jobs: [Job]?) in
+            guard let jobbies = jobs else {return}
+            self.defaultJobs = jobbies
+            self.homeCollectionView3.reloadData()
+        })
+        FirestoreClient.shared.fetchFirestoreWithFieldAndCriteria(for: "category", criteria: "Indoor", completion: { (jobs: [Job]?) in
+            guard let jobbies = jobs else {return}
+            self.indoorJobs = jobbies
+            self.homeCollectionView2.reloadData()
+        })
+        FirestoreClient.shared.fetchFirestoreWithFieldAndCriteria(for: "category", criteria: "Outdoor", completion: { (jobs: [Job]?) in
+            guard let jobbies = jobs else {return}
+            self.outdoorJobs = jobbies
+            self.homeCollectionView1.reloadData()
+        })
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView{
-        case homeCollectionView1:
-            return jobs1.count
-        case homeCollectionView2:
-            return jobs2.count
         case homeCollectionView3:
-            return jobs3.count
+            return defaultJobs.count
+        case homeCollectionView2:
+            return indoorJobs.count
+        case homeCollectionView1:
+            return outdoorJobs.count
         default:
             return 0
         }
@@ -55,35 +69,21 @@ class HomePageTableViewController: UITableViewController, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView{
-        case homeCollectionView1:
+        case homeCollectionView3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeCollectionCell", for: indexPath) as? homeCollectionViewCell
-            cell?.job = jobs1[indexPath.row]
+            cell?.job = defaultJobs[indexPath.row] 
             return cell ?? UICollectionViewCell()
         case homeCollectionView2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeCollectionCell", for: indexPath) as? homeCollectionViewCell
-            cell?.job = jobs2[indexPath.row]
+            cell?.job = indoorJobs[indexPath.row]
             return cell ?? UICollectionViewCell()
-        case homeCollectionView3:
+        case homeCollectionView1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeCollectionCell", for: indexPath) as? homeCollectionViewCell
-            cell?.job = jobs3[indexPath.row]
+            cell?.job = outdoorJobs[indexPath.row]
             return cell ?? UICollectionViewCell()
         default:
             return UICollectionViewCell()
         }
-    }
-    
-    
-    
-    func createMockData(){
-        var job1 = Job(title: "Job 1", description: "It's the first one", pay: 11, toolsNeeded: "NA", toolsProvided: "NA", employerRef: "NA", line1: "NA", city: "NA", state: "NA", zipCode: "NA")
-        var job2 = Job(title: "Job 2", description: "It's the second one", pay: 22, toolsNeeded: "NA", toolsProvided: "NA", employerRef: "NA", line1: "NA", city: "NA", state: "NA", zipCode: "NA")
-        var job3 = Job(title: "Job 3", description: "It's the third one", pay: 33, toolsNeeded: "NA", toolsProvided: "NA", employerRef: "NA", line1: "NA", city: "NA", state: "NA", zipCode: "NA")
-        var job4 = Job(title: "Job 4", description: "It's the fourth one", pay: 44, toolsNeeded: "NA", toolsProvided: "NA", employerRef: "NA", line1: "NA", city: "NA", state: "NA", zipCode: "NA")
-        var job5 = Job(title: "Job 5", description: "It's the fifth one", pay: 55, toolsNeeded: "NA", toolsProvided: "NA", employerRef: "NA", line1: "NA", city: "NA", state: "NA", zipCode: "NA")
-        
-        jobs1 = [job1, job2, job3, job4, job5]
-        jobs2 = [job5, job4, job3, job2, job1]
-        jobs3 = [job3, job4, job1, job5, job2]
     }
     
     /*
