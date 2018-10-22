@@ -17,14 +17,17 @@ class ViewApplicantsTVC: UIViewController, UITableViewDataSource, UITableViewDel
             tableView.dataSource = self
             tableView.delegate = self
         }
+    var currentUser: User?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return UserController.shared.currentUser?.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "myJobsCellID", for: indexPath) as? ViewApplicantsCell else {return UITableViewCell()}
         cell.delegate = self
+        let person = UserController.shared.currentUser?[indexPath.row]
+        cell.personInfo = person
         return cell
     }
     
@@ -39,7 +42,7 @@ extension ViewApplicantsTVC: ViewApplicantCellDelegate {
     func hireButtonTapped() {
         let alertController = UIAlertController(title: "Hiring", message: "Continue only if you have already contacted this seeker", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Hire", style: .default, handler: { (_) in
-            let viewController = UIStoryboard(name: "MyJobs", bundle: nil).instantiateViewController(withIdentifier: "ViewPostingVC") as! ProfileTableViewController
+            let viewController = UIStoryboard(name: "MyJobs", bundle: nil).instantiateViewController(withIdentifier: "ViewPostingVC") as! ViewApplicantsTVC
             self.navigationController?.pushViewController(viewController, animated: true)
         }))
         

@@ -774,6 +774,7 @@
                         <outlet property="stateTF" destination="gJn-VF-ONx" id="7Aw-D2-bHv"/>
                         <outlet property="toolsNeededTF" destination="HfP-qc-q8z" id="kbq-9q-U22"/>
                         <outlet property="toolsProvidedTF" destination="p7s-Pl-DP1" id="wFa-Qi-WFb"/>
+                        <outlet property="updateButtonLabel" destination="RLO-2j-Gaq" id="xt6-g0-xct"/>
                         <outlet property="zipCodeTF" destination="LHy-9c-jrU" id="6eR-F3-usT"/>
                     </connections>
                 </viewController>

@@ -10,6 +10,7 @@ import UIKit
 
 class EditPostVC: UIViewController {
     
+    @IBOutlet weak var updateButtonLabel: UIButton!
     @IBOutlet weak var jobTitleTF: UITextField!
     @IBOutlet weak var payTF: UITextField!
     @IBOutlet weak var addressOneTF: UITextField!
@@ -26,26 +27,19 @@ class EditPostVC: UIViewController {
         //updateViews()
     }
     
-//    var jobPoster: Job?
-//    func updateViews() {
-//        guard let jobPoster = jobPoster else {return}
-//        jobTitleTF.text = jobPoster.title
-//        payTF.text = "\(jobPoster.pay)"
-//        descriptionTV.text = jobPoster.description
-//        toolsNeededTF.text = jobPoster.toolsNeeded
-//        toolsProvidedTF.text = jobPoster.toolsProvided
-//
-//        addressOneTF.text = jobPoster.line1
-//        addressTwoTF.text = jobPoster.line2
-//        cityTF.text = jobPoster.city
-//        stateTF.text = jobPoster.state
-//        zipCodeTF.text = jobPoster.zipCode
-//    }
-    
-    @IBAction func updateButton(_ sender: Any) {
-        
+
+
+@IBAction func updateButton(_ sender: Any) {
+    if jobTitleTF.text!.isEmpty || jobTitleTF.text != "" && payTF.text!.isEmpty || payTF.text != "" && addressOneTF.text!.isEmpty || addressOneTF.text != "" &&
+        addressTwoTF.text!.isEmpty || addressTwoTF.text != "" && cityTF.text!.isEmpty || cityTF.text != "" && stateTF.text!.isEmpty || stateTF.text != "" &&
+        zipCodeTF.text!.isEmpty || zipCodeTF.text != "" && toolsNeededTF.text!.isEmpty || toolsNeededTF.text != "" && toolsProvidedTF.text!.isEmpty || toolsProvidedTF.text != "" && descriptionTV.text!.isEmpty || descriptionTV.text != ""
+    {
+        return
+    } else {
+    updateButtonLabel.isEnabled = true
     }
-    
+}
+
     
     @IBAction func cancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -67,3 +61,53 @@ class EditPostVC: UIViewController {
     */
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    var jobPoster: Job?
+//    func updateViews() {
+//        guard let jobPoster = jobPoster else {return}
+//        jobTitleTF.text = jobPoster.title
+//        payTF.text = "\(jobPoster.pay)"
+//        descriptionTV.text = jobPoster.description
+//        toolsNeededTF.text = jobPoster.toolsNeeded
+//        toolsProvidedTF.text = jobPoster.toolsProvided
+//
+//        addressOneTF.text = jobPoster.line1
+//        addressTwoTF.text = jobPoster.line2
+//        cityTF.text = jobPoster.city
+//        stateTF.text = jobPoster.state
+//        zipCodeTF.text = jobPoster.zipCode
+//    }
+
+

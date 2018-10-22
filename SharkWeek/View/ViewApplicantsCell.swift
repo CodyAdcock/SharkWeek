@@ -31,29 +31,21 @@ class ViewApplicantsCell: UITableViewCell {
             updatePerson()
         }
     }
+    
+    
     func updatePerson() {
-        guard let personInfo = personInfo else {return}
-        firstNameLabel.text = personInfo.firstName
-        lastNameLabel.text = personInfo.lastName
-        applicantImage.image = personInfo.pictureAsImage
+        firstNameLabel.text = UserController.shared.currentUser?.firstName
+        lastNameLabel.text = UserController.shared.currentUser?.lastName
+        applicantImage.image = UserController.shared.currentUser?.pictureAsImage
+        
+        starOneLabel.text = Stars.one
+        starTwoLabel.text = Stars.two
+        starThreeLabel.text = Stars.three
+        starFourLabel.text = Stars.four
+        starFiveLabel.text = Stars.five
+        
     }
-    
-    
-    
-    var jobApplicant: Job? {
-        didSet {
-            updateViews()
-        }
-    }
-    func updateViews() {
-        guard let jobApplicant = jobApplicant else {return}
-        starOneLabel.text = "\(String(describing: jobApplicant.reviewOfWorker?.rating))"
-        starTwoLabel.text = "\(String(describing: jobApplicant.reviewOfWorker?.rating))"
-        starThreeLabel.text = "\(String(describing: jobApplicant.reviewOfWorker?.rating))"
-        starFourLabel.text = "\(String(describing: jobApplicant.reviewOfWorker?.rating))"
-        starFiveLabel.text = "\(String(describing: jobApplicant.reviewOfWorker?.rating))"
-    }
-    
+  
     @IBAction func hireButton(_ sender: Any) {
         delegate?.hireButtonTapped()
     }
