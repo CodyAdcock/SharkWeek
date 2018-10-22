@@ -12,7 +12,7 @@
         <!--Job Search-->
         <scene sceneID="XV5-YA-kBa">
             <objects>
-                <tableViewController id="b96-T7-AAp" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SearchTableViewController" id="b96-T7-AAp" customClass="SearchTableViewController" customModule="SharkWeek" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2q6-As-iqJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,17 +21,6 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="184"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgO-ms-iDq">
-                                    <rect key="frame" x="128.5" y="19" width="118" height="38"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="38" id="iIN-tc-1jP"/>
-                                        <constraint firstAttribute="width" constant="118" id="ydn-7e-sbZ"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                    <state key="normal" title="Category">
-                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    </state>
-                                </button>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="H1W-8N-XAS">
                                     <rect key="frame" x="236" y="69" width="131" height="38"/>
                                     <constraints>
@@ -80,23 +69,28 @@
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                 </button>
+                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0Y-Qe-Z7H">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="92"/>
+                                </pickerView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="tQ0-dX-GTy" secondAttribute="bottom" constant="8" id="4XD-Ed-TEG"/>
                                 <constraint firstItem="tQ0-dX-GTy" firstAttribute="top" secondItem="H1W-8N-XAS" secondAttribute="bottom" constant="15" id="5bb-Hz-mwu"/>
-                                <constraint firstItem="SgO-ms-iDq" firstAttribute="top" secondItem="8di-Pm-Ern" secondAttribute="top" constant="19" id="FRi-Rm-aLA"/>
+                                <constraint firstItem="h0Y-Qe-Z7H" firstAttribute="width" secondItem="8di-Pm-Ern" secondAttribute="width" id="IWv-2W-7CD"/>
                                 <constraint firstItem="tQ0-dX-GTy" firstAttribute="leading" secondItem="8di-Pm-Ern" secondAttribute="leading" id="Mtq-dM-75b"/>
                                 <constraint firstItem="tQ0-dX-GTy" firstAttribute="top" secondItem="YsX-1y-BLM" secondAttribute="bottom" constant="15" id="Oze-yV-dBb"/>
                                 <constraint firstAttribute="trailing" secondItem="H1W-8N-XAS" secondAttribute="trailing" constant="8" id="QFd-oq-Dbm"/>
                                 <constraint firstItem="tQ0-dX-GTy" firstAttribute="top" secondItem="8di-Pm-Ern" secondAttribute="top" constant="121" id="WdB-bc-5uQ"/>
+                                <constraint firstItem="tQ0-dX-GTy" firstAttribute="centerX" secondItem="8di-Pm-Ern" secondAttribute="centerX" id="a11-ma-ikY"/>
                                 <constraint firstItem="YsX-1y-BLM" firstAttribute="leading" secondItem="8di-Pm-Ern" secondAttribute="leading" constant="8" id="c48-PF-tzo"/>
-                                <constraint firstItem="SgO-ms-iDq" firstAttribute="centerX" secondItem="8di-Pm-Ern" secondAttribute="centerX" id="wT7-HG-j9b"/>
-                                <constraint firstItem="tQ0-dX-GTy" firstAttribute="centerX" secondItem="SgO-ms-iDq" secondAttribute="centerX" id="zSb-ze-7Gf"/>
+                                <constraint firstItem="h0Y-Qe-Z7H" firstAttribute="top" secondItem="8di-Pm-Ern" secondAttribute="top" id="d1u-t7-74S"/>
+                                <constraint firstItem="h0Y-Qe-Z7H" firstAttribute="height" secondItem="8di-Pm-Ern" secondAttribute="height" multiplier="0.5" id="hhK-fv-in9"/>
+                                <constraint firstItem="h0Y-Qe-Z7H" firstAttribute="centerX" secondItem="8di-Pm-Ern" secondAttribute="centerX" id="nUI-CE-Vvb"/>
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="166" id="Qdu-FK-EVQ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchJobsCellID" rowHeight="166" id="Qdu-FK-EVQ" customClass="myJobsCell" customModule="SharkWeek" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="212" width="375" height="166"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qdu-FK-EVQ" id="Tao-3B-yeJ">
@@ -123,13 +117,12 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EEL-o5-L6b">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lorem ipsum lorem lorem lorem lorem lorem lorem lorem lorem" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54M-Ng-v4J">
                                                     <rect key="frame" x="0.0" y="46" width="323" height="88.5"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</string>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </stackView>
                                     </subviews>
@@ -141,6 +134,11 @@
                                         <constraint firstItem="7hG-T1-9ew" firstAttribute="centerX" secondItem="Tao-3B-yeJ" secondAttribute="centerX" id="gVK-0L-BkJ"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="54M-Ng-v4J" id="NNq-2i-j8N"/>
+                                    <outlet property="jobTitleLabel" destination="SgD-1m-Y9J" id="Wxi-0i-f12"/>
+                                    <outlet property="payLabel" destination="enq-5q-VC9" id="S7D-Ub-2if"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -149,6 +147,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Job Search" id="e2v-gH-TyS"/>
+                    <connections>
+                        <outlet property="pickerView" destination="h0Y-Qe-Z7H" id="d2f-1N-svr"/>
+                        <outlet property="searchBar" destination="r3x-sk-eSZ" id="T8M-Yg-kIP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFB-XN-bzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -174,7 +176,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <searchBar contentMode="redraw" placeholder="Salt Lake City, UT" translatesAutoresizingMaskIntoConstraints="NO" id="e2P-zE-lRV">
+                                    <searchBar contentMode="redraw" text="" placeholder="Salt Lake City, UT" translatesAutoresizingMaskIntoConstraints="NO" id="e2P-zE-lRV">
                                         <rect key="frame" x="98" y="0.0" width="277" height="56"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>

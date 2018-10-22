@@ -314,11 +314,21 @@
                         <outlet property="homeCollectionView1" destination="Gx1-ho-ROb" id="lAN-lA-bLC"/>
                         <outlet property="homeCollectionView2" destination="Cqp-uV-QRj" id="yeq-kJ-GhR"/>
                         <outlet property="homeCollectionView3" destination="Q84-uS-RNF" id="XGj-7t-zdn"/>
+                        <outlet property="searchBar" destination="YDZ-2g-GRa" id="wmW-El-7yO"/>
+                        <segue destination="ssE-PR-GJE" kind="show" identifier="searchToSearch" id="ddu-7W-dnj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FtS-r6-DLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="628" y="606.74662668665667"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="a3u-qJ-zsB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Search" id="ssE-PR-GJE" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v8E-DY-kYh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1441" y="323"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="E45-oc-HuK">

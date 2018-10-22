@@ -102,9 +102,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="descriptionLabel" destination="x5F-ZO-h1H" id="wvX-ye-l9l"/>
-                                    <outlet property="jobTitleLabel" destination="JrP-d1-9Ht" id="Oyw-hX-T59"/>
-                                    <outlet property="payLabel" destination="exk-p1-Woj" id="sQQ-ed-0g5"/>
+                                    <outlet property="descriptionLabel" destination="x5F-ZO-h1H" id="rWi-k4-QCW"/>
+                                    <outlet property="jobTitleLabel" destination="JrP-d1-9Ht" id="umr-g1-Bvb"/>
+                                    <outlet property="payLabel" destination="exk-p1-Woj" id="KZ1-uK-pfz"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

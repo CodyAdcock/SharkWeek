@@ -10,6 +10,7 @@ import UIKit
 
 class HomePageTableViewController: UITableViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var homeCollectionView1: UICollectionView!
     @IBOutlet weak var homeCollectionView2: UICollectionView!
     @IBOutlet weak var homeCollectionView3: UICollectionView!
@@ -19,11 +20,12 @@ class HomePageTableViewController: UITableViewController, UICollectionViewDataSo
     var defaultJobs: [Job] = []
     var indoorJobs: [Job] = []
     var outdoorJobs: [Job] = []
-
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
         homeCollectionView1.dataSource = self
         homeCollectionView1.delegate = self
         homeCollectionView2.dataSource = self
@@ -95,5 +97,16 @@ class HomePageTableViewController: UITableViewController, UICollectionViewDataSo
      // Pass the selected object to the new view controller.
      }
      */
-    
+}
+// TODO: - Segue into the search tab
+extension HomePageTableViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text else { return }
+        
+//        let vc = SearchTableViewController()
+//        SearchTableViewController.shared.landingPad = text
+        
+        self.tabBarController?.selectedIndex = 4
+      
+    }
 }
