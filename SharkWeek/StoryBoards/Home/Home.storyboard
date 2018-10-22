@@ -314,6 +314,7 @@
                         <outlet property="homeCollectionView1" destination="Gx1-ho-ROb" id="lAN-lA-bLC"/>
                         <outlet property="homeCollectionView2" destination="Cqp-uV-QRj" id="yeq-kJ-GhR"/>
                         <outlet property="homeCollectionView3" destination="Q84-uS-RNF" id="XGj-7t-zdn"/>
+                        <outlet property="searchBar" destination="YDZ-2g-GRa" id="wmW-El-7yO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FtS-r6-DLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
