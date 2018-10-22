@@ -8,13 +8,6 @@ class MyJobsTVC: UITableViewController {
     var jobsArray: [Job] = []
     var currentUser: User?
     
-    
-    //    var currentArray: [String] = []
-    //    var historyArray: [String] = []
-    //    var appliedArray: [String] = []
-    //    var postedArray: [String] = []
-    
-    
     func segmentAttributes() {
         segmentedControlLabel.layer.cornerRadius = 5.0
         segmentedControlLabel.backgroundColor = .lightGray
@@ -184,14 +177,10 @@ class MyJobsTVC: UITableViewController {
             performSegue(withIdentifier: "toDetailVc", sender: sharedArray[indexPath.row])
             
         case 2:
-            let viewController = UIStoryboard(name: "MyJobs", bundle: nil).instantiateViewController(withIdentifier: "AppliedDetailVC") as! PostedDetailVC
-            self.navigationController?.pushViewController(viewController, animated: true)
             
             performSegue(withIdentifier: "toDetailVc", sender: sharedArray[indexPath.row])
             
         case 3:
-            let viewController = UIStoryboard(name: "MyJobs", bundle: nil).instantiateViewController(withIdentifier: "PostedDetailVC") as! AppliedDetailVC
-            self.navigationController?.pushViewController(viewController, animated: true)
             
             performSegue(withIdentifier: "toViewJobVC", sender: sharedArray[indexPath.row])
         default:
