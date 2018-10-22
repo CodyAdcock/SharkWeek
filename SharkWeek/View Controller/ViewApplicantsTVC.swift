@@ -8,16 +8,16 @@
 
 import UIKit
 
-class ViewApplicantsTVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewApplicantsTVC: UIViewController/*, UITableViewDataSource, UITableViewDelegate */{
     
     @IBOutlet weak var tableView: UITableView!
    
         override func viewDidLoad() {
             super.viewDidLoad()
-            tableView.dataSource = self
-            tableView.delegate = self
+            //tableView.dataSource = self
+            //tableView.delegate = self
         }
-    
+    /*
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return UserController.shared.currentUser?.count
     }
@@ -34,7 +34,7 @@ class ViewApplicantsTVC: UIViewController, UITableViewDataSource, UITableViewDel
         let viewController = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "createProfile") as! ProfileTableViewController
         present(viewController, animated: true)
     }
-    
+    */
 }
 
 extension ViewApplicantsTVC: ViewApplicantCellDelegate {

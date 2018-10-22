@@ -188,7 +188,7 @@
 				C376F2B5216ED292005EEA0D /* Post Job */,
 				C376F2B6216ED292005EEA0D /* My Jobs */,
 				C376F2B7216ED293005EEA0D /* Search */,
-				C3B8286C217E64F200B5794A /* RatingAlert.storyboard */,
+				C3B8286F217E97A200B5794A /* Rating View */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -295,6 +295,14 @@
 				C376F2C3216ED373005EEA0D /* Search.storyboard */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		C3B8286F217E97A200B5794A /* Rating View */ = {
+			isa = PBXGroup;
+			children = (
+				C3B8286C217E64F200B5794A /* RatingAlert.storyboard */,
+			);
+			path = "Rating View";
 			sourceTree = "<group>";
 		};
 		C3F81F3A2170F59300E06F6E /* Music */ = {
