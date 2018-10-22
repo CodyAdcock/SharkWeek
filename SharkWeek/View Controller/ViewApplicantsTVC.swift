@@ -17,7 +17,6 @@ class ViewApplicantsTVC: UIViewController, UITableViewDataSource, UITableViewDel
             tableView.dataSource = self
             tableView.delegate = self
         }
-    var currentUser: User?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return UserController.shared.currentUser?.count

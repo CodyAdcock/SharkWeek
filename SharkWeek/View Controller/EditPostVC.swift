@@ -26,8 +26,6 @@ class EditPostVC: UIViewController {
         super.viewDidLoad()
         //updateViews()
     }
-    
-
 
 @IBAction func updateButton(_ sender: Any) {
     if jobTitleTF.text!.isEmpty || jobTitleTF.text != "" && payTF.text!.isEmpty || payTF.text != "" && addressOneTF.text!.isEmpty || addressOneTF.text != "" &&

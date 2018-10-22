@@ -162,8 +162,6 @@ class MyJobsTVC: UITableViewController {
             sharedArray = []
         }
     }
-    
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return jobsArray.count
     }
