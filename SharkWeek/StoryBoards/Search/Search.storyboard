@@ -12,7 +12,7 @@
         <!--Job Search-->
         <scene sceneID="XV5-YA-kBa">
             <objects>
-                <tableViewController id="b96-T7-AAp" customClass="SearchTableViewController" customModule="SharkWeek" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SearchTableViewController" id="b96-T7-AAp" customClass="SearchTableViewController" customModule="SharkWeek" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2q6-As-iqJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -149,7 +149,7 @@
                     <navigationItem key="navigationItem" title="Job Search" id="e2v-gH-TyS"/>
                     <connections>
                         <outlet property="pickerView" destination="h0Y-Qe-Z7H" id="d2f-1N-svr"/>
-                        <outlet property="searchBar" destination="r3x-sk-eSZ" id="xN9-R9-DLA"/>
+                        <outlet property="searchBar" destination="r3x-sk-eSZ" id="T8M-Yg-kIP"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFB-XN-bzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
