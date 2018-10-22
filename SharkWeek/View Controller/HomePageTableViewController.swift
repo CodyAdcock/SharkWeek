@@ -20,7 +20,7 @@ class HomePageTableViewController: UITableViewController, UICollectionViewDataSo
     var defaultJobs: [Job] = []
     var indoorJobs: [Job] = []
     var outdoorJobs: [Job] = []
-
+    
     
     
     override func viewDidLoad() {
@@ -102,10 +102,11 @@ class HomePageTableViewController: UITableViewController, UICollectionViewDataSo
 extension HomePageTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else { return }
-        FirestoreClient.shared.fetchFirestoreWithFieldAndCriteria(for: "zipCode", criteria: text) { (jobs: [Job]?) in
-            guard let jobbies = jobs else { return }
-            self.defaultJobs = jobbies
-            self.homeCollectionView3.reloadData()
-        }
+        
+//        let vc = SearchTableViewController()
+        SearchTableViewController.shared.landingPad = text
+        
+        self.tabBarController?.selectedIndex = 4
+      
     }
 }
