@@ -17,6 +17,7 @@
 		48823CEA217692BD0012C30B /* EditPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48823CE9217692BD0012C30B /* EditPostVC.swift */; };
 		48823CEC217693240012C30B /* ViewApplicantsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48823CEB217693240012C30B /* ViewApplicantsTVC.swift */; };
 		48B0401F2176A585002424AC /* ViewApplicantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B0401E2176A585002424AC /* ViewApplicantsCell.swift */; };
+		90098815217E47E100746D7B /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90098814217E47E100746D7B /* SearchTableViewController.swift */; };
 		90493CD82177C8B700F9DBA7 /* textFieldExtendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90493CD72177C8B700F9DBA7 /* textFieldExtendor.swift */; };
 		90709B5A216FC54700E4795A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90709B59216FC54700E4795A /* GoogleService-Info.plist */; };
 		90E0F4442178FB820084872D /* FirestoreFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E0F4432178FB820084872D /* FirestoreFetchable.swift */; };
@@ -62,6 +63,7 @@
 		48B0401E2176A585002424AC /* ViewApplicantsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewApplicantsCell.swift; sourceTree = "<group>"; };
 		7D79E6C95F8A1456363B04F1 /* Pods_SharkWeek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharkWeek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83B22494710D5F0B384201EF /* Pods-SharkWeek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharkWeek.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharkWeek/Pods-SharkWeek.debug.xcconfig"; sourceTree = "<group>"; };
+		90098814217E47E100746D7B /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		90493CD72177C8B700F9DBA7 /* textFieldExtendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFieldExtendor.swift; sourceTree = "<group>"; };
 		90709B59216FC54700E4795A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		90935A14216FF04D00011B28 /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 		C376F2A2216ED04F005EEA0D /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				90098814217E47E100746D7B /* SearchTableViewController.swift */,
 				C3F81F3D21711C7100E06F6E /* Profile Containers */,
 				C3DF84382176515B0064FCF5 /* SharkTabBarController.swift */,
 				480D5B0421750B92005A4A68 /* MyJobsTVC.swift */,
@@ -482,6 +485,7 @@
 				90E0F4462179008D0084872D /* FirestoreClient.swift in Sources */,
 				483302E32176A714004EBB07 /* PostJobVC.swift in Sources */,
 				C376F2C8216FECD5005EEA0D /* SignUpViewController.swift in Sources */,
+				90098815217E47E100746D7B /* SearchTableViewController.swift in Sources */,
 				C376F2AB216ED0FF005EEA0D /* Review.swift in Sources */,
 				C3F81F3F21711C8900E06F6E /* PersonalInfoViewController.swift in Sources */,
 				90E0F4442178FB820084872D /* FirestoreFetchable.swift in Sources */,
