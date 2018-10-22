@@ -16,16 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Zip Code" id="YDZ-2g-GRa">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="postal-code"/>
-                        </searchBar>
                         <sections>
                             <tableViewSection headerTitle="Outdoor Jobs" id="J9X-7E-1aH">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="98" id="YYY-GT-ZwU">
-                                        <rect key="frame" x="0.0" y="84" width="375" height="98"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YYY-GT-ZwU" id="eir-lV-sbe">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="97.5"/>
@@ -118,7 +113,7 @@
                             <tableViewSection headerTitle="Indoor Jobs" id="OTD-Rq-wqb">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="98" id="bQB-B8-s1Q">
-                                        <rect key="frame" x="0.0" y="210" width="375" height="98"/>
+                                        <rect key="frame" x="0.0" y="154" width="375" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bQB-B8-s1Q" id="igu-SE-VsL">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="97.5"/>
@@ -211,7 +206,7 @@
                             <tableViewSection headerTitle="Popular Jobs" id="f0T-ga-lit">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="98" id="ylL-m4-EtX">
-                                        <rect key="frame" x="0.0" y="336" width="375" height="98"/>
+                                        <rect key="frame" x="0.0" y="280" width="375" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ylL-m4-EtX" id="6qO-rb-LFF">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="97.5"/>
@@ -314,21 +309,11 @@
                         <outlet property="homeCollectionView1" destination="Gx1-ho-ROb" id="lAN-lA-bLC"/>
                         <outlet property="homeCollectionView2" destination="Cqp-uV-QRj" id="yeq-kJ-GhR"/>
                         <outlet property="homeCollectionView3" destination="Q84-uS-RNF" id="XGj-7t-zdn"/>
-                        <outlet property="searchBar" destination="YDZ-2g-GRa" id="wmW-El-7yO"/>
-                        <segue destination="ssE-PR-GJE" kind="show" identifier="searchToSearch" id="ddu-7W-dnj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FtS-r6-DLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="628" y="606.74662668665667"/>
-        </scene>
-        <!--Search-->
-        <scene sceneID="a3u-qJ-zsB">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Search" id="ssE-PR-GJE" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="v8E-DY-kYh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1441" y="323"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="E45-oc-HuK">

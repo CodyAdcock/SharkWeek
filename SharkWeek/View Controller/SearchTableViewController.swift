@@ -11,38 +11,17 @@ import UIKit
 class SearchTableViewController: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var pickerView: UIPickerView!
-    static let shared = SearchTableViewController()
     var searchedJobs: [Job] = []
     var pickerData: [String] = []
     var category: String?
     let jobRef = JobController.shared.jobCollection
-    var landingPad: String? {
-        didSet {
-            updateViews { (searchText) in
-                self.searchBar.text = searchText
-            }
-        }
-    }
-    
-    func updateViews(completion: @escaping (String?) -> ()) {
-        guard let landingPad = landingPad else { return }
-        completion(landingPad)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        guard let landingPad = landingPad else { return }
-        searchBar.text = landingPad
-        
-    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
         pickerView.delegate = self
-        pickerData = ["Default", "Outdoor", "Indoor"]
-//        searchBar.text = landingPad
+        pickerData = ["Category:", "Outdoor", "Indoor"]
     }
     
     // MARK: - Table view data source    
