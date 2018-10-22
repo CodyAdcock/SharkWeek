@@ -401,18 +401,29 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t16-LZ-S4y">
+                                    <rect key="frame" x="309" y="73" width="46" height="30"/>
+                                    <state key="normal" title="Button"/>
+                                    <connections>
+                                        <segue destination="cjy-bK-PvU" kind="presentation" modalPresentationStyle="overCurrentContext" id="r8m-0j-1q4"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="XGI-gC-muY" firstAttribute="top" secondItem="sl7-Bc-Db3" secondAttribute="top" constant="210" id="0Kj-zP-UWu"/>
                                 <constraint firstItem="yo0-au-dIG" firstAttribute="top" secondItem="sl7-Bc-Db3" secondAttribute="top" constant="40" id="2fk-qs-GpU"/>
+                                <constraint firstItem="t16-LZ-S4y" firstAttribute="top" secondItem="sl7-Bc-Db3" secondAttribute="top" constant="73" id="7uX-Wn-Dmi"/>
                                 <constraint firstAttribute="bottom" secondItem="EQt-nG-hib" secondAttribute="bottom" id="9oT-MQ-BIJ"/>
                                 <constraint firstItem="aH4-jz-bAo" firstAttribute="top" secondItem="sl7-Bc-Db3" secondAttribute="top" constant="210" id="C14-s6-RAN"/>
+                                <constraint firstItem="t16-LZ-S4y" firstAttribute="leading" secondItem="yo0-au-dIG" secondAttribute="trailing" constant="72.5" id="Cac-Yw-obp"/>
                                 <constraint firstItem="yo0-au-dIG" firstAttribute="centerX" secondItem="sl7-Bc-Db3" secondAttribute="centerX" id="CrD-gm-8xs"/>
                                 <constraint firstItem="EQt-nG-hib" firstAttribute="centerX" secondItem="sl7-Bc-Db3" secondAttribute="centerX" id="Etj-hG-oWT"/>
+                                <constraint firstAttribute="trailing" secondItem="t16-LZ-S4y" secondAttribute="trailing" constant="20" id="LTQ-1G-XWs"/>
                                 <constraint firstItem="EQt-nG-hib" firstAttribute="width" secondItem="sl7-Bc-Db3" secondAttribute="width" id="Uri-JH-3Us"/>
                                 <constraint firstItem="XGI-gC-muY" firstAttribute="leading" secondItem="sl7-Bc-Db3" secondAttribute="leading" constant="20" id="WQM-Lm-1rI"/>
                                 <constraint firstItem="odd-VG-XwD" firstAttribute="centerX" secondItem="sl7-Bc-Db3" secondAttribute="centerX" id="Yum-Vp-X8g"/>
+                                <constraint firstItem="aH4-jz-bAo" firstAttribute="top" secondItem="t16-LZ-S4y" secondAttribute="bottom" constant="107" id="ge0-Xm-fW7"/>
                                 <constraint firstAttribute="trailing" secondItem="aH4-jz-bAo" secondAttribute="trailing" constant="20" id="vgj-fp-May"/>
                                 <constraint firstItem="yo0-au-dIG" firstAttribute="width" secondItem="sl7-Bc-Db3" secondAttribute="width" multiplier="0.26" id="wdJ-nF-6xH"/>
                                 <constraint firstItem="odd-VG-XwD" firstAttribute="top" secondItem="yo0-au-dIG" secondAttribute="bottom" constant="35" id="xrH-fB-3Ab"/>
@@ -467,6 +478,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o1s-lB-SBi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2648.8000000000002" y="885.60719640179911"/>
+        </scene>
+        <!--RatingAlert-->
+        <scene sceneID="Qia-cc-3nb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RatingAlert" id="cjy-bK-PvU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Itw-8g-4VU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3372" y="892"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="gMK-uB-R5b">
