@@ -42,6 +42,8 @@
 		C376F2CA216FED8C005EEA0D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C376F2C9216FED8C005EEA0D /* SignInViewController.swift */; };
 		C376F2CC21700EC3005EEA0D /* PhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C376F2CB21700EC3005EEA0D /* PhotoSelectViewController.swift */; };
 		C376F2CE217032B2005EEA0D /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C376F2CD217032B2005EEA0D /* ProfileTableViewController.swift */; };
+		C3B8286B217E615A00B5794A /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B8286A217E615A00B5794A /* RatingViewController.swift */; };
+		C3B8286D217E64F200B5794A /* RatingAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3B8286C217E64F200B5794A /* RatingAlert.storyboard */; };
 		C3DF84392176515B0064FCF5 /* SharkTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF84382176515B0064FCF5 /* SharkTabBarController.swift */; };
 		C3F81F3C2170F5A000E06F6E /* Sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C3F81F3B2170F5A000E06F6E /* Sample.mp3 */; };
 		C3F81F3F21711C8900E06F6E /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F81F3E21711C8900E06F6E /* PersonalInfoViewController.swift */; };
@@ -91,6 +93,8 @@
 		C376F2C9216FED8C005EEA0D /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		C376F2CB21700EC3005EEA0D /* PhotoSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectViewController.swift; sourceTree = "<group>"; };
 		C376F2CD217032B2005EEA0D /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		C3B8286A217E615A00B5794A /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
+		C3B8286C217E64F200B5794A /* RatingAlert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RatingAlert.storyboard; sourceTree = "<group>"; };
 		C3DF84382176515B0064FCF5 /* SharkTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharkTabBarController.swift; sourceTree = "<group>"; };
 		C3F81F3B2170F5A000E06F6E /* Sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Sample.mp3; sourceTree = "<group>"; };
 		C3F81F3E21711C8900E06F6E /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 				C376F2B5216ED292005EEA0D /* Post Job */,
 				C376F2B6216ED292005EEA0D /* My Jobs */,
 				C376F2B7216ED293005EEA0D /* Search */,
+				C3B8286C217E64F200B5794A /* RatingAlert.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 				C376F2CD217032B2005EEA0D /* ProfileTableViewController.swift */,
 				483302E22176A713004EBB07 /* PostJobVC.swift */,
 				C3F916DB2178F13A00394038 /* HomePageTableViewController.swift */,
+				C3B8286A217E615A00B5794A /* RatingViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -389,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C376F299216ED022005EEA0D /* LaunchScreen.storyboard in Resources */,
+				C3B8286D217E64F200B5794A /* RatingAlert.storyboard in Resources */,
 				C376F296216ED022005EEA0D /* Assets.xcassets in Resources */,
 				C376F2BE216ED331005EEA0D /* Profile.storyboard in Resources */,
 				C376F2C2216ED36C005EEA0D /* MyJobs.storyboard in Resources */,
@@ -501,6 +508,7 @@
 				C3F916DC2178F13A00394038 /* HomePageTableViewController.swift in Sources */,
 				486AFFFA2176615000B598CA /* AppliedDetailVC.swift in Sources */,
 				48823CEC217693240012C30B /* ViewApplicantsTVC.swift in Sources */,
+				C3B8286B217E615A00B5794A /* RatingViewController.swift in Sources */,
 				48823CE6217691750012C30B /* ViewPostingVC.swift in Sources */,
 				480D5B0621750B92005A4A68 /* MyJobsTVC.swift in Sources */,
 				C376F28F216ED021005EEA0D /* AppDelegate.swift in Sources */,
