@@ -70,7 +70,7 @@
                                     </state>
                                 </button>
                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0Y-Qe-Z7H">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="92"/>
                                 </pickerView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -85,12 +85,12 @@
                                 <constraint firstItem="tQ0-dX-GTy" firstAttribute="centerX" secondItem="8di-Pm-Ern" secondAttribute="centerX" id="a11-ma-ikY"/>
                                 <constraint firstItem="YsX-1y-BLM" firstAttribute="leading" secondItem="8di-Pm-Ern" secondAttribute="leading" constant="8" id="c48-PF-tzo"/>
                                 <constraint firstItem="h0Y-Qe-Z7H" firstAttribute="top" secondItem="8di-Pm-Ern" secondAttribute="top" id="d1u-t7-74S"/>
-                                <constraint firstItem="h0Y-Qe-Z7H" firstAttribute="height" secondItem="8di-Pm-Ern" secondAttribute="height" multiplier="0.3" id="hhK-fv-in9"/>
+                                <constraint firstItem="h0Y-Qe-Z7H" firstAttribute="height" secondItem="8di-Pm-Ern" secondAttribute="height" multiplier="0.5" id="hhK-fv-in9"/>
                                 <constraint firstItem="h0Y-Qe-Z7H" firstAttribute="centerX" secondItem="8di-Pm-Ern" secondAttribute="centerX" id="nUI-CE-Vvb"/>
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="166" id="Qdu-FK-EVQ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchJobsCellID" rowHeight="166" id="Qdu-FK-EVQ" customClass="myJobsCell" customModule="SharkWeek" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="212" width="375" height="166"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qdu-FK-EVQ" id="Tao-3B-yeJ">
@@ -117,13 +117,12 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EEL-o5-L6b">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lorem ipsum lorem lorem lorem lorem lorem lorem lorem lorem" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54M-Ng-v4J">
                                                     <rect key="frame" x="0.0" y="46" width="323" height="88.5"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</string>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </stackView>
                                     </subviews>
@@ -135,6 +134,11 @@
                                         <constraint firstItem="7hG-T1-9ew" firstAttribute="centerX" secondItem="Tao-3B-yeJ" secondAttribute="centerX" id="gVK-0L-BkJ"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="54M-Ng-v4J" id="NNq-2i-j8N"/>
+                                    <outlet property="jobTitleLabel" destination="SgD-1m-Y9J" id="Wxi-0i-f12"/>
+                                    <outlet property="payLabel" destination="enq-5q-VC9" id="S7D-Ub-2if"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

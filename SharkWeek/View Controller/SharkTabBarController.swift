@@ -25,7 +25,7 @@ class SharkTabBarController: UITabBarController {
         myJobsNav.tabBarItem = UITabBarItem(title: "My Jobs", image: nil, tag: 3)
         searchNav.tabBarItem = UITabBarItem(title: "Search", image: nil, tag: 4)
         
-        self.viewControllers = [ homeNav, profileNav, postJobNav, myJobsNav]
+        self.viewControllers = [ homeNav, profileNav, postJobNav, myJobsNav, searchNav]
     }
     
     
