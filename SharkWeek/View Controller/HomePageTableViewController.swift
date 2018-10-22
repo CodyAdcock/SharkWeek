@@ -104,7 +104,7 @@ extension HomePageTableViewController: UISearchBarDelegate {
         guard let text = searchBar.text else { return }
         
 //        let vc = SearchTableViewController()
-        SearchTableViewController.shared.landingPad = text
+//        SearchTableViewController.shared.landingPad = text
         
         self.tabBarController?.selectedIndex = 4
       
