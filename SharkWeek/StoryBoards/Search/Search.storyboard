@@ -12,7 +12,7 @@
         <!--Job Search-->
         <scene sceneID="XV5-YA-kBa">
             <objects>
-                <tableViewController id="b96-T7-AAp" sceneMemberID="viewController">
+                <tableViewController id="b96-T7-AAp" customClass="SearchTableViewController" customModule="SharkWeek" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2q6-As-iqJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,17 +21,6 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="184"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgO-ms-iDq">
-                                    <rect key="frame" x="128.5" y="19" width="118" height="38"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="38" id="iIN-tc-1jP"/>
-                                        <constraint firstAttribute="width" constant="118" id="ydn-7e-sbZ"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                    <state key="normal" title="Category">
-                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    </state>
-                                </button>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="H1W-8N-XAS">
                                     <rect key="frame" x="236" y="69" width="131" height="38"/>
                                     <constraints>
@@ -80,19 +69,24 @@
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                 </button>
+                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0Y-Qe-Z7H">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                </pickerView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="tQ0-dX-GTy" secondAttribute="bottom" constant="8" id="4XD-Ed-TEG"/>
                                 <constraint firstItem="tQ0-dX-GTy" firstAttribute="top" secondItem="H1W-8N-XAS" secondAttribute="bottom" constant="15" id="5bb-Hz-mwu"/>
-                                <constraint firstItem="SgO-ms-iDq" firstAttribute="top" secondItem="8di-Pm-Ern" secondAttribute="top" constant="19" id="FRi-Rm-aLA"/>
+                                <constraint firstItem="h0Y-Qe-Z7H" firstAttribute="width" secondItem="8di-Pm-Ern" secondAttribute="width" id="IWv-2W-7CD"/>
                                 <constraint firstItem="tQ0-dX-GTy" firstAttribute="leading" secondItem="8di-Pm-Ern" secondAttribute="leading" id="Mtq-dM-75b"/>
                                 <constraint firstItem="tQ0-dX-GTy" firstAttribute="top" secondItem="YsX-1y-BLM" secondAttribute="bottom" constant="15" id="Oze-yV-dBb"/>
                                 <constraint firstAttribute="trailing" secondItem="H1W-8N-XAS" secondAttribute="trailing" constant="8" id="QFd-oq-Dbm"/>
                                 <constraint firstItem="tQ0-dX-GTy" firstAttribute="top" secondItem="8di-Pm-Ern" secondAttribute="top" constant="121" id="WdB-bc-5uQ"/>
+                                <constraint firstItem="tQ0-dX-GTy" firstAttribute="centerX" secondItem="8di-Pm-Ern" secondAttribute="centerX" id="a11-ma-ikY"/>
                                 <constraint firstItem="YsX-1y-BLM" firstAttribute="leading" secondItem="8di-Pm-Ern" secondAttribute="leading" constant="8" id="c48-PF-tzo"/>
-                                <constraint firstItem="SgO-ms-iDq" firstAttribute="centerX" secondItem="8di-Pm-Ern" secondAttribute="centerX" id="wT7-HG-j9b"/>
-                                <constraint firstItem="tQ0-dX-GTy" firstAttribute="centerX" secondItem="SgO-ms-iDq" secondAttribute="centerX" id="zSb-ze-7Gf"/>
+                                <constraint firstItem="h0Y-Qe-Z7H" firstAttribute="top" secondItem="8di-Pm-Ern" secondAttribute="top" id="d1u-t7-74S"/>
+                                <constraint firstItem="h0Y-Qe-Z7H" firstAttribute="height" secondItem="8di-Pm-Ern" secondAttribute="height" multiplier="0.3" id="hhK-fv-in9"/>
+                                <constraint firstItem="h0Y-Qe-Z7H" firstAttribute="centerX" secondItem="8di-Pm-Ern" secondAttribute="centerX" id="nUI-CE-Vvb"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -149,6 +143,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Job Search" id="e2v-gH-TyS"/>
+                    <connections>
+                        <outlet property="pickerView" destination="h0Y-Qe-Z7H" id="d2f-1N-svr"/>
+                        <outlet property="searchBar" destination="r3x-sk-eSZ" id="xN9-R9-DLA"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFB-XN-bzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -174,7 +172,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <searchBar contentMode="redraw" placeholder="Salt Lake City, UT" translatesAutoresizingMaskIntoConstraints="NO" id="e2P-zE-lRV">
+                                    <searchBar contentMode="redraw" text="" placeholder="Salt Lake City, UT" translatesAutoresizingMaskIntoConstraints="NO" id="e2P-zE-lRV">
                                         <rect key="frame" x="98" y="0.0" width="277" height="56"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
