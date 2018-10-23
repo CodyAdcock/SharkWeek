@@ -372,7 +372,7 @@
                                         <segment title="Personal Info"/>
                                         <segment title="Work History"/>
                                     </segments>
-                                    <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="tintColor" red="0.62352941179999999" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
                                         <action selector="SegmentedControllerTapped:" destination="dMv-v9-FMk" eventType="valueChanged" id="5JE-4Z-c5L"/>
                                     </connections>

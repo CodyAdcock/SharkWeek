@@ -8,19 +8,8 @@ class MyJobsTVC: UITableViewController {
     var jobsArray: [Job] = []
     var currentUser: User?
     
-    
-    //    var currentArray: [String] = []
-    //    var historyArray: [String] = []
-    //    var appliedArray: [String] = []
-    //    var postedArray: [String] = []
-    
-    
     func segmentAttributes() {
         segmentedControlLabel.layer.cornerRadius = 5.0
-        segmentedControlLabel.backgroundColor = .lightGray
-        segmentedControlLabel.tintColor = .darkGray
-        
-        segmentedControlLabel.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +36,7 @@ class MyJobsTVC: UITableViewController {
                 print("read user")
             }
         }
+        tableView.reloadData()
         
     }
     
@@ -162,8 +152,6 @@ class MyJobsTVC: UITableViewController {
             sharedArray = []
         }
     }
-    
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return jobsArray.count
     }
@@ -179,16 +167,19 @@ class MyJobsTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch segmentedControlLabel.selectedSegmentIndex {
         case 0:
-            
+            UserController.shared.currentJob = jobsArray[indexPath.row]
             performSegue(withIdentifier: "toDetailVc", sender: sharedArray[indexPath.row])
-            
+        //TOOD: Pass data from selected index into various viewcontrollers
         case 1:
+            UserController.shared.currentJob = jobsArray[indexPath.row]
             performSegue(withIdentifier: "toDetailVc", sender: sharedArray[indexPath.row])
             
         case 2:
+            UserController.shared.currentJob = jobsArray[indexPath.row]
             performSegue(withIdentifier: "toDetailVc", sender: sharedArray[indexPath.row])
             
         case 3:
+            UserController.shared.currentJob = jobsArray[indexPath.row]
             performSegue(withIdentifier: "toViewJobVC", sender: sharedArray[indexPath.row])
         default:
             sharedArray = []

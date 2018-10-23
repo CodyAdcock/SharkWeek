@@ -14,51 +14,123 @@ class ViewPostingVC: UIViewController {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var payLabel: UILabel!
-    @IBOutlet weak var descriptionTV: UITextView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var toolsProvidedLabel: UILabel!
     @IBOutlet weak var toolsNeededLabel: UILabel!
+    @IBOutlet weak var applyButton: UIButton!
     
     //job poster image name and rating
     @IBOutlet weak var jobPosterImage: UIImageView!
     @IBOutlet weak var firstNameLabel: UILabel!
-    @IBOutlet weak var lastNameLabel: UILabel!
-    
-    @IBOutlet weak var starOneLabel: UILabel!
-    @IBOutlet weak var starTwoLabel: UILabel!
-    @IBOutlet weak var starThreeLabel: UILabel!
-    @IBOutlet weak var starFourLabel: UILabel!
-    @IBOutlet weak var starFiveLabel: UILabel!
-    
-    //map
-    @IBOutlet weak var mapLabel: MKMapView!
+
+    @IBOutlet weak var starLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updatePerson()
-        updateViews()
-    }
-    var personInfo: User?
-    func updatePerson() {
-        guard let personInfo = personInfo else {return}
-        firstNameLabel.text = personInfo.firstName
-        lastNameLabel.text = personInfo.lastName
-        jobPosterImage.image = personInfo.pictureAsImage
+        jobPosterImage.layer.masksToBounds = false
+        jobPosterImage.clipsToBounds = true
+        jobPosterImage.layer.cornerRadius = jobPosterImage.frame.height / 2
+        updatePage()
     }
     
-    var appliedJob: Job?
-    func updateViews() {
-        guard let appliedJob = appliedJob else {return}
-        categoryLabel.text = appliedJob.category
-        jobTitleLabel.text = appliedJob.title
-        payLabel.text = "\(appliedJob.pay)"
-        descriptionTV.text = appliedJob.description
-        toolsProvidedLabel.text = appliedJob.toolsProvided
-        toolsNeededLabel.text = appliedJob.toolsProvided
-        //reviews
-        starOneLabel.text = "\(String(describing: appliedJob.reviewOfWorker?.rating))"
-        starTwoLabel.text = "\(String(describing: appliedJob.reviewOfWorker?.rating))"
-        starThreeLabel.text = "\(String(describing: appliedJob.reviewOfWorker?.rating))"
-        starFourLabel.text = "\(String(describing: appliedJob.reviewOfWorker?.rating))"
-        starFiveLabel.text = "\(String(describing: appliedJob.reviewOfWorker?.rating))"
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if doesNotExistsForUser(){
+            applyButton.isEnabled = true
+            applyButton.tintColor = .white
+            applyButton.backgroundColor = #colorLiteral(red: 0.6235294118, green: 0.7647058824, blue: 0.568627451, alpha: 1)
+            
+        }else{
+            applyButton.isEnabled = false
+            applyButton.tintColor = .white
+            applyButton.backgroundColor = nil
+
+        }
     }
+    
+    func updatePage() {
+        guard let job = UserController.shared.currentJob else {return}
+        FirestoreClient.shared.fetchFromFirestore(uuid: job.employerRef) { (user: User?) in
+           
+            guard let employer = user else {return}
+            UserController.shared.grabUsersPicture(user: employer) { (success) in
+                if success == true {
+                    self.jobPosterImage.image = employer.pictureAsImage
+                    print("sick, loaded picture")
+                } else {
+                    print("Could not set the value for the users image")
+                }
+            }
+            
+            self.jobPosterImage.image = employer.pictureAsImage
+            self.firstNameLabel.text = "\(employer.firstName) \(employer.lastName)"
+            
+            if employer.reviewCount != 0{
+                let rating = employer.starCount / employer.reviewCount
+                switch rating {
+                case 1:
+                    self.starLabel.text = Stars.one
+                case 2:
+                    self.starLabel.text = Stars.two
+                case 3:
+                    self.starLabel.text = Stars.three
+                case 4:
+                    self.starLabel.text = Stars.four
+                case 5:
+                    self.starLabel.text = Stars.five
+                default:
+                    self.starLabel.text = Stars.zero
+                }
+            }else{
+                self.starLabel.text = Stars.zero
+            }
+        }
+        categoryLabel.text = job.category
+        jobTitleLabel.text = job.title
+        payLabel.text = "$\(job.pay)"
+        descriptionLabel.text = job.description
+        toolsProvidedLabel.text = job.toolsProvided
+        toolsNeededLabel.text = job.toolsNeeded
+    }
+    
+    
+    @IBAction func applyButtonTapped(_ sender: Any) {
+        let appliedAlert = UIAlertController(title: "Button is working!", message: "", preferredStyle: .alert)
+        appliedAlert.addAction(UIAlertAction(title: "sweet", style: .default))
+        present(appliedAlert, animated: true)
+    }
+    
+    
+    func doesNotExistsForUser() -> Bool {
+        guard let job = UserController.shared.currentJob else {return false}
+        guard let user = UserController.shared.currentUser else {return false}
+        let uid = job.uuid
+        for jobRef in user.jobsApplied{
+            if jobRef == uid{
+                return false
+            }
+        }
+        for jobRef in user.jobsCreated{
+            if jobRef == uid{
+                return false
+            }
+        }
+        for jobRef in user.jobsInProgress{
+            if jobRef == uid{
+                return false
+            }
+        }
+        for jobRef in user.jobsHiredCompleted{
+            if jobRef == uid{
+                return false
+            }
+        }
+        for jobRef in user.jobsCreatedCompleted{
+            if jobRef == uid{
+                return false
+            }
+        }
+        return true
+    }
+    
 }

@@ -13,49 +13,73 @@ protocol ViewApplicantCellDelegate: class {
 }
 
 class ViewApplicantsCell: UITableViewCell {
-   
+    
     @IBOutlet weak var applicantImage: UIImageView!
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
     
     @IBOutlet weak var starOneLabel: UILabel!
-    @IBOutlet weak var starTwoLabel: UILabel!
-    @IBOutlet weak var starThreeLabel: UILabel!
-    @IBOutlet weak var starFourLabel: UILabel!
-    @IBOutlet weak var starFiveLabel: UILabel!
     
     weak var delegate: ViewApplicantCellDelegate?
     
-    var personInfo: User? {
-        didSet {
-            updatePerson()
+    func readUser() {
+        guard let uid = personInfoAsString else { return }
+        FirestoreClient.shared.fetchFromFirestore(uuid: uid) { (user: User?) in
+            guard let user = user else { return }
+            self.user = user
         }
     }
-    func updatePerson() {
-        guard let personInfo = personInfo else {return}
-        firstNameLabel.text = personInfo.firstName
-        lastNameLabel.text = personInfo.lastName
-        applicantImage.image = personInfo.pictureAsImage
-    }
     
-    
-    
-    var jobApplicant: Job? {
+    var personInfoAsString: String? {
         didSet {
-            updateViews()
+            readUser()
         }
     }
-    func updateViews() {
-        guard let jobApplicant = jobApplicant else {return}
-        starOneLabel.text = "\(String(describing: jobApplicant.reviewOfWorker?.rating))"
-        starTwoLabel.text = "\(String(describing: jobApplicant.reviewOfWorker?.rating))"
-        starThreeLabel.text = "\(String(describing: jobApplicant.reviewOfWorker?.rating))"
-        starFourLabel.text = "\(String(describing: jobApplicant.reviewOfWorker?.rating))"
-        starFiveLabel.text = "\(String(describing: jobApplicant.reviewOfWorker?.rating))"
+    
+    var user: User? {
+        didSet {
+            updateViewsCell()
+        }
     }
+    
+    func updateViewsCell() {
+        guard let user = user else {return}
+        
+        firstNameLabel.text = user.firstName
+        lastNameLabel.text = user.lastName
+        applicantImage.image = user.pictureAsImage
+        
+        if user.reviewCount != 0{
+            let rating = user.starCount / user.reviewCount
+            switch rating {
+            case 1:
+                starOneLabel.text = Stars.one
+            case 2:
+                starOneLabel.text = Stars.two
+            case 3:
+                starOneLabel.text = Stars.three
+            case 4:
+                starOneLabel.text = Stars.four
+            case 5:
+                starOneLabel.text = Stars.five
+            default:
+                starOneLabel.text = Stars.zero
+            }
+        } else{
+            starOneLabel.text = Stars.zero
+        }
+        
+    }
+    
+    // TODO: - REFACTOR BASED ON HOW TO PASS DATA ALONG
     
     @IBAction func hireButton(_ sender: Any) {
         delegate?.hireButtonTapped()
+        let vc = PostedDetailVC()
+        guard let job = vc.selectedJob else { return }
+        guard let user = user else { return }
+        JobController.shared.accept(userFor: job, user: user)
+        
     }
     
 }

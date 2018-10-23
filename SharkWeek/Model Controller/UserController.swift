@@ -19,7 +19,12 @@ class UserController{
     private init(){}
     
     //Source of Truth
-    var currentUser: User?
+    var currentUser: User?{
+        didSet{
+            print("Yo User Got Changed")
+        }
+    }
+    var currentJob: Job?
     //vars
     static let db = Firestore.firestore()
     let userRef = db.collection("users")

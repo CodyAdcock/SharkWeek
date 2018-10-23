@@ -135,8 +135,11 @@
                         <viewLayoutGuide key="safeArea" id="WxE-1Z-L6L"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create Job Posting" id="KAn-NT-yAi">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="gg4-2S-0Cj"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="gg4-2S-0Cj">
+                            <color key="tintColor" red="0.62352941179999999" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Post Job" id="mJZ-wW-g9i">
+                            <color key="tintColor" red="0.62352941179999999" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="postJobButton:" destination="pHh-uB-PKX" id="CiW-Ie-84x"/>
                             </connections>

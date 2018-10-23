@@ -11,10 +11,18 @@ import UIKit
 class PostedDetailVC: UIViewController {
     
     @IBOutlet weak var segmentedControlLabel: UISegmentedControl!
+    @IBOutlet weak var viewPostingContainer: UIView!
+    @IBOutlet weak var editPostingContainer: UIView!
+    @IBOutlet weak var applicantContainer: UIView!
+    
+    var selectedJob: Job?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         segmentAttributes()
+        viewPostingContainer.isHidden = false
+        editPostingContainer.isHidden = true
+        applicantContainer.isHidden = true
     }
     
     func segmentAttributes() {
@@ -25,22 +33,22 @@ class PostedDetailVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let alertController = UIAlertController(title: "This is the end of the road!", message: "Sorry, this functionality isn't ready yet! Proceed at your own boredom!", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Sounds Good!", style: .default))
-        present(alertController, animated: true)
     }
        
     @IBAction func segmentedControlAction(_ sender: Any) {
         switch segmentedControlLabel.selectedSegmentIndex {
         case 0:
-            performSegue(withIdentifier: "segueToViewPosting", sender: self)
-            loadViewIfNeeded()
+            viewPostingContainer.isHidden = false
+            editPostingContainer.isHidden = true
+            applicantContainer.isHidden = true
         case 1:
-            performSegue(withIdentifier: "segueToEditPost", sender: self)
-            loadViewIfNeeded()
+            viewPostingContainer.isHidden = true
+            editPostingContainer.isHidden = false
+            applicantContainer.isHidden = true
         case 2:
-            performSegue(withIdentifier: "segueToViewApplicants", sender: self)
-            loadViewIfNeeded()
+            viewPostingContainer.isHidden = true
+            editPostingContainer.isHidden = true
+            applicantContainer.isHidden = false
         default: break
         }
     }

@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Jobbie-->
+        <!--Home Page Table View Controller-->
         <scene sceneID="WlQ-DL-bOw">
             <objects>
                 <tableViewController id="vEu-a0-ACM" customClass="HomePageTableViewController" customModule="SharkWeek" customModuleProvider="target" sceneMemberID="viewController">
@@ -303,12 +303,13 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Jobbie" id="GR5-ae-0wk"/>
+                    <navigationItem key="navigationItem" id="GR5-ae-0wk"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="homeCollectionView1" destination="Gx1-ho-ROb" id="lAN-lA-bLC"/>
                         <outlet property="homeCollectionView2" destination="Cqp-uV-QRj" id="yeq-kJ-GhR"/>
                         <outlet property="homeCollectionView3" destination="Q84-uS-RNF" id="XGj-7t-zdn"/>
+                        <segue destination="CQy-8b-bVs" kind="show" identifier="toAppliedVC" id="IUb-hl-gGc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FtS-r6-DLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -332,6 +333,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7KW-8A-ep7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-311.19999999999999" y="606.74662668665667"/>
+        </scene>
+        <!--AppliedDetailVC-->
+        <scene sceneID="gL2-bI-WQZ">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="AppliedDetailVC" storyboardName="MyJobs" referencedIdentifier="AppliedDetailVC" id="CQy-8b-bVs" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bgZ-TV-BHF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1273" y="431"/>
         </scene>
     </scenes>
 </document>

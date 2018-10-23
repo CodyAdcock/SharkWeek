@@ -11,7 +11,6 @@
 		480D5B0621750B92005A4A68 /* MyJobsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D5B0421750B92005A4A68 /* MyJobsTVC.swift */; };
 		480D5B0721750B92005A4A68 /* myJobsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D5B0521750B92005A4A68 /* myJobsCell.swift */; };
 		483302E32176A714004EBB07 /* PostJobVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483302E22176A713004EBB07 /* PostJobVC.swift */; };
-		486AFFFA2176615000B598CA /* AppliedDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AFFF92176615000B598CA /* AppliedDetailVC.swift */; };
 		48823CE4217690A20012C30B /* PostedDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48823CE3217690A20012C30B /* PostedDetailVC.swift */; };
 		48823CE6217691750012C30B /* ViewPostingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48823CE5217691750012C30B /* ViewPostingVC.swift */; };
 		48823CEA217692BD0012C30B /* EditPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48823CE9217692BD0012C30B /* EditPostVC.swift */; };
@@ -46,6 +45,7 @@
 		C376F2CE217032B2005EEA0D /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C376F2CD217032B2005EEA0D /* ProfileTableViewController.swift */; };
 		C3B8286B217E615A00B5794A /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B8286A217E615A00B5794A /* RatingViewController.swift */; };
 		C3B8286D217E64F200B5794A /* RatingAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3B8286C217E64F200B5794A /* RatingAlert.storyboard */; };
+		C3D67845217FC45700138B75 /* JobDetailApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D67844217FC45700138B75 /* JobDetailApplicationViewController.swift */; };
 		C3DF84392176515B0064FCF5 /* SharkTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF84382176515B0064FCF5 /* SharkTabBarController.swift */; };
 		C3F81F3C2170F5A000E06F6E /* Sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C3F81F3B2170F5A000E06F6E /* Sample.mp3 */; };
 		C3F81F3F21711C8900E06F6E /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F81F3E21711C8900E06F6E /* PersonalInfoViewController.swift */; };
@@ -58,7 +58,6 @@
 		480D5B0421750B92005A4A68 /* MyJobsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobsTVC.swift; sourceTree = "<group>"; };
 		480D5B0521750B92005A4A68 /* myJobsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = myJobsCell.swift; path = "SharkWeek/View Controller/Jobs Cell/myJobsCell.swift"; sourceTree = SOURCE_ROOT; };
 		483302E22176A713004EBB07 /* PostJobVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostJobVC.swift; sourceTree = "<group>"; };
-		486AFFF92176615000B598CA /* AppliedDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedDetailVC.swift; sourceTree = "<group>"; };
 		48823CE3217690A20012C30B /* PostedDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostedDetailVC.swift; sourceTree = "<group>"; };
 		48823CE5217691750012C30B /* ViewPostingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPostingVC.swift; sourceTree = "<group>"; };
 		48823CE9217692BD0012C30B /* EditPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostVC.swift; sourceTree = "<group>"; };
@@ -99,6 +98,7 @@
 		C376F2CD217032B2005EEA0D /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		C3B8286A217E615A00B5794A /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		C3B8286C217E64F200B5794A /* RatingAlert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RatingAlert.storyboard; sourceTree = "<group>"; };
+		C3D67844217FC45700138B75 /* JobDetailApplicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailApplicationViewController.swift; sourceTree = "<group>"; };
 		C3DF84382176515B0064FCF5 /* SharkTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharkTabBarController.swift; sourceTree = "<group>"; };
 		C3F81F3B2170F5A000E06F6E /* Sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Sample.mp3; sourceTree = "<group>"; };
 		C3F81F3E21711C8900E06F6E /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
@@ -190,7 +190,7 @@
 				C376F2B5216ED292005EEA0D /* Post Job */,
 				C376F2B6216ED292005EEA0D /* My Jobs */,
 				C376F2B7216ED293005EEA0D /* Search */,
-				C3B8286C217E64F200B5794A /* RatingAlert.storyboard */,
+				C3B8286F217E97A200B5794A /* Rating View */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -202,7 +202,6 @@
 				C3F81F3D21711C7100E06F6E /* Profile Containers */,
 				C3DF84382176515B0064FCF5 /* SharkTabBarController.swift */,
 				480D5B0421750B92005A4A68 /* MyJobsTVC.swift */,
-				486AFFF92176615000B598CA /* AppliedDetailVC.swift */,
 				48823CE3217690A20012C30B /* PostedDetailVC.swift */,
 				48823CE5217691750012C30B /* ViewPostingVC.swift */,
 				48823CE9217692BD0012C30B /* EditPostVC.swift */,
@@ -214,6 +213,7 @@
 				483302E22176A713004EBB07 /* PostJobVC.swift */,
 				C3F916DB2178F13A00394038 /* HomePageTableViewController.swift */,
 				C3B8286A217E615A00B5794A /* RatingViewController.swift */,
+				C3D67844217FC45700138B75 /* JobDetailApplicationViewController.swift */,
 				903A40C0217FAB910032D3E7 /* EmailTestViewController.swift */,
 			);
 			path = "View Controller";
@@ -298,6 +298,14 @@
 				C376F2C3216ED373005EEA0D /* Search.storyboard */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		C3B8286F217E97A200B5794A /* Rating View */ = {
+			isa = PBXGroup;
+			children = (
+				C3B8286C217E64F200B5794A /* RatingAlert.storyboard */,
+			);
+			path = "Rating View";
 			sourceTree = "<group>";
 		};
 		C3F81F3A2170F59300E06F6E /* Music */ = {
@@ -498,6 +506,7 @@
 				90098815217E47E100746D7B /* SearchTableViewController.swift in Sources */,
 				C376F2AB216ED0FF005EEA0D /* Review.swift in Sources */,
 				C3F81F3F21711C8900E06F6E /* PersonalInfoViewController.swift in Sources */,
+				C3D67845217FC45700138B75 /* JobDetailApplicationViewController.swift in Sources */,
 				90E0F4442178FB820084872D /* FirestoreFetchable.swift in Sources */,
 				C376F2AD216ED12F005EEA0D /* UserController.swift in Sources */,
 				C376F2CA216FED8C005EEA0D /* SignInViewController.swift in Sources */,
@@ -513,7 +522,6 @@
 				C376F2CE217032B2005EEA0D /* ProfileTableViewController.swift in Sources */,
 				C3F916DE2178F39F00394038 /* homeCollectionViewCell.swift in Sources */,
 				C3F916DC2178F13A00394038 /* HomePageTableViewController.swift in Sources */,
-				486AFFFA2176615000B598CA /* AppliedDetailVC.swift in Sources */,
 				48823CEC217693240012C30B /* ViewApplicantsTVC.swift in Sources */,
 				C3B8286B217E615A00B5794A /* RatingViewController.swift in Sources */,
 				48823CE6217691750012C30B /* ViewPostingVC.swift in Sources */,

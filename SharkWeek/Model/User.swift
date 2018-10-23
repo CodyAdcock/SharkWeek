@@ -23,7 +23,11 @@ class User: FirestoreFetchable {
     var phoneNumber: String
     var reviewCount: Int
     var starCount: Int
-    var pictureAsImage: UIImage?
+    var pictureAsImage: UIImage?{
+        didSet{
+            print("Yo Picture Got Changed")
+        }
+    }
     var pictureAsString: String
     
     var blockedUsers: [String]
