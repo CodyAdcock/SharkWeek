@@ -172,7 +172,7 @@ class MyJobsTVC: UITableViewController {
         case 0:
             
             performSegue(withIdentifier: "toDetailVc", sender: sharedArray[indexPath.row])
-            
+        //TOOD: Pass data from selected index into various viewcontrollers
         case 1:
             performSegue(withIdentifier: "toDetailVc", sender: sharedArray[indexPath.row])
             

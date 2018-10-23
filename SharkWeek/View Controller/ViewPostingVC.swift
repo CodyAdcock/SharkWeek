@@ -22,12 +22,8 @@ class ViewPostingVC: UIViewController {
     @IBOutlet weak var jobPosterImage: UIImageView!
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
-    
-    @IBOutlet weak var starOneLabel: UILabel!
-    @IBOutlet weak var starTwoLabel: UILabel!
-    @IBOutlet weak var starThreeLabel: UILabel!
-    @IBOutlet weak var starFourLabel: UILabel!
-    @IBOutlet weak var starFiveLabel: UILabel!
+
+    @IBOutlet weak var starLabel: UILabel!
     
     //map
     @IBOutlet weak var mapLabel: MKMapView!
@@ -39,18 +35,35 @@ class ViewPostingVC: UIViewController {
     }
     
     func updatePerson() {
-        firstNameLabel.text = UserController.shared.currentUser?.firstName
-        lastNameLabel.text = UserController.shared.currentUser?.lastName
-        jobPosterImage.image = UserController.shared.currentUser?.pictureAsImage
+        guard let user = UserController.shared.currentUser else {return}
+        firstNameLabel.text = user.firstName
+        lastNameLabel.text = user.lastName
+        jobPosterImage.image = user.pictureAsImage
         
-        starOneLabel.text = Stars.one
-        starTwoLabel.text = Stars.two
-        starThreeLabel.text = Stars.three
-        starFourLabel.text = Stars.four
-        starFiveLabel.text = Stars.five
+        if user.reviewCount != 0{
+            let rating = user.starCount / user.reviewCount
+            switch rating {
+            case 1:
+                starLabel.text = Stars.one
+            case 2:
+                starLabel.text = Stars.two
+            case 3:
+                starLabel.text = Stars.three
+            case 4:
+                starLabel.text = Stars.four
+            case 5:
+                starLabel.text = Stars.five
+            default:
+                starLabel.text = Stars.zero
+            }
+        }else{
+            starLabel.text = Stars.zero
+        }
+        
     }
     
     var appliedJob: Job?
+    
     
     func updateViews() {
         guard let appliedJob = appliedJob else {return}

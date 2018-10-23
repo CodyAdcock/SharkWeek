@@ -24,11 +24,6 @@ class AppliedDetailVC: UIViewController {
     @IBOutlet weak var lastNameLabel: UILabel!
     
     @IBOutlet weak var starOneLabel: UILabel!
-    @IBOutlet weak var starTwoLabel: UILabel!
-    @IBOutlet weak var starThreeLabel: UILabel!
-    @IBOutlet weak var starFourLabel: UILabel!
-    @IBOutlet weak var starFiveLabel: UILabel!
-    
     //map
     @IBOutlet weak var mapLabel: MKMapView!
     
@@ -45,10 +40,6 @@ class AppliedDetailVC: UIViewController {
         jobPosterImage.image = UserController.shared.currentUser?.pictureAsImage
         
         starOneLabel.text = Stars.one
-        starTwoLabel.text = Stars.two
-        starThreeLabel.text = Stars.three
-        starFourLabel.text = Stars.four
-        starFiveLabel.text = Stars.five
     }
     
     var appliedJob: Job?
