@@ -10,10 +10,9 @@ import UIKit
 
 class EditPostVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    
+    var job: Job?
     var pickerData: [String] = []
     var category: String?
-    
     
     @IBOutlet weak var pickerView: UIPickerView!
     
@@ -41,6 +40,23 @@ class EditPostVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let job = UserController.shared.currentJob else {return}
+        jobTitleTF.text = job.title
+        payTF.text = "\(job.pay)"
+        addressOneTF.text = job.line1
+        addressTwoTF.text = job.line2
+        cityTF.text = job.city
+        stateTF.text = job.state
+        zipCodeTF.text = job.zipCode
+        descriptionTV.text = job.description
+        toolsNeededTF.text = job.toolsNeeded
+        toolsProvidedTF.text = job.toolsProvided
+        
         
     }
     
@@ -92,7 +108,6 @@ class EditPostVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     @IBAction func updateButton(_ sender: Any) {
         // no idea wtf this is TODO:
         if notEmpty(){
-            let vc = PostedDetailVC()
             guard let title = jobTitleTF.text,
                 let payAsString = payTF.text,
                 let pay = Int(payAsString),
@@ -104,14 +119,14 @@ class EditPostVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
                 let description = descriptionTV.text,
                 let toolsNeeded = toolsNeededTF.text,
                 let toolsProvided = toolsProvidedTF.text,
-                let category = self.category,
-            let job = vc.selectedJob else { return }
-            
+                let category = category else { return }
+            guard let job = UserController.shared.currentJob else {return}
             JobController.shared.updateJob(job: job, title: title, description: description, category: category, pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, line1: address1, line2: address2, city: city, state: state, zipCode: zip)
-            
-            JobController.shared.createNewJob(title: title, description: description, category: category, pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, line1: address1, line2: address2, city: city, state: state, zipCode: zip)
-            
-            let alert = UIAlertController(title: "Job Created!", message: "Check it out in the 'My Jobs' tab under 'Posted'", preferredStyle: .alert)
+            guard let uuid = UserController.shared.currentJob?.uuid else {return}
+            JobController.shared.readOneJob(with: uuid) { (job) in
+                UserController.shared.currentJob = job
+            }
+            let alert = UIAlertController(title: "Job Updated!", message: "Check it out in the 'My Jobs' tab under 'Posted'", preferredStyle: .alert)
             let okayAction = UIAlertAction(title: "OK", style: .default)
             alert.addAction(okayAction)
             present(alert, animated: true)
@@ -124,55 +139,4 @@ class EditPostVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    var jobPoster: Job?
-//    func updateViews() {
-//        guard let jobPoster = jobPoster else {return}
-//        jobTitleTF.text = jobPoster.title
-//        payTF.text = "\(jobPoster.pay)"
-//        descriptionTV.text = jobPoster.description
-//        toolsNeededTF.text = jobPoster.toolsNeeded
-//        toolsProvidedTF.text = jobPoster.toolsProvided
-//
-//        addressOneTF.text = jobPoster.line1
-//        addressTwoTF.text = jobPoster.line2
-//        cityTF.text = jobPoster.city
-//        stateTF.text = jobPoster.state
-//        zipCodeTF.text = jobPoster.zipCode
-//    }
-
 

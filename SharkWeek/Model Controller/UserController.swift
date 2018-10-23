@@ -20,6 +20,7 @@ class UserController{
     
     //Source of Truth
     var currentUser: User?
+    var currentJob: Job?
     //vars
     static let db = Firestore.firestore()
     let userRef = db.collection("users")
