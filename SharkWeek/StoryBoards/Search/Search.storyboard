@@ -18,35 +18,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="8di-Pm-Ern">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="184"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="H1W-8N-XAS">
-                                    <rect key="frame" x="236" y="69" width="131" height="38"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="131" id="4Qd-0a-VSH"/>
-                                        <constraint firstAttribute="height" constant="37" id="pke-KC-MPz"/>
-                                    </constraints>
-                                    <segments>
-                                        <segment title="List"/>
-                                        <segment title="Map"/>
-                                    </segments>
-                                </segmentedControl>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQ0-dX-GTy">
-                                    <rect key="frame" x="0.0" y="121" width="375" height="55"/>
+                                    <rect key="frame" x="0.0" y="74.5" width="375" height="66.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Results Near" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELi-ge-twO">
-                                            <rect key="frame" x="7" y="17" width="84" height="21"/>
+                                            <rect key="frame" x="7" y="17" width="84" height="32.5"/>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <searchBar contentMode="redraw" placeholder="Salt Lake City, UT" translatesAutoresizingMaskIntoConstraints="NO" id="r3x-sk-eSZ">
-                                            <rect key="frame" x="98" y="0.0" width="277" height="55"/>
+                                            <rect key="frame" x="98" y="0.0" width="277" height="66.5"/>
+                                            <color key="barTintColor" red="0.62352941179999999" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </searchBar>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.73084657643125461" green="0.73084657643125461" blue="0.73084657643125461" alpha="0.77935189260563376" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.62352941179999999" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="r3x-sk-eSZ" secondAttribute="bottom" id="BgR-5P-iEd"/>
                                         <constraint firstItem="ELi-ge-twO" firstAttribute="top" secondItem="tQ0-dX-GTy" secondAttribute="top" constant="17" id="DCz-in-el5"/>
@@ -57,33 +47,17 @@
                                         <constraint firstItem="r3x-sk-eSZ" firstAttribute="leading" secondItem="ELi-ge-twO" secondAttribute="trailing" constant="7" id="wZW-jy-Ms7"/>
                                     </constraints>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YsX-1y-BLM">
-                                    <rect key="frame" x="8" y="69" width="88" height="37"/>
-                                    <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="88" id="5Nq-Fh-CVb"/>
-                                        <constraint firstAttribute="height" constant="37" id="iUk-Lq-tae"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                    <state key="normal" title="Sort">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </state>
-                                </button>
                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0Y-Qe-Z7H">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="92"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
                                 </pickerView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="tQ0-dX-GTy" secondAttribute="bottom" constant="8" id="4XD-Ed-TEG"/>
-                                <constraint firstItem="tQ0-dX-GTy" firstAttribute="top" secondItem="H1W-8N-XAS" secondAttribute="bottom" constant="15" id="5bb-Hz-mwu"/>
                                 <constraint firstItem="h0Y-Qe-Z7H" firstAttribute="width" secondItem="8di-Pm-Ern" secondAttribute="width" id="IWv-2W-7CD"/>
+                                <constraint firstItem="tQ0-dX-GTy" firstAttribute="top" secondItem="h0Y-Qe-Z7H" secondAttribute="bottom" id="MRS-aN-Yfm"/>
                                 <constraint firstItem="tQ0-dX-GTy" firstAttribute="leading" secondItem="8di-Pm-Ern" secondAttribute="leading" id="Mtq-dM-75b"/>
-                                <constraint firstItem="tQ0-dX-GTy" firstAttribute="top" secondItem="YsX-1y-BLM" secondAttribute="bottom" constant="15" id="Oze-yV-dBb"/>
-                                <constraint firstAttribute="trailing" secondItem="H1W-8N-XAS" secondAttribute="trailing" constant="8" id="QFd-oq-Dbm"/>
-                                <constraint firstItem="tQ0-dX-GTy" firstAttribute="top" secondItem="8di-Pm-Ern" secondAttribute="top" constant="121" id="WdB-bc-5uQ"/>
                                 <constraint firstItem="tQ0-dX-GTy" firstAttribute="centerX" secondItem="8di-Pm-Ern" secondAttribute="centerX" id="a11-ma-ikY"/>
-                                <constraint firstItem="YsX-1y-BLM" firstAttribute="leading" secondItem="8di-Pm-Ern" secondAttribute="leading" constant="8" id="c48-PF-tzo"/>
                                 <constraint firstItem="h0Y-Qe-Z7H" firstAttribute="top" secondItem="8di-Pm-Ern" secondAttribute="top" id="d1u-t7-74S"/>
                                 <constraint firstItem="h0Y-Qe-Z7H" firstAttribute="height" secondItem="8di-Pm-Ern" secondAttribute="height" multiplier="0.5" id="hhK-fv-in9"/>
                                 <constraint firstItem="h0Y-Qe-Z7H" firstAttribute="centerX" secondItem="8di-Pm-Ern" secondAttribute="centerX" id="nUI-CE-Vvb"/>
@@ -91,7 +65,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchJobsCellID" rowHeight="166" id="Qdu-FK-EVQ" customClass="myJobsCell" customModule="SharkWeek" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="212" width="375" height="166"/>
+                                <rect key="frame" x="0.0" y="177" width="375" height="166"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qdu-FK-EVQ" id="Tao-3B-yeJ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="165.5"/>

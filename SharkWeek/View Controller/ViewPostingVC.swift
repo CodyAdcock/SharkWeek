@@ -17,6 +17,7 @@ class ViewPostingVC: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var toolsProvidedLabel: UILabel!
     @IBOutlet weak var toolsNeededLabel: UILabel!
+    @IBOutlet weak var applyButton: UIButton!
     
     //job poster image name and rating
     @IBOutlet weak var jobPosterImage: UIImageView!
@@ -30,6 +31,21 @@ class ViewPostingVC: UIViewController {
         jobPosterImage.clipsToBounds = true
         jobPosterImage.layer.cornerRadius = jobPosterImage.frame.height / 2
         updatePage()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if doesNotExistsForUser(){
+            applyButton.isEnabled = true
+            applyButton.tintColor = .white
+            applyButton.backgroundColor = #colorLiteral(red: 0.6235294118, green: 0.7647058824, blue: 0.568627451, alpha: 1)
+            
+        }else{
+            applyButton.isEnabled = false
+            applyButton.tintColor = .white
+            applyButton.backgroundColor = nil
+
+        }
     }
     
     func updatePage() {
@@ -76,4 +92,45 @@ class ViewPostingVC: UIViewController {
         toolsProvidedLabel.text = job.toolsProvided
         toolsNeededLabel.text = job.toolsNeeded
     }
+    
+    
+    @IBAction func applyButtonTapped(_ sender: Any) {
+        let appliedAlert = UIAlertController(title: "Button is working!", message: "", preferredStyle: .alert)
+        appliedAlert.addAction(UIAlertAction(title: "sweet", style: .default))
+        present(appliedAlert, animated: true)
+    }
+    
+    
+    func doesNotExistsForUser() -> Bool {
+        guard let job = UserController.shared.currentJob else {return false}
+        guard let user = UserController.shared.currentUser else {return false}
+        let uid = job.uuid
+        for jobRef in user.jobsApplied{
+            if jobRef == uid{
+                return false
+            }
+        }
+        for jobRef in user.jobsCreated{
+            if jobRef == uid{
+                return false
+            }
+        }
+        for jobRef in user.jobsInProgress{
+            if jobRef == uid{
+                return false
+            }
+        }
+        for jobRef in user.jobsHiredCompleted{
+            if jobRef == uid{
+                return false
+            }
+        }
+        for jobRef in user.jobsCreatedCompleted{
+            if jobRef == uid{
+                return false
+            }
+        }
+        return true
+    }
+    
 }
