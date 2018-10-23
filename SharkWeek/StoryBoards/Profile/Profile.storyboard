@@ -391,8 +391,8 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6Z-aH-26k">
-                                    <rect key="frame" x="0.0" y="278" width="375" height="1"/>
-                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <rect key="frame" x="9.5" y="278" width="356" height="1"/>
+                                    <color key="backgroundColor" red="0.62352941179999999" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="C6Z-aH-26k" secondAttribute="height" multiplier="400:1" constant="1" id="mkT-4a-hbH"/>
                                     </constraints>
@@ -406,7 +406,7 @@
                                 <constraint firstItem="yo0-au-dIG" firstAttribute="centerX" secondItem="sl7-Bc-Db3" secondAttribute="centerX" id="CrD-gm-8xs"/>
                                 <constraint firstItem="C6Z-aH-26k" firstAttribute="centerX" secondItem="sl7-Bc-Db3" secondAttribute="centerX" id="FDg-eJ-UCJ"/>
                                 <constraint firstItem="XGI-gC-muY" firstAttribute="leading" secondItem="sl7-Bc-Db3" secondAttribute="leading" constant="20" id="WQM-Lm-1rI"/>
-                                <constraint firstItem="C6Z-aH-26k" firstAttribute="width" secondItem="sl7-Bc-Db3" secondAttribute="width" id="Wnp-dd-QIP"/>
+                                <constraint firstItem="C6Z-aH-26k" firstAttribute="width" secondItem="sl7-Bc-Db3" secondAttribute="width" multiplier="0.95" id="Wnp-dd-QIP"/>
                                 <constraint firstItem="odd-VG-XwD" firstAttribute="centerX" secondItem="sl7-Bc-Db3" secondAttribute="centerX" id="Yum-Vp-X8g"/>
                                 <constraint firstAttribute="trailing" secondItem="aH4-jz-bAo" secondAttribute="trailing" constant="20" id="vgj-fp-May"/>
                                 <constraint firstItem="yo0-au-dIG" firstAttribute="width" secondItem="sl7-Bc-Db3" secondAttribute="width" multiplier="0.26" id="wdJ-nF-6xH"/>
