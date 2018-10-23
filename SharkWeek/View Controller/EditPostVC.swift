@@ -10,7 +10,13 @@ import UIKit
 
 class EditPostVC: UIViewController {
     
-    @IBOutlet weak var updateButtonLabel: UIButton!
+    
+    var pickerData: [String] = []
+    var category: String?
+    
+    
+    @IBOutlet weak var pickerView: UIPickerView!
+    
     @IBOutlet weak var jobTitleTF: UITextField!
     @IBOutlet weak var payTF: UITextField!
     @IBOutlet weak var addressOneTF: UITextField!
@@ -21,44 +27,52 @@ class EditPostVC: UIViewController {
     @IBOutlet weak var descriptionTV: UITextView!
     @IBOutlet weak var toolsNeededTF: UITextField!
     @IBOutlet weak var toolsProvidedTF: UITextField!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //updateViews()
-    }
-
-@IBAction func updateButton(_ sender: Any) {
-    if jobTitleTF.text!.isEmpty || jobTitleTF.text != "" && payTF.text!.isEmpty || payTF.text != "" && addressOneTF.text!.isEmpty || addressOneTF.text != "" &&
-        addressTwoTF.text!.isEmpty || addressTwoTF.text != "" && cityTF.text!.isEmpty || cityTF.text != "" && stateTF.text!.isEmpty || stateTF.text != "" &&
-        zipCodeTF.text!.isEmpty || zipCodeTF.text != "" && toolsNeededTF.text!.isEmpty || toolsNeededTF.text != "" && toolsProvidedTF.text!.isEmpty || toolsProvidedTF.text != "" && descriptionTV.text!.isEmpty || descriptionTV.text != ""
-    {
-        return
-    } else {
-    updateButtonLabel.isEnabled = true
-    }
-}
-
-    
-    @IBAction func cancelButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    
-    @IBAction func selectCategoryButton(_ sender: Any) {
+        pickerView.delegate = self
+        pickerData = ["Category:", "Outdoor", "Indoor"]
         
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func updateButton(_ sender: Any) {
+        // no idea wtf this is TODO:
+        if jobTitleTF.text!.isEmpty || jobTitleTF.text != "" && payTF.text!.isEmpty || payTF.text != "" && addressOneTF.text!.isEmpty || addressOneTF.text != "" &&
+            addressTwoTF.text!.isEmpty || addressTwoTF.text != "" && cityTF.text!.isEmpty || cityTF.text != "" && stateTF.text!.isEmpty || stateTF.text != "" &&
+            zipCodeTF.text!.isEmpty || zipCodeTF.text != "" && toolsNeededTF.text!.isEmpty || toolsNeededTF.text != "" && toolsProvidedTF.text!.isEmpty || toolsProvidedTF.text != "" && descriptionTV.text!.isEmpty || descriptionTV.text != ""
+        {
+            return
+        } else {
+            //    updateButtonLabel.isEnabled = true
+        }
     }
-    */
-
 }
+
+extension EditPostVC: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        category = pickerData[row]
+    }
+}
+
+/*
+ // MARK: - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+ // Get the new view controller using segue.destination.
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 
 
