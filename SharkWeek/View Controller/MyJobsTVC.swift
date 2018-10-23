@@ -40,6 +40,7 @@ class MyJobsTVC: UITableViewController {
                 print("read user")
             }
         }
+        tableView.reloadData()
         
     }
     

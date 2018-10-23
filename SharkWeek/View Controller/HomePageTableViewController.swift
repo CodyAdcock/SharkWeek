@@ -86,13 +86,21 @@ class HomePageTableViewController: UITableViewController, UICollectionViewDataSo
         }
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView{
+        case homeCollectionView3:
+            UserController.shared.currentJob = defaultJobs[indexPath.row]
+            performSegue(withIdentifier: "toAppliedVC", sender: self)
+        case homeCollectionView2:
+            UserController.shared.currentJob = indoorJobs[indexPath.row]
+            performSegue(withIdentifier: "toAppliedVC", sender: self)
+        case homeCollectionView1:
+            UserController.shared.currentJob = outdoorJobs[indexPath.row]
+            performSegue(withIdentifier: "toAppliedVC", sender: self)
+        default:
+            print("That's not supposed to happen...")
+            
+        }
+    }
+    
 }

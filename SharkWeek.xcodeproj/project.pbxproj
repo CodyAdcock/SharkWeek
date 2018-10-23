@@ -11,7 +11,6 @@
 		480D5B0621750B92005A4A68 /* MyJobsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D5B0421750B92005A4A68 /* MyJobsTVC.swift */; };
 		480D5B0721750B92005A4A68 /* myJobsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D5B0521750B92005A4A68 /* myJobsCell.swift */; };
 		483302E32176A714004EBB07 /* PostJobVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483302E22176A713004EBB07 /* PostJobVC.swift */; };
-		486AFFFA2176615000B598CA /* AppliedDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AFFF92176615000B598CA /* AppliedDetailVC.swift */; };
 		48823CE4217690A20012C30B /* PostedDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48823CE3217690A20012C30B /* PostedDetailVC.swift */; };
 		48823CE6217691750012C30B /* ViewPostingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48823CE5217691750012C30B /* ViewPostingVC.swift */; };
 		48823CEA217692BD0012C30B /* EditPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48823CE9217692BD0012C30B /* EditPostVC.swift */; };
@@ -57,7 +56,6 @@
 		480D5B0421750B92005A4A68 /* MyJobsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobsTVC.swift; sourceTree = "<group>"; };
 		480D5B0521750B92005A4A68 /* myJobsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = myJobsCell.swift; path = "SharkWeek/View Controller/Jobs Cell/myJobsCell.swift"; sourceTree = SOURCE_ROOT; };
 		483302E22176A713004EBB07 /* PostJobVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostJobVC.swift; sourceTree = "<group>"; };
-		486AFFF92176615000B598CA /* AppliedDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedDetailVC.swift; sourceTree = "<group>"; };
 		48823CE3217690A20012C30B /* PostedDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostedDetailVC.swift; sourceTree = "<group>"; };
 		48823CE5217691750012C30B /* ViewPostingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPostingVC.swift; sourceTree = "<group>"; };
 		48823CE9217692BD0012C30B /* EditPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostVC.swift; sourceTree = "<group>"; };
@@ -200,7 +198,6 @@
 				C3F81F3D21711C7100E06F6E /* Profile Containers */,
 				C3DF84382176515B0064FCF5 /* SharkTabBarController.swift */,
 				480D5B0421750B92005A4A68 /* MyJobsTVC.swift */,
-				486AFFF92176615000B598CA /* AppliedDetailVC.swift */,
 				48823CE3217690A20012C30B /* PostedDetailVC.swift */,
 				48823CE5217691750012C30B /* ViewPostingVC.swift */,
 				48823CE9217692BD0012C30B /* EditPostVC.swift */,
@@ -518,7 +515,6 @@
 				C376F2CE217032B2005EEA0D /* ProfileTableViewController.swift in Sources */,
 				C3F916DE2178F39F00394038 /* homeCollectionViewCell.swift in Sources */,
 				C3F916DC2178F13A00394038 /* HomePageTableViewController.swift in Sources */,
-				486AFFFA2176615000B598CA /* AppliedDetailVC.swift in Sources */,
 				48823CEC217693240012C30B /* ViewApplicantsTVC.swift in Sources */,
 				C3B8286B217E615A00B5794A /* RatingViewController.swift in Sources */,
 				48823CE6217691750012C30B /* ViewPostingVC.swift in Sources */,

@@ -117,7 +117,7 @@ class JobController {
     
     func updateJob(job: Job, title: String, description: String, category: String, pay: Int, toolsNeeded: String?, toolsProvided: String?, line1: String, line2: String?, city: String, state: String, zipCode: String) {
         
-        guard let userID = uuid else { return }
+        guard let userID = UserController.shared.currentUser?.uuid else { return }
         
         job.title = title
         job.description = description

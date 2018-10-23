@@ -14,65 +14,66 @@ class ViewPostingVC: UIViewController {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var payLabel: UILabel!
-    @IBOutlet weak var descriptionTV: UITextView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var toolsProvidedLabel: UILabel!
     @IBOutlet weak var toolsNeededLabel: UILabel!
     
     //job poster image name and rating
     @IBOutlet weak var jobPosterImage: UIImageView!
     @IBOutlet weak var firstNameLabel: UILabel!
-    @IBOutlet weak var lastNameLabel: UILabel!
 
     @IBOutlet weak var starLabel: UILabel!
     
-    //map
-    @IBOutlet weak var mapLabel: MKMapView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        updatePerson()
-        updateViews()
+        jobPosterImage.layer.masksToBounds = false
+        jobPosterImage.clipsToBounds = true
+        jobPosterImage.layer.cornerRadius = jobPosterImage.frame.height / 2
+        updatePage()
     }
     
-    func updatePerson() {
-        guard let user = UserController.shared.currentUser else {return}
-        firstNameLabel.text = user.firstName
-        lastNameLabel.text = user.lastName
-        jobPosterImage.image = user.pictureAsImage
-        
-        if user.reviewCount != 0{
-            let rating = user.starCount / user.reviewCount
-            switch rating {
-            case 1:
-                starLabel.text = Stars.one
-            case 2:
-                starLabel.text = Stars.two
-            case 3:
-                starLabel.text = Stars.three
-            case 4:
-                starLabel.text = Stars.four
-            case 5:
-                starLabel.text = Stars.five
-            default:
-                starLabel.text = Stars.zero
+    func updatePage() {
+        guard let job = UserController.shared.currentJob else {return}
+        FirestoreClient.shared.fetchFromFirestore(uuid: job.employerRef) { (user: User?) in
+           
+            guard let employer = user else {return}
+            UserController.shared.grabUsersPicture(user: employer) { (success) in
+                if success == true {
+                    self.jobPosterImage.image = employer.pictureAsImage
+                    print("sick, loaded picture")
+                } else {
+                    print("Could not set the value for the users image")
+                }
             }
-        }else{
-            starLabel.text = Stars.zero
+            
+            self.jobPosterImage.image = employer.pictureAsImage
+            self.firstNameLabel.text = "\(employer.firstName) \(employer.lastName)"
+            
+            if employer.reviewCount != 0{
+                let rating = employer.starCount / employer.reviewCount
+                switch rating {
+                case 1:
+                    self.starLabel.text = Stars.one
+                case 2:
+                    self.starLabel.text = Stars.two
+                case 3:
+                    self.starLabel.text = Stars.three
+                case 4:
+                    self.starLabel.text = Stars.four
+                case 5:
+                    self.starLabel.text = Stars.five
+                default:
+                    self.starLabel.text = Stars.zero
+                }
+            }else{
+                self.starLabel.text = Stars.zero
+            }
         }
-        
+        categoryLabel.text = job.category
+        jobTitleLabel.text = job.title
+        payLabel.text = "$\(job.pay)"
+        descriptionLabel.text = job.description
+        toolsProvidedLabel.text = job.toolsProvided
+        toolsNeededLabel.text = job.toolsNeeded
     }
-    
-    var appliedJob: Job?
-    
-    
-    func updateViews() {
-        guard let appliedJob = appliedJob else {return}
-        categoryLabel.text = appliedJob.category
-        jobTitleLabel.text = appliedJob.title
-        payLabel.text = "\(appliedJob.pay)"
-        descriptionTV.text = appliedJob.description
-        toolsProvidedLabel.text = appliedJob.toolsProvided
-        toolsNeededLabel.text = appliedJob.toolsProvided
-    }
-    
 }
