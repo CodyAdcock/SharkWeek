@@ -18,20 +18,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="8di-Pm-Ern">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="171"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQ0-dX-GTy">
-                                    <rect key="frame" x="0.0" y="74.5" width="375" height="66.5"/>
+                                    <rect key="frame" x="0.0" y="85.5" width="375" height="77.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Results Near" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELi-ge-twO">
-                                            <rect key="frame" x="7" y="17" width="84" height="32.5"/>
+                                            <rect key="frame" x="7" y="17" width="84" height="43.5"/>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <searchBar contentMode="redraw" placeholder="Salt Lake City, UT" translatesAutoresizingMaskIntoConstraints="NO" id="r3x-sk-eSZ">
-                                            <rect key="frame" x="98" y="0.0" width="277" height="66.5"/>
+                                            <rect key="frame" x="98" y="0.0" width="277" height="77.5"/>
                                             <color key="barTintColor" red="0.62352941179999999" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </searchBar>
@@ -48,7 +48,7 @@
                                     </constraints>
                                 </view>
                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0Y-Qe-Z7H">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="85.5"/>
                                 </pickerView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -65,7 +65,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchJobsCellID" rowHeight="166" id="Qdu-FK-EVQ" customClass="myJobsCell" customModule="SharkWeek" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="177" width="375" height="166"/>
+                                <rect key="frame" x="0.0" y="199" width="375" height="166"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qdu-FK-EVQ" id="Tao-3B-yeJ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="165.5"/>

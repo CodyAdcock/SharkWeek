@@ -56,6 +56,14 @@ class EditPostVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
         descriptionTV.text = job.description
         toolsNeededTF.text = job.toolsNeeded
         toolsProvidedTF.text = job.toolsProvided
+        switch category {
+        case "Outdoor":
+            pickerView.selectedRow(inComponent: 1)
+        case "Indoor":
+            pickerView.selectedRow(inComponent: 2)
+        default:
+            pickerView.selectedRow(inComponent: 0)
+        }
         
         
     }
