@@ -146,61 +146,6 @@ class UserController{
         }
     }
     
-    //U
-    
-    func updateUser(firstName: String, lastName: String, email: String, password: String, age: Int, bio: String, skill: String, phoneNumber: String, profilePicture: UIImage, line1: String, line2: String, city: String, state: String, zipCode: String, completion: @escaping (Bool) -> Void){
-        
-        guard let uuid = currentUser?.uuid else {return}
-        
-        //Grab the Photo, change it into data
-        guard let photoAsData = profilePicture.jpegData(compressionQuality: 0.3) else {return}
-        
-        //create referencees to storage, with child nodes for organization/easier data retrieval
-        let storageRef = self.storage.reference()
-        let imagesRef = storageRef.child("ProfileImages")
-        let userImageRef = imagesRef.child(uuid)
-        
-        //Photo
-        userImageRef.putData(photoAsData, metadata: nil) { (metaData, error) in
-            if let error = error {
-                print("👽Could not download data from the profile image \(error.localizedDescription)👽")
-                completion(false) ; return
-            }
-//            var size = metaData.size
-            
-            
-            userImageRef.downloadURL(completion: { (url, error) in
-                if let error = error {
-                    print("there was an error getting the images url \(error.localizedDescription)")
-                    completion(false) ; return
-                }
-                guard let url = url else { return }
-                guard let currentUser = self.currentUser else { return }
-                
-                //update current user
-                currentUser.firstName = firstName
-                currentUser.lastName = lastName
-                currentUser.email = email
-                currentUser.age = age
-                currentUser.line1 = line1
-                currentUser.line2 = line2
-                currentUser.city = city
-                currentUser.state = state
-                currentUser.zipCode = zipCode
-                currentUser.bio = bio
-                currentUser.skill = skill
-                currentUser.phoneNumber = phoneNumber
-                currentUser.pictureAsString = "\(url)"
-                
-                guard let updatedUser = self.currentUser else {print("Error unwrapping user in updated"); return}
-                //upload a dictionary of the user to Firestore
-                let values = ["firstName" : updatedUser.firstName, "lastName" : updatedUser.lastName, "email" : updatedUser.email, "age" : updatedUser.age, "bio" : updatedUser.bio, "skill" : updatedUser.skill, "phoneNumber" : updatedUser.phoneNumber, "reviewCount" : updatedUser.reviewCount, "starCount" : updatedUser.starCount, "picture" : updatedUser.pictureAsString, "isMinor" : updatedUser.isMinor, "uuid": updatedUser.uuid, "jobsCreated" : updatedUser.jobsCreated, "jobsCreatedCompleted" : updatedUser.jobsCreated, "jobsApplied" : updatedUser.jobsApplied, "jobsInProgress" : updatedUser.jobsInProgress, "jobsHiredCompleted" : updatedUser.jobsHiredCompleted, "city" : updatedUser.city, "line1" : updatedUser.line1, "line2" :updatedUser.line2 ?? "", "state" : updatedUser.state, "zipCode" : updatedUser.zipCode] as [String : Any]
-                self.userRef.document(updatedUser.uuid).setData(values)
-            })
-            completion(true) ; return
-        }
-    }
-    
     //D
     
     func deleteUser(){
@@ -228,5 +173,15 @@ class UserController{
             print("there was an error signing out for the current user \(error.localizedDescription)")
         }
     }
+    
+    func blockUser(uuid: String) {
+        guard let currentUser = currentUser else { return }
+        FirestoreClient.shared.fetchFromFirestore(uuid: currentUser.uuid) { (user: User?) in
+            guard let user = user else { return }
+            user.blockedUsers.append(uuid)
+            self.userRef.document(uuid).updateData(["blockedUsers" : user.blockedUsers])
+        }
+    }
+    
 }
 
