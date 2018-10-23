@@ -12,16 +12,15 @@ class JobController {
     static let shared = JobController()
     
     let db = UserController.db
-    let currentUser = UserController.shared.currentUser
-    let uuid = UserController.shared.currentUser?.uuid
+    
     let jobCollection = UserController.db.collection("jobs")
     let userRef = UserController.shared.userRef
     
     
     func createNewJob(title: String, description: String, category: String, pay: Int, toolsNeeded: String?, toolsProvided: String?, line1: String, line2: String?, city: String, state: String, zipCode: String) {
         
-        guard let userID = uuid else { return }
-        guard let currentUser = currentUser else { return }
+        guard let userID = UserController.shared.currentUser?.uuid else { return }
+        guard let currentUser = UserController.shared.currentUser else { return }
         
         let newJob = Job(title: title, description: description, pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, employerRef: userID, line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
         
