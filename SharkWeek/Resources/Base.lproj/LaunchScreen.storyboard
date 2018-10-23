@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sharky boi" translatesAutoresizingMaskIntoConstraints="NO" id="s8Z-Gn-mR2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Jobbie Icon" translatesAutoresizingMaskIntoConstraints="NO" id="s8Z-Gn-mR2">
                                 <rect key="frame" x="112.5" y="227.5" width="150" height="266.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="s8Z-Gn-mR2" secondAttribute="height" multiplier="375:667" id="RRZ-S1-pTp"/>
@@ -39,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Sharky boi" width="980" height="814"/>
+        <image name="Jobbie Icon" width="1024" height="1024"/>
     </resources>
 </document>
