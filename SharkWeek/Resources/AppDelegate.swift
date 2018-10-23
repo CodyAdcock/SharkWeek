@@ -25,9 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.rootViewController = SharkTabBarController()
         
-        UserController.shared.readUser(userID: "7BLH0TBdcheQBzbGkPh0kG5rQGs2") { (error) in
-            
-        }
         
         return true
     }
