@@ -15,6 +15,8 @@ class PostedDetailVC: UIViewController {
     @IBOutlet weak var editPostingContainer: UIView!
     @IBOutlet weak var applicantContainer: UIView!
     
+    var selectedJob: Job?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         segmentAttributes()

@@ -170,18 +170,23 @@ class MyJobsTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch segmentedControlLabel.selectedSegmentIndex {
         case 0:
-            
+            let destinationVC = PostedDetailVC()
+            destinationVC.selectedJob = jobsArray[indexPath.row]
             performSegue(withIdentifier: "toDetailVc", sender: sharedArray[indexPath.row])
         //TOOD: Pass data from selected index into various viewcontrollers
         case 1:
+            let destinationVC = PostedDetailVC()
+            destinationVC.selectedJob = jobsArray[indexPath.row]
             performSegue(withIdentifier: "toDetailVc", sender: sharedArray[indexPath.row])
             
         case 2:
-            
+            let destinationVC = PostedDetailVC()
+            destinationVC.selectedJob = jobsArray[indexPath.row]
             performSegue(withIdentifier: "toDetailVc", sender: sharedArray[indexPath.row])
             
         case 3:
-            
+            let destinationVC = PostedDetailVC()
+            destinationVC.selectedJob = jobsArray[indexPath.row]
             performSegue(withIdentifier: "toViewJobVC", sender: sharedArray[indexPath.row])
         default:
             sharedArray = []

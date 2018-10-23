@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditPostVC: UIViewController {
+class EditPostVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     
     var pickerData: [String] = []
@@ -34,22 +34,46 @@ class EditPostVC: UIViewController {
         pickerView.delegate = self
         pickerData = ["Category:", "Outdoor", "Indoor"]
         
+        descriptionTV.layer.borderWidth = 0.5
+        descriptionTV.layer.borderColor = #colorLiteral(red: 0.643494308, green: 0.6439372897, blue: 0.6583478451, alpha: 1)
+        descriptionTV.layer.cornerRadius = 5
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
     }
     
-    @IBAction func updateButton(_ sender: Any) {
-        // no idea wtf this is TODO:
-        if jobTitleTF.text!.isEmpty || jobTitleTF.text != "" && payTF.text!.isEmpty || payTF.text != "" && addressOneTF.text!.isEmpty || addressOneTF.text != "" &&
-            addressTwoTF.text!.isEmpty || addressTwoTF.text != "" && cityTF.text!.isEmpty || cityTF.text != "" && stateTF.text!.isEmpty || stateTF.text != "" &&
-            zipCodeTF.text!.isEmpty || zipCodeTF.text != "" && toolsNeededTF.text!.isEmpty || toolsNeededTF.text != "" && toolsProvidedTF.text!.isEmpty || toolsProvidedTF.text != "" && descriptionTV.text!.isEmpty || descriptionTV.text != ""
-        {
-            return
-        } else {
-            //    updateButtonLabel.isEnabled = true
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
+    }
+    
+    @objc func keyboardWillAppear(notification: Notification){
+        if jobTitleTF.text != "" && payTF.text != "" && addressOneTF.text != "" && addressTwoTF.text != "" && cityTF.text != "" && stateTF.text != "" && zipCodeTF.text != ""{
+            guard let keyBoardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {return}
+            self.view.frame.origin.y = (-keyBoardRect.height)
         }
     }
-}
-
-extension EditPostVC: UIPickerViewDelegate, UIPickerViewDataSource {
+    @objc func keyboardWillDisappear(notification: Notification){
+        view.frame.origin.y = 0
+    }
+    
+    func setDelegates() {
+        jobTitleTF.delegate = self
+        payTF.delegate = self
+        addressOneTF.delegate = self
+        addressTwoTF.delegate = self
+        cityTF.delegate = self
+        stateTF.delegate = self
+        zipCodeTF.delegate = self
+        descriptionTV.delegate = self
+        toolsNeededTF.delegate = self
+        toolsProvidedTF.delegate = self
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -62,17 +86,46 @@ extension EditPostVC: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         category = pickerData[row]
     }
+    
+    
+    
+    @IBAction func updateButton(_ sender: Any) {
+        // no idea wtf this is TODO:
+        if notEmpty(){
+            let vc = PostedDetailVC()
+            guard let title = jobTitleTF.text,
+                let payAsString = payTF.text,
+                let pay = Int(payAsString),
+                let address1 = addressOneTF.text,
+                let address2 = addressTwoTF.text,
+                let city = cityTF.text,
+                let state = stateTF.text,
+                let zip = zipCodeTF.text,
+                let description = descriptionTV.text,
+                let toolsNeeded = toolsNeededTF.text,
+                let toolsProvided = toolsProvidedTF.text,
+                let category = self.category,
+            let job = vc.selectedJob else { return }
+            
+            JobController.shared.updateJob(job: job, title: title, description: description, category: category, pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, line1: address1, line2: address2, city: city, state: state, zipCode: zip)
+            
+            JobController.shared.createNewJob(title: title, description: description, category: category, pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, line1: address1, line2: address2, city: city, state: state, zipCode: zip)
+            
+            let alert = UIAlertController(title: "Job Created!", message: "Check it out in the 'My Jobs' tab under 'Posted'", preferredStyle: .alert)
+            let okayAction = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(okayAction)
+            present(alert, animated: true)
+        }
+    }
+    
+    func notEmpty() -> Bool{
+    
+    return !(jobTitleTF.text?.isEmpty)! && !(payTF.text?.isEmpty)! && !(addressOneTF.text?.isEmpty)! && !(cityTF.text?.isEmpty)! && !(stateTF.text?.isEmpty)! && !(zipCodeTF.text?.isEmpty)! && !(descriptionTV.text?.isEmpty)! && !(toolsNeededTF.text?.isEmpty)! && !(toolsProvidedTF.text?.isEmpty)! && category != "Category:"
+    }
+    
 }
 
-/*
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destination.
- // Pass the selected object to the new view controller.
- }
- */
+
 
 
 
