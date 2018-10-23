@@ -44,7 +44,6 @@
 		C376F2CE217032B2005EEA0D /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C376F2CD217032B2005EEA0D /* ProfileTableViewController.swift */; };
 		C3B8286B217E615A00B5794A /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B8286A217E615A00B5794A /* RatingViewController.swift */; };
 		C3B8286D217E64F200B5794A /* RatingAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3B8286C217E64F200B5794A /* RatingAlert.storyboard */; };
-		C3D67845217FC45700138B75 /* JobDetailApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D67844217FC45700138B75 /* JobDetailApplicationViewController.swift */; };
 		C3DF84392176515B0064FCF5 /* SharkTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF84382176515B0064FCF5 /* SharkTabBarController.swift */; };
 		C3F81F3C2170F5A000E06F6E /* Sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C3F81F3B2170F5A000E06F6E /* Sample.mp3 */; };
 		C3F81F3F21711C8900E06F6E /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F81F3E21711C8900E06F6E /* PersonalInfoViewController.swift */; };
@@ -96,7 +95,6 @@
 		C376F2CD217032B2005EEA0D /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		C3B8286A217E615A00B5794A /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		C3B8286C217E64F200B5794A /* RatingAlert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RatingAlert.storyboard; sourceTree = "<group>"; };
-		C3D67844217FC45700138B75 /* JobDetailApplicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailApplicationViewController.swift; sourceTree = "<group>"; };
 		C3DF84382176515B0064FCF5 /* SharkTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharkTabBarController.swift; sourceTree = "<group>"; };
 		C3F81F3B2170F5A000E06F6E /* Sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Sample.mp3; sourceTree = "<group>"; };
 		C3F81F3E21711C8900E06F6E /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
@@ -211,7 +209,6 @@
 				483302E22176A713004EBB07 /* PostJobVC.swift */,
 				C3F916DB2178F13A00394038 /* HomePageTableViewController.swift */,
 				C3B8286A217E615A00B5794A /* RatingViewController.swift */,
-				C3D67844217FC45700138B75 /* JobDetailApplicationViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -503,7 +500,6 @@
 				90098815217E47E100746D7B /* SearchTableViewController.swift in Sources */,
 				C376F2AB216ED0FF005EEA0D /* Review.swift in Sources */,
 				C3F81F3F21711C8900E06F6E /* PersonalInfoViewController.swift in Sources */,
-				C3D67845217FC45700138B75 /* JobDetailApplicationViewController.swift in Sources */,
 				90E0F4442178FB820084872D /* FirestoreFetchable.swift in Sources */,
 				C376F2AD216ED12F005EEA0D /* UserController.swift in Sources */,
 				C376F2CA216FED8C005EEA0D /* SignInViewController.swift in Sources */,

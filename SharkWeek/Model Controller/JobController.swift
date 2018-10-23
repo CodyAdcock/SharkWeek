@@ -103,9 +103,9 @@ class JobController {
     
     
     func applyToJob(job: Job) {
-        guard let uuid = uuid else { return }
+        guard let uuid = UserController.shared.currentUser?.uuid else { return }
         let jobID = job.uuid
-        guard var jobsApplied = currentUser?.jobsApplied else { return }
+        guard var jobsApplied = UserController.shared.currentUser?.jobsApplied else { return }
         jobsApplied.append(jobID)
         let newJobsApplied = jobsApplied
         

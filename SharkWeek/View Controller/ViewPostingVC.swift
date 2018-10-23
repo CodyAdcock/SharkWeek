@@ -95,9 +95,15 @@ class ViewPostingVC: UIViewController {
     
     
     @IBAction func applyButtonTapped(_ sender: Any) {
-        let appliedAlert = UIAlertController(title: "Button is working!", message: "", preferredStyle: .alert)
-        appliedAlert.addAction(UIAlertAction(title: "sweet", style: .default))
+        guard let job = UserController.shared.currentJob else {return}
+        JobController.shared.applyToJob(job: job)
+        let appliedAlert = UIAlertController(title: "Applied!", message: "You've been added to the list of applicants for this job. If you want to keep tabs on it, look in My Jobs. It may take a few minutes!", preferredStyle: .alert)
+        appliedAlert.addAction(UIAlertAction(title: "OK", style: .default))
         present(appliedAlert, animated: true)
+        applyButton.setTitle("Applied", for: .normal)
+        applyButton.isEnabled = false
+        applyButton.tintColor = .white
+        applyButton.backgroundColor = #colorLiteral(red: 0.6235294118, green: 0.7647058824, blue: 0.568627451, alpha: 1)
     }
     
     
