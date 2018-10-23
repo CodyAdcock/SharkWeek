@@ -24,6 +24,10 @@ class HomePageTableViewController: UITableViewController, UICollectionViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let logo = #imageLiteral(resourceName: "JobbiesLogo")
+        let imageView = UIImageView(image: logo)
+        self.navigationItem.titleView = imageView
+        
         homeCollectionView1.dataSource = self
         homeCollectionView1.delegate = self
         homeCollectionView2.dataSource = self

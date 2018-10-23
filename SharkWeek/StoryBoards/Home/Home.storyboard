@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Jobbie-->
+        <!--Home Page Table View Controller-->
         <scene sceneID="WlQ-DL-bOw">
             <objects>
                 <tableViewController id="vEu-a0-ACM" customClass="HomePageTableViewController" customModule="SharkWeek" customModuleProvider="target" sceneMemberID="viewController">
@@ -303,7 +303,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Jobbie" id="GR5-ae-0wk"/>
+                    <navigationItem key="navigationItem" id="GR5-ae-0wk"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="homeCollectionView1" destination="Gx1-ho-ROb" id="lAN-lA-bLC"/>
