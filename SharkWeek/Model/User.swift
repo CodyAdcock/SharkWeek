@@ -25,6 +25,9 @@ class User: FirestoreFetchable {
     var starCount: Int
     var pictureAsImage: UIImage?
     var pictureAsString: String
+    
+    var blockedUsers: [String]
+    
     //Job Ref Arrays
     var jobsCreated: [String] // UUIDs of jobs
     var jobsCreatedCompleted: [String] // UUIDs of jobs
@@ -44,7 +47,7 @@ class User: FirestoreFetchable {
     
     
     
-    init(firstName: String, lastName: String, email: String, age: Int, bio: String, skill: String, phoneNumber: String, reviewCount: Int = 0, starCount: Int = 0,  pictureAsString: String, jobsCreated: [String] = [], jobsCreatedCompleted: [String] = [], jobsApplied: [String] = [], jobsInProgress: [String] = [], jobsHiredCompleted: [String] = [], uuid: String, line1: String, line2: String? = "", city: String, state: String, zipCode: String){
+    init(firstName: String, lastName: String, email: String, age: Int, bio: String, skill: String, phoneNumber: String, reviewCount: Int = 0, starCount: Int = 0,  pictureAsString: String, jobsCreated: [String] = [], jobsCreatedCompleted: [String] = [], jobsApplied: [String] = [], jobsInProgress: [String] = [], jobsHiredCompleted: [String] = [], uuid: String, line1: String, line2: String? = "", city: String, state: String, zipCode: String, blockedUsers: [String] = []){
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
@@ -61,6 +64,8 @@ class User: FirestoreFetchable {
         self.jobsInProgress = jobsInProgress
         self.jobsHiredCompleted = jobsHiredCompleted
         self.uuid = uuid
+        
+        self.blockedUsers = blockedUsers
         
         self.line1 = line1
         self.line2 = line2
@@ -91,10 +96,11 @@ class User: FirestoreFetchable {
             let line1 = dictionary["line1"] as? String,
             let city = dictionary["city"] as? String,
             let state = dictionary["state"] as? String,
+            let blockedUsers = dictionary["blockedUsers"] as? [String],
             let zipCode = dictionary["zipCode"] as? String else { return nil}
         
         let line2 = dictionary["line2"] as? String
         
-        self.init(firstName: firstName, lastName: lastName, email: email, age: age, bio: bio, skill: skill, phoneNumber: phoneNumber, reviewCount: reviewCount, starCount: starCount, pictureAsString: pictureAsString, jobsCreated: jobsCreated, jobsCreatedCompleted: jobsCreatedCompleted, jobsApplied: jobsApplied, jobsInProgress: jobsInProgress, jobsHiredCompleted: jobsHiredCompleted, uuid: id, line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
+        self.init(firstName: firstName, lastName: lastName, email: email, age: age, bio: bio, skill: skill, phoneNumber: phoneNumber, reviewCount: reviewCount, starCount: starCount, pictureAsString: pictureAsString, jobsCreated: jobsCreated, jobsCreatedCompleted: jobsCreatedCompleted, jobsApplied: jobsApplied, jobsInProgress: jobsInProgress, jobsHiredCompleted: jobsHiredCompleted, uuid: id, line1: line1, line2: line2, city: city, state: state, zipCode: zipCode, blockedUsers: blockedUsers)
     }
 }

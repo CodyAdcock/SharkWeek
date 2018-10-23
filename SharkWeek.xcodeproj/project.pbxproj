@@ -18,6 +18,7 @@
 		48823CEC217693240012C30B /* ViewApplicantsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48823CEB217693240012C30B /* ViewApplicantsTVC.swift */; };
 		48B0401F2176A585002424AC /* ViewApplicantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B0401E2176A585002424AC /* ViewApplicantsCell.swift */; };
 		90098815217E47E100746D7B /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90098814217E47E100746D7B /* SearchTableViewController.swift */; };
+		903A40C1217FAB910032D3E7 /* EmailTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903A40C0217FAB910032D3E7 /* EmailTestViewController.swift */; };
 		90493CD82177C8B700F9DBA7 /* textFieldExtendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90493CD72177C8B700F9DBA7 /* textFieldExtendor.swift */; };
 		90709B5A216FC54700E4795A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90709B59216FC54700E4795A /* GoogleService-Info.plist */; };
 		90E0F4442178FB820084872D /* FirestoreFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E0F4432178FB820084872D /* FirestoreFetchable.swift */; };
@@ -66,6 +67,7 @@
 		7D79E6C95F8A1456363B04F1 /* Pods_SharkWeek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharkWeek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83B22494710D5F0B384201EF /* Pods-SharkWeek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharkWeek.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharkWeek/Pods-SharkWeek.debug.xcconfig"; sourceTree = "<group>"; };
 		90098814217E47E100746D7B /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		903A40C0217FAB910032D3E7 /* EmailTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTestViewController.swift; sourceTree = "<group>"; };
 		90493CD72177C8B700F9DBA7 /* textFieldExtendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFieldExtendor.swift; sourceTree = "<group>"; };
 		90709B59216FC54700E4795A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		90935A14216FF04D00011B28 /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				483302E22176A713004EBB07 /* PostJobVC.swift */,
 				C3F916DB2178F13A00394038 /* HomePageTableViewController.swift */,
 				C3B8286A217E615A00B5794A /* RatingViewController.swift */,
+				903A40C0217FAB910032D3E7 /* EmailTestViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				48823CE6217691750012C30B /* ViewPostingVC.swift in Sources */,
 				480D5B0621750B92005A4A68 /* MyJobsTVC.swift in Sources */,
 				C376F28F216ED021005EEA0D /* AppDelegate.swift in Sources */,
+				903A40C1217FAB910032D3E7 /* EmailTestViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
