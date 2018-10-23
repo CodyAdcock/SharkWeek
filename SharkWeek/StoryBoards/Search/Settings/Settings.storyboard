@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jTV-05-HZj">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings-->
+        <scene sceneID="hz1-Y4-VL3">
+            <objects>
+                <tableViewController storyboardIdentifier="SettingsTabs" id="42w-e3-VTr" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qbX-8h-Oii">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection id="dpN-Wb-tLQ">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eca-4E-Kgv">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eca-4E-Kgv" id="5RJ-iz-ItM">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KD9-kP-MvF">
+                                                    <rect key="frame" x="19" y="0.0" width="337.5" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43.5" id="5OL-ac-BRo"/>
+                                                        <constraint firstAttribute="width" constant="337.5" id="bwz-18-rcE"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KD9-kP-MvF" firstAttribute="centerY" secondItem="5RJ-iz-ItM" secondAttribute="centerY" id="5G9-3Y-DHA"/>
+                                                <constraint firstItem="KD9-kP-MvF" firstAttribute="height" secondItem="5RJ-iz-ItM" secondAttribute="height" id="5GP-nU-uvS"/>
+                                                <constraint firstItem="KD9-kP-MvF" firstAttribute="centerX" secondItem="5RJ-iz-ItM" secondAttribute="centerX" id="As0-bs-6Pw"/>
+                                                <constraint firstItem="KD9-kP-MvF" firstAttribute="width" secondItem="5RJ-iz-ItM" secondAttribute="width" multiplier="0.9" id="f0y-cR-QN1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="eSY-sV-1tN" kind="show" id="nGQ-Xh-IY2"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="WA6-pk-Jio">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WA6-pk-Jio" id="YZ1-Be-ec0">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms and Conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gk3-tb-R6b">
+                                                    <rect key="frame" x="19" y="0.0" width="337.5" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43.5" id="IX9-bA-o4I"/>
+                                                        <constraint firstAttribute="width" constant="337.5" id="rf7-Sv-Xcg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="gk3-tb-R6b" firstAttribute="width" secondItem="YZ1-Be-ec0" secondAttribute="width" multiplier="0.9" id="1SJ-UC-40a"/>
+                                                <constraint firstItem="gk3-tb-R6b" firstAttribute="centerY" secondItem="YZ1-Be-ec0" secondAttribute="centerY" id="AGr-p2-Erz"/>
+                                                <constraint firstItem="gk3-tb-R6b" firstAttribute="height" secondItem="YZ1-Be-ec0" secondAttribute="height" id="FIH-Yp-blr"/>
+                                                <constraint firstItem="gk3-tb-R6b" firstAttribute="centerX" secondItem="YZ1-Be-ec0" secondAttribute="centerX" id="ebG-dJ-ak1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="noh-EI-wGm" kind="show" id="vST-dI-2UB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="42w-e3-VTr" id="WDq-Yg-vrk"/>
+                            <outlet property="delegate" destination="42w-e3-VTr" id="Gji-tU-C76"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="fdN-Vr-fHu"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cdU-L7-Syi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1079.2" y="133.5832083958021"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="JRc-LX-X4b">
+            <objects>
+                <viewController id="eSY-sV-1tN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SML-aV-qsw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XKO-EI-X9b">
+                                <rect key="frame" x="19" y="65.5" width="337.5" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <mutableString key="text">Privacy Policy
+We built the Jobbies app as a Free app. This SERVICE is provided by at no cost and is intended for use as is.
+This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to use my Service.
+If you choose to use my Service, then you agree to the collection and use of information in relation to this policy. The Personal Information that we collect is used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy.
+The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at Jobbies unless otherwise defined in this Privacy Policy.
+Information Collection and Use
+For a better experience, while using our Service, we may require you to provide us with certain personally identifiable information. The information that we request will be retained on your device and is not collected by us in any way.
+The app does use third party services that may collect information used to identify you.
+Link to privacy policy of third party service providers used by the app
+Log Data
+We want to inform you that whenever you use my Service, in a case of an error in the app we collect data and information (through third party products) on your phone called Log Data. This Log Data may include information such as your device Internet Protocol (“IP”) address, device name, operating system version, the configuration of the app when utilizing my Service, the time and date of your use of the Service, and other statistics.
+Cookies
+Cookies are files with a small amount of data that are commonly used as anonymous unique identifiers. These are sent to your browser from the websites that you visit and are stored on your device's internal memory.
+This Service does not use these “cookies” explicitly. However, the app may use third party code and libraries that use “cookies” to collect information and improve their services. You have the option to either accept or refuse these cookies and know when a cookie is being sent to your device. If you choose to refuse our cookies, you may not be able to use some portions of this Service.
+Service Providers
+We may employ third-party companies and individuals due to the following reasons:
+To facilitate our Service;
+To provide the Service on our behalf;
+To perform Service-related services; or
+To assist us in analyzing how our Service is used.
+We want to inform users of this Service that these third parties have access to your Personal Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.
+Security
+We value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.
+Links to Other Sites
+This Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by me. Therefore, we strongly advise you to review the Privacy Policy of these websites. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.
+Children’s Privacy
+These Services do not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13. In the case we discover that a child under 13 has provided us with personal information, we immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us so that we will be able to do necessary actions.
+Changes to This Privacy Policy
+We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately after they are posted on this page.
+Contact Us
+If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.
+</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.62352941179999999" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="XKO-EI-X9b" firstAttribute="height" secondItem="SML-aV-qsw" secondAttribute="height" multiplier="0.9" id="DfQ-qL-uS7"/>
+                            <constraint firstItem="XKO-EI-X9b" firstAttribute="centerX" secondItem="zxl-yP-9y3" secondAttribute="centerX" id="EvK-zc-ltd"/>
+                            <constraint firstItem="XKO-EI-X9b" firstAttribute="centerY" secondItem="zxl-yP-9y3" secondAttribute="centerY" id="ILM-pS-7pM"/>
+                            <constraint firstItem="XKO-EI-X9b" firstAttribute="width" secondItem="SML-aV-qsw" secondAttribute="width" multiplier="0.9" id="cVh-KH-hJ9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zxl-yP-9y3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ipm-62-Rh4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2108" y="-210.04497751124438"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="unM-sf-YXH">
+            <objects>
+                <viewController id="noh-EI-wGm" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Uq-3u-5la">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fa3-Im-B8v">
+                                <rect key="frame" x="19" y="65.5" width="337.5" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <mutableString key="text">Welcome to Jobbie
+	These terms and conditions outline the rules and regulations for the use of Jobbie's App.  
+	By accessing this app we assume you accept these terms and conditions in full. Do not continue to use Jobbie's app if you do not accept all of the terms and conditions stated on this page. The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and any or all Agreements: “Client”, “You” and “Your” refers to you, the person accessing this app and accepting the Company’s terms and conditions. “The Company”, “Ourselves”, “We”, “Our” and “Us”, refers to our Company. “Party”, “Parties”, or “Us”, refers to both the Client and ourselves, or either the Client or ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner, whether by formal meetings of a fixed duration, or any other means, for the express purpose of meeting the Client’s needs in respect of provision of the Company’s stated services/products, in accordance with and subject to, prevailing law of. Any use of the above terminology or other words in the singular, plural, capitalisation and/or he/she or they, are taken as interchangeable and therefore as referring to same. 
+Cookies
+We employ the use of cookies. By using Jobbie's app you consent to the use of cookies in accordance with Jobbie’s privacy policy. Most of the modern day interactive websites use cookies to enable us to retrieve user details for each visit. Cookies are used in some areas of our app to enable the functionality of this area and ease of use for those people visiting. Some of our affiliate / advertising partners may also use cookies.License
+	Unless otherwise stated, Jobbie and/or its licensors own the intellectual property rights for all material on Jobbie. All intellectual property rights are reserved. You may view and/or print pages from http://www.jobbiesapp.com for your own personal use subject to restrictions set in these terms and conditions.
+You must not:
+	
+	Republish material from http://www.jobbiesapp.com
+	Sell, rent or sub-license material from http://www.jobbiesapp.com
+	Reproduce, duplicate or copy material from http://www.jobbiesapp.com
+	
+	Redistribute content from Jobbie (unless content is specifically made for redistribution).
+User Comments
+	This Agreement shall begin on the date hereof.
+Certain parts of this app offer the opportunity for users to post and exchange opinions, information, material and data ('Comments') in areas of the app. Jobbie does not screen, edit, publish or review Comments prior to their appearance on the app and Comments do not reflect the views or opinions of Jobbie, its agents or affiliates. Comments reflect the view and opinion of the person who posts such view or opinion. To the extent permitted by applicable laws Jobbie shall not be responsible or liable for the Comments or for any loss cost, liability, damages or expenses caused and or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this app.
+	Jobbie reserves the right to monitor all Comments and to remove any Comments which it considers in its absolute discretion to be inappropriate, offensive or otherwise in breach of these Terms and Conditions.
+	You warrant and represent that:
+			
+	You are entitled to post the Comments on our app and have all necessary licenses and consents to do so;
+	The Comments do not infringe any intellectual property right, including without limitation copyright, patent or trademark, or other proprietary right of any third party; The Comments do not contain any defamatory, libelous, offensive, indecent or otherwise unlawful material or material which is an invasion of privacy. The Comments will not be used to solicit or promote business or custom or present commercial activities or unlawful activity.
+				
+	You hereby grant to Jobbie a non-exclusive royalty-free license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any and all forms, formats or media.
+	
+Hyperlinking to our Content
+	
+The following organizations may link to our Web site without prior written approval:
+			
+	Government agencies;
+	Search engines;
+	News organizations;
+Online directory distributors when they list us in the directory may link to our app in the same manner as they hyperlink to the app of other listed businesses; and Systemwide Accredited Businesses except soliciting non-profit organizations, charity shopping malls, and charity fundraising groups which may not hyperlink to our app.
+			
+	These organizations may link to our home page, to publications or to other app information so long as the link: (a) is not in any way misleading; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products or services; and (c) fits within the context of the linking party's site.
+		
+	We may consider and approve in our sole discretion other link requests from the following types of organizations: commonly-known consumer and/or business information sources such as Chambers of Commerce, American Automobile Association, AARP and Consumers Union; dot.com community sites; associations or other groups representing charities, including charity giving sites, online directory distributors; internet portals; accounting, law and consulting firms whose primary clients are businesses; and educational institutions and trade associations.
+	We will approve link requests from these organizations if we determine that: (a) the link would not reflect unfavorably on us or our accredited businesses (for example, trade associations or other organizations representing inherently suspect types of business, such as work-at-home opportunities, shall not be allowed to link); (b)the organization does not have an unsatisfactory record with us; (c) the benefit to us from the visibility associated with the hyperlink outweighs the absence of ; and (d) where the link is in the context of general resource information or is otherwise consistent with editorial content in a newsletter or similar product furthering the mission of the organization.
+These organizations may link to our home page, to publications or to other Web site information so long as the link: (a) is not in any way misleading; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and it products or services; and (c) fits within the context of the linking party's site.
+
+	If you are among the organizations listed in paragraph 2 above and are interested in linking to our app, you must notify us by sending an e-mail to jobbiesapp@gmail.com.
+Please include your name, your organization name, contact information (such as a phone number and/or e-mail address) as well as the URL of your site, a list of any URLs from which you intend to link to our qpp, and a list of the URL(s) on our site to which you would like to link. Allow 2-3 weeks for a response.
+	Approved organizations may hyperlink to our Web site as follows:
+
+	By use of our corporate name; or
+	By use of the uniform resource locator (Web address) being linked to; or
+	By use of any other description of our Web site or material being linked to that makes sense within the context and format of content on the linking party's site.
+	
+	No use of Jobbie’s logo or other artwork will be allowed for linking absent a trademark license agreement. 
+Frames
+	Without prior approval and express written permission, you may not create frames around our Web pages or use other techniques that alter in any way the visual presentation or appearance of our Web site.
+Reservation of Rights
+	We reserve the right at any time and in its sole discretion to request that you remove all links or any particular link to our app. You agree to immediately remove all links to our app upon such request. We also reserve the right to amend these terms and conditions and its linking policy at any time. By continuing to link to our app, you agree to be bound to and abide by these linking terms and conditions.
+Removal of links from our app
+	If you find any link on our Web site or any linked web site objectionable for any reason, you may contact us about this. We will consider requests to remove links but will have no obligation to do so or to respond directly to you.
+	Whilst we endeavour to ensure that the information on this app is correct, we do not warrant its completeness or accuracy; nor do we commit to ensuring that the app remains available or that the material on the app is kept up to date.
+Content Liability
+	We shall have no responsibility or liability for any content appearing on your Web site. You agree to indemnify and defend us against all claims arising out of or based upon your website. No link(s) may appear on any page on your Web site or within any context containing content or materials that may be interpreted as libelous, obscene or criminal, or which infringes, otherwise violates, or advocates the infringement or other violation of, any third party rights.
+
+Disclaimer
+	To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website (including, without limitation, any warranties implied by law in respect of satisfactory quality, fitness for purpose and/or the use of reasonable care and skill). Nothing in this disclaimer will:
+	
+	limit or exclude our or your liability for death or personal injury resulting from
+negligence;
+	limit or exclude our or your liability for fraud or fraudulent misrepresentation;
+	limit any of our or your liabilities in any way that is not permitted under applicable law;
+or
+	exclude any of our or your liabilities that may not be excluded under applicable law.
+	
+	The limitations and exclusions of liability set out in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer or in relation to the subject matter of this disclaimer, including liabilities arising in contract, in tort (including negligence) and for breach of statutory duty. To the extent that the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.
+</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.62352941179999999" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fa3-Im-B8v" firstAttribute="width" secondItem="4Uq-3u-5la" secondAttribute="width" multiplier="0.9" id="5vm-gF-k0Q"/>
+                            <constraint firstItem="fa3-Im-B8v" firstAttribute="height" secondItem="4Uq-3u-5la" secondAttribute="height" multiplier="0.9" id="AKl-6i-jEE"/>
+                            <constraint firstItem="fa3-Im-B8v" firstAttribute="centerY" secondItem="GtM-iT-l06" secondAttribute="centerY" id="DSN-y8-qVY"/>
+                            <constraint firstItem="fa3-Im-B8v" firstAttribute="centerX" secondItem="GtM-iT-l06" secondAttribute="centerX" id="VC8-Xo-RG4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GtM-iT-l06"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3PK-h1-xu4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2108" y="528.48575712143929"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wda-ye-O8q">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jTV-05-HZj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hlp-xk-3rj">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="42w-e3-VTr" kind="relationship" relationship="rootViewController" id="xGe-AK-Vrl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qWg-7p-lFf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="376.80000000000001" y="-564.46776611694156"/>
+        </scene>
+    </scenes>
+</document>

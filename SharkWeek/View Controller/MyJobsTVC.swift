@@ -14,7 +14,7 @@ class MyJobsTVC: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        UserController.shared.currentJob = nil
         if UserController.shared.currentUser == nil{
             let signInAlertController = UIAlertController(title: "Please Sign in to view this content!", message: "A lot of our app isn't very useful if you aren't signed in! Please sign in!", preferredStyle: .alert)
             let signInAction = UIAlertAction(title: "Go There Now!", style: .default) { (action) in

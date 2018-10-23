@@ -46,6 +46,7 @@
 		C3B8286B217E615A00B5794A /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B8286A217E615A00B5794A /* RatingViewController.swift */; };
 		C3B8286D217E64F200B5794A /* RatingAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3B8286C217E64F200B5794A /* RatingAlert.storyboard */; };
 		C3DF84392176515B0064FCF5 /* SharkTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF84382176515B0064FCF5 /* SharkTabBarController.swift */; };
+		C3F2D6B0217FDDCF0036C90E /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F2D6AF217FDDCF0036C90E /* Settings.storyboard */; };
 		C3F81F3C2170F5A000E06F6E /* Sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C3F81F3B2170F5A000E06F6E /* Sample.mp3 */; };
 		C3F81F3F21711C8900E06F6E /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F81F3E21711C8900E06F6E /* PersonalInfoViewController.swift */; };
 		C3F916DC2178F13A00394038 /* HomePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F916DB2178F13A00394038 /* HomePageTableViewController.swift */; };
@@ -98,6 +99,7 @@
 		C3B8286A217E615A00B5794A /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		C3B8286C217E64F200B5794A /* RatingAlert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RatingAlert.storyboard; sourceTree = "<group>"; };
 		C3DF84382176515B0064FCF5 /* SharkTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharkTabBarController.swift; sourceTree = "<group>"; };
+		C3F2D6AF217FDDCF0036C90E /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		C3F81F3B2170F5A000E06F6E /* Sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Sample.mp3; sourceTree = "<group>"; };
 		C3F81F3E21711C8900E06F6E /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
 		C3F916DB2178F13A00394038 /* HomePageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTableViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				C376F2B5216ED292005EEA0D /* Post Job */,
 				C376F2B6216ED292005EEA0D /* My Jobs */,
 				C376F2B7216ED293005EEA0D /* Search */,
+				C3F2D6AE217FDD8E0036C90E /* Settings */,
 				C3B8286F217E97A200B5794A /* Rating View */,
 			);
 			path = StoryBoards;
@@ -211,7 +214,6 @@
 				483302E22176A713004EBB07 /* PostJobVC.swift */,
 				C3F916DB2178F13A00394038 /* HomePageTableViewController.swift */,
 				C3B8286A217E615A00B5794A /* RatingViewController.swift */,
-				C3D67844217FC45700138B75 /* JobDetailApplicationViewController.swift */,
 				903A40C0217FAB910032D3E7 /* EmailTestViewController.swift */,
 			);
 			path = "View Controller";
@@ -304,6 +306,15 @@
 				C3B8286C217E64F200B5794A /* RatingAlert.storyboard */,
 			);
 			path = "Rating View";
+			sourceTree = "<group>";
+		};
+		C3F2D6AE217FDD8E0036C90E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C3F2D6AF217FDDCF0036C90E /* Settings.storyboard */,
+			);
+			name = Settings;
+			path = Search/Settings;
 			sourceTree = "<group>";
 		};
 		C3F81F3A2170F59300E06F6E /* Music */ = {
@@ -409,6 +420,7 @@
 				C376F299216ED022005EEA0D /* LaunchScreen.storyboard in Resources */,
 				C3B8286D217E64F200B5794A /* RatingAlert.storyboard in Resources */,
 				C376F296216ED022005EEA0D /* Assets.xcassets in Resources */,
+				C3F2D6B0217FDDCF0036C90E /* Settings.storyboard in Resources */,
 				C376F2BE216ED331005EEA0D /* Profile.storyboard in Resources */,
 				C376F2C2216ED36C005EEA0D /* MyJobs.storyboard in Resources */,
 				C376F294216ED021005EEA0D /* Main.storyboard in Resources */,
