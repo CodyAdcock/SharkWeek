@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ViewApplicantsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewApplicantsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, ViewApplicantCellDelegate {
+    
+    
     @IBOutlet weak var tableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -20,8 +22,8 @@ class ViewApplicantsTVC: UIViewController, UITableViewDelegate, UITableViewDataS
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "applicantsCell", for: indexPath) as? ViewApplicantsCell else {return UITableViewCell()}
         guard let currentJob = UserController.shared.currentJob else { return UITableViewCell() }
+        cell.delegate = self
         cell.userRef = currentJob.applicantsRef[indexPath.row]
-
         return cell
     }
     
@@ -37,6 +39,23 @@ class ViewApplicantsTVC: UIViewController, UITableViewDelegate, UITableViewDataS
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    func hireButtonTapped(cell: ViewApplicantsCell) {
+        let hireAlert = UIAlertController(title: "Are you sure?", message: "Make sure that you have contacted this person before accepting. Once accepted you can not hire anyone else for this job.", preferredStyle: .alert)
+        let acceptAction = UIAlertAction(title: "Accept", style: .default) { (_) in
+            guard let job = UserController.shared.currentJob else {return}
+            guard let userRef = cell.userRef else {return}
+            FirestoreClient.shared.fetchFromFirestore(uuid: userRef, completion: { (user: User?) in
+                guard let user = user else {return}
+                JobController.shared.accept(userFor: job, user: user)
+            })
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        hireAlert.addAction(acceptAction)
+        hireAlert.addAction(cancelAction)
+        
+        self.present(hireAlert, animated: true)
     }
     
 }
