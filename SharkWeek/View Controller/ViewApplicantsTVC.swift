@@ -23,7 +23,14 @@ class ViewApplicantsTVC: UIViewController, UITableViewDelegate, UITableViewDataS
         cell.userRef = currentJob.applicantsRef[indexPath.row]
 
         return cell
-        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let currentJob = UserController.shared.currentJob else {return}
+        FirestoreClient.shared.fetchFromFirestore(uuid: currentJob.applicantsRef[indexPath.row]) { (user: User?) in
+            UserController.shared.selectedUser = user
+            self.performSegue(withIdentifier: "toOtherProfile", sender: self)
+        }
     }
     
     override func viewDidLoad() {
@@ -31,21 +38,6 @@ class ViewApplicantsTVC: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
 }
 
-//extension ViewApplicantsTVC: ViewApplicantCellDelegate {
-//    func hireButtonTapped() {
-//        let alertController = UIAlertController(title: "Hiring", message: "Continue only if you have already contacted this seeker", preferredStyle: .alert)
-//        alertController.addAction(UIAlertAction(title: "Hire", style: .default, handler: { (_) in
-//            // TODO: - lul wtf is this
-//            let viewController = UIStoryboard(name: "MyJobs", bundle: nil).instantiateViewController(withIdentifier: "ViewPostingVC") as! ViewApplicantsTVC
-//            self.navigationController?.pushViewController(viewController, animated: true)
-//        }))
-//        
-//        let waitAction = UIAlertAction(title: "Wait", style: .cancel, handler: nil)
-//        alertController.addAction(waitAction)
-//        present(alertController, animated: true, completion: nil)
-//    }
-//    
-//    
-//}

@@ -27,6 +27,7 @@ class ViewApplicantsCell: UITableViewCell {
             updateViews()
         }
     }
+    
     var rating: Int?{
         didSet{
             switch rating {
@@ -67,7 +68,20 @@ class ViewApplicantsCell: UITableViewCell {
     // TODO: - REFACTOR BASED ON HOW TO PASS DATA ALONG
     
     @IBAction func hireButton(_ sender: Any) {
-        
+        let hireAlert = UIAlertController(title: "Are you sure?", message: "Make sure that you have contacted this person before accepting. Once accepted you can not hire anyone else for this job.", preferredStyle: .alert)
+        let acceptAction = UIAlertAction(title: "Accept", style: .default) { (_) in
+            guard let job = UserController.shared.currentJob else {return}
+            guard let userRef = self.userRef else {return}
+            FirestoreClient.shared.fetchFromFirestore(uuid: userRef, completion: { (user: User?) in
+                guard let user = user else {return}
+                JobController.shared.accept(userFor: job, user: user)
+            })
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        hireAlert.addAction(acceptAction)
+        hireAlert.addAction(cancelAction)
+        let vc = ViewApplicantsTVC()
+        vc.present(hireAlert, animated: true)
     }
     
 }

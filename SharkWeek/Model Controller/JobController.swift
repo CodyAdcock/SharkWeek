@@ -154,12 +154,28 @@ class JobController {
         
         job.chosenOneRef = user.uuid
         guard let chosenOneRef = job.chosenOneRef else { return }
+        //bad
+        for userRef in job.applicantsRef{
+            FirestoreClient.shared.fetchFromFirestore(uuid: userRef) { (user: User?) in
+                guard let jobsApplied = user?.jobsApplied else {return}
+                var count = 0
+                for ref in jobsApplied{
+                    if ref == job.uuid{
+                        user?.jobsApplied.remove(at: count)
+                        guard let jApplied = user?.jobsApplied else {return}
+                        let userValues = ["jobsApplied" : jApplied]
+                        UserController.db.collection("users").document(userRef).updateData(userValues)
+                    }
+                    count += 1
+                }
+            }
+        }
         
-        job.applicantsRef = ["Job already accepted"]
-        let values = ["applicantsRef" : job.applicantsRef,
+        job.applicantsRef = []
+        let jobValues = ["applicantsRef" : job.applicantsRef,
                       "chosenOneRef" : chosenOneRef] as [String : Any]
         
-        jobCollection.document(job.uuid).updateData(values)
+        jobCollection.document(job.uuid).updateData(jobValues)
         
         user.jobsInProgress.append(job.uuid)
         let valuesUser = ["jobsInProgress" : user.jobsInProgress]
