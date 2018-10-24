@@ -582,11 +582,21 @@
                                                     <constraint firstItem="pLI-X9-sOQ" firstAttribute="width" secondItem="ief-sO-Pi3" secondAttribute="width" id="mlm-8q-AVo"/>
                                                 </constraints>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8J-cx-HKs">
+                                                <rect key="frame" x="9.5" y="369.5" width="356" height="90"/>
+                                                <connections>
+                                                    <action selector="userButtonTapped:" destination="VWC-PX-SnU" eventType="touchUpInside" id="NFM-OR-tpF"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="f8J-cx-HKs" firstAttribute="height" secondItem="ZJQ-em-Xp6" secondAttribute="height" id="N2T-0P-F0f"/>
+                                            <constraint firstItem="f8J-cx-HKs" firstAttribute="centerX" secondItem="ZJQ-em-Xp6" secondAttribute="centerX" id="cNg-uc-AsQ"/>
                                             <constraint firstItem="ief-sO-Pi3" firstAttribute="height" secondItem="Pyo-yi-KCz" secondAttribute="height" multiplier="0.9" id="gS1-of-IEo"/>
                                             <constraint firstItem="ief-sO-Pi3" firstAttribute="width" secondItem="Pyo-yi-KCz" secondAttribute="width" multiplier="0.95" id="gmB-Bp-kmb"/>
+                                            <constraint firstItem="f8J-cx-HKs" firstAttribute="centerY" secondItem="ZJQ-em-Xp6" secondAttribute="centerY" id="nrw-e6-oi2"/>
+                                            <constraint firstItem="f8J-cx-HKs" firstAttribute="width" secondItem="ZJQ-em-Xp6" secondAttribute="width" id="rXY-Zb-j2F"/>
                                             <constraint firstItem="ief-sO-Pi3" firstAttribute="centerY" secondItem="Pyo-yi-KCz" secondAttribute="centerY" id="xcs-0U-nkc"/>
                                             <constraint firstItem="ief-sO-Pi3" firstAttribute="centerX" secondItem="Pyo-yi-KCz" secondAttribute="centerX" id="zSE-Z0-Sd5"/>
                                         </constraints>
@@ -623,11 +633,20 @@
                         <outlet property="starLabel" destination="I9w-u4-ZGW" id="hcE-xr-sWy"/>
                         <outlet property="toolsNeededLabel" destination="k9r-DD-5B8" id="y7p-JY-vbS"/>
                         <outlet property="toolsProvidedLabel" destination="BBX-fO-3xT" id="Pv0-ap-S1W"/>
+                        <segue destination="Vm9-Q0-XdE" kind="show" identifier="toOtherProfile" id="MSh-f4-khI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3dx-3S-neI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3888.8000000000002" y="-865.36731634182911"/>
+        </scene>
+        <!--otherProfile-->
+        <scene sceneID="xP4-CA-KGW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="otherProfile" id="Vm9-Q0-XdE" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rHL-RI-yMO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4468" y="-852"/>
         </scene>
         <!--Create Job Posting-->
         <scene sceneID="jK5-pT-2aG">

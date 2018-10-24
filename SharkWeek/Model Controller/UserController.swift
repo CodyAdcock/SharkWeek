@@ -25,6 +25,7 @@ class UserController{
         }
     }
     var currentJob: Job?
+    var selectedUser: User?
     //vars
     static let db = Firestore.firestore()
     let userRef = db.collection("users")

@@ -94,6 +94,13 @@ class ViewPostingVC: UIViewController {
     }
     
     
+    @IBAction func userButtonTapped(_ sender: Any) {
+         guard let job = UserController.shared.currentJob else {return}
+        FirestoreClient.shared.fetchFromFirestore(uuid: job.employerRef) { (user: User?) in
+            UserController.shared.selectedUser = user
+            self.performSegue(withIdentifier: "toOtherProfile", sender: self)
+        }
+    }
     @IBAction func applyButtonTapped(_ sender: Any) {
         guard let job = UserController.shared.currentJob else {return}
         JobController.shared.applyToJob(job: job)
