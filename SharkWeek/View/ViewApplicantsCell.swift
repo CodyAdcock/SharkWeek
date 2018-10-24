@@ -16,41 +16,19 @@ class ViewApplicantsCell: UITableViewCell {
     
     @IBOutlet weak var applicantImage: UIImageView!
     @IBOutlet weak var firstNameLabel: UILabel!
-    @IBOutlet weak var lastNameLabel: UILabel!
     
     @IBOutlet weak var starOneLabel: UILabel!
     
     weak var delegate: ViewApplicantCellDelegate?
     
-    func readUser() {
-        guard let uid = personInfoAsString else { return }
-        FirestoreClient.shared.fetchFromFirestore(uuid: uid) { (user: User?) in
-            guard let user = user else { return }
-            self.user = user
-        }
-    }
     
-    var personInfoAsString: String? {
+    var userRef: String? {
         didSet {
-            readUser()
+            updateViews()
         }
     }
-    
-    var user: User? {
-        didSet {
-            updateViewsCell()
-        }
-    }
-    
-    func updateViewsCell() {
-        guard let user = user else {return}
-        
-        firstNameLabel.text = user.firstName
-        lastNameLabel.text = user.lastName
-        applicantImage.image = user.pictureAsImage
-        
-        if user.reviewCount != 0{
-            let rating = user.starCount / user.reviewCount
+    var rating: Int?{
+        didSet{
             switch rating {
             case 1:
                 starOneLabel.text = Stars.one
@@ -65,20 +43,30 @@ class ViewApplicantsCell: UITableViewCell {
             default:
                 starOneLabel.text = Stars.zero
             }
-        } else{
-            starOneLabel.text = Stars.zero
         }
-        
+    }
+    
+    func updateViews() {
+        guard let userRef = userRef else {return}
+        FirestoreClient.shared.fetchFromFirestore(uuid: userRef) { (user: User?) in
+            guard let user = user else {return}
+            UserController.shared.grabUsersPicture(user: user) { (success) in
+                if success == true {
+                    self.applicantImage.image = user.pictureAsImage
+                    print("sick, loaded picture")
+                } else {
+                    print("Could not set the value for the users image")
+                }
+            }
+            self.firstNameLabel.text = "\(user.firstName) \(user.lastName)"
+            if user.reviewCount == 0 {return}
+            self.rating = user.starCount / user.reviewCount
+        }
     }
     
     // TODO: - REFACTOR BASED ON HOW TO PASS DATA ALONG
     
     @IBAction func hireButton(_ sender: Any) {
-        delegate?.hireButtonTapped()
-        let vc = PostedDetailVC()
-        guard let job = vc.selectedJob else { return }
-        guard let user = user else { return }
-        JobController.shared.accept(userFor: job, user: user)
         
     }
     

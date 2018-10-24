@@ -37,7 +37,7 @@ class JobController {
                       "toolsNeeded" : toolsNeeded ?? "",
                       "toolsProvided" : toolsProvided ?? "",
                       "employerRef" : userID,
-                      "applicantsRef" : [""],
+                      "applicantsRef" : [],
                       "chosenOneRef" : "",
                       "ReviewOfJobPoster" : "",
                       "ReviewOfJobApplicant" : ""] as [String : Any]

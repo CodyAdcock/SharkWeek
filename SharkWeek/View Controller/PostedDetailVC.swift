@@ -27,9 +27,6 @@ class PostedDetailVC: UIViewController {
     
     func segmentAttributes() {
         segmentedControlLabel.layer.cornerRadius = 5.0
-        segmentedControlLabel.backgroundColor = .lightGray
-        segmentedControlLabel.tintColor = .darkGray
-        segmentedControlLabel.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
