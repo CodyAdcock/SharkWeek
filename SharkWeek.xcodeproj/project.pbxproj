@@ -47,6 +47,8 @@
 		C3B8286D217E64F200B5794A /* RatingAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3B8286C217E64F200B5794A /* RatingAlert.storyboard */; };
 		C3DF84392176515B0064FCF5 /* SharkTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF84382176515B0064FCF5 /* SharkTabBarController.swift */; };
 		C3F2D6B0217FDDCF0036C90E /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F2D6AF217FDDCF0036C90E /* Settings.storyboard */; };
+		C3F2D6B4217FE9B10036C90E /* OtherProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F2D6B3217FE9B10036C90E /* OtherProfileTableViewController.swift */; };
+		C3F2D6B6217FEC810036C90E /* OtherPersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F2D6B5217FEC810036C90E /* OtherPersonalInfoViewController.swift */; };
 		C3F81F3C2170F5A000E06F6E /* Sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C3F81F3B2170F5A000E06F6E /* Sample.mp3 */; };
 		C3F81F3F21711C8900E06F6E /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F81F3E21711C8900E06F6E /* PersonalInfoViewController.swift */; };
 		C3F916DC2178F13A00394038 /* HomePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F916DB2178F13A00394038 /* HomePageTableViewController.swift */; };
@@ -100,6 +102,8 @@
 		C3B8286C217E64F200B5794A /* RatingAlert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RatingAlert.storyboard; sourceTree = "<group>"; };
 		C3DF84382176515B0064FCF5 /* SharkTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharkTabBarController.swift; sourceTree = "<group>"; };
 		C3F2D6AF217FDDCF0036C90E /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		C3F2D6B3217FE9B10036C90E /* OtherProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileTableViewController.swift; sourceTree = "<group>"; };
+		C3F2D6B5217FEC810036C90E /* OtherPersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPersonalInfoViewController.swift; sourceTree = "<group>"; };
 		C3F81F3B2170F5A000E06F6E /* Sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Sample.mp3; sourceTree = "<group>"; };
 		C3F81F3E21711C8900E06F6E /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
 		C3F916DB2178F13A00394038 /* HomePageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTableViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +219,7 @@
 				C3F916DB2178F13A00394038 /* HomePageTableViewController.swift */,
 				C3B8286A217E615A00B5794A /* RatingViewController.swift */,
 				903A40C0217FAB910032D3E7 /* EmailTestViewController.swift */,
+				C3F2D6B3217FE9B10036C90E /* OtherProfileTableViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -329,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				C3F81F3E21711C8900E06F6E /* PersonalInfoViewController.swift */,
+				C3F2D6B5217FEC810036C90E /* OtherPersonalInfoViewController.swift */,
 				C318E6CF2171424E00549DD6 /* JobListTableViewController.swift */,
 			);
 			path = "Profile Containers";
@@ -510,6 +516,7 @@
 				48823CEA217692BD0012C30B /* EditPostVC.swift in Sources */,
 				C376F2B1216ED14A005EEA0D /* ReviewController.swift in Sources */,
 				48823CE4217690A20012C30B /* PostedDetailVC.swift in Sources */,
+				C3F2D6B6217FEC810036C90E /* OtherPersonalInfoViewController.swift in Sources */,
 				90E0F4462179008D0084872D /* FirestoreClient.swift in Sources */,
 				483302E32176A714004EBB07 /* PostJobVC.swift in Sources */,
 				C376F2C8216FECD5005EEA0D /* SignUpViewController.swift in Sources */,
@@ -532,6 +539,7 @@
 				C3F916DE2178F39F00394038 /* homeCollectionViewCell.swift in Sources */,
 				C3F916DC2178F13A00394038 /* HomePageTableViewController.swift in Sources */,
 				48823CEC217693240012C30B /* ViewApplicantsTVC.swift in Sources */,
+				C3F2D6B4217FE9B10036C90E /* OtherProfileTableViewController.swift in Sources */,
 				C3B8286B217E615A00B5794A /* RatingViewController.swift in Sources */,
 				48823CE6217691750012C30B /* ViewPostingVC.swift in Sources */,
 				480D5B0621750B92005A4A68 /* MyJobsTVC.swift in Sources */,
