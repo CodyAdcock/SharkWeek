@@ -124,11 +124,12 @@
                     <connections>
                         <outlet property="pickerView" destination="h0Y-Qe-Z7H" id="d2f-1N-svr"/>
                         <outlet property="searchBar" destination="r3x-sk-eSZ" id="T8M-Yg-kIP"/>
+                        <segue destination="Q6L-Ki-uzr" kind="show" identifier="toAppliedVC" id="gaK-Du-0gG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFB-XN-bzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="896.79999999999995" y="-564.46776611694156"/>
+            <point key="canvasLocation" x="892" y="-564"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="qfN-NC-jnt">
@@ -204,6 +205,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LrH-19-qvO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="60" y="-564.46776611694156"/>
+        </scene>
+        <!--AppliedDetailVC-->
+        <scene sceneID="Zaa-X1-SC7">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="AppliedDetailVC" storyboardName="MyJobs" referencedIdentifier="AppliedDetailVC" id="Q6L-Ki-uzr" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PId-fo-WX7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="746" y="175"/>
         </scene>
     </scenes>
 </document>

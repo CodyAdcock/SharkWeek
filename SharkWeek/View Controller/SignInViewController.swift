@@ -20,6 +20,8 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        EmailAddressTextField.delegate = self
+        PasswordTextField.delegate = self
     }
     
     @IBAction func signInButtonTapped(_ sender: Any) {
