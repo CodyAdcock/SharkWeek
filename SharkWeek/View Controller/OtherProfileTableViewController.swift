@@ -111,12 +111,13 @@ class OtherProfileTableViewController: UITableViewController, MFMailComposeViewC
                 if  MFMailComposeViewController.canSendMail() == true {
                     guard let currentUser = UserController.shared.currentUser else { return }
                     mailController.setPreferredSendingEmailAddress(currentUser.email)
-                    mailController.setSubject("Reporting")
+                    mailController.setSubject("Reporting user: \(UserController.shared.selectedUser?.uuid ?? "uuid not found")")
                     mailController.setBccRecipients(["codyAdcock10@gmail.com", "samwayne11@gmail.com", "abdikadirpro@gmail.com"])
                     mailController.setMessageBody(text, isHTML: false)
                     self.present(mailController, animated: true, completion: nil)
                 }
-                // TODO: - Might need to check on the results of the actual sending of the email. this only shows a standard email form with sections filled in for those stated. Can't test it, as simulator doesn't have mailing app, and no lightning cable on tuesday. 
+                
+                // TODO: - Might need to check on the results of the actual sending of the email. this only shows a standard email form with sections filled in for those stated. Can't test it, as simulator doesn't have mailing app, and no lightning cable on tuesday.
                 
             })
             reportAlertController.addAction(cancelButton)
@@ -127,6 +128,10 @@ class OtherProfileTableViewController: UITableViewController, MFMailComposeViewC
         alertController.addAction(reportAction)
         alertController.addAction(blockAction)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        navigationController?.popViewController(animated: true)
     }
     
     

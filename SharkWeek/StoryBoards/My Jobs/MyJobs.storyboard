@@ -295,9 +295,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="575"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RSp-B9-h6o">
-                                <rect key="frame" x="0.0" y="20" width="375" height="555"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RSp-B9-h6o">
+                                <rect key="frame" x="0.0" y="10" width="375" height="575"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="applicantsCell" rowHeight="159" id="lwx-4G-lc7" customClass="ViewApplicantsCell" customModule="SharkWeek" customModuleProvider="target">
@@ -366,6 +365,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RSp-B9-h6o" firstAttribute="centerX" secondItem="eKT-hq-CcB" secondAttribute="centerX" id="JFu-Id-gXP"/>
+                            <constraint firstItem="RSp-B9-h6o" firstAttribute="centerY" secondItem="eKT-hq-CcB" secondAttribute="centerY" id="UlC-6H-mEj"/>
+                            <constraint firstItem="RSp-B9-h6o" firstAttribute="height" secondItem="Rh7-aY-WsG" secondAttribute="height" id="hZJ-zf-JdZ"/>
+                            <constraint firstItem="RSp-B9-h6o" firstAttribute="width" secondItem="Rh7-aY-WsG" secondAttribute="width" id="nbO-ZQ-CeI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="eKT-hq-CcB"/>
                     </view>
                     <connections>
