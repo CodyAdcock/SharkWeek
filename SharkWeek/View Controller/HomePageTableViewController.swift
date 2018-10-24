@@ -94,15 +94,55 @@ class HomePageTableViewController: UITableViewController, UICollectionViewDataSo
         switch collectionView{
         case homeCollectionView3:
             UserController.shared.currentJob = defaultJobs[indexPath.row]
-            performSegue(withIdentifier: "toAppliedVC", sender: self)
+            guard let employerRef = UserController.shared.currentJob?.employerRef else { return }
+            FirestoreClient.shared.fetchFromFirestore(uuid: employerRef) { (user: User?) in
+                guard let user = user else { return }
+                guard let currentUser = self.currentUser else { return }
+                if user.blockedUsers.contains(currentUser.uuid) {
+                    let alertController = UIAlertController(title: "Person has blocked you!", message: "You are not allowed to see their profile or postings", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alertController.addAction(okAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
+                else {
+                    self.performSegue(withIdentifier: "toAppliedVC", sender: self)
+                }
+            }
+            
         case homeCollectionView2:
             UserController.shared.currentJob = indoorJobs[indexPath.row]
-            performSegue(withIdentifier: "toAppliedVC", sender: self)
+            guard let employerRef = UserController.shared.currentJob?.employerRef else { return }
+            FirestoreClient.shared.fetchFromFirestore(uuid: employerRef) { (user: User?) in
+                guard let user = user else { return }
+                guard let currentUser = self.currentUser else { return }
+                if user.blockedUsers.contains(currentUser.uuid) {
+                    let alertController = UIAlertController(title: "Person has blocked you!", message: "You are not allowed to see their profile or postings", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alertController.addAction(okAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
+                else {
+                    self.performSegue(withIdentifier: "toAppliedVC", sender: self)
+                }
+            }
+            
         case homeCollectionView1:
             UserController.shared.currentJob = outdoorJobs[indexPath.row]
-            performSegue(withIdentifier: "toAppliedVC", sender: self)
-        default:
-            print("That's not supposed to happen...")
+            guard let employerRef = UserController.shared.currentJob?.employerRef else { return }
+            FirestoreClient.shared.fetchFromFirestore(uuid: employerRef) { (user: User?) in
+                guard let user = user else { return }
+                guard let currentUser = self.currentUser else { return }
+                if user.blockedUsers.contains(currentUser.uuid) {
+                    let alertController = UIAlertController(title: "Person has blocked you!", message: "You are not allowed to see their profile or postings", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alertController.addAction(okAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
+                else {
+                    self.performSegue(withIdentifier: "toAppliedVC", sender: self)
+                }
+            }        default:
+                print("That's not supposed to happen...")
             
         }
     }

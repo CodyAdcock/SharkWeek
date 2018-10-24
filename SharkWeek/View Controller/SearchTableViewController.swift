@@ -30,7 +30,7 @@ class SearchTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchJobsCellID", for: indexPath) as? myJobsCell else {return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchJobsCellID", for: indexPath) as? myJobsCell else { return UITableViewCell()}
         let job = searchedJobs[indexPath.row]
         cell.myJob = job
         return cell
@@ -59,52 +59,7 @@ extension SearchTableViewController: UISearchBarDelegate {
         guard let text = searchBar.text, !text.isEmpty else { return }
         let decimalCharacters = CharacterSet.decimalDigits
         let decimalRange = text.rangeOfCharacter(from: decimalCharacters)
-        //
-        //
-        //
-        //        if category == "Default" {
-        //            if decimalRange != nil {
-        //                FirestoreClient.shared.fetchFirestoreWithFieldAndCriteria(for: "zipCode", criteria: text) { (jobs: [Job]?) in
-        //                    guard let jobs = jobs else { return }
-        //                    self.searchedJobs = jobs
-        //                }
-        //            } else {
-        //                FirestoreClient.shared.fetchFirestoreWithFieldAndCriteria(for: "city", criteria: text) { (jobs: [Job]?) in
-        //                    guard let jobs = jobs else { return }
-        //                    self.searchedJobs = jobs
-        //                }
-        //            }
-        //        } else {
-        //            jobRef.whereField("category", isEqualTo: category!)
-        //            if decimalRange != nil {
-        //                jobRef.whereField("zipCode", isEqualTo: text).getDocuments { (querySnap, error) in
-        //                    if let error = error {
-        //                        print("there was an error getting filtered data for zip + category \(error.localizedDescription)")
-        //                        return
-        //                }
-        //                    querySnap.
-        //
-        //            }
-        //        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+  
         if category != nil  {
             FirestoreClient.shared.fetchFirestoreWithFieldAndCriteria(for: "category", criteria: self.category!) { (jobs: [Job]?) in
                 guard let jobs = jobs else { return }
