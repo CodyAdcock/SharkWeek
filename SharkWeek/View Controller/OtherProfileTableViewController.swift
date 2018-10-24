@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class OtherProfileTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
+class OtherProfileTableViewController: UITableViewController {
     
     //IBOutlets Main Page
     
@@ -23,6 +23,64 @@ class OtherProfileTableViewController: UITableViewController, MFMailComposeViewC
     //Container IBOutlets
     @IBOutlet weak var PersonalInfoContainer: UIView! //toPersonalInfoVC
     @IBOutlet weak var JobHistoryContainer: UIView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.PersonalInfoContainer.isHidden = false
+        self.PersonalInfoContainer.alpha = 1
+        self.JobHistoryContainer.isHidden = true
+        self.JobHistoryContainer.alpha = 0
+        
+        guard let selectedUser = UserController.shared.selectedUser else { return }
+        
+        self.ProfilePictureImageView.image = selectedUser.pictureAsImage
+        NameAgeLabel.text = "\(selectedUser.firstName) \(selectedUser.lastName), \(selectedUser.age)"
+        CityStateLabel.text = "\(selectedUser.city), \(selectedUser.state)"
+        var rating = 0
+        if selectedUser.reviewCount != 0{
+            rating = selectedUser.starCount / selectedUser.reviewCount
+        }
+        switch rating {
+        case 1:
+            RatingLabel.text = Stars.one
+        case 2:
+            RatingLabel.text = Stars.two
+        case 3:
+            RatingLabel.text = Stars.three
+        case 4:
+            RatingLabel.text = Stars.four
+        case 5:
+            RatingLabel.text = Stars.five
+        default:
+            RatingLabel.text = "Rating Not Found"
+        }
+    }
+    
+    
+    @IBAction func SegmentedControllerTapped(_ sender: Any) {
+        switch profileSegementedController.selectedSegmentIndex{
+        case 0:
+            print("0")
+            UIView.animate(withDuration: 0.25){
+                self.PersonalInfoContainer.isHidden = false
+                self.PersonalInfoContainer.alpha = 1
+                self.JobHistoryContainer.alpha = 0
+                self.JobHistoryContainer.isHidden = true
+            }
+        case 1:
+            print("1")
+            UIView.animate(withDuration: 0.25){
+                self.PersonalInfoContainer.alpha = 0
+                self.PersonalInfoContainer.isHidden = true
+                self.JobHistoryContainer.isHidden = false
+                self.JobHistoryContainer.alpha = 1
+            }
+            
+        default:
+            print("")
+        }
+    }
+    
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -102,22 +160,8 @@ class OtherProfileTableViewController: UITableViewController, MFMailComposeViewC
             let cancelButton = UIAlertAction(title: "Cancel", style: .default, handler: nil)
             let reportButton = UIAlertAction(title: "Submit report", style: .cancel, handler: { (report) in
                 guard let text = reportAlertController.textFields?.first?.text else { return }
-                let mailController = MFMailComposeViewController()
                 
-                if MFMailComposeViewController.canSendMail() == false {
-                    print("no mail account associated")
-                }
-    
-                if  MFMailComposeViewController.canSendMail() == true {
-                    guard let currentUser = UserController.shared.currentUser else { return }
-                    mailController.setPreferredSendingEmailAddress(currentUser.email)
-                    mailController.setSubject("Reporting user: \(UserController.shared.selectedUser?.uuid ?? "uuid not found")")
-                    mailController.setBccRecipients(["codyAdcock10@gmail.com", "samwayne11@gmail.com", "abdikadirpro@gmail.com"])
-                    mailController.setMessageBody(text, isHTML: false)
-                    self.present(mailController, animated: true, completion: nil)
-                }
-                
-                // TODO: - Might need to check on the results of the actual sending of the email. this only shows a standard email form with sections filled in for those stated. Can't test it, as simulator doesn't have mailing app, and no lightning cable on tuesday.
+                // TODO: - functionality behind reports
                 
             })
             reportAlertController.addAction(cancelButton)
@@ -128,67 +172,5 @@ class OtherProfileTableViewController: UITableViewController, MFMailComposeViewC
         alertController.addAction(reportAction)
         alertController.addAction(blockAction)
         self.present(alertController, animated: true, completion: nil)
-    }
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        navigationController?.popViewController(animated: true)
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.PersonalInfoContainer.isHidden = false
-        self.PersonalInfoContainer.alpha = 1
-        self.JobHistoryContainer.isHidden = true
-        self.JobHistoryContainer.alpha = 0
-        
-        guard let selectedUser = UserController.shared.selectedUser else { return }
-        
-        self.ProfilePictureImageView.image = selectedUser.pictureAsImage
-        NameAgeLabel.text = "\(selectedUser.firstName) \(selectedUser.lastName), \(selectedUser.age)"
-        CityStateLabel.text = "\(selectedUser.city), \(selectedUser.state)"
-        var rating = 0
-        if selectedUser.reviewCount != 0{
-            rating = selectedUser.starCount / selectedUser.reviewCount
-        }
-        switch rating {
-        case 1:
-            RatingLabel.text = Stars.one
-        case 2:
-            RatingLabel.text = Stars.two
-        case 3:
-            RatingLabel.text = Stars.three
-        case 4:
-            RatingLabel.text = Stars.four
-        case 5:
-            RatingLabel.text = Stars.five
-        default:
-            RatingLabel.text = "Rating Not Found"
-        }
-    }
-    
-    
-    @IBAction func SegmentedControllerTapped(_ sender: Any) {
-        switch profileSegementedController.selectedSegmentIndex{
-        case 0:
-            print("0")
-            UIView.animate(withDuration: 0.25){
-                self.PersonalInfoContainer.isHidden = false
-                self.PersonalInfoContainer.alpha = 1
-                self.JobHistoryContainer.alpha = 0
-                self.JobHistoryContainer.isHidden = true
-            }
-        case 1:
-            print("1")
-            UIView.animate(withDuration: 0.25){
-                self.PersonalInfoContainer.alpha = 0
-                self.PersonalInfoContainer.isHidden = true
-                self.JobHistoryContainer.isHidden = false
-                self.JobHistoryContainer.alpha = 1
-            }
-            
-        default:
-            print("")
-        }
     }
 }
