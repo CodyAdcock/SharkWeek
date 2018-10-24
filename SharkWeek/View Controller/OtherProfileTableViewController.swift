@@ -76,6 +76,9 @@ class OtherProfileTableViewController: UITableViewController {
             
         }
     }
+    @IBAction func settingsButtonTapped(_ sender: Any) {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
