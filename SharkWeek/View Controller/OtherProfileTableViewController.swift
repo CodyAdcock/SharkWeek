@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class OtherProfileTableViewController: UITableViewController {
+class OtherProfileTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
     //IBOutlets Main Page
     
@@ -23,6 +24,7 @@ class OtherProfileTableViewController: UITableViewController {
     @IBOutlet weak var PersonalInfoContainer: UIView! //toPersonalInfoVC
     @IBOutlet weak var JobHistoryContainer: UIView!
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -31,7 +33,6 @@ class OtherProfileTableViewController: UITableViewController {
         self.ProfilePictureImageView.layer.cornerRadius = ProfilePictureImageView.frame.height / 2
         
         guard let user = UserController.shared.selectedUser else {return}
-        
         UserController.shared.grabUsersPicture(user: user) { (success) in
             if success == true {
                 self.ProfilePictureImageView.image = user.pictureAsImage
@@ -78,7 +79,56 @@ class OtherProfileTableViewController: UITableViewController {
     }
     @IBAction func settingsButtonTapped(_ sender: Any) {
         
+        let alertController = UIAlertController(title: "Report abuse or Block User", message: "Report a user for misconduct with a message, or block them from seeing your posts/profile", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        
+        let blockAction = UIAlertAction(title: "Block", style: .cancel) { (_) in
+            let blockAlertController = UIAlertController(title: "Are you sure?", message: "This will disable a user from seeing any of your jobs, and your profile", preferredStyle: .alert)
+            let blockButton = UIAlertAction(title: "Block user", style: .default, handler: { (_) in
+                guard let selectedUser = UserController.shared.selectedUser else { return }
+                UserController.shared.blockUser(uuid: selectedUser.uuid)
+            })
+            let cancelActionForBlockAC = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            blockAlertController.addAction(blockButton)
+            blockAlertController.addAction(cancelActionForBlockAC)
+            self.present(blockAlertController, animated: true, completion: nil)
+        }
+        
+        let reportAction = UIAlertAction(title: "Report", style: .default) { (report) in
+            let reportAlertController = UIAlertController(title: "Report abuse", message: "Let us know what happened between you and the user and we'll look into it", preferredStyle: .alert)
+            reportAlertController.addTextField(configurationHandler: { (textField) in
+                textField.placeholder = "type something..."
+            })
+            let cancelButton = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            let reportButton = UIAlertAction(title: "Submit report", style: .cancel, handler: { (report) in
+                guard let text = reportAlertController.textFields?.first?.text else { return }
+                let mailController = MFMailComposeViewController()
+                
+                if MFMailComposeViewController.canSendMail() == false {
+                    print("no mail account associated")
+                }
+    
+                if  MFMailComposeViewController.canSendMail() == true {
+                    guard let currentUser = UserController.shared.currentUser else { return }
+                    mailController.setPreferredSendingEmailAddress(currentUser.email)
+                    mailController.setSubject("Reporting")
+                    mailController.setBccRecipients(["codyAdcock10@gmail.com", "samwayne11@gmail.com", "abdikadirpro@gmail.com"])
+                    mailController.setMessageBody(text, isHTML: false)
+                    self.present(mailController, animated: true, completion: nil)
+                }
+                // TODO: - Might need to check on the results of the actual sending of the email. this only shows a standard email form with sections filled in for those stated. Can't test it, as simulator doesn't have mailing app, and no lightning cable on tuesday. 
+                
+            })
+            reportAlertController.addAction(cancelButton)
+            reportAlertController.addAction(reportButton)
+            self.present(reportAlertController, animated: true, completion: nil)
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(reportAction)
+        alertController.addAction(blockAction)
+        self.present(alertController, animated: true, completion: nil)
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

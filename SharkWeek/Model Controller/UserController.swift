@@ -176,13 +176,9 @@ class UserController{
     }
     
     func blockUser(uuid: String) {
-        guard let currentUser = currentUser else { return }
-        FirestoreClient.shared.fetchFromFirestore(uuid: currentUser.uuid) { (user: User?) in
-            guard let user = user else { return }
-            user.blockedUsers.append(uuid)
-            self.userRef.document(uuid).updateData(["blockedUsers" : user.blockedUsers])
-        }
-    }
-    
-}
+        guard let currentUser = UserController.shared.currentUser else { return }
 
+            currentUser.blockedUsers.append(uuid)
+            self.userRef.document(currentUser.uuid).updateData(["blockedUsers" : currentUser.blockedUsers])
+        }
+}
