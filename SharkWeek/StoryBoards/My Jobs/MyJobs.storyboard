@@ -17,6 +17,14 @@
             </objects>
             <point key="canvasLocation" x="1487" y="-415"/>
         </scene>
+        <!--RatingAlert-->
+        <scene sceneID="VIZ-WJ-9Qq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RatingAlert" id="BXH-NH-qKZ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hvO-x3-uxN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1943" y="-388"/>
+        </scene>
         <!--My Jobs-->
         <scene sceneID="Ecs-1W-AaP">
             <objects>
@@ -62,48 +70,69 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="120.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="B0Q-nO-Dvu">
-                                            <rect key="frame" x="9.5" y="6" width="356" height="108.5"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Dyx-FA-jFV">
+                                            <rect key="frame" x="9.5" y="12" width="356" height="96.5"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hVj-an-j6w">
-                                                    <rect key="frame" x="0.0" y="0.0" width="356" height="25"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="B0Q-nO-Dvu">
+                                                    <rect key="frame" x="0.0" y="21.5" width="275.5" height="53.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Job Title)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JrP-d1-9Ht">
-                                                            <rect key="frame" x="0.0" y="0.0" width="84.5" height="25"/>
-                                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="($20)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exk-p1-Woj">
-                                                            <rect key="frame" x="313" y="0.0" width="43" height="25"/>
-                                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hVj-an-j6w">
+                                                            <rect key="frame" x="0.0" y="0.0" width="275.5" height="25"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Job Title)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JrP-d1-9Ht">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="84.5" height="25"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="($20)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exk-p1-Woj">
+                                                                    <rect key="frame" x="232.5" y="0.0" width="43" height="25"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5F-ZO-h1H">
+                                                            <rect key="frame" x="0.0" y="33" width="275.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="hVj-an-j6w" firstAttribute="width" secondItem="B0Q-nO-Dvu" secondAttribute="width" id="wM2-F6-ldT"/>
+                                                        <constraint firstItem="x5F-ZO-h1H" firstAttribute="width" secondItem="B0Q-nO-Dvu" secondAttribute="width" id="xjZ-Uf-4xu"/>
+                                                    </constraints>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5F-ZO-h1H">
-                                                    <rect key="frame" x="0.0" y="29" width="356" height="79.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VA8-ku-Pr0">
+                                                    <rect key="frame" x="291.5" y="22.5" width="64.5" height="51.5"/>
+                                                    <color key="backgroundColor" red="0.62352941179999999" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="51.5" id="eUN-Kg-MDQ"/>
+                                                        <constraint firstAttribute="width" constant="64.5" id="puz-L7-F2z"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                    <state key="normal" title="✓">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="doneButtonTapped:" destination="UTi-f4-JKL" eventType="touchUpInside" id="8lp-a4-PH2"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="x5F-ZO-h1H" firstAttribute="width" secondItem="B0Q-nO-Dvu" secondAttribute="width" id="Hts-Hh-Rwr"/>
-                                                <constraint firstItem="hVj-an-j6w" firstAttribute="width" secondItem="B0Q-nO-Dvu" secondAttribute="width" id="wK7-cH-rIQ"/>
-                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="B0Q-nO-Dvu" firstAttribute="centerX" secondItem="Ye5-uh-sl5" secondAttribute="centerX" id="GVJ-pD-MOC"/>
-                                        <constraint firstItem="B0Q-nO-Dvu" firstAttribute="height" secondItem="Ye5-uh-sl5" secondAttribute="height" multiplier="0.9" id="c7L-2u-1KM"/>
-                                        <constraint firstItem="B0Q-nO-Dvu" firstAttribute="centerY" secondItem="Ye5-uh-sl5" secondAttribute="centerY" id="txN-rj-TV6"/>
-                                        <constraint firstItem="B0Q-nO-Dvu" firstAttribute="width" secondItem="Ye5-uh-sl5" secondAttribute="width" multiplier="0.95" id="xRm-xr-lAX"/>
+                                        <constraint firstItem="Dyx-FA-jFV" firstAttribute="centerY" secondItem="Ye5-uh-sl5" secondAttribute="centerY" id="CNO-dj-Wjs"/>
+                                        <constraint firstItem="Dyx-FA-jFV" firstAttribute="centerX" secondItem="Ye5-uh-sl5" secondAttribute="centerX" id="LTp-x2-Pfv"/>
+                                        <constraint firstItem="Dyx-FA-jFV" firstAttribute="height" secondItem="Ye5-uh-sl5" secondAttribute="height" multiplier="0.8" id="agt-Lk-Yrw"/>
+                                        <constraint firstItem="Dyx-FA-jFV" firstAttribute="width" secondItem="Ye5-uh-sl5" secondAttribute="width" multiplier="0.95" id="l0j-j7-arf"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="descriptionLabel" destination="x5F-ZO-h1H" id="rWi-k4-QCW"/>
+                                    <outlet property="doneButton" destination="VA8-ku-Pr0" id="Pp8-Qx-Tsl"/>
                                     <outlet property="jobTitleLabel" destination="JrP-d1-9Ht" id="umr-g1-Bvb"/>
                                     <outlet property="payLabel" destination="exk-p1-Woj" id="KZ1-uK-pfz"/>
                                 </connections>
@@ -121,6 +150,7 @@
                         <segue destination="lTw-YP-edc" kind="show" identifier="toDetailVc" id="Jfv-cG-KAw"/>
                         <segue destination="J6g-Vo-jNc" kind="show" identifier="toViewJobVC" id="L4t-kW-7f0"/>
                         <segue destination="7Ge-r5-dnI" kind="show" identifier="toSignInVC" id="M1t-Z0-Whz"/>
+                        <segue destination="BXH-NH-qKZ" kind="presentation" identifier="toRatingVC" modalPresentationStyle="overCurrentContext" id="CsV-nT-IE5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UdY-Sy-k7k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -383,7 +413,7 @@
                 <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="otherProfile" id="IOG-C3-ODw" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wal-fg-Gzp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4553" y="551"/>
+            <point key="canvasLocation" x="4609" y="618"/>
         </scene>
         <!--ViewPostingVC-->
         <scene sceneID="Vab-rj-JP0">

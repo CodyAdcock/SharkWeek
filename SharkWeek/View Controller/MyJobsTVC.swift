@@ -1,12 +1,13 @@
 import UIKit
 
-class MyJobsTVC: UITableViewController {
+class MyJobsTVC: UITableViewController, myJobsCellDelegate {
     
     @IBOutlet weak var segmentedControlLabel: UISegmentedControl!
     
     var sharedArray: [String] = []
     var jobsArray: [Job] = []
     var currentUser: User?
+    static var segment = 0
     
     func segmentAttributes() {
         segmentedControlLabel.layer.cornerRadius = 5.0
@@ -14,6 +15,7 @@ class MyJobsTVC: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        tableView.reloadData()
         UserController.shared.currentJob = nil
         if UserController.shared.currentUser == nil{
             let signInAlertController = UIAlertController(title: "Please Sign in to view this content!", message: "A lot of our app isn't very useful if you aren't signed in! Please sign in!", preferredStyle: .alert)
@@ -37,7 +39,9 @@ class MyJobsTVC: UITableViewController {
             }
         }
         tableView.reloadData()
-        
+        if segmentedControlLabel.selectedSegmentIndex == 0{
+            firstLoad()
+        }
     }
     
     override func viewDidLoad() {
@@ -45,38 +49,58 @@ class MyJobsTVC: UITableViewController {
         segmentAttributes()
         
         tableView.delegate = self
-        
     }
+    
+    func firstLoad(){
+        guard let currentUser = currentUser else {return}
+        
+        JobController.shared.segmentChange(segment: 0)
+        sharedArray = currentUser.jobsInProgress
+        jobsArray = []
+        let dispatchGroup = DispatchGroup()
+        
+        for jobRef in sharedArray{
+            dispatchGroup.enter()
+            JobController.shared.readOneJob(with: jobRef) { (job) in
+                guard let theJob = job else {return}
+                self.jobsArray.append(theJob)
+                dispatchGroup.leave()
+            }
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            self.tableView.reloadData()
+        }
+        
+        tableView.reloadData()
+    }
+    
     @IBAction func segmentDidChangeValue(_ sender: Any) {
         guard let currentUser = currentUser else {return}
         switch segmentedControlLabel.selectedSegmentIndex {
         case 0:
+            JobController.shared.segmentChange(segment: 0)
             sharedArray = currentUser.jobsInProgress
             jobsArray = []
             let dispatchGroup = DispatchGroup()
             
             for jobRef in sharedArray{
                 dispatchGroup.enter()
-                
-                //                dispatchGroup.leave() // Call in the completion of readOneJob()
                 JobController.shared.readOneJob(with: jobRef) { (job) in
-                    
-                    guard let theJob = job else {return}
-                    
+                    guard let theJob = job else {print("uh oh");return}
                     self.jobsArray.append(theJob)
                     dispatchGroup.leave()
                 }
-                
             }
             
             dispatchGroup.notify(queue: .main) {
                 self.tableView.reloadData()
-                
             }
             
             tableView.reloadData()
         case 1:
-            sharedArray = currentUser.jobsHiredCompleted
+            JobController.shared.segmentChange(segment: 1)
+            sharedArray = currentUser.jobsHiredCompleted + currentUser.jobsCreatedCompleted
             jobsArray = []
             let dispatchGroup = DispatchGroup()
             
@@ -101,14 +125,13 @@ class MyJobsTVC: UITableViewController {
             
             tableView.reloadData()
         case 2:
+            JobController.shared.segmentChange(segment: 2)
             sharedArray = currentUser.jobsApplied
             jobsArray = []
             let dispatchGroup = DispatchGroup()
             
             for jobRef in sharedArray{
                 dispatchGroup.enter()
-                
-                //                dispatchGroup.leave() // Call in the completion of readOneJob()
                 JobController.shared.readOneJob(with: jobRef) { (job) in
                     
                     guard let theJob = job else {return}
@@ -116,37 +139,29 @@ class MyJobsTVC: UITableViewController {
                     self.jobsArray.append(theJob)
                     dispatchGroup.leave()
                 }
-                
             }
             
             dispatchGroup.notify(queue: .main) {
                 self.tableView.reloadData()
-                
             }
             
             tableView.reloadData()
         case 3:
+            JobController.shared.segmentChange(segment: 3)
             sharedArray = currentUser.jobsCreated
             jobsArray = []
             let dispatchGroup = DispatchGroup()
             
             for jobRef in sharedArray{
                 dispatchGroup.enter()
-                
-                //                dispatchGroup.leave() // Call in the completion of readOneJob()
                 JobController.shared.readOneJob(with: jobRef) { (job) in
-                  
                     guard let theJob = job else {return}
-              
                     self.jobsArray.append(theJob)
                     dispatchGroup.leave()
                 }
-                
             }
-            
             dispatchGroup.notify(queue: .main) {
                 self.tableView.reloadData()
-                
             }
         default:
             sharedArray = []
@@ -161,6 +176,7 @@ class MyJobsTVC: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "myJobsCellID", for: indexPath) as? myJobsCell else {return UITableViewCell()}
         let job = jobsArray[indexPath.row]
         cell.myJob = job
+        cell.delegate = self
         return cell
     }
     
@@ -185,6 +201,15 @@ class MyJobsTVC: UITableViewController {
             sharedArray = []
         }
         
+        
+    }
+    
+    func doneButtonTapped(jobRef: String) {
+        FirestoreClient.shared.fetchFromFirestore(uuid: jobRef) { (job: Job?) in
+            UserController.shared.currentJob = job
+            self.performSegue(withIdentifier: "toRatingVC", sender: self)
+
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

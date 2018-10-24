@@ -42,8 +42,24 @@ class RatingViewController: UIViewController {
         guard let flavorText = descriptionTextView.text else {return}
         if flavorText == "" {return}
         guard let rating = rating else {return}
-        print("\(rating) star rating! Description: \(flavorText) ")
-        self.dismiss(animated: true) {}
+        var isEmployer: Bool?
+        guard let user = UserController.shared.currentUser else {return}
+        guard let job = UserController.shared.currentJob else {return}
+        if user.uuid == job.employerRef{
+            isEmployer = true
+            guard let isEmployer = isEmployer else {return}
+            JobController.shared.rateJob(jobRef: job.uuid, starCount: rating, description: flavorText, employerRating: isEmployer)
+            JobController.shared.completeJob(jobRef: job.uuid)
+            self.dismiss(animated: true) {}
+        }else if user.uuid == job.chosenOneRef{
+            isEmployer = false
+            guard let isEmployer = isEmployer else {return}
+            JobController.shared.rateJob(jobRef: job.uuid, starCount: rating, description: flavorText, employerRating: isEmployer)
+            JobController.shared.completeJob(jobRef: job.uuid)
+            self.dismiss(animated: true) {}
+        }else{
+            print("There was an error reading the user during the review process")
+        }
     }
     @IBAction func oneStarButtonTapped(_ sender: Any) {
         firstStar.setTitle("★", for: .normal)
