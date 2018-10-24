@@ -651,24 +651,14 @@
                                         <segue destination="NuF-Ac-fld" kind="embed" id="g61-u4-AWM"/>
                                     </connections>
                                 </containerView>
-                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tj7-Hb-rmt">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="324"/>
-                                    <connections>
-                                        <segue destination="g2p-yL-4c6" kind="embed" id="Lpf-ky-1VD"/>
-                                    </connections>
-                                </containerView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="7eK-iQ-H2H" firstAttribute="width" secondItem="na4-R0-8Q4" secondAttribute="width" id="0M8-ys-feh"/>
                                 <constraint firstItem="TvW-vm-w6C" firstAttribute="width" secondItem="na4-R0-8Q4" secondAttribute="width" id="0Wq-7O-fDP"/>
-                                <constraint firstAttribute="trailing" secondItem="tj7-Hb-rmt" secondAttribute="trailing" id="0zD-Le-fgM"/>
                                 <constraint firstItem="TvW-vm-w6C" firstAttribute="height" secondItem="na4-R0-8Q4" secondAttribute="height" id="Cq7-mf-WTV"/>
                                 <constraint firstItem="7eK-iQ-H2H" firstAttribute="centerX" secondItem="na4-R0-8Q4" secondAttribute="centerX" id="EHA-0q-sPf"/>
                                 <constraint firstItem="7eK-iQ-H2H" firstAttribute="centerY" secondItem="na4-R0-8Q4" secondAttribute="centerY" id="ONM-YM-iPB"/>
-                                <constraint firstItem="tj7-Hb-rmt" firstAttribute="top" secondItem="na4-R0-8Q4" secondAttribute="top" id="ZfS-pq-6Ru"/>
-                                <constraint firstAttribute="bottom" secondItem="tj7-Hb-rmt" secondAttribute="bottom" id="f7G-R8-JXB"/>
-                                <constraint firstItem="tj7-Hb-rmt" firstAttribute="leading" secondItem="na4-R0-8Q4" secondAttribute="leading" id="jZ5-5X-gRE"/>
                                 <constraint firstItem="TvW-vm-w6C" firstAttribute="centerX" secondItem="na4-R0-8Q4" secondAttribute="centerX" id="tMk-um-FBo"/>
                                 <constraint firstItem="7eK-iQ-H2H" firstAttribute="height" secondItem="na4-R0-8Q4" secondAttribute="height" id="wZe-bb-gPh"/>
                                 <constraint firstItem="TvW-vm-w6C" firstAttribute="centerY" secondItem="na4-R0-8Q4" secondAttribute="centerY" id="zMD-dy-vW4"/>
@@ -802,37 +792,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Qn-35-YfA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4830" y="1606"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="UMz-IM-nfn">
-            <objects>
-                <viewController id="g2p-yL-4c6" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aXD-Lu-cWj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="324"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s4r-kG-qMh">
-                                <rect key="frame" x="74" y="107" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Block User"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVI-MN-fsg">
-                                <rect key="frame" x="70" y="163" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Report User"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUw-Qz-5oe">
-                                <rect key="frame" x="88" y="234" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cancel"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vxa-N0-INd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6047" y="1039"/>
         </scene>
     </scenes>
 </document>
