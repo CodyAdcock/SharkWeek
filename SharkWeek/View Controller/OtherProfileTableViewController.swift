@@ -24,6 +24,64 @@ class OtherProfileTableViewController: UITableViewController, MFMailComposeViewC
     @IBOutlet weak var PersonalInfoContainer: UIView! //toPersonalInfoVC
     @IBOutlet weak var JobHistoryContainer: UIView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.PersonalInfoContainer.isHidden = false
+        self.PersonalInfoContainer.alpha = 1
+        self.JobHistoryContainer.isHidden = true
+        self.JobHistoryContainer.alpha = 0
+        
+        guard let selectedUser = UserController.shared.selectedUser else { return }
+        
+        self.ProfilePictureImageView.image = selectedUser.pictureAsImage
+        NameAgeLabel.text = "\(selectedUser.firstName) \(selectedUser.lastName), \(selectedUser.age)"
+        CityStateLabel.text = "\(selectedUser.city), \(selectedUser.state)"
+        var rating = 0
+        if selectedUser.reviewCount != 0{
+            rating = selectedUser.starCount / selectedUser.reviewCount
+        }
+        switch rating {
+        case 1:
+            RatingLabel.text = Stars.one
+        case 2:
+            RatingLabel.text = Stars.two
+        case 3:
+            RatingLabel.text = Stars.three
+        case 4:
+            RatingLabel.text = Stars.four
+        case 5:
+            RatingLabel.text = Stars.five
+        default:
+            RatingLabel.text = "Rating Not Found"
+        }
+    }
+    
+    
+    @IBAction func SegmentedControllerTapped(_ sender: Any) {
+        switch profileSegementedController.selectedSegmentIndex{
+        case 0:
+            print("0")
+            UIView.animate(withDuration: 0.25){
+                self.PersonalInfoContainer.isHidden = false
+                self.PersonalInfoContainer.alpha = 1
+                self.JobHistoryContainer.alpha = 0
+                self.JobHistoryContainer.isHidden = true
+            }
+        case 1:
+            print("1")
+            UIView.animate(withDuration: 0.25){
+                self.PersonalInfoContainer.alpha = 0
+                self.PersonalInfoContainer.isHidden = true
+                self.JobHistoryContainer.isHidden = false
+                self.JobHistoryContainer.alpha = 1
+            }
+            
+        default:
+            print("")
+        }
+    }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -107,7 +165,7 @@ class OtherProfileTableViewController: UITableViewController, MFMailComposeViewC
                 if MFMailComposeViewController.canSendMail() == false {
                     print("no mail account associated")
                 }
-    
+                
                 if  MFMailComposeViewController.canSendMail() == true {
                     guard let currentUser = UserController.shared.currentUser else { return }
                     mailController.setPreferredSendingEmailAddress(currentUser.email)
@@ -131,64 +189,11 @@ class OtherProfileTableViewController: UITableViewController, MFMailComposeViewC
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        navigationController?.popViewController(animated: true)
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.PersonalInfoContainer.isHidden = false
-        self.PersonalInfoContainer.alpha = 1
-        self.JobHistoryContainer.isHidden = true
-        self.JobHistoryContainer.alpha = 0
-        
-        guard let selectedUser = UserController.shared.selectedUser else { return }
-        
-        self.ProfilePictureImageView.image = selectedUser.pictureAsImage
-        NameAgeLabel.text = "\(selectedUser.firstName) \(selectedUser.lastName), \(selectedUser.age)"
-        CityStateLabel.text = "\(selectedUser.city), \(selectedUser.state)"
-        var rating = 0
-        if selectedUser.reviewCount != 0{
-            rating = selectedUser.starCount / selectedUser.reviewCount
+        if result == .cancelled {
+            navigationController?.popViewController(animated: true)
         }
-        switch rating {
-        case 1:
-            RatingLabel.text = Stars.one
-        case 2:
-            RatingLabel.text = Stars.two
-        case 3:
-            RatingLabel.text = Stars.three
-        case 4:
-            RatingLabel.text = Stars.four
-        case 5:
-            RatingLabel.text = Stars.five
-        default:
-            RatingLabel.text = "Rating Not Found"
-        }
-    }
-    
-    
-    @IBAction func SegmentedControllerTapped(_ sender: Any) {
-        switch profileSegementedController.selectedSegmentIndex{
-        case 0:
-            print("0")
-            UIView.animate(withDuration: 0.25){
-                self.PersonalInfoContainer.isHidden = false
-                self.PersonalInfoContainer.alpha = 1
-                self.JobHistoryContainer.alpha = 0
-                self.JobHistoryContainer.isHidden = true
-            }
-        case 1:
-            print("1")
-            UIView.animate(withDuration: 0.25){
-                self.PersonalInfoContainer.alpha = 0
-                self.PersonalInfoContainer.isHidden = true
-                self.JobHistoryContainer.isHidden = false
-                self.JobHistoryContainer.alpha = 1
-            }
-            
-        default:
-            print("")
+        if result == .sent {
+            navigationController?.popViewController(animated: true)
         }
     }
 }
