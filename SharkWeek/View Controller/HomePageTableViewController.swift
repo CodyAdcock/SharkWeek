@@ -91,6 +91,7 @@ class HomePageTableViewController: UITableViewController, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if UserController.shared.currentUser == nil { return }
         switch collectionView{
         case homeCollectionView3:
             UserController.shared.currentJob = defaultJobs[indexPath.row]
