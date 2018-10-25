@@ -22,5 +22,4 @@ class Review{
         self.workerRef = workerRef
         self.employerRef = employerRef
     }
-    
 }

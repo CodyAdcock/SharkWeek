@@ -10,7 +10,6 @@ import UIKit
 
 class User: FirestoreFetchable {
     
-    
     static let CollectionName: String = "users"
     
     var uuid: String
@@ -49,8 +48,6 @@ class User: FirestoreFetchable {
         return self.age < 18
     }
     
-    
-    
     init(firstName: String, lastName: String, email: String, age: Int, bio: String, skill: String, phoneNumber: String, reviewCount: Int = 0, starCount: Int = 0,  pictureAsString: String, jobsCreated: [String] = [], jobsCreatedCompleted: [String] = [], jobsApplied: [String] = [], jobsInProgress: [String] = [], jobsHiredCompleted: [String] = [], uuid: String, line1: String, line2: String? = "", city: String, state: String, zipCode: String, blockedUsers: [String] = []){
         self.firstName = firstName
         self.lastName = lastName
@@ -68,16 +65,12 @@ class User: FirestoreFetchable {
         self.jobsInProgress = jobsInProgress
         self.jobsHiredCompleted = jobsHiredCompleted
         self.uuid = uuid
-        
         self.blockedUsers = blockedUsers
-        
         self.line1 = line1
         self.line2 = line2
         self.city = city
         self.state = state
         self.zipCode = zipCode
-        
-        
     }
     
     convenience required init?(with dictionary: [String : Any], id: String) {

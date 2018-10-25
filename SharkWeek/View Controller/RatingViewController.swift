@@ -21,8 +21,7 @@ class RatingViewController: UIViewController {
     @IBOutlet weak var fourthStar: UIButton!
     @IBOutlet weak var fifthStar: UIButton!
     
-    
-    override func viewDidLoad() {
+        override func viewDidLoad() {
         super.viewDidLoad()
         descriptionTextView.layer.borderWidth = 0.5
         descriptionTextView.layer.borderColor = #colorLiteral(red: 0.643494308, green: 0.6439372897, blue: 0.6583478451, alpha: 1)
@@ -31,7 +30,6 @@ class RatingViewController: UIViewController {
         whiteBackView.layer.borderWidth = 0.5
         whiteBackView.layer.borderColor = #colorLiteral(red: 0.643494308, green: 0.6439372897, blue: 0.6583478451, alpha: 1)
         whiteBackView.layer.cornerRadius = 5
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {

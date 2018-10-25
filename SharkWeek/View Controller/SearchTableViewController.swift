@@ -16,7 +16,6 @@ class SearchTableViewController: UITableViewController {
     var category: String?
     let jobRef = JobController.shared.jobCollection
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self

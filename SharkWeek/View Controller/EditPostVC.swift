@@ -40,7 +40,6 @@ class EditPostVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,8 +63,6 @@ class EditPostVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
         default:
             pickerView.selectedRow(inComponent: 0)
         }
-        
-        
     }
     
     deinit {
@@ -110,8 +107,6 @@ class EditPostVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         category = pickerData[row]
     }
-    
-    
     
     @IBAction func updateButton(_ sender: Any) {
         // no idea wtf this is TODO:

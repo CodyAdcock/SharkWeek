@@ -17,7 +17,6 @@ class JobController {
     let userCollection = UserController.db.collection("users")
     let userRef = UserController.shared.userRef
     
-    
     func createNewJob(title: String, description: String, category: String, pay: Int, toolsNeeded: String?, toolsProvided: String?, line1: String, line2: String?, city: String, state: String, zipCode: String) {
         
         guard let userID = UserController.shared.currentUser?.uuid else { return }
@@ -69,19 +68,12 @@ class JobController {
             guard let documentSnapshot = DocumentSnapshot else { return }
             guard let title = documentSnapshot.get("title") as? String else { return }
             guard let description = documentSnapshot.get("description") as? String else { return }
-            
             guard let category = documentSnapshot.get("category") as? String else { return }
-            
             guard let pay = documentSnapshot.get("pay") as? Int else { return }
-            
             guard let toolsNeeded = documentSnapshot.get("toolsNeeded") as? String else { return }
-            
             guard let toolsProvided = documentSnapshot.get("toolsProvided") as? String else { return }
-            
             guard let employerRef = documentSnapshot.get("employerRef") as? String else { return }
-            
             guard let applicantsRef = documentSnapshot.get("applicantsRef") as? [String] else { return }
-            
             guard let chosenOneRef = documentSnapshot.get("chosenOneRef") as? String else { return }
             guard let line1 = documentSnapshot.get("line1") as? String,
                 let city = documentSnapshot.get("city") as? String,
@@ -89,13 +81,7 @@ class JobController {
                 let zipCode = documentSnapshot.get("zipCode") as? String else { return }
             
             let line2 = documentSnapshot.get("line2") as? String
-            //                        guard let reviewOfJobPoster = documentSnapshot.get("ReviewOfJobPoster") as? String else { return }
-            //                        guard let reviewOfJobApplicant = documentSnapshot.get("ReviewOfJobApplicant") as? String else { return }
-            
-            
             let jobA = Job(title: title, description: description, category: category, pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, employerRef: employerRef, applicantsRef: applicantsRef, chosenOneRef: chosenOneRef, uuid: jobReference, line1: line1, line2: line2, city: city, state: state, zipCode: zipCode)
-            //                jobA.reviewOfWorker = reviewOfJobApplicant
-            //                jobA.reviewOfEmployer = reviewOfJobPoster
             completion(jobA)
 
         }
@@ -245,10 +231,6 @@ class JobController {
                     guard let user = user else {return}
                     user.reviewCount += 1
                     user.starCount += starCount
-                    //let review = Review(rating: starCount, description: description, workerRef: employeeRef, employerRef: job.employerRef)
-                    //job.reviewOfWorker = review
-                    //let jobValues = ["ReviewOfJobPoster" : job.reviewOfWorker] as [String : Any]
-                    //self.jobCollection.document(job.uuid).updateData(jobValues)
                     let userValues = ["reviewCount" : user.reviewCount, "starCount" : user.starCount] as [String : Any]
                     self.userCollection.document(user.uuid).updateData(userValues)
                 })
@@ -257,10 +239,6 @@ class JobController {
                     guard let user = user else {return}
                     user.reviewCount += 1
                     user.starCount += starCount
-//                    let review = Review(rating: starCount, description: description, workerRef: employeeRef, employerRef: job.employerRef)
-//                    job.reviewOfEmployer = review
-//                    //let jobValues = ["ReviewOfJobApplicant" : job.reviewOfWorker] as [String : Any]
-//                    self.jobCollection.document(job.uuid).updateData(jobValues)
                     let userValues = ["reviewCount" : user.reviewCount, "starCount" : user.starCount] as [String : Any]
                     self.userCollection.document(user.uuid).updateData(userValues)
                 })

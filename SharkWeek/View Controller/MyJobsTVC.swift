@@ -200,8 +200,6 @@ class MyJobsTVC: UITableViewController, myJobsCellDelegate {
         default:
             sharedArray = []
         }
-        
-        
     }
     
     func doneButtonTapped(jobRef: String) {
@@ -211,13 +209,4 @@ class MyJobsTVC: UITableViewController, myJobsCellDelegate {
 
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //            if let destinationVC = segue.destination as? AppliedDetailVC {
-        //                let currentUser = UserController.shared.currentUser[IndexPath.row]
-        //                destinationVC.currentUser = currentUser
-        //                return
-        //            }
-    }
-    
 }

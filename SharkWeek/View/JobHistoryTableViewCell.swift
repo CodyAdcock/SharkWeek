@@ -36,7 +36,6 @@ class JobHistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var StarsLabel: UILabel!
     @IBOutlet weak var ReviewBodyLabel: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

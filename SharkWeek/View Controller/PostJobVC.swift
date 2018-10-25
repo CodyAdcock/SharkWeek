@@ -54,6 +54,7 @@ class PostJobVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource 
             self.view.frame.origin.y = (-keyBoardRect.height)
         }
     }
+    
     @objc func keyboardWillDisappear(notification: Notification){
         view.frame.origin.y = 0
     }
@@ -113,8 +114,7 @@ class PostJobVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource 
                 let toolsNeeded = toolsNeededTF.text,
                 let toolsProvided = toolsProvidedTF.text,
                 let category = self.category else { return }
-            
-            
+
             JobController.shared.createNewJob(title: title, description: description, category: category, pay: pay, toolsNeeded: toolsNeeded, toolsProvided: toolsProvided, line1: address1, line2: address2, city: city, state: state, zipCode: zip)
             
             let alert = UIAlertController(title: "Job Created!", message: "Check it out in the 'My Jobs' tab under 'Posted'", preferredStyle: .alert)
@@ -122,25 +122,12 @@ class PostJobVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource 
             alert.addAction(okayAction)
             present(alert, animated: true)
         }
-        
     }
-    
-    
+
     func notEmpty() -> Bool{
         
         return !(jobTitleTF.text?.isEmpty)! && !(payTF.text?.isEmpty)! && !(addressOneTF.text?.isEmpty)! && !(cityTF.text?.isEmpty)! && !(stateTF.text?.isEmpty)! && !(zipCodeTF.text?.isEmpty)! && !(descriptionTV.text?.isEmpty)! && !(toolsNeededTF.text?.isEmpty)! && !(toolsProvidedTF.text?.isEmpty)! && category != "Category:"
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 
 

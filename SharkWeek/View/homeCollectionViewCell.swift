@@ -18,7 +18,6 @@ class homeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
-    
     var job: Job?{
         didSet{
             self.layer.borderWidth = 0.5
@@ -44,11 +43,7 @@ class homeCollectionViewCell: UICollectionViewCell {
                 rating = user.starCount / user.reviewCount
             }
             self.doStuff(name: employerName, userRating: rating)
-            
         }
-        
-        
-        
     }
     func doStuff(name: String, userRating: Int){
         guard let job = job else {return}

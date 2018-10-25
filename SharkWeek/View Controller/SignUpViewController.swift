@@ -32,9 +32,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var bioSkillLabel: UILabel!
     @IBOutlet weak var FlavorWelcomeText: UILabel!
     
-    
     var stageOfSignUp = 1
-    
     
     let stageo: String = "○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○"
     let stage1: String = "●⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○"
@@ -58,12 +56,9 @@ class SignUpViewController: UIViewController {
     var photo: UIImage?
     var password: String?
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
         notFilledProperlyAlert.addAction(okAction)
         
         CityTextField.delegate = self
@@ -93,15 +88,12 @@ class SignUpViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        
-        // Do any additional setup after loading the view.
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -110,8 +102,6 @@ class SignUpViewController: UIViewController {
             destinationVC.delegate = self
         }
     }
-    
-    //
     
     @objc func keyboardWillAppear(notification: Notification){
         guard let keyBoardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {return}
@@ -150,17 +140,12 @@ class SignUpViewController: UIViewController {
             self.WelcomeTextStack.alpha = 0
             self.WelcomeTextStack.isHidden = false
             self.WelcomeTextStack.alpha = 1
-            
         })
         
         //Add row
         UIView.animate(withDuration: 0.5, animations:{
             self.CityStack.isHidden = false
-            
         })
-        
-        
-        
         //TextField maintanence
         FirstNameAgeTextField.text = ""
         FirstNameAgeTextField.placeholder = "Age"
@@ -175,7 +160,6 @@ class SignUpViewController: UIViewController {
         PasswordAddressLine2TextField.placeholder = "Address Line 2"
         
         self.stageOfSignUp += 1
-
     }
     
     func secondTransition(){
@@ -187,22 +171,17 @@ class SignUpViewController: UIViewController {
         self.city = self.CityTextField.text
         self.state = self.StateTextField.text
         self.zip = self.ZipTextField.text
-        
         if age == nil || phoneNumber == "" || line1 == "" || city == "" || state == "" || zip == ""{
             present(notFilledProperlyAlert, animated: true)
             return
         }
-        
         ContinueButton.isHidden = true
         UIView.animate(withDuration: 0.3) {
-            
-            
             self.CityStack.isHidden = true
             self.PasswordAddressLine2TextField.isHidden = true
             self.EmailAddressLine1TextField.isHidden = true
             self.TopTFStack.isHidden = true
             self.bioSkillLabel.text = "Bio"
-            
         }
         UIView.animate(withDuration: 0.2) {
             self.TextViewStack.isHidden = false
@@ -211,11 +190,8 @@ class SignUpViewController: UIViewController {
             self.BioAndSkillsTextView.layer.borderWidth = 0.5
             self.BioAndSkillsTextView.layer.borderColor = #colorLiteral(red: 0.643494308, green: 0.6439372897, blue: 0.6583478451, alpha: 1)
             self.BioAndSkillsTextView.layer.cornerRadius = 5
-            
         }
-        
         self.stageOfSignUp += 1
-
     }
     func thirdTransition(){
         bio = self.BioAndSkillsTextView.text
@@ -224,16 +200,13 @@ class SignUpViewController: UIViewController {
             present(notFilledProperlyAlert, animated: true)
             return
         }
-        
         UIView.animate(withDuration: 0.2){
             self.bioSkillLabel.text = "Skills"
             self.BioAndSkillsTextView.text = ""
             self.WelcomeUserLabel.text = "Last Thing!"
             self.FlavorWelcomeText.text = "List the skills that will help you complete your jobs"
-            
         }
         self.stageOfSignUp += 1
-
     }
     func fourthTransition(){
         
@@ -271,20 +244,13 @@ class SignUpViewController: UIViewController {
             }
         }
         self.stageOfSignUp += 1
-
-        
-        
     }
     func fifthTransition(){
         self.navigationController?.popToRootViewController(animated: true)
         self.stageOfSignUp += 1
-
     }
     
-    
     @IBAction func ContinueButtonTapped(_ sender: Any) {
-        
-        
         switch self.stageOfSignUp{
         case 1:
             
@@ -308,12 +274,9 @@ class SignUpViewController: UIViewController {
             return
         }
     }
-    
-    
 }
 extension SignUpViewController: PhotoSelectViewControllerDelegate{
     func photoSelected(_ photo: UIImage) {
         self.photo = photo
     }
-    
 }
