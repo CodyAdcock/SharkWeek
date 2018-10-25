@@ -49,7 +49,7 @@ class PostJobVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource 
     }
     
     @objc func keyboardWillAppear(notification: Notification){
-        if jobTitleTF.text != "" && payTF.text != "" && addressOneTF.text != "" && addressTwoTF.text != "" && cityTF.text != "" && stateTF.text != "" && zipCodeTF.text != ""{
+        if jobTitleTF.text != "" && payTF.text != "" && addressOneTF.text != "" && cityTF.text != "" && stateTF.text != "" && zipCodeTF.text != ""{
             guard let keyBoardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {return}
             self.view.frame.origin.y = (-keyBoardRect.height)
         }
