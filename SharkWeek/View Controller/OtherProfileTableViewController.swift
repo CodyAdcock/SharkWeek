@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MessageUI
+import Firebase
 
 class OtherProfileTableViewController: UITableViewController {
     
@@ -23,6 +23,10 @@ class OtherProfileTableViewController: UITableViewController {
     //Container IBOutlets
     @IBOutlet weak var PersonalInfoContainer: UIView! //toPersonalInfoVC
     @IBOutlet weak var JobHistoryContainer: UIView!
+    
+    static let db = Firestore.firestore()
+    let reportRef = db.collection("reportedUsers")
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -160,9 +164,25 @@ class OtherProfileTableViewController: UITableViewController {
             let cancelButton = UIAlertAction(title: "Cancel", style: .default, handler: nil)
             let reportButton = UIAlertAction(title: "Submit report", style: .cancel, handler: { (report) in
                 guard let text = reportAlertController.textFields?.first?.text else { return }
-                
-                // TODO: - functionality behind reports
-                
+                guard let selectedUser = UserController.shared.selectedUser else { return }
+                self.reportRef.document(selectedUser.uuid).getDocument(completion: { (querySnap, error) in
+    
+                    if let error = error {
+                        print("could not get data back for user \(error.localizedDescription)")
+                        return
+                    }
+                    guard let querySnap = querySnap else { return }
+                    if querySnap.exists {
+                    guard let reportsDictionary = querySnap.data() else { return }
+                    guard var reasons = reportsDictionary["reasons"] as? [String] else { return }
+                    reasons.append(text)
+                    self.reportRef.document(selectedUser.uuid).updateData(["reasons" : reasons])
+                    } else {
+                        var reasons: [String] = []
+                        reasons.append(text)
+                        self.reportRef.document(selectedUser.uuid).setData(["reasons" : reasons])
+                    }
+                })
             })
             reportAlertController.addAction(cancelButton)
             reportAlertController.addAction(reportButton)

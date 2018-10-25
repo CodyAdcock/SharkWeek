@@ -15,6 +15,7 @@ class SearchTableViewController: UITableViewController {
     var pickerData: [String] = []
     var category: String?
     let jobRef = JobController.shared.jobCollection
+    let selectedUser = UserController.shared.selectedUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,23 @@ class SearchTableViewController: UITableViewController {
         cell.myJob = job
         return cell
     }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        UserController.shared.currentJob = searchedJobs[indexPath.row]
+        guard let employerRef = UserController.shared.currentJob?.employerRef else { return }
+        FirestoreClient.shared.fetchFromFirestore(uuid: employerRef) { (user: User?) in
+            guard let user = user else { return }
+            guard let currentUser = UserController.shared.currentUser else { return }
+            if user.blockedUsers.contains(currentUser.uuid) {
+                let alertController = UIAlertController(title: "Person has blocked you!", message: "You are not allowed to see their profile or postings", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+            else {
+                self.performSegue(withIdentifier: "toAppliedVC", sender: self)
+            }
+        }
+    }
 }
 
 extension SearchTableViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -52,13 +70,15 @@ extension SearchTableViewController: UIPickerViewDelegate, UIPickerViewDataSourc
     }
 }
 
-
 extension SearchTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        self.view.endEditing(true)
+        
         guard let text = searchBar.text, !text.isEmpty else { return }
         let decimalCharacters = CharacterSet.decimalDigits
         let decimalRange = text.rangeOfCharacter(from: decimalCharacters)
-  
+        
         if category != nil  {
             FirestoreClient.shared.fetchFirestoreWithFieldAndCriteria(for: "category", criteria: self.category!) { (jobs: [Job]?) in
                 guard let jobs = jobs else { return }
