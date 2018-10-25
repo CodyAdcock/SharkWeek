@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 protocol PhotoSelectViewControllerDelegate: class{
     
@@ -37,6 +38,17 @@ class PhotoSelectViewController: UIViewController {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         
+        if PHPhotoLibrary.authorizationStatus() == .notDetermined || PHPhotoLibrary.authorizationStatus() == .denied {
+            PHPhotoLibrary.requestAuthorization { (auth) in
+                let alertController = UIAlertController(title: "Requesting access to camera roll", message: "Jobbies needs access to camera roll to set profile picture", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                alertController.addAction(okAction)
+                alertController.addAction(cancelAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+        
         let actionSheet = UIAlertController(title: "Select a Photo", message: nil, preferredStyle: .actionSheet)
         
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
@@ -44,13 +56,15 @@ class PhotoSelectViewController: UIViewController {
                 imagePickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
                 self.present(imagePickerController, animated: true, completion: nil)
             }))
+        } else {
+            
         }
         
-        if UIImagePickerController.isSourceTypeAvailable(.camera){
-            actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
-                imagePickerController.sourceType = UIImagePickerController.SourceType.camera
-            }))
-        }
+//        if UIImagePickerController.isSourceTypeAvailable(.camera){
+//            actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
+//                imagePickerController.sourceType = UIImagePickerController.SourceType.camera
+//            }))
+//        }
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
