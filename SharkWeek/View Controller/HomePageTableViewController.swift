@@ -105,9 +105,16 @@ class HomePageTableViewController: UITableViewController, UICollectionViewDataSo
                     alertController.addAction(okAction)
                     self.present(alertController, animated: true, completion: nil)
                 }
-                else {
-                    self.performSegue(withIdentifier: "toAppliedVC", sender: self)
-                }
+            }
+            guard let currentUser = self.currentUser else { return }
+            if currentUser.blockedUsers.contains(employerRef) {
+                let alertController = UIAlertController(title: "You have blocked this user!", message: "You are not allowed to see their profile or postings", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+            else {
+                self.performSegue(withIdentifier: "toAppliedVC", sender: self)
             }
             
         case homeCollectionView2:
@@ -122,9 +129,16 @@ class HomePageTableViewController: UITableViewController, UICollectionViewDataSo
                     alertController.addAction(okAction)
                     self.present(alertController, animated: true, completion: nil)
                 }
-                else {
-                    self.performSegue(withIdentifier: "toAppliedVC", sender: self)
-                }
+            }
+            guard let currentUser = self.currentUser else { return }
+            if currentUser.blockedUsers.contains(employerRef) {
+                let alertController = UIAlertController(title: "You have blocked this user!", message: "You are not allowed to see their profile or postings", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+            else {
+                self.performSegue(withIdentifier: "toAppliedVC", sender: self)
             }
             
         case homeCollectionView1:
@@ -139,11 +153,19 @@ class HomePageTableViewController: UITableViewController, UICollectionViewDataSo
                     alertController.addAction(okAction)
                     self.present(alertController, animated: true, completion: nil)
                 }
-                else {
-                    self.performSegue(withIdentifier: "toAppliedVC", sender: self)
-                }
-            }        default:
-                print("That's not supposed to happen...")
+            }
+            guard let currentUser = self.currentUser else { return }
+            if currentUser.blockedUsers.contains(employerRef) {
+                let alertController = UIAlertController(title: "You have blocked this user!", message: "You are not allowed to see their profile or postings", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+            else {
+                self.performSegue(withIdentifier: "toAppliedVC", sender: self)
+            }
+        default:
+            print("That's not supposed to happen...")
             
         }
     }
