@@ -15,12 +15,9 @@ class HomePageTableViewController: UITableViewController, UICollectionViewDataSo
     @IBOutlet weak var homeCollectionView3: UICollectionView!
     
     var currentUser: User?
-    
     var defaultJobs: [Job] = []
     var indoorJobs: [Job] = []
     var outdoorJobs: [Job] = []
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -169,5 +166,4 @@ class HomePageTableViewController: UITableViewController, UICollectionViewDataSo
             
         }
     }
-    
 }

@@ -16,7 +16,6 @@ class ViewApplicantsCell: UITableViewCell {
     
     @IBOutlet weak var applicantImage: UIImageView!
     @IBOutlet weak var firstNameLabel: UILabel!
-    
     @IBOutlet weak var starOneLabel: UILabel!
     
     weak var delegate: ViewApplicantCellDelegate?
@@ -64,11 +63,8 @@ class ViewApplicantsCell: UITableViewCell {
             self.rating = user.starCount / user.reviewCount
         }
     }
-    
-    // TODO: - REFACTOR BASED ON HOW TO PASS DATA ALONG
-    
+
     @IBAction func hireButton(_ sender: Any) {
         delegate?.hireButtonTapped(cell: self)
     }
-    
 }

@@ -17,7 +17,6 @@ class SearchTableViewController: UITableViewController {
     let jobRef = JobController.shared.jobCollection
     let selectedUser = UserController.shared.selectedUser
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self

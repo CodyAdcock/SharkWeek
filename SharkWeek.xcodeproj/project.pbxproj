@@ -50,7 +50,6 @@
 		C3F2D6B0217FDDCF0036C90E /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F2D6AF217FDDCF0036C90E /* Settings.storyboard */; };
 		C3F2D6B4217FE9B10036C90E /* OtherProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F2D6B3217FE9B10036C90E /* OtherProfileTableViewController.swift */; };
 		C3F2D6B6217FEC810036C90E /* OtherPersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F2D6B5217FEC810036C90E /* OtherPersonalInfoViewController.swift */; };
-		C3F81F3C2170F5A000E06F6E /* Sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C3F81F3B2170F5A000E06F6E /* Sample.mp3 */; };
 		C3F81F3F21711C8900E06F6E /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F81F3E21711C8900E06F6E /* PersonalInfoViewController.swift */; };
 		C3F916DC2178F13A00394038 /* HomePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F916DB2178F13A00394038 /* HomePageTableViewController.swift */; };
 		C3F916DE2178F39F00394038 /* homeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F916DD2178F39F00394038 /* homeCollectionViewCell.swift */; };
@@ -106,7 +105,6 @@
 		C3F2D6AF217FDDCF0036C90E /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		C3F2D6B3217FE9B10036C90E /* OtherProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileTableViewController.swift; sourceTree = "<group>"; };
 		C3F2D6B5217FEC810036C90E /* OtherPersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPersonalInfoViewController.swift; sourceTree = "<group>"; };
-		C3F81F3B2170F5A000E06F6E /* Sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Sample.mp3; sourceTree = "<group>"; };
 		C3F81F3E21711C8900E06F6E /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
 		C3F916DB2178F13A00394038 /* HomePageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTableViewController.swift; sourceTree = "<group>"; };
 		C3F916DD2178F39F00394038 /* homeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -163,7 +161,6 @@
 			children = (
 				90493CD92177CEF200F9DBA7 /* Extensions */,
 				C318E6DF2173FA6700549DD6 /* SharkWeek.entitlements */,
-				C3F81F3A2170F59300E06F6E /* Music */,
 				C376F2A2216ED04F005EEA0D /* View Controller */,
 				C376F2A3216ED04F005EEA0D /* View */,
 				C376F2A4216ED04F005EEA0D /* Model Controller */,
@@ -325,14 +322,6 @@
 			path = Search/Settings;
 			sourceTree = "<group>";
 		};
-		C3F81F3A2170F59300E06F6E /* Music */ = {
-			isa = PBXGroup;
-			children = (
-				C3F81F3B2170F5A000E06F6E /* Sample.mp3 */,
-			);
-			path = Music;
-			sourceTree = "<group>";
-		};
 		C3F81F3D21711C7100E06F6E /* Profile Containers */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,7 +422,6 @@
 				C376F2BE216ED331005EEA0D /* Profile.storyboard in Resources */,
 				C376F2C2216ED36C005EEA0D /* MyJobs.storyboard in Resources */,
 				C376F294216ED021005EEA0D /* Main.storyboard in Resources */,
-				C3F81F3C2170F5A000E06F6E /* Sample.mp3 in Resources */,
 				C376F2C0216ED33C005EEA0D /* PostJob.storyboard in Resources */,
 				C376F2C4216ED373005EEA0D /* Search.storyboard in Resources */,
 				90709B5A216FC54700E4795A /* GoogleService-Info.plist in Resources */,

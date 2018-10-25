@@ -76,12 +76,6 @@ class UserController{
                     
                     completion(true) ; return
                 })
-                
-                // with metaData you can get information on the data such as file size and file type; only using it here for the completion handler for downloading the URL of it.
-                // still want to download the image in order to convert it into a string to set in the users values
-                // Maybe for later, add an observer instead of doing the download within the completion block; looks more impressive but not v familiar
-                // getData if you want users to have the data downloaded to their local device, and accessible offline.
-                // easiest way to quickly download a file, but loads its entirety into memory; protect against memory issues using the required maxSize
             }
         }
     }
@@ -104,14 +98,6 @@ class UserController{
     
     // TODO: - Fix this
     func grabUsersPicture(user: User, completion: @escaping (Bool) -> ()) {
-        
-        // this would be used to grab a image as url and download it,
-//        userRef.document(user.uuid).getDocument { (querySnapshot, error) in
-//            if let error = error {
-//                print("Could not grab the users document data \(error.localizedDescription)")
-//                return
-//            }
-//            guard let imageAsString = querySnapshot?.get("picture") as? String else { return }
         
             let imagesRef = self.storageRef.child("ProfileImages")
             imagesRef.child(user.uuid).getData(maxSize: 1 * 1024 * 1024, completion: { (data, error) in
@@ -148,7 +134,6 @@ class UserController{
     }
     
     //D
-    
     func deleteUser(){
         let alertController = UIAlertController(title: "Are you sure?", message: "Are you sure you want to delete your account? This cannot be reverted", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
@@ -177,7 +162,6 @@ class UserController{
     
     func blockUser(uuid: String) {
         guard let currentUser = UserController.shared.currentUser else { return }
-
             currentUser.blockedUsers.append(uuid)
             self.userRef.document(currentUser.uuid).updateData(["blockedUsers" : currentUser.blockedUsers])
         }

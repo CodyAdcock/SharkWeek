@@ -11,7 +11,6 @@ import Firebase
 
 class FirestoreClient{
     
-    
     static let shared = FirestoreClient()
     
     func fetchFromFirestore<T: FirestoreFetchable>(uuid: String, completion: @escaping (T?) -> Void){

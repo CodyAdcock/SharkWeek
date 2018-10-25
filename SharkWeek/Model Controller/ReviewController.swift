@@ -18,9 +18,6 @@ class ReviewController{
     let db = UserController.db
     let jobCollection = UserController.db.collection("jobs")
     let userCollection = UserController.db.collection("users")
-    
-    
-    
     func addReviewForEmployer(job: Job, rating: Int, description: String) {
         
         //create review and add to firebase
@@ -40,15 +37,11 @@ class ReviewController{
         }
         
         guard let user = user else {return}
-        
         //add number of reviews and stars to the user and update firebase
         user.reviewCount += 1
         user.starCount += rating
         let values = ["reviewCount": user.starCount,"starCount": user.reviewCount]
         userCollection.document(job.employerRef).updateData(values)
-        
-        
-        
     }
     
     func addReviewForWorker(job: Job, rating: Int, description: String) {
@@ -57,7 +50,6 @@ class ReviewController{
         guard let chosenOneRef = job.chosenOneRef else { return }
         let review = Review(rating: rating, description: description, workerRef: chosenOneRef, employerRef: currentUser.uuid)
         job.reviewOfWorker = review
-        
         jobCollection.document(job.uuid).updateData(["ReviewOfWorker" : review])
         
         // grab the worker
@@ -69,7 +61,6 @@ class ReviewController{
                 let dictionary = querySnapshot.data() else { return }
             self.user = User(with: dictionary, id: review.workerRef)
         }
-        
         guard let user = user else {return}
         
         //add number of reviews and stars to the user and update firebase
@@ -77,6 +68,5 @@ class ReviewController{
         user.starCount += rating
         let values = ["reviewCount": user.starCount,"starCount": user.reviewCount]
         userCollection.document(review.workerRef).updateData(values)
-        
     }
 }

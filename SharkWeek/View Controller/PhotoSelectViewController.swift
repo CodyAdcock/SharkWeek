@@ -12,7 +12,6 @@ import Photos
 protocol PhotoSelectViewControllerDelegate: class{
     
     func photoSelected(_ photo: UIImage)
-    
 }
 
 class PhotoSelectViewController: UIViewController {
@@ -24,7 +23,6 @@ class PhotoSelectViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -67,9 +65,7 @@ class PhotoSelectViewController: UIViewController {
 //        }
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
         present(actionSheet, animated: true)
-        
     }
 }
 

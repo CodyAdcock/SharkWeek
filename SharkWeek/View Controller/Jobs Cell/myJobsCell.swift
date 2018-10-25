@@ -28,7 +28,6 @@ class myJobsCell: UITableViewCell {
         }
     }
     
-    
     func updateViewsCell() {
         guard let myJobs = myJob else {return}
         jobTitleLabel.text = myJobs.title
@@ -44,7 +43,5 @@ class myJobsCell: UITableViewCell {
     @IBAction func doneButtonTapped(_ sender: Any) {
         guard let jobRef = myJob?.uuid else {return}
         delegate?.doneButtonTapped(jobRef: jobRef)
-
     }
-    
 }

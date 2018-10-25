@@ -11,8 +11,6 @@ import UIKit
 class ProfileTableViewController: UITableViewController {
     
     //IBOutlets Main Page
-    
-    
     @IBOutlet weak var ProfilePictureImageView: UIImageView!
     @IBOutlet weak var NameAgeLabel: UILabel!
     @IBOutlet weak var CityStateLabel: UILabel!
@@ -115,7 +113,6 @@ class ProfileTableViewController: UITableViewController {
             RatingLabel.text = "Rating Not Found"
         }
     }
-    
     
     @IBAction func SegmentedControllerTapped(_ sender: Any) {
         switch profileSegementedController.selectedSegmentIndex{
