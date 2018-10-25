@@ -78,6 +78,35 @@
                                             <segue destination="noh-EI-wGm" kind="show" id="vST-dI-2UB"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="oci-Ef-IEx">
+                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oci-Ef-IEx" id="UWh-O4-5Dn">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manage blocked users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9op-96-R2v">
+                                                    <rect key="frame" x="19" y="0.0" width="337.5" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="337.5" id="mY0-4X-BLF"/>
+                                                        <constraint firstAttribute="height" constant="43.5" id="t6m-9P-bIl"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="9op-96-R2v" firstAttribute="height" secondItem="UWh-O4-5Dn" secondAttribute="height" id="Kc5-R8-yEQ"/>
+                                                <constraint firstItem="9op-96-R2v" firstAttribute="centerX" secondItem="UWh-O4-5Dn" secondAttribute="centerX" id="Lpd-Oa-Nnk"/>
+                                                <constraint firstItem="9op-96-R2v" firstAttribute="centerY" secondItem="UWh-O4-5Dn" secondAttribute="centerY" id="cYd-ku-CiN"/>
+                                                <constraint firstItem="9op-96-R2v" firstAttribute="width" secondItem="UWh-O4-5Dn" secondAttribute="width" multiplier="0.9" id="gie-we-0yc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="pcb-7d-tei" kind="show" id="CsG-Kz-0nD"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -103,7 +132,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XKO-EI-X9b">
                                 <rect key="frame" x="19" y="65.5" width="337.5" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">Privacy Policy
+                                <string key="text">Privacy Policy
 We built the Jobbies app as a Free app. This SERVICE is provided by at no cost and is intended for use as is.
 This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to use my Service.
 If you choose to use my Service, then you agree to the collection and use of information in relation to this policy. The Personal Information that we collect is used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy.
@@ -134,7 +163,7 @@ Changes to This Privacy Policy
 We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately after they are posted on this page.
 Contact Us
 If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.
-</mutableString>
+</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -164,7 +193,7 @@ If you have any questions or suggestions about our Privacy Policy, do not hesita
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fa3-Im-B8v">
                                 <rect key="frame" x="19" y="65.5" width="337.5" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">Welcome to Jobbie
+                                <string key="text">Welcome to Jobbie
 	These terms and conditions outline the rules and regulations for the use of Jobbie's App.  
 	By accessing this app we assume you accept these terms and conditions in full. Do not continue to use Jobbie's app if you do not accept all of the terms and conditions stated on this page. The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and any or all Agreements: “Client”, “You” and “Your” refers to you, the person accessing this app and accepting the Company’s terms and conditions. “The Company”, “Ourselves”, “We”, “Our” and “Us”, refers to our Company. “Party”, “Parties”, or “Us”, refers to both the Client and ourselves, or either the Client or ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner, whether by formal meetings of a fixed duration, or any other means, for the express purpose of meeting the Client’s needs in respect of provision of the Company’s stated services/products, in accordance with and subject to, prevailing law of. Any use of the above terminology or other words in the singular, plural, capitalisation and/or he/she or they, are taken as interchangeable and therefore as referring to same. 
 Cookies
@@ -233,7 +262,7 @@ or
 	exclude any of our or your liabilities that may not be excluded under applicable law.
 	
 	The limitations and exclusions of liability set out in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer or in relation to the subject matter of this disclaimer, including liabilities arising in contract, in tort (including negligence) and for breach of statutory duty. To the extent that the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.
-</mutableString>
+</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -251,6 +280,65 @@ or
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3PK-h1-xu4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2108" y="528.48575712143929"/>
+        </scene>
+        <!--Manage blocked users-->
+        <scene sceneID="aGd-9u-kz1">
+            <objects>
+                <tableViewController id="pcb-7d-tei" customClass="BlockedUsersTableViewController" customModule="SharkWeek" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jnb-iO-dq1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="blockedUsersCell" rowHeight="121" id="DAR-rd-x0T" customClass="BlockedUsersTableViewCell" customModule="SharkWeek" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="121"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DAR-rd-x0T" id="E6c-8M-Jfj">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="120.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="kom-7b-VIp">
+                                            <rect key="frame" x="9.5" y="9" width="356" height="102.5"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z2T-dz-Dx3">
+                                                    <rect key="frame" x="0.0" y="1.5" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Z2T-dz-Dx3" secondAttribute="height" multiplier="1:1" id="is8-vo-82r"/>
+                                                        <constraint firstAttribute="height" constant="100" id="p8Z-zj-rAF"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lfb-fr-zRJ">
+                                                    <rect key="frame" x="150" y="0.0" width="206" height="102.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="kom-7b-VIp" firstAttribute="width" secondItem="E6c-8M-Jfj" secondAttribute="width" multiplier="0.95" id="9OD-iO-dpZ"/>
+                                        <constraint firstItem="kom-7b-VIp" firstAttribute="centerY" secondItem="E6c-8M-Jfj" secondAttribute="centerY" id="ATp-cm-knC"/>
+                                        <constraint firstItem="kom-7b-VIp" firstAttribute="height" secondItem="E6c-8M-Jfj" secondAttribute="height" multiplier="0.85" id="DK2-GB-d3A"/>
+                                        <constraint firstItem="kom-7b-VIp" firstAttribute="centerX" secondItem="E6c-8M-Jfj" secondAttribute="centerX" id="Tag-JR-oZ7"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="usersName" destination="Lfb-fr-zRJ" id="9Mw-9G-oiH"/>
+                                    <outlet property="usersPicture" destination="Z2T-dz-Dx3" id="JO2-1f-W2W"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="pcb-7d-tei" id="z4L-zh-Oye"/>
+                            <outlet property="delegate" destination="pcb-7d-tei" id="6ln-Ok-wRt"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Manage blocked users" id="Gah-ZO-MoB"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gsv-qm-cvb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1079" y="1039"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wda-ye-O8q">
