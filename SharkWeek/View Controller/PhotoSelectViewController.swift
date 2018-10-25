@@ -40,7 +40,7 @@ class PhotoSelectViewController: UIViewController {
         
         if PHPhotoLibrary.authorizationStatus() == .notDetermined || PHPhotoLibrary.authorizationStatus() == .denied {
             PHPhotoLibrary.requestAuthorization { (auth) in
-                let alertController = UIAlertController(title: "Requesting access to camera roll", message: "Jobbies needs access to camera roll to set profile picture", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Requesting access to camera roll", message: "Jobbify needs access to camera roll to set profile picture", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                 let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
                 alertController.addAction(okAction)
