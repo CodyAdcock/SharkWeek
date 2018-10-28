@@ -47,7 +47,7 @@ class PhotoSelectViewController: UIViewController {
             }
         }
         
-        let actionSheet = UIAlertController(title: "Select a Photo", message: nil, preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: "Select a Photo", message: nil, preferredStyle: .alert)
         
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             actionSheet.addAction(UIAlertAction(title: "Photos", style: .default, handler: { (_) in

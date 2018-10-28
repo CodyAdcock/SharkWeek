@@ -19,12 +19,12 @@ class SharkTabBarController: UITabBarController {
             let myJobsNav = UIStoryboard(name: "MyJobs", bundle: .main).instantiateInitialViewController(),
         let searchNav = UIStoryboard(name: "Search", bundle: .main).instantiateInitialViewController() else {return}
         
-        homeNav.tabBarItem = UITabBarItem(title: "Home", image: nil, tag: 0)
-        profileNav.tabBarItem = UITabBarItem(title: "Profile", image: nil, tag: 1)
-        postJobNav.tabBarItem = UITabBarItem(title: "Post Job", image: nil, tag: 2)
-        myJobsNav.tabBarItem = UITabBarItem(title: "My Jobs", image: nil, tag: 3)
-        searchNav.tabBarItem = UITabBarItem(title: "Search", image: nil, tag: 4)
+        homeNav.tabBarItem = UITabBarItem(title: "Home", image: #imageLiteral(resourceName: "Home Icon"), tag: 0)
+        profileNav.tabBarItem = UITabBarItem(title: "Profile", image: #imageLiteral(resourceName: "My Profile Icon"), tag: 1)
+        postJobNav.tabBarItem = UITabBarItem(title: "Post Job", image: #imageLiteral(resourceName: "Post Job Icon"), tag: 2)
+        myJobsNav.tabBarItem = UITabBarItem(title: "My Jobs", image: #imageLiteral(resourceName: "My Jobs Icon"), tag: 3)
+        searchNav.tabBarItem = UITabBarItem(title: "Search", image: #imageLiteral(resourceName: "Search Icon"), tag: 4)
         
-        self.viewControllers = [ homeNav, profileNav, postJobNav, myJobsNav]
+        self.viewControllers = [ homeNav, profileNav, postJobNav, myJobsNav, searchNav]
     }
 }

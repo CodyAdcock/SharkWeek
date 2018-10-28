@@ -16,6 +16,7 @@
 		48823CEA217692BD0012C30B /* EditPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48823CE9217692BD0012C30B /* EditPostVC.swift */; };
 		48823CEC217693240012C30B /* ViewApplicantsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48823CEB217693240012C30B /* ViewApplicantsTVC.swift */; };
 		48B0401F2176A585002424AC /* ViewApplicantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B0401E2176A585002424AC /* ViewApplicantsCell.swift */; };
+		9001B9942186683300EEBF56 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9001B9932186683300EEBF56 /* SearchTableViewCell.swift */; };
 		90098815217E47E100746D7B /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90098814217E47E100746D7B /* SearchTableViewController.swift */; };
 		90493CD82177C8B700F9DBA7 /* textFieldExtendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90493CD72177C8B700F9DBA7 /* textFieldExtendor.swift */; };
 		90709B5A216FC54700E4795A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90709B59216FC54700E4795A /* GoogleService-Info.plist */; };
@@ -67,6 +68,7 @@
 		48B0401E2176A585002424AC /* ViewApplicantsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewApplicantsCell.swift; sourceTree = "<group>"; };
 		7D79E6C95F8A1456363B04F1 /* Pods_SharkWeek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharkWeek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83B22494710D5F0B384201EF /* Pods-SharkWeek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharkWeek.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharkWeek/Pods-SharkWeek.debug.xcconfig"; sourceTree = "<group>"; };
+		9001B9932186683300EEBF56 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		90098814217E47E100746D7B /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		90493CD72177C8B700F9DBA7 /* textFieldExtendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFieldExtendor.swift; sourceTree = "<group>"; };
 		90709B59216FC54700E4795A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				48B0401E2176A585002424AC /* ViewApplicantsCell.swift */,
 				C318E6D12171442400549DD6 /* JobHistoryTableViewCell.swift */,
 				C3F916DD2178F39F00394038 /* homeCollectionViewCell.swift */,
+				9001B9932186683300EEBF56 /* SearchTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				48823CE6217691750012C30B /* ViewPostingVC.swift in Sources */,
 				480D5B0621750B92005A4A68 /* MyJobsTVC.swift in Sources */,
 				C376F28F216ED021005EEA0D /* AppDelegate.swift in Sources */,
+				9001B9942186683300EEBF56 /* SearchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

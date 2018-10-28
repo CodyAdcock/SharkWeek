@@ -30,9 +30,9 @@ class SearchTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchJobsCellID", for: indexPath) as? myJobsCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchJobsCellID", for: indexPath) as? SearchTableViewCell else { return UITableViewCell()}
         let job = searchedJobs[indexPath.row]
-        cell.myJob = job
+        cell.searchedJob = job
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
