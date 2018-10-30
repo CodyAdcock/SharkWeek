@@ -16,6 +16,7 @@
 		48823CEA217692BD0012C30B /* EditPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48823CE9217692BD0012C30B /* EditPostVC.swift */; };
 		48823CEC217693240012C30B /* ViewApplicantsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48823CEB217693240012C30B /* ViewApplicantsTVC.swift */; };
 		48B0401F2176A585002424AC /* ViewApplicantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B0401E2176A585002424AC /* ViewApplicantsCell.swift */; };
+		9001B9942186683300EEBF56 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9001B9932186683300EEBF56 /* SearchTableViewCell.swift */; };
 		90098815217E47E100746D7B /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90098814217E47E100746D7B /* SearchTableViewController.swift */; };
 		90493CD82177C8B700F9DBA7 /* textFieldExtendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90493CD72177C8B700F9DBA7 /* textFieldExtendor.swift */; };
 		90709B5A216FC54700E4795A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90709B59216FC54700E4795A /* GoogleService-Info.plist */; };
@@ -50,7 +51,6 @@
 		C3F2D6B0217FDDCF0036C90E /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F2D6AF217FDDCF0036C90E /* Settings.storyboard */; };
 		C3F2D6B4217FE9B10036C90E /* OtherProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F2D6B3217FE9B10036C90E /* OtherProfileTableViewController.swift */; };
 		C3F2D6B6217FEC810036C90E /* OtherPersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F2D6B5217FEC810036C90E /* OtherPersonalInfoViewController.swift */; };
-		C3F81F3C2170F5A000E06F6E /* Sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C3F81F3B2170F5A000E06F6E /* Sample.mp3 */; };
 		C3F81F3F21711C8900E06F6E /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F81F3E21711C8900E06F6E /* PersonalInfoViewController.swift */; };
 		C3F916DC2178F13A00394038 /* HomePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F916DB2178F13A00394038 /* HomePageTableViewController.swift */; };
 		C3F916DE2178F39F00394038 /* homeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F916DD2178F39F00394038 /* homeCollectionViewCell.swift */; };
@@ -68,6 +68,7 @@
 		48B0401E2176A585002424AC /* ViewApplicantsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewApplicantsCell.swift; sourceTree = "<group>"; };
 		7D79E6C95F8A1456363B04F1 /* Pods_SharkWeek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharkWeek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83B22494710D5F0B384201EF /* Pods-SharkWeek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharkWeek.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharkWeek/Pods-SharkWeek.debug.xcconfig"; sourceTree = "<group>"; };
+		9001B9932186683300EEBF56 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		90098814217E47E100746D7B /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		90493CD72177C8B700F9DBA7 /* textFieldExtendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFieldExtendor.swift; sourceTree = "<group>"; };
 		90709B59216FC54700E4795A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -106,7 +107,6 @@
 		C3F2D6AF217FDDCF0036C90E /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		C3F2D6B3217FE9B10036C90E /* OtherProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileTableViewController.swift; sourceTree = "<group>"; };
 		C3F2D6B5217FEC810036C90E /* OtherPersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPersonalInfoViewController.swift; sourceTree = "<group>"; };
-		C3F81F3B2170F5A000E06F6E /* Sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Sample.mp3; sourceTree = "<group>"; };
 		C3F81F3E21711C8900E06F6E /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
 		C3F916DB2178F13A00394038 /* HomePageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTableViewController.swift; sourceTree = "<group>"; };
 		C3F916DD2178F39F00394038 /* homeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -163,7 +163,6 @@
 			children = (
 				90493CD92177CEF200F9DBA7 /* Extensions */,
 				C318E6DF2173FA6700549DD6 /* SharkWeek.entitlements */,
-				C3F81F3A2170F59300E06F6E /* Music */,
 				C376F2A2216ED04F005EEA0D /* View Controller */,
 				C376F2A3216ED04F005EEA0D /* View */,
 				C376F2A4216ED04F005EEA0D /* Model Controller */,
@@ -234,6 +233,7 @@
 				48B0401E2176A585002424AC /* ViewApplicantsCell.swift */,
 				C318E6D12171442400549DD6 /* JobHistoryTableViewCell.swift */,
 				C3F916DD2178F39F00394038 /* homeCollectionViewCell.swift */,
+				9001B9932186683300EEBF56 /* SearchTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -323,14 +323,6 @@
 			);
 			name = Settings;
 			path = Search/Settings;
-			sourceTree = "<group>";
-		};
-		C3F81F3A2170F59300E06F6E /* Music */ = {
-			isa = PBXGroup;
-			children = (
-				C3F81F3B2170F5A000E06F6E /* Sample.mp3 */,
-			);
-			path = Music;
 			sourceTree = "<group>";
 		};
 		C3F81F3D21711C7100E06F6E /* Profile Containers */ = {
@@ -433,7 +425,6 @@
 				C376F2BE216ED331005EEA0D /* Profile.storyboard in Resources */,
 				C376F2C2216ED36C005EEA0D /* MyJobs.storyboard in Resources */,
 				C376F294216ED021005EEA0D /* Main.storyboard in Resources */,
-				C3F81F3C2170F5A000E06F6E /* Sample.mp3 in Resources */,
 				C376F2C0216ED33C005EEA0D /* PostJob.storyboard in Resources */,
 				C376F2C4216ED373005EEA0D /* Search.storyboard in Resources */,
 				90709B5A216FC54700E4795A /* GoogleService-Info.plist in Resources */,
@@ -549,6 +540,7 @@
 				48823CE6217691750012C30B /* ViewPostingVC.swift in Sources */,
 				480D5B0621750B92005A4A68 /* MyJobsTVC.swift in Sources */,
 				C376F28F216ED021005EEA0D /* AppDelegate.swift in Sources */,
+				9001B9942186683300EEBF56 /* SearchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,13 +689,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SharkWeek/SharkWeek.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 23QW9JU9DK;
+				DEVELOPMENT_TEAM = 96XK4QDZ27;
 				INFOPLIST_FILE = "$(SRCROOT)/SharkWeek/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.CodyAdcock.SharkWeek;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SamWayne.Jobbies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -717,13 +709,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SharkWeek/SharkWeek.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 23QW9JU9DK;
+				DEVELOPMENT_TEAM = 96XK4QDZ27;
 				INFOPLIST_FILE = "$(SRCROOT)/SharkWeek/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.CodyAdcock.SharkWeek;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SamWayne.Jobbies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

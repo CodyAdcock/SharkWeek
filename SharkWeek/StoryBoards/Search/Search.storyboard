@@ -30,7 +30,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <searchBar contentMode="redraw" placeholder="Salt Lake City, UT" translatesAutoresizingMaskIntoConstraints="NO" id="r3x-sk-eSZ">
+                                        <searchBar contentMode="redraw" placeholder="Enter zip or city" translatesAutoresizingMaskIntoConstraints="NO" id="r3x-sk-eSZ">
                                             <rect key="frame" x="98" y="0.0" width="277" height="77.5"/>
                                             <color key="barTintColor" red="0.62352941179999999" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -64,7 +64,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchJobsCellID" rowHeight="166" id="Qdu-FK-EVQ" customClass="myJobsCell" customModule="SharkWeek" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchJobsCellID" rowHeight="166" id="Qdu-FK-EVQ" customClass="SearchTableViewCell" customModule="SharkWeek" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="199" width="375" height="166"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qdu-FK-EVQ" id="Tao-3B-yeJ">
@@ -91,8 +91,25 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="eQo-P1-yMc">
+                                                    <rect key="frame" x="0.0" y="46" width="323" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(CITY)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6O-YN-s5D" userLabel="CITY">
+                                                            <rect key="frame" x="0.0" y="0.0" width="264" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" text="(ZIP)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVo-X8-LVn">
+                                                            <rect key="frame" x="285" y="0.0" width="38" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lorem ipsum lorem lorem lorem lorem lorem lorem lorem lorem" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54M-Ng-v4J">
-                                                    <rect key="frame" x="0.0" y="46" width="323" height="88.5"/>
+                                                    <rect key="frame" x="0.0" y="87.5" width="323" height="47"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -109,9 +126,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="descriptionLabel" destination="54M-Ng-v4J" id="NNq-2i-j8N"/>
-                                    <outlet property="jobTitleLabel" destination="SgD-1m-Y9J" id="Wxi-0i-f12"/>
-                                    <outlet property="payLabel" destination="enq-5q-VC9" id="S7D-Ub-2if"/>
+                                    <outlet property="jobCity" destination="w6O-YN-s5D" id="YQ4-xu-MhS"/>
+                                    <outlet property="jobPay" destination="enq-5q-VC9" id="fpt-bJ-8zW"/>
+                                    <outlet property="jobTitle" destination="SgD-1m-Y9J" id="1Js-vk-idM"/>
+                                    <outlet property="jobZip" destination="WVo-X8-LVn" id="VLM-x2-Psp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -124,7 +142,7 @@
                     <connections>
                         <outlet property="pickerView" destination="h0Y-Qe-Z7H" id="d2f-1N-svr"/>
                         <outlet property="searchBar" destination="r3x-sk-eSZ" id="T8M-Yg-kIP"/>
-                        <segue destination="Q6L-Ki-uzr" kind="show" identifier="toAppliedVC" id="gaK-Du-0gG"/>
+                        <segue destination="Q6L-Ki-uzr" kind="show" identifier="toViewPostingVC" id="gaK-Du-0gG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFB-XN-bzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -209,7 +227,7 @@
         <!--AppliedDetailVC-->
         <scene sceneID="Zaa-X1-SC7">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="AppliedDetailVC" storyboardName="MyJobs" referencedIdentifier="AppliedDetailVC" id="Q6L-Ki-uzr" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="ViewPostingVC" storyboardName="MyJobs" referencedIdentifier="AppliedDetailVC" id="Q6L-Ki-uzr" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PId-fo-WX7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="746" y="175"/>

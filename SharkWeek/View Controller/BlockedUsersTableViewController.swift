@@ -35,6 +35,7 @@ class BlockedUsersTableViewController: UITableViewController {
             guard let currentUser = UserController.shared.currentUser else { return }
             currentUser.blockedUsers.remove(at: indexPath.row)
             UserController.shared.userRef.document(currentUser.uuid).updateData(["blockedUsers" : currentUser.blockedUsers])
+            tableView.reloadData()
         }
     }
 }
