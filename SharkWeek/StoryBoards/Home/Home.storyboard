@@ -337,7 +337,7 @@
         <!--AppliedDetailVC-->
         <scene sceneID="gL2-bI-WQZ">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="AppliedDetailVC" storyboardName="MyJobs" referencedIdentifier="AppliedDetailVC" id="CQy-8b-bVs" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="ViewPostingVC" storyboardName="MyJobs" referencedIdentifier="AppliedDetailVC" id="CQy-8b-bVs" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgZ-TV-BHF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1273" y="431"/>

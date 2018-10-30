@@ -38,18 +38,24 @@ class SearchTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         UserController.shared.currentJob = searchedJobs[indexPath.row]
         guard let employerRef = UserController.shared.currentJob?.employerRef else { return }
+        guard let currentUser = UserController.shared.currentUser else { return }
         FirestoreClient.shared.fetchFromFirestore(uuid: employerRef) { (user: User?) in
             guard let user = user else { return }
-            guard let currentUser = UserController.shared.currentUser else { return }
             if user.blockedUsers.contains(currentUser.uuid) {
                 let alertController = UIAlertController(title: "Person has blocked you!", message: "You are not allowed to see their profile or postings", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alertController.addAction(okAction)
                 self.present(alertController, animated: true, completion: nil)
             }
-            else {
-                self.performSegue(withIdentifier: "toAppliedVC", sender: self)
-            }
+        }
+        if currentUser.blockedUsers.contains(employerRef) {
+            let alertController = UIAlertController(title: "You have blocked this user!", message: "You are not allowed to see their profile or postings", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+        else {
+            self.performSegue(withIdentifier: "toViewPostingVC", sender: self)
         }
     }
 }
